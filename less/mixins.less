@@ -1,0 +1,67 @@
+
+
+// Gebruiker Centraal - mixins.less
+// ----------------------------------------------------------------------------------
+// bevat CSS voor frontend
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   0.0.2
+// @desc.     First code for prototype.
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
+
+
+//=========================================================================================================
+
+@blauw3:                #002F3E;
+@wit:                   #fff;
+@lichtgrijs:            #e2e2e2;
+@bordercolor:           @lichtgrijs;
+@txt:                   @blauw3;
+
+@inclusierood:          #D94721;
+@inclusieroze:          #FCD7CB;
+@inclusieoranje:        #F89D1D;
+
+
+@groen_1:               #1BB24B;
+
+//=========================================================================================================
+
+.visuallyhidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.visuallyhidden {
+  .visuallyhidden();  
+}
+
+
+//=========================================================================================================
+
+.visuallyvisual() {
+  border: inherit;
+  clip: auto;
+  height: auto;
+  margin: auto;
+  overflow: auto;
+  padding: inherit;
+  position: inherit;
+  width: auto;
+}
+
+.visuallyvisual {
+  .visuallyvisual();  
+}
+
+//=========================================================================================================
+

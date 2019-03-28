@@ -1,0 +1,282 @@
+
+
+// Gebruiker Centraal - frontend.less
+// ----------------------------------------------------------------------------------
+// bevat CSS voor frontend
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   0.0.2a
+// @desc.     First code for prototype.
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
+
+/*!
+
+
+<!--                 frontend.css - v0.0.2a                     -->
+<!--                                                            -->
+<!--                                                            -->
+<!-- ========================================================   -->
+<!--                                                            -->
+<!--                  .:::::::::::::::}}}}}}}                   -->
+<!--                  .:::::::::::::::}}}}}}}                   -->
+<!--                  .:::::::::::::::}}}}}}}                   -->
+<!--              ````.:::::::::::::::::}}}}}``````             -->
+<!--        ``.------------------::::::::::::::::}}}::.`        -->
+<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
+<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
+<!--     .-----------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     -----------------::-----:::::::}::::::::}}}}}}}}}}     -->
+<!--     ---------------:hmmd+---:::::smmmy::::::}}}}}}}}}}     -->
+<!--     ---------------+MMMMy---:::::NMMMN}:::::}}}}}}}}}}     -->
+<!--     ----------------oyhs:---:::::}yhy+::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------oso}}:::}}+sy}::::::::}}}}}}}}}}     -->
+<!--     ------------------}oyhhdhhdhys+:::::::::}}}}}}}}}}     -->
+<!--     -----------------------:::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
+<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
+<!--        `..-----------------::::::::::::::::}}}}::-`        -->
+<!--             ``::::::::::::::::}}}}}}}}}}}}}}-`             -->
+<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
+<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
+<!--                                                            -->
+<!-- ========================================================   -->
+<!--                                                            -->
+	
+
+
+*/
+/*
+Imports
+---------------------------------------------------------------------------------------------------- */
+
+@import "mixins.less";           // colors, sizes */
+
+/*
+---------------------------------------------------------------------------------------------------- */
+
+@buttonwidth: 9rem;
+@descwidth: 40rem;  
+
+
+#home-chart {
+
+  background-image: url('../images/stappenplan-bg-fullscreen.svg?asdf');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+//  border: 10px solid @inclusierood;
+  position: relative;
+  height: 83rem;
+  width: 83rem;
+  
+  h2, h3 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .step {
+    position: absolute;
+  }
+  .stepcounter {
+    display: block;
+    clear: both;
+    float: none;
+    font-size: 4rem;
+    border: 5px solid @inclusieroze;      
+    color: @txt;
+    padding: .25em;
+    min-height: @buttonwidth;
+    min-width: @buttonwidth;
+    text-align: center;
+    border-radius: 50%;
+  }  
+
+  
+  #step_1 {
+    top: 35rem;
+    left: 20rem;
+  }
+  #step_2 {
+    top: 22rem;
+    left: 4rem;
+  }
+  #step_3 {
+    top: 33rem;
+    left: 42rem;
+  }
+  #step_4 {
+    top: 57rem;
+    left: 13rem;
+  }
+  #step_5 {
+    top: 60rem;
+    left: 50rem;
+  }
+
+  #step_1,
+  #step_5 {
+    .stepcounter {
+      background: @inclusieoranje;
+      border-color: @inclusieoranje;
+    }
+  }
+  
+  #step_2,
+  #step_3,
+  #step_4 {
+    .stepcounter {
+      background: @inclusieroze;
+      border-color: @inclusieroze;
+    }
+  }
+
+  #step_1,
+  #step_2,
+  #step_3,
+  #step_4,
+  #step_5 {
+    width: @descwidth;
+
+    .label,
+    .stepcounter {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stepcounter {
+      &:focus,
+      &:active,
+      &:hover {
+        background: @wit;
+        border: 5px solid @txt;      
+      }
+    }
+  }
+  
+
+  .label {
+    span {
+      background: @groen_1;
+      color: @wit;
+      padding: .25em .5em;
+      display: inline-block;
+    }
+    text-align: center;
+  }
+  .description {
+    background: @wit;
+    padding: .5em;
+    z-index: 9999;
+    &.hidden {
+      .visuallyhidden();
+    }
+  }
+}
+
+div.doelgroep {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-right: .5em;
+  padding-left: .5em;
+
+  h2,
+  h3 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  p {
+    margin: 0;
+  }
+  h3 {
+    text-align: center;
+  }
+ 
+  .featured-image {
+    min-height: 15rem;
+    background-color: @bordercolor;
+    background-image: url('../images/logo.png');
+    background-position: center center;
+    background-size: cover;
+  }
+  
+}
+
+
+.flexbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  border: 4px solid @lichtgrijs;
+  margin-bottom: 2em;
+  
+  .flexblock {
+    flex: 1;
+    padding: .5em;
+    background-color: @lichtgrijs;
+    margin: .5em;
+    h2, h3, h4, h5, h6 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+.tegeltje {
+  padding: 1em;
+  background-image: url('../images/neptegel.jpg');
+  background-position: center center;
+  background-size: cover;
+  padding-top: 4em;
+  padding-bottom: 2em;
+  text-align: center;
+  min-height: 270px;
+}
+
+.single-doelgroep {
+  .tegeltjes {
+    float: right;
+    max-width: 300px;
+    flex-flow: column;
+    
+    .tegeltje {
+      padding-top: 4em;
+    }
+  }
+}
+
+.facts-figures {
+  border: 4px solid @lichtgrijs;
+  text-align: center;
+  font-size: 150%;
+  padding: 2em;
+  margin-bottom: 2em;
+  float: none;
+  clear: both;
+}
+
+.hugely {
+  display: block;
+  float: none;
+  clear: both;
+  font-size: 250%;
+}
+
+.vaardigheid {
+  margin-bottom: 2em;
+
+  h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  
+}
+
