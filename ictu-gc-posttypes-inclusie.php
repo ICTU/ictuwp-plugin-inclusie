@@ -28,6 +28,16 @@ if ( ! defined( 'WPINC' ) ) {
 add_action( 'plugins_loaded', array( 'ICTU_GC_Register_taxonomies', 'init' ), 10 );
 
 //========================================================================================================
+/*
+stappen
+citaat
+doelgroep
+vaardigheid
+
+aanrader / afrader
+methode (technieken)
+
+*/
 
 if ( ! defined( 'ICTU_GC_CPT_STAP' ) ) {
   define( 'ICTU_GC_CPT_STAP', 'stap' );   // slug for custom taxonomy 'document'
@@ -54,7 +64,11 @@ if ( ! defined( 'ICTU_GC_CPT_AFRADER' ) ) {
 }
 
 if ( ! defined( 'ICTU_GC_CPT_METHODE' ) ) {
-  define( 'ICTU_GC_CPT_METHODE', 'methode' );  // slug for custom post type 'doelgroep'
+  define( 'ICTU_GC_CPT_METHODE', 'methode' );  // slug for custom post type 'methode'
+}
+
+if ( ! defined( 'ICTU_GC_CPT_PROCESTIP' ) ) {
+  define( 'ICTU_GC_CPT_PROCESTIP', 'procestip' );  // slug for custom post type 'methode'
 }
 
 if ( ! defined( 'ICTU_GC_CT_TIJD' ) ) {
@@ -66,15 +80,15 @@ if ( ! defined( 'ICTU_GC_CT_MANKRACHT' ) ) {
 }
 
 if ( ! defined( 'ICTU_GC_CT_KOSTEN' ) ) {
-  define( 'ICTU_GC_CT_KOSTEN', 'kosten' );  // slug for custom taxonomy 'mankracht'
+  define( 'ICTU_GC_CT_KOSTEN', 'kosten' );  // slug for custom taxonomy 'kosten'
 }
 
 if ( ! defined( 'ICTU_GC_CT_EXPERTISE' ) ) {
-  define( 'ICTU_GC_CT_EXPERTISE', 'expertise' );  // slug for custom taxonomy 'mankracht'
+  define( 'ICTU_GC_CT_EXPERTISE', 'expertise' );  // slug for custom taxonomy 'expertise'
 }
 
 if ( ! defined( 'ICTU_GC_CT_DEELNEMERS' ) ) {
-  define( 'ICTU_GC_CT_DEELNEMERS', 'deelnemers' );  // slug for custom taxonomy 'mankracht'
+  define( 'ICTU_GC_CT_DEELNEMERS', 'deelnemers' );  // slug for custom taxonomy 'deelnemers'
 }
 
 if ( ! defined( 'ICTU_GC_CT_ONDERWERP_TIP' ) ) {
@@ -301,9 +315,11 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
             
             echo '<div id="step_' . $stepcounter . '" class="step">';
             echo '<button class="stepcounter">' . $stepcounter . '</button>';
+            echo '<div class="container">';
             echo '<h3 class="label"><span>' . $titel . '</span></h3>';
             echo '<div class="description' . $xtraclass . '">' . $inleiding;
             echo '<a href="' . get_permalink( $stap->ID ) . '">' . $readmore . '</a>';
+            echo '</div>';
             echo '</div>';
             echo '</div>';
             
@@ -434,7 +450,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
     	//=================================================
 
-      add_filter( 'genesis_post_info',   array( $this, 'filter_postinfo' ), 10, 2 );
+//      add_filter( 'genesis_post_info',   array( $this, 'filter_postinfo' ), 10, 2 );
 
     }
     
@@ -519,30 +535,34 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
         echo '<div class="flexbox tegeltjes">';
 
-        // loop through the rows of data
-        foreach( $facts_citaten as $post ):
-
-          setup_postdata( $post );
-
-          $theid = $post->ID;
-      
-          $section_title  = get_the_title( $theid );
-          $title_id       = sanitize_title( $section_title );
-          $citaat_post    = get_post( $theid );
-          $content        = $citaat_post->post_content;
-          $section_text   = apply_filters('the_content', $content);   
-          $citaat_auteur  = sanitize_text_field( get_field( 'citaat_auteur', $theid ) );
-
-          echo '<div class="flexblock tegeltje">' . $section_text . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
-      
-        endforeach;
-
-        echo '</div>';
-        echo '</section>';
+        if ( is_object( $facts_citaten ) || is_array( $facts_citaten ) ) {
+          // loop through the rows of data
+          foreach( $facts_citaten as $post ):
+  
+            setup_postdata( $post );
+  
+            $theid = $post->ID;
         
-        wp_reset_postdata();            
-
+            $section_title  = get_the_title( $theid );
+            $title_id       = sanitize_title( $section_title );
+            $citaat_post    = get_post( $theid );
+            $content        = $citaat_post->post_content;
+            $section_text   = apply_filters('the_content', $content);   
+            $citaat_auteur  = sanitize_text_field( get_field( 'citaat_auteur', $theid ) );
+  
+            echo '<div class="flexblock tegeltje">' . $section_text . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
         
+          endforeach;
+  
+          echo '</div>';
+          echo '</section>';
+          
+          wp_reset_postdata();            
+
+        }
+      }
+      else {
+//        echo ' citaten niet<br>';
       }
 
     }
@@ -565,6 +585,22 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
             echo '<p><cite>' . $auteur . '</cite></p>';
           }
           
+        }
+        
+      }
+      elseif ( is_singular( ICTU_GC_CPT_AFRADER ) ||  is_singular( ICTU_GC_CPT_AANRADER ) ) {
+
+        if ( ! $post->post_content ) {
+          // content is apparently empty
+          $section_text   = get_the_excerpt( $post->ID );
+          
+          if ( $section_text ) {
+            echo '<p>' . $section_text . '</p>';
+          }
+          else {
+            echo '<p>' . sprintf( __( "No further content is available for '%s'.", 'ictu-gc-posttypes-inclusie' ), get_the_title( $post->ID ) ) . '</p>'; 
+          }
+
         }
         
       }
@@ -883,7 +919,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     	register_post_type( ICTU_GC_CPT_DOELGROEP, $args );
     
       // ---------------------------------------------------------------------------------------------------
-      // custom post type voor 'doelgroep'
+      // custom post type voor 'Citaten'
 
     	$labels = array(
     		"name"                  => _x( 'Citaten', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
@@ -972,7 +1008,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     
       // ---------------------------------------------------------------------------------------------------
 
-      // custom post type voor 'Tip'
+      // custom post type voor 'Aanraders'
   
       	$labels = array(
       		"name"                  => _x( "Aanraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
@@ -1017,7 +1053,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     
       // ---------------------------------------------------------------------------------------------------
 
-      // custom post type voor 'Tip'
+      // custom post type voor 'Afraders'
   
       	$labels = array(
       		"name"                  => _x( "Afraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
@@ -1061,7 +1097,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     
       // ---------------------------------------------------------------------------------------------------
 
-      // custom post type voor 'vaardigheid'
+      // custom post type voor 'methode'
   
       	$labels = array(
       		"name"                  => _x( 'Methodes', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
@@ -1103,6 +1139,50 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
   			);
   			
       	register_post_type( ICTU_GC_CPT_METHODE, $args );
+      	
+      // ---------------------------------------------------------------------------------------------------
+      // custom post type voor 'procestip'
+  
+      	$labels = array(
+      		"name"                  => _x( 'Procestips', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"singular_name"         => _x( 'Procestip', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"menu_name"             => _x( 'Procestips', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"all_items"             => _x( 'Alle procestips', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"add_new"               => _x( 'Nieuwe procestip toevoegen', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"add_new_item"          => _x( 'Nieuwe procestip toevoegen', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"edit_item"             => _x( 'procestip bewerken', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"new_item"              => _x( 'Nieuwe procestip', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"view_item"             => _x( 'procestip bekijken', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"search_items"          => _x( 'Zoek een procestip', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"not_found"             => _x( 'Niets gevonden', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"not_found_in_trash"    => _x( 'Niets gevonden', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
+      		"featured_image"        => __( 'Featured image', 'ictu-gc-posttypes-inclusie' ),
+      		"archives"              => __( 'Archives', 'ictu-gc-posttypes-inclusie' ),
+      		"uploaded_to_this_item" => __( 'Uploaded media', 'ictu-gc-posttypes-inclusie' ),
+      		);
+      
+      	$args = array(
+      		"label"                 => _x( 'Procestips', 'Methodes label', 'ictu-gc-posttypes-inclusie' ),
+      		"labels"              => $labels,
+        "menu_icon"           => "dashicons-welcome-learn-more",      		
+      		"description"         => "",
+      		"public"              => true,
+      		"publicly_queryable"  => true,
+      		"show_ui"             => true,
+      		"show_in_rest"        => false,
+      		"rest_base"           => "",
+      		"has_archive"         => false,
+      		"show_in_menu"        => true,
+      		"exclude_from_search" => false,
+      		"capability_type"     => "post",
+      		"map_meta_cap"        => true,
+      		"hierarchical"        => false,
+      		"rewrite"             => array( "slug" => ICTU_GC_CPT_METHODE, "with_front" => true ),
+      		"query_var"           => true,
+      		"supports"            => array( "title", "editor", "excerpt" ),		
+  			);
+  			
+      	register_post_type( ICTU_GC_CPT_PROCESTIP, $args );
     
       // ---------------------------------------------------------------------------------------------------
       // tijd taxonomie voor methode
@@ -2345,4 +2425,134 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 endif;
 
 //========================================================================================================
+
+if ( ! function_exists( 'bidirectional_acf_update_value' ) ) {
+
+  function bidirectional_acf_update_value( $value, $post_id, $field  ) {
+    
+dovardump( $value, 'value' );
+dovardump( $post_id, 'post_id' );
+dovardump( $field, 'field' );
+
+    // vars
+    $field_name   = $field['name'];
+    $field_key    = $field['key'];
+    $global_name  = 'is_updating_' . $field_name;
+    
+    $debugstring = 'bidirectional_acf_update_value';
+    
+    $debugstring .= "value='" . implode( ", ", $value ) . "'";
+    $debugstring .= ", post_id='" . $post_id . "'";
+    $debugstring .= " (type=" . get_post_type( $post_id ) . ")";
+    $debugstring .= ", field_key='" . $field_key . "'";
+    $debugstring .= ", field_name='" . $field_name . "'";
+    
+    // dodebug( $debugstring );
+    
+    // bail early if this filter was triggered from the update_field() function called within the loop below
+    // - this prevents an inifinte loop
+    if( !empty($GLOBALS[ $global_name ]) ) return $value;
+    
+    
+    // set global variable to avoid inifite loop
+    // - could also remove_filter() then add_filter() again, but this is simpler
+    $GLOBALS[ $global_name ] = 1;
+    
+    
+    // loop over selected posts and add this $post_id
+    if( is_array($value) ) {
+    
+      // dodebug( 'bidirectional_acf_update_value: is array' );
+    
+    	foreach( $value as $post_id2 ) {
+    
+        $debugstring = "post_id2='" . $post_id2 . "'";
+        $debugstring .= " (type=" . get_post_type( $post_id2 ) . ")";
+    
+    
+        // dodebug( $debugstring );
+    
+    		
+    		// load existing related posts
+    		$value2 = get_field($field_name, $post_id2, false);
+    		
+    		
+    		// allow for selected posts to not contain a value
+    		if( empty($value2) ) {
+    			
+    			$value2 = array();
+    			
+    		}
+    
+    		
+    		
+    		// bail early if the current $post_id is already found in selected post's $value2
+    		if( in_array($post_id, $value2) ) continue;
+    		
+    		
+    		// append the current $post_id to the selected post's 'related_posts' value
+    		$value2[] = $post_id;
+    		
+    		
+    		// update the selected post's value (use field's key for performance)
+    		update_field($field_key, $value2, $post_id2);
+    		
+    	}
+    
+    }
+    
+    
+    // find posts which have been removed
+    $old_value = get_field($field_name, $post_id, false);
+    
+    if( is_array($old_value) ) {
+    	
+      	foreach( $old_value as $post_id2 ) {
+      		
+      		// bail early if this value has not been removed
+      		if( is_array($value) && in_array($post_id2, $value) ) continue;
+      		
+      		
+      		// load existing related posts
+      		$value2 = get_field($field_name, $post_id2, false);
+      		
+      		
+      		// bail early if no value
+      		if( empty($value2) ) continue;
+      		
+      		
+      		// find the position of $post_id within $value2 so we can remove it
+      		$pos = array_search($post_id, $value2);
+      		
+      		
+      		// remove
+      		unset( $value2[ $pos] );
+      		
+      		
+      		// update the un-selected post's value (use field's key for performance)
+      		update_field($field_key, $value2, $post_id2);
+      		
+      	}
+    	
+    }
+    
+    // reset global varibale to allow this filter to function as per normal
+    $GLOBALS[ $global_name ] = 0;
+    
+    // return
+    return $value;
+      
+  }
+
+}
+
+// maak de relate tussen een vaardigheid en bijbehorende af- en aanraders wederkerig
+add_filter('acf/update_value/name=vaardigheid_afraders', 'bidirectional_acf_update_value', 10, 3);
+add_filter('acf/update_value/name=vaardigheid_aanraders', 'bidirectional_acf_update_value', 10, 3);
+
+// maak de relate tussen een af- en aanrader en bijbehorende vaardighede wederkerig
+add_filter('acf/update_value/name=aan_afrader_vaardigheden', 'bidirectional_acf_update_value', 10, 3);
+
+//========================================================================================================
+
 

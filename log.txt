@@ -1,0 +1,9 @@
+Tue Apr  2 22:37:20 2019: /var/folders/c6/r5b9t1y17273n0_3ppnb9mh80000gn/T/poeditii7Qzw/input.po:377: duplicate message definition...
+Tue Apr  2 22:37:20 2019: /var/folders/c6/r5b9t1y17273n0_3ppnb9mh80000gn/T/poeditii7Qzw/input.po:373: ...this is the location of the first definition
+Tue Apr  2 22:37:20 2019: /var/folders/c6/r5b9t1y17273n0_3ppnb9mh80000gn/T/poeditii7Qzw/input.po:450: duplicate message definition...
+Tue Apr  2 22:37:20 2019: /var/folders/c6/r5b9t1y17273n0_3ppnb9mh80000gn/T/poeditii7Qzw/input.po:446: ...this is the location of the first definition
+Tue Apr  2 22:37:20 2019: /var/folders/c6/r5b9t1y17273n0_3ppnb9mh80000gn/T/poeditii7Qzw/input.po:464: duplicate message definition...
+Tue Apr  2 22:37:20 2019: /var/folders/c6/r5b9t1y17273n0_3ppnb9mh80000gn/T/poeditii7Qzw/input.po:460: ...this is the location of the first definition
+Tue Apr  2 22:37:20 2019: /Applications/Poedit.app/Contents/PlugIns/GettextTools.bundle/Contents/MacOS/bin/msgmerge: found 3 fatal errors
+Tue Apr  2 22:37:20 2019: Entries in the catalogue are probably incorrect.
+Tue Apr  2 22:37:20 2019: Updating the catalogue failed. Click on 'Details >>' for details.

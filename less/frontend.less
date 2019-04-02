@@ -7,7 +7,7 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.2a
+// @version   0.0.2
 // @desc.     First code for prototype.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
@@ -65,30 +65,16 @@ Imports
 
 @buttonwidth: 9rem;
 @descwidth: 40rem;  
-
+@canvaswidth: 83rem;
 
 #home-chart {
-
-  background-image: url('../images/stappenplan-bg-fullscreen.svg?asdf');
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-//  border: 10px solid @inclusierood;
-  position: relative;
-  height: 83rem;
-  width: 83rem;
   
   h2, h3 {
     margin-top: 0;
     padding-top: 0;
   }
-  .step {
-    position: absolute;
-  }
+
   .stepcounter {
-    display: block;
-    clear: both;
-    float: none;
     font-size: 4rem;
     border: 5px solid @inclusieroze;      
     color: @txt;
@@ -97,28 +83,20 @@ Imports
     min-width: @buttonwidth;
     text-align: center;
     border-radius: 50%;
-  }  
+  }    
 
-  
-  #step_1 {
-    top: 35rem;
-    left: 20rem;
+  .label {
+    span {
+      background: @groen_1;
+      color: @wit;
+      padding: .25em .5em;
+      display: inline-block;
+    }
   }
-  #step_2 {
-    top: 22rem;
-    left: 4rem;
-  }
-  #step_3 {
-    top: 33rem;
-    left: 42rem;
-  }
-  #step_4 {
-    top: 57rem;
-    left: 13rem;
-  }
-  #step_5 {
-    top: 60rem;
-    left: 50rem;
+
+  .description {
+    background: @wit;
+    padding: .5em;
   }
 
   #step_1,
@@ -136,20 +114,13 @@ Imports
       background: @inclusieroze;
       border-color: @inclusieroze;
     }
-  }
+  }  
 
   #step_1,
   #step_2,
   #step_3,
   #step_4,
   #step_5 {
-    width: @descwidth;
-
-    .label,
-    .stepcounter {
-      margin-left: auto;
-      margin-right: auto;
-    }
 
     .stepcounter {
       &:focus,
@@ -159,27 +130,99 @@ Imports
         border: 5px solid @txt;      
       }
     }
+  }  
+
+  //---------------------------------------------------------------------------------------------------
+  @media only screen and ( max-width: 1000px ) {
+
+    .stepcounter {
+      display: block;
+      clear: none;
+      float: left;
+      margin: .25em;
+    }    
+    
+    .container {
+      border: 1px solid @txt;
+      margin-bottom: 1em;
+    }
+    
+  }  
+
+  //---------------------------------------------------------------------------------------------------
+  @media only screen and (min-width: 1000px ) {
+
+    background-image: url('../images/stappenplan-bg-fullscreen.svg');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    height: @canvaswidth;
+    width: @canvaswidth;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    .step {
+      position: absolute;
+    }
+
+    .stepcounter {
+      display: block;
+      clear: both;
+      float: none;
+    }    
+
+    .label {
+      text-align: center;
+    }    
+
+    .description {
+      z-index: 9999;
+      &.hidden {
+        .visuallyhidden();
+      }
+    }
+
+    #step_1 {
+      top: 35rem;
+      left: 20rem;
+    }
+    #step_2 {
+      top: 22rem;
+      left: 4rem;
+    }
+    #step_3 {
+      top: 33rem;
+      left: 42rem;
+    }
+    #step_4 {
+      top: 57rem;
+      left: 13rem;
+    }
+    #step_5 {
+      top: 60rem;
+      left: 50rem;
+    }
+
+    #step_1,
+    #step_2,
+    #step_3,
+    #step_4,
+    #step_5 {
+      width: @descwidth;
+  
+      .label,
+      .stepcounter {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
   }
   
+  //---------------------------------------------------------------------------------------------------
 
-  .label {
-    span {
-      background: @groen_1;
-      color: @wit;
-      padding: .25em .5em;
-      display: inline-block;
-    }
-    text-align: center;
-  }
-  .description {
-    background: @wit;
-    padding: .5em;
-    z-index: 9999;
-    &.hidden {
-      .visuallyhidden();
-    }
-  }
 }
+
 
 div.doelgroep {
   margin-top: 1em;
