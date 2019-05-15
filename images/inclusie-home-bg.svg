@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1900px" height="1205px" viewBox="0 0 1900 1205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-    <title>inclusie-home-bg</title>
-    <desc>Created with Sketch.</desc>
-    <g id="inclusie-home-bg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#D2411B" x="0" y="0" width="1900" height="1205"></rect>
-        <g id="background" transform="translate(-95.000000, 0.000000)" fill="#C73D19">
-            <path d="M95,718.006696 L95,0 L1995,0 L1995,569.569196 L2084.57143,562.571429 L2084.57143,1782.64286 L0,1782.64286 L0,725.428571 L95,718.006696 Z M95,718.006696 L95,1636 L1995,1636 L1995,569.569196 L95,718.006696 Z" id="Combined-Shape"></path>
-        </g>
-    </g>
-</svg>
+<svg height="1205" viewBox="0 0 1900 1205" width="1900" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="m0 0h1900v1205h-1900z" fill="#d2411b"/><path d="m95 718.006696v-718.006696h1900v569.569196l89.57143-6.997767v1220.071431h-2084.57143v-1057.214289zm0 0v917.993304h1900v-1066.430804z" fill="#c73d19" transform="translate(-95)"/></g></svg>

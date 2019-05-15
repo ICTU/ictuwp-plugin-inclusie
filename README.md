@@ -8,10 +8,11 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Paul van Buuren: paul@wbvb.nl
 
 ## Current version:
-0.0.3a - First code for prototype.
+0.0.3 - Homepage eerste versie en stappenpagina.
 
 ## Version history
-* 0.0.3a - First code for prototype.
+* 0.0.3 - Homepage eerste versie en stappenpagina.
+* 0.0.2 - First code for prototype.
 * 0.0.1 - created readme.md
 
 ## To do

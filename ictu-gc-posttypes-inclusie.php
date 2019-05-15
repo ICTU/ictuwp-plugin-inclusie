@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.3a
- * Version description: First code for prototype.
+ * Version:             0.0.3
+ * Version description: Homepage eerste versie en stappenpagina.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -86,7 +86,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',       trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_VERSION',          '0.0.3a' );
+define( 'ICTU_GC_VERSION',          '0.0.3' );
 
 
 //========================================================================================================
@@ -103,7 +103,7 @@ define( 'ICTU_GC_VERSION',          '0.0.3a' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.0.3a
+ * @since    0.0.3
  */
 
 
@@ -203,43 +203,107 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
      * @return void
      */
      
-    public function ictu_gc_frontend_home_after_content() {
-      global $post;
-      
-      if ( function_exists( 'get_field' ) ) {
+	public function ictu_gc_frontend_home_after_content() {
+		global $post;
+		
+		if ( function_exists( 'get_field' ) ) {
+			
+			$home_teasers     = get_field( 'home_template_teasers', $post->ID );
+			
+			
+			if( have_rows('home_template_teasers') ):
+			
+				echo '<div id="home_template_teasers">';
+				echo '<div class="flexbox wrap">';
+				
+				// loop through the rows of data
+				while ( have_rows('home_template_teasers') ) : the_row();
+					
+					$section_title  = get_sub_field( 'home_template_teaser_title' );
+					$section_text   = get_sub_field( 'home_template_teaser_text' );
+					$section_link   = get_sub_field( 'home_template_teaser_link' );
+					$title_id       = sanitize_title( $section_title );
+					
+					echo '<section aria-labelledby="' . $title_id . '" class="flexblock">';
+					echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
+					echo $section_text;
+					if ( $section_link ) {
+					echo '<p><a href="' . $section_link['url'] . '" class="cta">' . $section_link['title'] . '</a></p>';
+					}
+					echo '</section>';
+				
+				endwhile;
+				
+				echo '</div>';
+				echo '</div>';
+			
+			endif; 
+			
+		}
+		
+	}
 
-        $home_teasers     = get_field( 'home_template_teasers', $post->ID );
-        
-        
-        if( have_rows('home_template_teasers') ):
-        
-          echo '<div class="flexbox" id="home_template_teasers">';
-        
-          // loop through the rows of data
-          while ( have_rows('home_template_teasers') ) : the_row();
-        
-            $section_title  = get_sub_field( 'home_template_teaser_title' );
-            $section_text   = get_sub_field( 'home_template_teaser_text' );
-            $section_link   = get_sub_field( 'home_template_teaser_link' );
-            $title_id       = sanitize_title( $section_title );
-        
-            echo '<section aria-labelledby="' . $title_id . '" class="flexblock">';
-            echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-            echo $section_text;
-            if ( $section_link ) {
-              echo '<p><a href="' . $section_link['url'] . '" class="cta">' . $section_link['title'] . '</a></p>';
-            }
-            echo '</section>';
-        
-          endwhile;
+    //========================================================================================================
+    /**
+     * Handles the front-end display. 
+     *
+     * @return void
+     */
+	public function ictu_gc_frontend_stap_before_content() {
+		
+		global $post;
+		
+		$homepageID = get_option('page_on_front');
+		
+		if ( ! $homepageID ) {
+			return;
+		}
+		
+		$home_stappen     					= get_field( 'home_template_stappen', $homepageID );
 
-          echo '</div>';
-        
-        endif; 
+		if( $home_stappen ): 
+			
+			$section_title  = _x( 'Stappen', 'titel op home-pagina', 'ictu-gc-posttypes-inclusie' );
+			$title_id       = sanitize_title( $section_title . '-' . $post->ID );
+			$stepcounter    = 0;
+			
+			echo '<div aria-labelledby="' . $title_id . '" class="flexbox wrap" id="stappen-chart">';
+			echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
 
-      }
-      
-    }
+			foreach( $home_stappen as $stap ): 
+			
+				$stepcounter++;
+				$current 	= '';
+				$class 		= 'deel';
+				$titel 		= get_the_title( $stap->ID );
+				
+				if ( $stap->ID === $post->ID ) {
+					$current = ' current';
+				}
+				
+				if ( get_field( 'stap_verkorte_titel', $stap->ID ) ) {
+					$titel = get_field( 'stap_verkorte_titel', $stap->ID );
+				}
+
+				if ( get_field( 'stap_icon', $stap->ID ) ) {
+					$class = get_field( 'stap_icon', $stap->ID );
+				}
+
+				$title_id   = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
+				$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
+
+ 				echo '<div id="step_' . $stepcounter . '" class="step flexblock ' . $class . '">';
+				echo '<h3 id="' . $title_id . '"><span class="label' . $current . '">' . $titel . '</span></h3>';
+				echo '</div>';
+			
+			endforeach;
+
+			echo '</div>';
+		
+		endif; 
+		
+	
+	}
 
     //========================================================================================================
     /**
@@ -361,9 +425,17 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					$title_id       = sanitize_title( 'title-' . $posttype . '-' . $doelgroep->ID );
 					$section_id     = sanitize_title( 'section-' . $posttype . '-' . $doelgroep->ID );
 					
-					echo '<section aria-labelledby="' . $title_id . '" class="' . $posttype . ' flexblock" id="' . $section_id . '">';
+					
+					$doelgroeppoppetje	= 'poppetje-1';
+					if ( get_field('doelgroep_avatar', $doelgroep->ID) ) {
+						$doelgroeppoppetje	= get_field('doelgroep_avatar', $doelgroep->ID);
+					}
+					
+					
+					
+					
+					echo '<section aria-labelledby="' . $title_id . '" class="doelgroepcard ' . $doelgroeppoppetje . ' flexblock" id="' . $section_id . '">';
 					echo '<h2 id="' . $title_id . '"><a href="' . get_permalink( $doelgroep->ID ) . '"><span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span><span>' . get_the_title( $doelgroep->ID ) . '</span></a></h2>';
-
 					echo '<div class="tegeltje">' . $content . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
 					echo '</section>';
 				
@@ -373,7 +445,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				
 //				$obj	= get_post_type_object( $posttype );
 				$label	= _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie' ); // $obj->name;
-				echo '<p><a href="' . get_post_type_archive_link( $posttype ) . '" class="cta">' . $label . '</a></p>';
+				echo '<p><a href="' . get_post_type_archive_link( $posttype ) . '" class="cta ' . $posttype . '">' . $label . '</a></p>';
 
 			endif; 
 
@@ -389,8 +461,12 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 	public function ictu_gc_register_frontend_style_script( ) {
 	
 		$infooter = true;
-		
-		wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/min/toggle-min.js', '', ICTU_GC_VERSION, $infooter );
+		if ( WP_DEBUG ) {
+			wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/toggle.js', '', ICTU_GC_VERSION, $infooter );
+		}
+		else {
+			wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/min/toggle-min.js', '', ICTU_GC_VERSION, $infooter );
+		}
 		
 		wp_enqueue_style( ICTU_GC_ARCHIVE_CSS, trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/frontend.css', array(), ICTU_GC_VERSION, 'all' );
 		
@@ -434,35 +510,37 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     /**
     * Modify page content if using a specific page template.
     */
-    public function ictu_gc_frontend_use_page_template() {
+	public function ictu_gc_frontend_use_page_template() {
+		
+		global $post;
+		
+		$page_template  = get_post_meta( get_the_ID(), '_wp_page_template', true );
+		
+		if ( $this->template_home == $page_template ) {
+			
+			remove_filter( 'genesis_post_title_output', 'gc_wbvb_sharebuttons_for_page_top', 15 );
+			
+			//* Remove standard header
+			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
+			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
+			remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+			
+			// append actielijnen
+			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_home_before_content' ), 8 ); 				
+			add_action( 'genesis_after_content',  array( $this, 'ictu_gc_frontend_home_after_content' ), 12 ); 				
+			
+			
+		}
+		elseif ( ICTU_GC_CPT_STAP == get_post_type( ) )  {
 
-      global $post;
-      
-      $page_template  = get_post_meta( get_the_ID(), '_wp_page_template', true );
+			add_action( 'genesis_before_loop',  array( $this, 'ictu_gc_frontend_stap_before_content' ), 8 ); 				
 
-      if ( $this->template_home == $page_template ) {
-
-//		remove_filter( 'genesis_post_info', 'gc_wbvb_post_append_postinfo' );
-//		remove_action( 'genesis_entry_content', 'gc_wbvb_add_single_socialmedia_buttons' );
-		remove_filter( 'genesis_post_title_output', 'gc_wbvb_sharebuttons_for_page_top', 15 );
-
-		//* Remove standard header
-		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
-		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
-		remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-
-        // append actielijnen
-        add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_home_before_content' ), 8 ); 				
-        add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_home_after_content' ), 12 ); 				
-        
-
-      }
-
-    	//=================================================
-
-      add_filter( 'genesis_post_info',   array( $this, 'filter_postinfo' ), 10, 2 );
-
-    }
+		}
+		//=================================================
+		
+		add_filter( 'genesis_post_info',   array( $this, 'filter_postinfo' ), 10, 2 );
+		
+	}
     
 
     /** ----------------------------------------------------------------------------------------------------

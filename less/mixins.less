@@ -7,8 +7,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.3a
-// @desc.     First code for prototype.
+// @version   0.0.3
+// @desc.     Homepage eerste versie en stappenpagina.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
@@ -51,6 +51,8 @@
 @break_show_menu_button:	830px;
 @break_tablet:          	650px;
 @break_phone:           	500px;
+
+@contentmaxwidth:			1180px; 
 
 //=========================================================================================================
 
@@ -126,13 +128,13 @@
 	@fill-new: @wit;
 	
 	.@{classname} {
-		@media only screen and ( max-width: 83rem ) {
+		@media only screen and ( max-width: @break_fullwidth ) {
 			button {
 				.icon_replace_filler( @src, @fill-old, @fill-new);
 				background-repeat: no-repeat;
 			}
 		}
-		@media only screen and ( min-width: 83rem ) {
+		@media only screen and ( min-width: @break_fullwidth ) {
 			&:before {
 				.icon_replace_filler( @src, @fill-old, @fill-new);
 				background-repeat: no-repeat;

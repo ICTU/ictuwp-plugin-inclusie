@@ -7,14 +7,16 @@
 // @package   	ictu-gc-posttypes-inclusie
 // @author    	Paul van Buuren
 // @license   	GPL-2.0+
-// @version   	0.0.3a
+// @version   	0.0.3
 // @credits		Scott Vinkle - see: https://codepen.io/svinkle/pen/mKfru
 //				via https://a11yproject.com/patterns.html
-// @desc.     	First code for prototype.
+// @desc.     	Homepage eerste versie en stappenpagina.
 // @link      	https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
 
 (function (document, window, undefined) {
+	
+//	window.alert('laatste versie');
 	
 	'use strict';
 
@@ -22,7 +24,27 @@
 	var toggleSection	= jQuery('#home-chart'),
 		toggleButton	= jQuery('.js-faq-question'),
 		toggleTextinfo	= jQuery('.js-faq-answer'),
-		showOneAnswerAtATime = true;
+		showOneAnswerAtATime = true,
+		sectionHeight	= 210;
+
+
+
+	
+	/**
+	* Save section focus
+	*/
+	var closeAllSections = function () {
+
+		toggleTextinfo.each(function () {
+			var thisSection = jQuery(this);
+			if (thisSection.hasClass('active')) {
+				// Hide answer
+				thisSection.removeClass('active');      
+				thisSection.attr('aria-hidden', 'true');
+			}
+		});
+	};
+		
 	
 	/**
 	* Save section focus
@@ -58,17 +80,26 @@
 			thisSection.removeClass('active');      
 			elem.attr('aria-expanded', 'false');      
 			thisSection.attr('aria-hidden', 'true');
+
+			thisSection.attr("style","");
+
 		} else {
 			if (showOneAnswerAtATime) {
 				// Hide all answers
 				toggleTextinfo.removeClass('active').attr('aria-hidden', 'true');
 				toggleButton.attr('aria-expanded', 'false');
 			}
+
+			var domRect = thisSection.height();			
+			var verplaats = ( ( domRect + sectionHeight ) * -1 );
 			
 			// Show answer
 			thisSection.addClass('active');      
 			elem.attr('aria-expanded', 'true');      
 			thisSection.attr('aria-hidden', 'false');
+			thisSection.attr("style", "transform: translateY(" + verplaats + "px)");
+
+
 		}
 	};
 	
@@ -82,69 +113,78 @@
 		firstSection 		= elem.parent().find('section.step:first'),
 		lastSection 		= elem.parent().find('section.step:last');
 		
-	switch(keyCode) {
-		// Left/Up
-		case 37:
-		case 38:
-			e.preventDefault();
-			e.stopPropagation();
+		switch(keyCode) {
+	
+			// Escape
+			case 27:
+			console.log('Esc!');
+				e.preventDefault();
+				e.stopPropagation();
+				closeAllSections();
+				break;
 			
-			// Check for previous section
-			if (!previousSection) {
-				// No previous, set focus on last section
-				lastSection.focus();
-			} else {
-				// Move focus to previous section
-				previousSection.focus();
-			}
+			// Left/Up
+			case 37:
+			case 38:
+				e.preventDefault();
+				e.stopPropagation();
+				
+				// Check for previous section
+				if (!previousSection) {
+					// No previous, set focus on last section
+					lastSection.focus();
+				} else {
+					// Move focus to previous section
+					previousSection.focus();
+				}
+				
+				break;
 			
-			break;
-		
-		// Right/Down
-		case 39:
-		case 40:
-			e.preventDefault();
-			e.stopPropagation();
+			// Right/Down
+			case 39:
+			case 40:
+				e.preventDefault();
+				e.stopPropagation();
+				
+				// Check for next section
+				if (!nextSection) {
+					// No next, set focus on first section
+					firstSection.focus();
+				} else {
+					// Move focus to next section
+					nextSection.focus();
+				}
+				
+				break;
 			
-			// Check for next section
-			if (!nextSection) {
-				// No next, set focus on first section
+			// Home
+			case 36:
+				e.preventDefault();
+				e.stopPropagation();
+				
+				// Set focus on first section
 				firstSection.focus();
-			} else {
-				// Move focus to next section
-				nextSection.focus();
+				break;
+			
+			// End
+			case 35:
+				e.preventDefault();
+				e.stopPropagation();
+				
+				// Set focus on last section
+				lastSection.focus();
+				break;
+			
+			// Enter/Space
+			case 13:
+			case 32:
+				e.preventDefault();
+				e.stopPropagation();
+				
+				// Show answer content
+				doShowSection(elem, thisSectiontoggleButtons);
+				break;
 			}
-			
-			break;
-		
-		// Home
-		case 36:
-			e.preventDefault();
-			e.stopPropagation();
-			
-			// Set focus on first section
-			firstSection.focus();
-			break;
-		
-		// End
-		case 35:
-			e.preventDefault();
-			e.stopPropagation();
-			
-			// Set focus on last section
-			lastSection.focus();
-			break;
-		
-		// Enter/Space
-		case 13:
-		case 32:
-			e.preventDefault();
-			e.stopPropagation();
-			
-			// Show answer content
-			doShowSection(elem, thisSectiontoggleButtons);
-			break;
-		}
 		
 	};
 	
@@ -160,7 +200,7 @@
 			'aria-controls': 'faq-answer-' + i,
 			'aria-expanded': 'false',
 			'aria-selected': 'false',
-			'tabindex': '-1'
+//			'tabindex': '-1'
 		});
 	});
 	
@@ -190,7 +230,7 @@
 			
 			// Make first tab clickable
 			if (i === 0) {
-				$this.attr('tabindex', '0');
+//				$this.attr('tabindex', '0');
 			}
 			
 			// Click event
