@@ -7,10 +7,10 @@
 // @package   	ictu-gc-posttypes-inclusie
 // @author    	Paul van Buuren
 // @license   	GPL-2.0+
-// @version   	0.0.3
+// @version   0.0.5
+// @desc.     CSS-bugfixes; tabindex-gerommel uit JS weggehaald.
 // @credits		Scott Vinkle - see: https://codepen.io/svinkle/pen/mKfru
 //				via https://a11yproject.com/patterns.html
-// @desc.     	Homepage eerste versie en stappenpagina.
 // @link      	https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
 
@@ -53,13 +53,13 @@
 		
 		// Reset other tab attributes
 		thisSectiontoggleButtons.each(function () {
-			jQuery(this).attr('tabindex', '-1');
+//			jQuery(this).attr('tabindex', '-1');
 			jQuery(this).attr('aria-selected', 'false');
 		});
 		
 		// Set this tab attributes
 		elem.attr({
-			'tabindex': '0',
+//			'tabindex': '0',
 			'aria-selected': 'true'
 		});
 		

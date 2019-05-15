@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.4
- * Version description: Animatie toegevoegd.
+ * Version:             0.0.5
+ * Version description: CSS-bugfixes; tabindex-gerommel uit JS weggehaald.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -86,7 +86,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',       trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_VERSION',          '0.0.4' );
+define( 'ICTU_GC_VERSION',          '0.0.5' );
 
 //========================================================================================================
 
@@ -97,7 +97,7 @@ define( 'ICTU_GC_VERSION',          '0.0.4' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.0.4
+ * @since    0.0.5
  */
 
 
@@ -445,7 +445,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				
 //				$obj	= get_post_type_object( $posttype );
 				$label	= _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie' ); // $obj->name;
-				echo '<p><a href="' . get_post_type_archive_link( $posttype ) . '" class="cta ' . $posttype . '">' . $label . '</a></p>';
+				echo '<p id="doelgroep-archive-p"><a href="' . get_post_type_archive_link( $posttype ) . '" class="cta ' . $posttype . '">' . $label . '</a></p>';
 
 			endif; 
 
@@ -524,6 +524,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
 			remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+
+			//* Remove the post content (requires HTML5 theme support)
+			remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 			
 			// append actielijnen
 			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_home_before_content' ), 8 ); 				

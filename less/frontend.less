@@ -7,15 +7,15 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.4
-// @desc.     Animatie toegevoegd.
+// @version   0.0.5
+// @desc.     CSS-bugfixes; tabindex-gerommel uit JS weggehaald.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
 /*!
 
 
-<!--                 frontend.css - v0.0.4                     -->
+<!--                 frontend.css - v0.0.5                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -128,7 +128,6 @@ body {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
-	margin-bottom: 2em;
 	
 	.flexblock {
 		
@@ -321,6 +320,20 @@ STYLING STEPS
 			float: none;
 			clear: both;
 		}
+
+		&:focus-within,
+		&:hover {
+			&:before {
+				animation: makethelogobigger1 .1s; 
+				background-size: @thesize @thesize;
+				border-color: @wit;
+			}	
+			button {
+				text-decoration: underline;
+			}
+		}
+
+		
 	}
 }
 
@@ -482,6 +495,15 @@ DOELGROEPEN
 	}
 }
 
+#doelgroep-archive-p {
+	padding-left: 3rem;	
+	padding-right: 3rem;	
+	padding-bottom: 4rem;	
+//	.cta.doelgroep {
+//		float: none;
+//	}
+}
+
 .doelgroepcard {
 	background: @gc_a11y_green;
 	position: relative;
@@ -532,7 +554,7 @@ DOELGROEPEN
 			float: none;
 			clear: both;
 			padding-top: 1rem;
-			margin-bottom: 1rem;
+			margin-bottom: .25rem;
 			
 			& + span {
 				padding: 0;
@@ -573,7 +595,7 @@ DOELGROEPEN
 			display: block;
 			margin-right: 1rem;
 			line-height: .8;
-			margin-bottom: 2.5rem;
+			margin-bottom: 2rem;
 			padding-top: 1rem;
 
 			&:hover,
@@ -659,6 +681,11 @@ DOELGROEPEN
 	float: none;
 	margin-bottom: 0;
 	margin-top: 4rem;
+	
+	.wrap {
+		max-width: @contentmaxwidth;
+	}
+	
 	.flexbox {
 		margin-bottom: 0;
 	}
