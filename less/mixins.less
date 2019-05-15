@@ -7,7 +7,7 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.2
+// @version   0.0.3a
 // @desc.     First code for prototype.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
@@ -24,9 +24,48 @@
 @inclusierood:          #D94721;
 @inclusieroze:          #FCD7CB;
 @inclusieoranje:        #F89D1D;
+@inclusiekoraal:		#C73D19;
 
+@inclusiekoraal_2:		#F05A24;
 
-@groen_1:               #1BB24B;
+//=========================================================================================================
+
+@gc_a11y_green:				#148839; // ook wel 'GC Green - Accessible'
+@gc_a11y_green_dark_1:		#0b732c; // ook wel 'GC Green - Darker'
+@gc_a11y_green_dark_2:		darken( @gc_a11y_green_dark_1, 10% );
+@gc_a11y_green_light_1:		pink; // lighten( @gc_a11y_green, 10% );
+@gc_a11y_green_light_2:		#E0F6E7; // voor hover 
+
+@gc_a11y_orange:			#c73d19; // ook wel 'Inclusie Accessible Orange'
+@gc_a11y_orange_less:		#d94721; // ook wel 'Inclusie Less Accessible Orange'
+
+@gc_darkblue: 				#004152; // ook wel 'GC Dark Blue'
+@gc_darkerblue:				#00303d; // ook wel 'GC Darker Blue'
+
+@gc_pantybrown_light: 		#f2ebe4; // ook wel 'GC PantyBrown Light'
+@gc_pantybrown: 			#e8d8c7; // ook wel 'GC PantyBrown'
+
+//=========================================================================================================
+
+@break_fullwidth:       	960px; // ( 63 * @padding );
+@break_show_menu_button:	830px;
+@break_tablet:          	650px;
+@break_phone:           	500px;
+
+//=========================================================================================================
+
+@pixel:                 	1px;
+@viewport:              	1vw;
+@basefontsize:          	10;
+@basefont:              	( @basefontsize * @pixel );
+
+//=========================================================================================================
+
+@headerfont:			'League Gothic', Impact, Helvetica, Arial, sans-serif;
+@headerfont2:			'montserratregular', Helvetica, Arial, sans-serif;
+@bodyfont:				'Montserrat light', Helvetica, Arial, sans-serif; // 'Montserrat light',Helvetica,Arial,sans-serif
+@bodyfont_bold:			'montserrat_semiboldregular', Helvetica, Arial, sans-serif; 
+@montserrat_semibold:   'montserrat_semiboldregular', Helvetica, Arial, sans-serif;
 
 //=========================================================================================================
 
@@ -65,3 +104,41 @@
 
 //=========================================================================================================
 
+.icon_replace_filler(@src, @fill-old, @fill-new) {
+    @data-uri:          data-uri('image/svg+xml;charset=UTF-8', "@{src}");
+    @replace-default:   escape('fill="@{fill-old}"');
+    @replace-new:       escape('fill="@{fill-new}"');
+    @replacesrc1:       replace("@{data-uri}", @replace-default, @replace-new, "g");
+    background-image: e(@replacesrc1);
+}
+
+//========================================================================================================
+
+.font-size(@input) {
+	font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel );
+}
+
+//========================================================================================================
+
+.icoontje( @classname: 'default', @src: '../images/icon-deel.svg' ) {
+
+	@fill-old: @wit;
+	@fill-new: @wit;
+	
+	.@{classname} {
+		@media only screen and ( max-width: 83rem ) {
+			button {
+				.icon_replace_filler( @src, @fill-old, @fill-new);
+				background-repeat: no-repeat;
+			}
+		}
+		@media only screen and ( min-width: 83rem ) {
+			&:before {
+				.icon_replace_filler( @src, @fill-old, @fill-new);
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}
+
+//=========================================================================================================

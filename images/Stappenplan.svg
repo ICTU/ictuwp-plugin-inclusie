@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1900px" height="1636px" viewBox="0 0 1900 1636" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Stappenplan</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1900" height="1635.35714"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Stappenplan">
+            <g id="Group">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle" fill="#C73D19" xlink:href="#path-1"></use>
+                <polygon id="Rectangle" fill="#D2411B" mask="url(#mask-2)" transform="translate(947.285714, 1402.607143) scale(1, -1) translate(-947.285714, -1402.607143) " points="-95 792.571429 1989.57143 792.571429 1989.57143 2012.64286 -95 1849.78571"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

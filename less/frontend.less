@@ -7,7 +7,7 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.2a
+// @version   0.0.3a
 // @desc.     First code for prototype.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
@@ -15,7 +15,7 @@
 /*!
 
 
-<!--                 frontend.css - v0.0.2a                     -->
+<!--                 frontend.css - v0.0.3a                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -63,220 +63,511 @@ Imports
 /*
 ---------------------------------------------------------------------------------------------------- */
 
-@buttonwidth: 9rem;
-@descwidth: 40rem;  
+@buttonwidth: 	9rem;
+@descwidth:		50rem;  
 
 
-#home-chart {
-
-  background-image: url('../images/stappenplan-bg-fullscreen.svg?asdf');
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-//  border: 10px solid @inclusierood;
-  position: relative;
-  height: 83rem;
-  width: 83rem;
-  
-  h2, h3 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-  .step {
-    position: absolute;
-  }
-  .stepcounter {
-    display: block;
-    clear: both;
-    float: none;
-    font-size: 4rem;
-    border: 5px solid @inclusieroze;      
-    color: @txt;
-    padding: .25em;
-    min-height: @buttonwidth;
-    min-width: @buttonwidth;
-    text-align: center;
-    border-radius: 50%;
-  }  
-
-  
-  #step_1 {
-    top: 35rem;
-    left: 20rem;
-  }
-  #step_2 {
-    top: 22rem;
-    left: 4rem;
-  }
-  #step_3 {
-    top: 33rem;
-    left: 42rem;
-  }
-  #step_4 {
-    top: 57rem;
-    left: 13rem;
-  }
-  #step_5 {
-    top: 60rem;
-    left: 50rem;
-  }
-
-  #step_1,
-  #step_5 {
-    .stepcounter {
-      background: @inclusieoranje;
-      border-color: @inclusieoranje;
-    }
-  }
-  
-  #step_2,
-  #step_3,
-  #step_4 {
-    .stepcounter {
-      background: @inclusieroze;
-      border-color: @inclusieroze;
-    }
-  }
-
-  #step_1,
-  #step_2,
-  #step_3,
-  #step_4,
-  #step_5 {
-    width: @descwidth;
-
-    .label,
-    .stepcounter {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .stepcounter {
-      &:focus,
-      &:active,
-      &:hover {
-        background: @wit;
-        border: 5px solid @txt;      
-      }
-    }
-  }
-  
-
-  .label {
-    span {
-      background: @groen_1;
-      color: @wit;
-      padding: .25em .5em;
-      display: inline-block;
-    }
-    text-align: center;
-  }
-  .description {
-    background: @wit;
-    padding: .5em;
-    z-index: 9999;
-    &.hidden {
-      .visuallyhidden();
-    }
-  }
+/*
+STRUCTURE & BASE
+---------------------------------------------------------------------------------------------------- */
+body {
+	background: @gc_pantybrown_light;
 }
 
-div.doelgroep {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding-right: .5em;
-  padding-left: .5em;
 
-  h2,
-  h3 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-  p {
-    margin: 0;
-  }
-  h3 {
-    text-align: center;
-  }
- 
-  .featured-image {
-    min-height: 15rem;
-    background-color: @bordercolor;
-    background-image: url('../images/logo.png');
-    background-position: center center;
-    background-size: cover;
-  }
-  
+.home {
+	#maincontent {
+		background: @gc_pantybrown_light;
+		max-width: 1900px;
+
+		main.content {
+			float: none;
+			
+			&, .wrap {
+				max-width: 1180px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.entry-header, 
+			.entry-content,
+			.entry	{
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+		@media only screen and ( min-width: ( @break_tablet ) ) {
+			background-image: url('../images/inclusie-home-bg.png');
+			background-position: center top;
+			background-repeat: no-repeat;
+		}
+	}
 }
+
 
 
 .flexbox {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  border: 4px solid @lichtgrijs;
-  margin-bottom: 2em;
-  
-  .flexblock {
-    flex: 1;
-    padding: .5em;
-    background-color: @lichtgrijs;
-    margin: .5em;
-    h2, h3, h4, h5, h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-  }
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	margin-bottom: 2em;
+	
+	.flexblock {
+		
+		@media only screen and ( min-width: ( @break_show_menu_button ) ) {
+			flex: 1;
+		}
+		padding: 1em;
+		margin: .75em;
+		h2, h3, h4, h5, h6 {
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
+}
+
+
+
+/*
+STYLING STEPS 
+---------------------------------------------------------------------------------------------------- */
+.step {
+	color: @txt;
+	margin-bottom: 1em;
+
+	button {
+		margin-top: 0;	
+		padding-top: .25em;	
+		padding-bottom: .25em;	
+		padding-right: 1rem;
+		background: @gc_a11y_green;
+		color: @wit;
+		font-family: @headerfont;		
+		.font-size( 26 );
+		text-transform: uppercase;
+		display: block;
+		width: 100%;
+		text-align: left;
+		
+		
+	}
+
+	.description {
+		padding: 2rem;
+		background-color: @wit;
+		overflow: hidden;
+		
+		h2, h3 {
+			font-family: @headerfont;		
+			.font-size( 26 );
+			text-transform: uppercase;
+			margin-top: 0;
+			padding-top: 0;
+			padding-bottom: 1rem;
+		}
+		
+		a.cta {
+			float: left;
+			margin-bottom: 2rem;
+		}
+	}
+	
+	@media only screen and ( max-width: 83rem ) {
+		button {
+			padding-left: 5rem;
+			background-size: 30px 30px;
+			line-height: 1.6;
+			background-position: 1rem center;
+	
+			span {
+				border: 1px solid transparent;
+				height: 3.5rem;
+				width: 3.5rem;
+				display: block;
+				float: right;
+				margin-top: 3px;
+				background-image: url('../images/arrow-down.svg');
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+			&:hover,
+			&:active,
+			&:focus {
+				span {
+					border-color: @wit;
+					box-shadow: 3px 3px 0px rgba(#FFF, 0.2);
+				}
+			}
+			
+			&[aria-expanded="true"] {
+				span {
+					background-image: url('../images/arrow-up.svg');
+				}
+			}
+		}
+	}
+
+	@media only screen and ( min-width: 83rem ) {
+//		border: 10px solid red;
+		width: 50rem;
+		
+		button {
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: -1rem;
+		}
+		
+		.description {
+			text-align: center;
+			
+			&[aria-hidden="false"] {
+				z-index: 9999;
+				position: absolute;
+//				box-shadow: 6px 4px 16px 10px rgba( 2,2,2,.3);
+				transform: translateY( -40rem );
+				box-shadow: 3px 3px 0px rgba(#000, 0.2);
+
+				&:before {
+					content: ' ';
+					display: block;
+					height: 28px;
+					width: 28px;
+					position: absolute;
+					right: 1.8rem;
+					bottom: 0;
+					background: rgba(#000, 0.2); // @wit;
+					transform: translateY(28px);
+					z-index: 450;
+					clip-path: polygon(0 0, 0 100%, 70% 0);
+					z-index: 9999;
+				}
+			
+				&:after {
+					content: ' ';
+					display: block;
+					height: 30px;
+					width: 30px;
+					position: absolute;
+					right: 2rem;
+					bottom: 0;
+					background: @wit;
+					transform: translateY(25px);
+					z-index: 450;
+					box-shadow: 3px 3px 0px rgba(#000, 0.2);
+					clip-path: polygon(0 0, 0 100%, 70% 0);
+					z-index: 9999;
+				}
+				
+			}
+			
+			a.cta {
+				margin-left: auto;
+				margin-right: auto;
+				width: fit-content;
+				float: none;
+				margin-bottom: 0;
+			}
+		}
+		
+		&:before {
+			content: ' ';
+			height: 9.6rem;
+			width: 9.6rem;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 50%;
+			background-color: @inclusieoranje;
+			background-position: center center;
+			display: block;
+			float: none;
+			clear: both;
+		}
+	}
+}
+
+
+.icoontje( deel,			'../images/icon-deel.svg' );
+.icoontje( evalueer,		'../images/icon-evalueer.svg' );
+.icoontje( ontwerp,			'../images/icon-ontwerp.svg' );
+.icoontje( verdiep,			'../images/icon-verdiep.svg' );
+.icoontje( identificeer,	'../images/icon-identificeer.svg' );
+
+
+#home-inleiding {
+
+	color: @wit;
+	padding: 1em;
+	
+	h1 {
+		.font-size( 54 );
+		margin-top: 2rem;
+		padding-top: 0;
+	}
+	
+	.download {
+		margin: 1rem 0 4rem 0;
+		display: inline-block;
+	}
+
+	@media only screen and ( min-width: 83rem ) {
+		width: 83rem;
+		margin-left: auto;
+		margin-right: auto;
+
+		color: @wit;
+	
+		background-image: url('../images/stappenplan-bg-fullscreen.svg');
+//		background-image: url('../images/verwijdertmij.png?asdf');
+		background-position: center bottom;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		
+		position: relative;
+		margin-top: 11rem;
+		
+		.entry-title {
+			padding-top: 0;
+			margin-top: 0;
+			width: 430px;
+			.font-size( 70 );
+			line-height: 1;
+		}
+		
+		a.download {
+			position: absolute;
+			top: 1rem;
+			right: 0;
+		}
+		
+		.step {
+			button {
+				width: auto;
+			}
+		}
+
+		#home-chart {
+			position: relative;
+			height: 83rem;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: -12rem;
+
+			.step {
+				position: absolute;
+//				border: 10px solid red;
+			}
+
+	
+			#step_1 {
+				top: 37.5rem;
+				left: 14rem;
+			}
+			#step_2 {
+				top: 20rem;
+				left: -1rem;
+			}
+			#step_3 {
+				top: 33rem;
+				left: 36rem;
+			}
+			#step_4 {
+				top: 57rem;
+				left: 7rem;
+			}
+			#step_5 {
+				top: 62rem;
+				left: 40rem;
+			}
+			
+			
+		}
+
+
+	}
+	
+}
+
+/*
+DOELGROEPEN
+---------------------------------------------------------------------------------------------------- */
+
+#home_template_doelgroepen {
+	padding: 1em;
+	@media only screen and ( max-width: ( @break_tablet ) ) {
+		margin-top: 6rem;
+	}
+	@media only screen and ( min-width: ( @break_tablet ) ) {
+		margin-top: 4rem;
+	}
+}
+
+.doelgroep {
+	background: @gc_a11y_green;
+	position: relative;
+	min-height: 50rem;
+	background-image: url('../images/avatar/poppetje-1.svg');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	@media only screen and (max-width: ( @break_fullwidth ) ) {
+		& + .doelgroep {
+			margin-top: 5rem;
+		}
+	}
+
+	h2,
+	h3 {
+		margin: 0;
+		padding: 1rem 0;
+		background: white;
+		padding-left: 3rem;
+		clip-path: polygon(0 0, 100% 12%, 100% 100%, 0% 100%);
+
+		position: absolute;
+		bottom: 0;
+		left: -1px;
+		right: -1px;
+
+		span {
+			font-family: @bodyfont_bold;
+			text-transform: none;
+			.font-size( 14 );
+			line-height: 1.8;
+			display: inline-block;
+			float: none;
+			clear: both;
+			padding-top: 1rem;
+			margin-bottom: 1rem;
+			
+			& + span {
+				padding: 0;
+				margin-bottom: 0;
+				line-height: 1;
+				width: 100%;
+				.font-size( 42 );
+				font-family: @headerfont;
+				text-transform: uppercase;
+				&:after {
+					content: ' ';
+					width: 40px;
+					height: 40px;
+					border: 1px solid transparent;
+					.icon_replace_filler('../images/arrow-right.svg', '#004152', @txt );
+					background-repeat: no-repeat;
+					background-position: center center;
+					float: right;
+					display: block;
+				}
+			}
+		}
+		a {
+			color: @txt;
+			display: block;
+			margin-right: 3rem;
+			line-height: .8;
+			margin-bottom: 2.5rem;
+			padding-top: 1rem;
+
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: underline;
+				color: @txt;
+				span:after {
+					border-color: @txt;
+				}
+			}
+		}
+	}
+	p {
+		margin: 0;
+	}
+	h3 {
+		text-align: center;
+	}
 }
 
 .tegeltje {
-  padding: 1em;
-  background-image: url('../images/neptegel.jpg');
-  background-position: center center;
-  background-size: cover;
-  padding-top: 4em;
-  padding-bottom: 2em;
-  text-align: center;
-  min-height: 270px;
+	padding: 1em;
+	min-height: 120px;
+	color: @txt;
+	background: white;
+	margin-bottom: 35rem;
+	margin-top: -5rem;
+	
+	.font-size( 22 );
+
+	box-shadow: 3px 3px 0px rgba(#000, 0.2);
+	position: relative;
+	z-index: 500;
+
+	&:before {
+		content: ' ';
+		display: block;
+		height: 28px;
+		width: 28px;
+		position: absolute;
+		right: 1.8rem;
+		bottom: 0;
+		background: rgba(#000, 0.2); // @wit;
+		transform: translateY(28px);
+		z-index: 450;
+		clip-path: polygon(0 0, 0 100%, 70% 0);
+	}
+
+	&:after {
+		content: ' ';
+		display: block;
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		right: 2rem;
+		bottom: 0;
+		background: @wit;
+		transform: translateY(25px);
+		z-index: 450;
+		box-shadow: 3px 3px 0px rgba(#000, 0.2);
+		clip-path: polygon(0 0, 0 100%, 70% 0);
+	}
+
+	strong {
+		font-family: @bodyfont_bold;
+		font-weight: 700;
+		.font-size( 14 );
+		&:before {
+			content: '– ';
+			display: inline-block;
+			float: left;
+			line-height: 2.8;
+			margin-right: .5em;
+		}
+	}
+
 }
 
-.single-doelgroep {
-  .tegeltjes {
-    float: right;
-    max-width: 300px;
-    flex-flow: column;
-    
-    .tegeltje {
-      padding-top: 4em;
-    }
-  }
+#home_template_teasers {
+	background: @wit;
+	clear: both;
+	float: none;
+	border: 10px solid red;
+	margin-top: 4rem;
 }
 
-.facts-figures {
-  border: 4px solid @lichtgrijs;
-  text-align: center;
-  font-size: 150%;
-  padding: 2em;
-  margin-bottom: 2em;
-  float: none;
-  clear: both;
-}
+/*
+MISC. ELEMENTS
+---------------------------------------------------------------------------------------------------- */
+a.download {
+	.icon_replace_filler('../images/icon-download.svg', '#fff', @wit );
+	background-color: @inclusiekoraal_2;
+	border-color: @inclusiekoraal_2;
 
-.hugely {
-  display: block;
-  float: none;
-  clear: both;
-  font-size: 250%;
-}
-
-.vaardigheid {
-  margin-bottom: 2em;
-
-  h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-  
-  
+	&:hover,
+	&:focus,
+	&:active {
+		color: @txt;
+		.icon_replace_filler('../images/icon-download.svg', '#fff', @inclusiekoraal_2 );
+	}
 }
 

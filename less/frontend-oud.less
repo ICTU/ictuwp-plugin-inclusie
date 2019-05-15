@@ -1,0 +1,348 @@
+
+
+// Gebruiker Centraal - frontend.less
+// ----------------------------------------------------------------------------------
+// bevat CSS voor frontend
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   0.0.3a
+// @desc.     First code for prototype.
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
+
+/*!
+
+
+<!--                 frontend.css - v0.0.3a                     -->
+<!--                                                            -->
+<!--                                                            -->
+<!-- ========================================================   -->
+<!--                                                            -->
+<!--                  .:::::::::::::::}}}}}}}                   -->
+<!--                  .:::::::::::::::}}}}}}}                   -->
+<!--                  .:::::::::::::::}}}}}}}                   -->
+<!--              ````.:::::::::::::::::}}}}}``````             -->
+<!--        ``.------------------::::::::::::::::}}}::.`        -->
+<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
+<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
+<!--     .-----------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     -----------------::-----:::::::}::::::::}}}}}}}}}}     -->
+<!--     ---------------:hmmd+---:::::smmmy::::::}}}}}}}}}}     -->
+<!--     ---------------+MMMMy---:::::NMMMN}:::::}}}}}}}}}}     -->
+<!--     ----------------oyhs:---:::::}yhy+::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------oso}}:::}}+sy}::::::::}}}}}}}}}}     -->
+<!--     ------------------}oyhhdhhdhys+:::::::::}}}}}}}}}}     -->
+<!--     -----------------------:::::::::::::::::}}}}}}}}}}     -->
+<!--     ------------------------::::::::::::::::}}}}}}}}}}     -->
+<!--     `-----------------------::::::::::::::::}}}}}}}}}.     -->
+<!--      `.---------------------::::::::::::::::}}}}}}}:`      -->
+<!--        `..-----------------::::::::::::::::}}}}::-`        -->
+<!--             ``::::::::::::::::}}}}}}}}}}}}}}-`             -->
+<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
+<!--              `::::::::::::::::}}}}}}}}}}}}}}.              -->
+<!--                                                            -->
+<!-- ========================================================   -->
+<!--                                                            -->
+	
+
+
+*/
+/*
+Imports
+---------------------------------------------------------------------------------------------------- */
+
+@import "mixins.less";           // colors, sizes */
+
+/*
+---------------------------------------------------------------------------------------------------- */
+
+@buttonwidth: 	9rem;
+@descwidth:		50rem;  
+
+body {
+	background: @gc_pantybrown_light;
+}
+
+.home #maincontent {
+	background-color: @gc_pantybrown_light;
+	background-image: url('../images/inclusie-home-bg.png');
+	background-position: center top;
+	background-repeat: no-repeat;
+	max-width: 1900px;
+
+	.content-sidebar-wrap {
+
+		main.content {
+			max-width: 1180px;
+			margin-left: auto;
+			margin-right: auto;
+			float: none;
+
+			.entry {
+				padding-left: 0;			
+				padding-right: 0;			
+			}
+	
+			.entry-content {
+				padding-left: 0;			
+				padding-right: 0;			
+
+				&.wrap {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+}
+
+
+#home-chart {
+
+	position: relative;
+	height: 83rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -12rem;
+	
+	h2, h3 {
+		margin-top: 0;
+		padding-top: 0;
+		font-family: @headerfont;		
+		.font-size( 32 );
+		text-transform: uppercase;
+	}
+	.step {
+		position: absolute;
+		border: 10px solid red;
+	}
+	.stepcounter {
+		display: block;
+		clear: both;
+		float: none;
+		font-size: 4rem;
+		border: 5px solid @inclusieroze;      
+		color: @txt;
+		padding: .25em;
+		min-height: @buttonwidth;
+		min-width: @buttonwidth;
+		text-align: center;
+		border-radius: 50%;
+	}  
+	.description {
+		background: @wit;
+		color: @txt;
+		padding: 2rem;
+		z-index: 9999;
+		text-align: center;
+		overflow: hidden;
+		
+		&.hidden {
+			.visuallyhidden();
+		}
+	}
+	
+	
+	#step_1 {
+		top: 35rem;
+		left: 16rem;
+	}
+	#step_2 {
+		top: 22rem;
+		left: 4rem;
+	}
+	#step_3 {
+		top: 33rem;
+		left: 42rem;
+	}
+	#step_4 {
+		top: 57rem;
+		left: 13rem;
+	}
+	#step_5 {
+		top: 60rem;
+		left: 50rem;
+	}
+	
+	#step_1,
+	#step_5 {
+		.stepcounter {
+			background: @inclusieoranje;
+			border-color: @inclusieoranje;
+		}
+	}
+	
+	#step_2,
+	#step_3,
+	#step_4 {
+		.stepcounter {
+			background: @inclusieroze;
+			border-color: @inclusieroze;
+		}
+	}
+	
+	#step_1,
+	#step_2,
+	#step_3,
+	#step_4,
+	#step_5 {
+		width: @descwidth;
+		
+		.label,
+		.stepcounter {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		.stepcounter {
+			&:focus,
+			&:active,
+			&:hover {
+				background: @wit;
+				border: 5px solid @txt;      
+			}
+		}
+	}
+}
+
+
+
+
+.single-doelgroep {
+  .tegeltjes {
+    float: right;
+    max-width: 300px;
+    flex-flow: column;
+    
+    .tegeltje {
+      padding-top: 4em;
+    }
+  }
+}
+
+.facts-figures {
+  border: 4px solid @lichtgrijs;
+  text-align: center;
+  font-size: 150%;
+  padding: 2em;
+  margin-bottom: 2em;
+  float: none;
+  clear: both;
+}
+
+.hugely {
+  display: block;
+  float: none;
+  clear: both;
+  font-size: 250%;
+}
+
+.vaardigheid {
+  margin-bottom: 2em;
+
+  h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  
+}
+
+#home-inleiding {
+//	border: 10px solid red;
+
+	width: 83rem;
+	margin-left: auto;
+	margin-right: auto;
+	
+	.entry-header {
+		padding-left: 0;
+		padding-right: 0;	
+
+	}
+
+
+
+	
+}
+
+
+.doelgroep {
+//	margin-top: 1em;
+//	margin-bottom: 1em;
+//	padding-right: .5em;
+//	padding-left: .5em;
+
+	background: @gc_a11y_green;
+	
+	position: relative;
+
+	min-height: 15rem;
+	background-image: url('../images/avatar/dame.svg');
+	background-position: center 12rem;
+	background-repeat: no-repeat;
+
+	h2,
+	h3 {
+		margin: 0;
+		padding: 1rem 0;
+		background: white;
+		padding-left: 3rem;
+		clip-path: polygon(0 0, 100% 12%, 100% 100%, 0% 100%);
+
+		position: absolute;
+		bottom: 0;
+		left: -1px;
+		right: -1px;
+		
+		&, a {
+			text-decoration: none;
+			color: @txt;
+			.font-size( 42 );
+			
+			span {
+				font-family: @bodyfont_bold;
+				text-transform: none;
+				.font-size( 14 );
+				line-height: 3;
+			}
+		}
+		a {
+			color: @txt;
+			.icon_replace_filler('../images/arrow-right.svg', '#004152', @txt );
+			background-repeat: no-repeat;
+			background-position: right bottom;
+			display: block;
+			margin-right: 3rem;
+			line-height: .8;
+			margin-bottom: 2.5rem;
+			padding-top: 1rem;
+
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: underline;
+				color: @txt;
+			}
+		}
+	}
+	p {
+		margin: 0;
+	}
+	h3 {
+		text-align: center;
+	}
+	
+	.featured-image {
+	}
+}
+
+#home_template_doelgroepen {
+	margin-top: 4rem;
+}
