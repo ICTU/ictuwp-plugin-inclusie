@@ -148,7 +148,7 @@ body {
 /*
 ANIMATIONS 
 ---------------------------------------------------------------------------------------------------- */
-@-webkit-keyframes colorchange {
+@-webkit-keyframes makethelogobigger1 {
   0% {
     background-size: 56px 56px;
   }
@@ -156,7 +156,7 @@ ANIMATIONS
     background-size: 75px 75px;
   }
 }
-@keyframes colorchange {
+@keyframes makethelogobigger1 {
   0% {
     background-size: 56px 56px;
   }
@@ -296,6 +296,7 @@ STYLING STEPS
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
+    border: 1px solid #F89D1D;
     background-color: #F89D1D;
     background-position: center center;
     display: block;
@@ -334,10 +335,12 @@ STYLING STEPS
 #stappen-chart .step .label.current {
   background: #148839;
 }
+#stappen-chart .step:focus-within:before,
 #stappen-chart .step:hover:before {
-  -webkit-animation: colorchange 0.1s;
-          animation: colorchange 0.1s;
+  -webkit-animation: makethelogobigger1 0.1s;
+          animation: makethelogobigger1 0.1s;
   background-size: 75px 75px;
+  border-color: #fff;
 }
 @media only screen and (max-width: 960px) {
   .deel button {

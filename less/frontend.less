@@ -151,7 +151,7 @@ ANIMATIONS
 @thesize1: 56px;		
 @thesize: 75px;		
 
-@keyframes colorchange {
+@keyframes makethelogobigger1 {
 	0%		{
 		background-size: @thesize1 @thesize1;
 	}
@@ -314,6 +314,7 @@ STYLING STEPS
 			margin-left: auto;
 			margin-right: auto;
 			border-radius: 50%;
+			border: 1px solid @inclusieoranje;
 			background-color: @inclusieoranje;
 			background-position: center center;
 			display: block;
@@ -357,10 +358,12 @@ STYLING STEPS
 			}
 		}
 
+		&:focus-within,
 		&:hover {
 			&:before {
-				animation: colorchange .1s; 
+				animation: makethelogobigger1 .1s; 
 				background-size: @thesize @thesize;
+				border-color: @wit;
 			}	
 		}
 		
