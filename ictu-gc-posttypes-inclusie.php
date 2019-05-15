@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.3
- * Version description: Homepage eerste versie en stappenpagina.
+ * Version:             0.0.4
+ * Version description: Animatie toegevoegd.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -86,15 +86,9 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',       trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_VERSION',          '0.0.3' );
-
-
-//========================================================================================================
-// constants for rewrite rules
-
+define( 'ICTU_GC_VERSION',          '0.0.4' );
 
 //========================================================================================================
-
 
 /**
  * Begins execution of the plugin.
@@ -103,7 +97,7 @@ define( 'ICTU_GC_VERSION',          '0.0.3' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.0.3
+ * @since    0.0.4
  */
 
 
@@ -137,39 +131,38 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     /** ----------------------------------------------------------------------------------------------------
      * Hook this plugins functions into WordPress
      */
-    private function setup_actions() {
+	private function setup_actions() {
+		
+		add_action( 'init', array( $this, 'ictu_gc_register_post_type' ) );
+		//      add_action( 'init', array( $this, 'initialize_acf_fields' ) );
+		
+		
+		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'init', array( $this, 'ictu_gc_add_rewrite_rules' ) );
+		
+		
+		add_filter( 'genesis_single_crumb',   array( $this, 'filter_breadcrumb' ), 10, 2 );
+		add_filter( 'genesis_page_crumb',     array( $this, 'filter_breadcrumb' ), 10, 2 );
+		add_filter( 'genesis_archive_crumb',  array( $this, 'filter_breadcrumb' ), 10, 2 ); 				
+		
+		
+		add_action( 'genesis_entry_content',  array( $this, 'prepend_content' ), 8 ); 				
+		add_action( 'genesis_entry_content',  array( $this, 'append_content' ), 15 ); 			
+		
+		// add a page temlate name
+		$this->templates                      = array();
+		$this->template_home   		        = 'home-inclusie.php';
+		
+		// add the page template to the templates list
+		add_filter( 'theme_page_templates',   array( $this, 'ictu_gc_add_page_templates' ) );
+		
+		// activate the page filters
+		add_action( 'template_redirect',      array( $this, 'ictu_gc_frontend_use_page_template' )  );
+		
+		// add styling and scripts
+		add_action( 'wp_enqueue_scripts',     array( $this, 'ictu_gc_register_frontend_style_script' ) );
 
-      add_action( 'init', array( $this, 'ictu_gc_register_post_type' ) );
-//      add_action( 'init', array( $this, 'acf_fields' ) );
-      
-      
-      add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
-      add_action( 'init', array( $this, 'ictu_gc_add_rewrite_rules' ) );
-
-
-      add_filter( 'genesis_single_crumb',   array( $this, 'filter_breadcrumb' ), 10, 2 );
-      add_filter( 'genesis_page_crumb',     array( $this, 'filter_breadcrumb' ), 10, 2 );
-      add_filter( 'genesis_archive_crumb',  array( $this, 'filter_breadcrumb' ), 10, 2 ); 				
-      
-      
-      add_action( 'genesis_entry_content',  array( $this, 'prepend_content' ), 8 ); 				
-      add_action( 'genesis_entry_content',  array( $this, 'append_content' ), 15 ); 			
-
-      // add a page temlate name
-      $this->templates                      = array();
-      $this->template_home   		        = 'home-inclusie.php';
-    	
-      // add the page template to the templates list
-      add_filter( 'theme_page_templates',   array( $this, 'ictu_gc_add_page_templates' ) );
-
-      // activate the page filters
-      add_action( 'template_redirect',      array( $this, 'ictu_gc_frontend_use_page_template' )  );
-
-      // add styling and scripts
-      add_action( 'wp_enqueue_scripts',     array( $this, 'ictu_gc_register_frontend_style_script' ) );
-
-
-    }
+	}
     
     /** ----------------------------------------------------------------------------------------------------
      * Initialise translations
@@ -276,9 +269,16 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				$current 	= '';
 				$class 		= 'deel';
 				$titel 		= get_the_title( $stap->ID );
+				$tagend		= '</a>';
+				$tagstart	= '<a>';
 				
 				if ( $stap->ID === $post->ID ) {
-					$current = ' current';
+					$current 	= ' current';
+					$tagstart 	= '<span class="label current">';
+					$tagend		= '</span>';
+				}
+				else {
+					$tagstart	= '<a href="' . get_permalink( $stap->ID ) . '" class="label">';
 				}
 				
 				if ( get_field( 'stap_verkorte_titel', $stap->ID ) ) {
@@ -293,7 +293,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
 
  				echo '<div id="step_' . $stepcounter . '" class="step flexblock ' . $class . '">';
-				echo '<h3 id="' . $title_id . '"><span class="label' . $current . '">' . $titel . '</span></h3>';
+				echo '<h3 id="' . $title_id . '">' . $tagstart . $titel . $tagend . '</h3>';
 				echo '</div>';
 			
 			endforeach;
@@ -536,6 +536,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			add_action( 'genesis_before_loop',  array( $this, 'ictu_gc_frontend_stap_before_content' ), 8 ); 				
 
 		}
+
 		//=================================================
 		
 		add_filter( 'genesis_post_info',   array( $this, 'filter_postinfo' ), 10, 2 );
@@ -1541,7 +1542,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     //** ---------------------------------------------------------------------------------------------------
 
 
-    public function acf_fields() {
+    public function initialize_acf_fields() {
       
       if( function_exists('acf_add_local_field_group') ):
       

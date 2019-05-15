@@ -7,15 +7,15 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.3
-// @desc.     Homepage eerste versie en stappenpagina.
+// @version   0.0.4
+// @desc.     Animatie toegevoegd.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
 /*!
 
 
-<!--                 frontend.css - v0.0.3                     -->
+<!--                 frontend.css - v0.0.4                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -141,6 +141,22 @@ body {
 			margin-top: 0;
 			padding-top: 0;
 		}
+	}
+}
+
+/*
+ANIMATIONS 
+---------------------------------------------------------------------------------------------------- */
+
+@thesize1: 56px;		
+@thesize: 75px;		
+
+@keyframes colorchange {
+	0%		{
+		background-size: @thesize1 @thesize1;
+	}
+	100%	{ 
+		background-size: @thesize @thesize;
 	}
 }
 
@@ -316,9 +332,22 @@ STYLING STEPS
 	margin-bottom: 2rem;
 	padding-top: 4rem;
 
-	div {
+	.step {
 		h3 {
 			text-align: center;
+			margin-top: 2rem;
+		}
+		a {
+			color: @wit;
+			border: 1px solid transparent;
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: @wit;
+				text-decoration: underline;
+				border-color: @wit;
+			}
 		}
 		.label {
 			color: @wit;
@@ -327,6 +356,14 @@ STYLING STEPS
 				background: @gc_a11y_green;
 			}
 		}
+
+		&:hover {
+			&:before {
+				animation: colorchange .1s; 
+				background-size: @thesize @thesize;
+			}	
+		}
+		
 	}
 }
 
