@@ -7,15 +7,15 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.5
-// @desc.     CSS-bugfixes; tabindex-gerommel uit JS weggehaald.
+// @version   0.0.6
+// @desc.     Stap-pagina voor desktop.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
 /*!
 
 
-<!--                 frontend.css - v0.0.5                     -->
+<!--                 frontend.css - v0.0.6                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -63,8 +63,13 @@ Imports
 /*
 ---------------------------------------------------------------------------------------------------- */
 
-@buttonwidth: 	9rem;
-@descwidth:		50rem;  
+@buttonwidth: 		9rem;
+@descwidth:			50rem;  
+@hoogtewijspijl:	50px;
+
+// animaties
+@thesize1: 56px;		
+@thesize: 75px;		
 
 
 /*
@@ -72,12 +77,31 @@ STRUCTURE & BASE
 ---------------------------------------------------------------------------------------------------- */
 body {
 	background: @gc_pantybrown_light;
+	
+	.site-container {
+		overflow: hidden;
+	}
+	&.page,
+	&.single {
+		background: @gc_pantybrown_light;
+
+		#maincontent {
+			padding-top: 11rem;
+		}
+	}
 }
 
 #maincontent {
+	background-color: @gc_pantybrown_light;
 	background-image: url('../images/page-top-bg.svg');
 	background-position: center top;
 	background-repeat: no-repeat;
+	max-width: @containermaxwidth;
+	
+	article.entry {
+		background-color: @wit;
+	}
+	
 }
 
 .full-width-content .content {
@@ -96,10 +120,13 @@ body {
 .home {
 	#maincontent {
 		background: @gc_pantybrown_light;
-		max-width: 1900px;
 
 		main.content {
 			float: none;
+
+	article.entry {
+		background-color: transparent;
+	}
 			
 			&, .wrap {
 				max-width: @contentmaxwidth;
@@ -130,35 +157,117 @@ body {
 	justify-content: flex-start;
 	
 	.flexblock {
-		
-		@media only screen and ( min-width: ( @break_show_menu_button ) ) {
+
+		@media only screen and ( min-width: ( @break_fullwidth ) ) {
 			flex: 1;
 		}
-		padding: 1em;
-		margin: .75em;
+//		padding: 1rem;
+		margin: 1rem;
 		h2, h3, h4, h5, h6 {
 			margin-top: 0;
 			padding-top: 0;
 		}
+
+		h2,
+		h3 {
+			a {
+				text-decoration: none;
+				
+				&:before {
+					.title_click_indicator();
+					margin-right: -8px;
+	
+					@media only screen and (max-width: ( @break_fullwidth ) ) {
+						width: 24px;
+						height: 24px;
+						background-size: 12px 12px;
+					}
+					@media only screen and (min-width: ( @break_fullwidth ) ) {
+						width: 32px;
+						height: 32px;
+						background-size: 16px 16px;
+					}
+				}
+				
+				&:hover,
+				&:focus,
+				&:active {
+					color: @txt;
+					text-decoration: underline;
+					
+					&:before {
+						border-color: @txt;
+					}
+				}
+			}		
+		}		
 	}
+
+	&.cards {
+		margin-left: -1rem;
+		margin-right: -1rem;
+		
+		.flexblock {
+			background: @wit;
+			border: 1px solid @gc_cardbordergrey;
+			box-shadow: 3px 3px 0px rgba(#000, 0.2);
+
+			background: #FFFFFF;
+			box-shadow: 4px 4px 0 0 rgba(0,0,0,0.16);
+
+			
+			&.no-image {
+				padding: 2rem;
+			}
+			&.with-image {
+
+				.featured-image {
+					position: relative;
+					padding-bottom: ( ( 3 / 4 ) * 100% ); // 4:3 
+					padding-top: 25px;
+					height: 0;					
+					margin-bottom: 1rem;
+					clip-path: polygon(0 0, 100% 0, 100% 96%, 0 89%);
+					
+					&:after { 
+						content: ' ';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;						
+					}
+				}
+
+				p,
+				h2,
+				h3 {
+					padding-left: 2rem;
+					padding-right: 2rem;
+				}
+			}
+
+			@media only screen and (min-width: ( @break_fullwidth ) ) {
+				flex-basis: 50%;
+				max-width: 47%;
+			}			
+		}
+	}		
 }
 
 /*
 ANIMATIONS 
 ---------------------------------------------------------------------------------------------------- */
 
-@thesize1: 56px;		
-@thesize: 75px;		
-
 @keyframes makethelogobigger1 {
-	0%		{
+	0% {
 		background-size: @thesize1 @thesize1;
 	}
-	100%	{ 
+	100% { 
 		background-size: @thesize @thesize;
 	}
 }
-
 
 
 /*
@@ -181,14 +290,11 @@ STYLING STEPS
 		display: block;
 		width: 100%;
 		text-align: left;
-		
-		
 	}
 
 	.description {
 		padding: 2rem;
 		background-color: @wit;
-//		overflow: hidden;
 		
 		h2, h3 {
 			font-family: @headerfont;		
@@ -241,11 +347,7 @@ STYLING STEPS
 	}
 
 	@media only screen and ( min-width: @break_fullwidth ) {
-		width: 50rem;
-		
-//		border: 10px solid blue;
-//		background: rgba( 1, 1, 1, .4 );
-		
+
 		button {
 			margin-left: auto;
 			margin-right: auto;
@@ -258,11 +360,8 @@ STYLING STEPS
 			&[aria-hidden="false"] {
 				z-index: 9999;
 				position: absolute;
-//				box-shadow: 6px 4px 16px 10px rgba( 2,2,2,.3);
-//				transform: translateY( -40rem );
+				width: 50rem;
 				box-shadow: 3px 3px 0px rgba(#000, 0.2);
-
-@hoogtewijspijl: 50px;
 
 				&:before {
 					content: ' ';
@@ -321,19 +420,20 @@ STYLING STEPS
 			clear: both;
 		}
 
-		&:focus-within,
-		&:hover {
-			&:before {
-				animation: makethelogobigger1 .1s; 
-				background-size: @thesize @thesize;
-				border-color: @wit;
-			}	
-			button {
-				text-decoration: underline;
+		&:not(.current) {
+			
+			&:focus-within,
+			&:hover {
+				&:before {
+					animation: makethelogobigger1 .1s; 
+					background-size: @thesize @thesize;
+					border-color: @wit;
+				}	
+				button {
+					text-decoration: underline;
+				}
 			}
 		}
-
-		
 	}
 }
 
@@ -347,9 +447,12 @@ STYLING STEPS
 	padding-top: 4rem;
 
 	.step {
+		p,
 		h3 {
 			text-align: center;
 			margin-top: 2rem;
+			font-family: @montserrat_semibold;
+			.font-size( 16 );
 		}
 		a {
 			color: @wit;
@@ -370,16 +473,17 @@ STYLING STEPS
 				background: @gc_a11y_green;
 			}
 		}
+		&:not(.current) {
 
-		&:focus-within,
-		&:hover {
-			&:before {
-				animation: makethelogobigger1 .1s; 
-				background-size: @thesize @thesize;
-				border-color: @wit;
-			}	
+			&:focus-within,
+			&:hover {
+				&:before {
+					animation: makethelogobigger1 .1s; 
+					background-size: @thesize @thesize;
+					border-color: @wit;
+				}	
+			}
 		}
-		
 	}
 }
 
@@ -424,7 +528,7 @@ STYLING STEPS
 		.entry-title {
 			padding-top: 0;
 			margin-top: 0;
-			width: 430px;
+			max-width: 43rem;
 			.font-size( 70 );
 			line-height: 1;
 		}
@@ -450,30 +554,91 @@ STYLING STEPS
 
 			.step {
 				position: absolute;
+				background: rgba( 256, 245, 4, .3 );
 			}
 
 			#step_1 {
 				top: 37.5rem;
-				left: 14rem;
+				left: 34rem;
+				.description {
+					margin-left: -20rem;
+				}
 			}
 			#step_2 {
 				top: 20rem;
-				left: -1rem;
+				left: 17rem;
+				.description {
+					margin-left: -17rem;
+
+					&:before {
+						left: 33%;
+					}
+				
+					&:after {
+						left: 34%;
+					}
+				}			
 			}
 			#step_3 {
 				top: 33rem;
-				left: 36rem;
+				left: 56rem;
+				.description {
+					margin-left: -27rem;
+
+					&:before {
+						left: 55%;
+					}
+				
+					&:after {
+						left: 56%;
+					}
+				}
 			}
 			#step_4 {
 				top: 57rem;
-				left: 7rem;
+				left: 27rem;
+				.description {
+					margin-left: -20rem;
+				}
 			}
 			#step_5 {
 				top: 62rem;
-				left: 40rem;
+				left: 60rem;
+				.description {
+					margin-left: -32rem;
+					&:before {
+						left: 63%;
+					}
+				
+					&:after {
+						left: 64%;
+					}
+				}
 			}
 		}
 	}
+	@media only screen and ( min-width: @contentmaxwidth ) {
+		#home-chart {
+			#step_1,
+			#step_2,
+			#step_3,
+			#step_4,
+			#step_5 {
+				.description {
+					margin-left: -20rem;
+
+					&:before {
+						left: 41%;
+					}
+				
+					&:after {
+						left: 42%;
+					}
+				}			
+			}
+		}
+	}
+	
 	@media only screen and ( min-width: 1590px ) {
 		margin-top: 11rem;
 	}
@@ -499,10 +664,11 @@ DOELGROEPEN
 	padding-left: 3rem;	
 	padding-right: 3rem;	
 	padding-bottom: 4rem;	
-//	.cta.doelgroep {
-//		float: none;
-//	}
 }
+
+@avafactor: ( 402 / 586 );
+
+@asd: 250px;
 
 .doelgroepcard {
 	background: @gc_a11y_green;
@@ -511,7 +677,7 @@ DOELGROEPEN
 	background-image: url('../images/avatar/poppetje-1.svg');
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 200px 300px;
+	background-size: @asd ( @asd / @avafactor );
 	
 	&.poppetje-1 {
 		background-image: url('../images/avatar/poppetje-1.svg');
@@ -563,25 +729,20 @@ DOELGROEPEN
 				width: 100%;
 				font-family: @headerfont;
 				text-transform: uppercase;
-				&:after {
-					content: ' ';
-					border: 1px solid transparent;
-					.icon_replace_filler('../images/arrow-right.svg', '#004152', @txt );
-					background-repeat: no-repeat;
-					background-position: center center;
-					float: right;
-					display: block;
+				
+				&:before {
+					.title_click_indicator();
 				}
 				@media only screen and (max-width: ( @break_fullwidth ) ) {
 					.font-size( 28 );
-					&:after {
-						width: 28px;
-						height: 28px;
+					&:before {
+						width: 24px;
+						height: 24px;
 					}
 				}
 				@media only screen and (min-width: ( @break_fullwidth ) ) {
 					.font-size( 42 );
-					&:after {
+					&:before {
 						width: 40px;
 						height: 40px;
 					}
@@ -595,7 +756,7 @@ DOELGROEPEN
 			display: block;
 			margin-right: 1rem;
 			line-height: .8;
-			margin-bottom: 2rem;
+			margin-bottom: 1rem;
 			padding-top: 1rem;
 
 			&:hover,
@@ -694,6 +855,83 @@ DOELGROEPEN
 /*
 MISC. ELEMENTS
 ---------------------------------------------------------------------------------------------------- */
+body.single-stap {
+
+	#maincontent {
+		padding-top: 2rem;		
+		
+		article.entry {
+			background: @wit;
+
+			.entry-content {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.entry-title,
+			.wrap {
+				max-width: @contentwidth_761;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.entry-title {
+			}
+		}
+	}
+
+	#step-inleiding {
+		background: @gc_a11y_green;
+		color: @wit;
+		max-width: @contentwidth_960; 
+		margin-left: auto;
+		margin-right: auto;
+
+		@media only screen and (max-width: ( @break_fullwidth ) ) {
+			padding: 2rem;
+			margin-left: 2rem;
+			margin-right: 2rem;
+		}
+		@media only screen and (min-width: ( @break_fullwidth ) ) {
+			padding: 4rem;
+		}
+
+		header {
+			&, h1 {
+				margin: 0;
+				padding: 0;
+			}
+			h1 {
+				margin-bottom: 1rem;
+			}
+		}
+		
+		p {
+			margin: 0;
+		}		
+	}	
+	#step-methoden {
+		margin-bottom: 4rem;
+
+		.inleiding {
+			max-width: @contentwidth_960; 
+			margin-left: auto;
+			margin-right: auto;
+			@media only screen and (min-width: ( @break_fullwidth ) ) {
+				margin-bottom: 4rem;
+			}
+		}
+
+		.flexblock {
+			@media only screen and (min-width: ( @break_fullwidth ) ) {
+				flex-basis: 33%;
+				max-width: 31%;
+			}			
+		}
+	}	
+}
+
+/*
+MISC. ELEMENTS
+---------------------------------------------------------------------------------------------------- */
 a.download {
 	.icon_replace_filler('../images/icon-download.svg', '#fff', @wit );
 	background-color: @inclusiekoraal_2;
@@ -704,6 +942,59 @@ a.download {
 	&:active {
 		color: @txt;
 		.icon_replace_filler('../images/icon-download.svg', '#fff', @inclusiekoraal_2 );
+	}
+}
+
+.related-content,
+.related-links {
+	margin-bottom: 4rem;
+		
+	h2 {
+		padding-top: 0;		
+	}
+}
+
+.related-links {
+	a {
+		font-family: @bodyfont_bold;
+		text-decoration: none;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: @txt;
+			text-decoration: underline;
+		}
+	}
+	ul {
+		padding-left: 1rem;
+		margin-left: 1rem;
+		
+		li {
+			list-style: none;
+			padding-left: 0;
+			margin-left: 0;
+			border-top: 1px solid @gc_cardbordergrey;
+			padding-top: 2rem;
+			margin-bottom: 2rem;
+			overflow: hidden;
+			float: none;
+			span {
+				float: left;
+				width: ~"calc(99% - @{listimagewidth})";
+			}
+			&:before {
+				content: ' ';
+				display: block;
+				float: left;
+				width: @listimagewidth;
+				height: 3rem;
+				background-image: url('../images/list-image-arrow.svg');
+				background-repeat: no-repeat;
+				background-position: left center;
+				
+			}
+		}
 	}
 }
 

@@ -7,8 +7,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.4
-// @desc.     Animatie toegevoegd.
+// @version   0.0.6
+// @desc.     Stap-pagina voor desktop.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
@@ -45,14 +45,21 @@
 @gc_pantybrown_light: 		#f2ebe4; // ook wel 'GC PantyBrown Light'
 @gc_pantybrown: 			#e8d8c7; // ook wel 'GC PantyBrown'
 
+
+@gc_cardbordergrey: 		#D1DFE3; 
+
+
+
 //=========================================================================================================
 
-@break_fullwidth:       	960px; // ( 63 * @padding );
-@break_show_menu_button:	830px;
+@break_fullwidth:       	800px; // was 960px ( 63 * @padding );
 @break_tablet:          	650px;
 @break_phone:           	500px;
 
 @contentmaxwidth:			1180px; 
+@contentwidth_960:			960px; 
+@contentwidth_761:			761px; 
+@containermaxwidth: 		1900px;
 
 //=========================================================================================================
 
@@ -66,8 +73,12 @@
 @headerfont:				'League Gothic', Impact, Helvetica, Arial, sans-serif;
 @headerfont2:				'montserratregular', Helvetica, Arial, sans-serif;
 @bodyfont:					'Montserrat light', Helvetica, Arial, sans-serif; // 'Montserrat light',Helvetica,Arial,sans-serif
-@bodyfont_bold:				'montserrat_semiboldregular', Helvetica, Arial, sans-serif; 
+@bodyfont_bold:				'montserratbold', Helvetica, Arial, sans-serif; 
 @montserrat_semibold:   	'montserrat_semiboldregular', Helvetica, Arial, sans-serif;
+
+//=========================================================================================================
+
+@listimagewidth: 			3rem;
 
 //=========================================================================================================
 
@@ -139,8 +150,29 @@
 				.icon_replace_filler( @src, @fill-old, @fill-new);
 				background-repeat: no-repeat;
 			}
+			&.current {
+				&:before {
+					background-color: @gc_pantybrown;
+					border-color: @gc_pantybrown;
+					.icon_replace_filler( @src, @fill-old, @txt);
+				}
+			}
+
 		}
 	}
 }
 
 //=========================================================================================================
+
+.title_click_indicator() {
+	content: ' ';
+	border: 1px solid transparent;
+	.icon_replace_filler('../images/arrow-right.svg', '#004152', @txt );
+	background-repeat: no-repeat;
+	background-position: center center;
+	float: right;
+	display: block;
+}
+
+//=========================================================================================================
+

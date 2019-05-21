@@ -7,12 +7,14 @@
 // @package   	ictu-gc-posttypes-inclusie
 // @author    	Paul van Buuren
 // @license   	GPL-2.0+
-// @version   0.0.5
-// @desc.     CSS-bugfixes; tabindex-gerommel uit JS weggehaald.
+// @version   0.0.6
+// @desc.     Stap-pagina voor desktop.
 // @credits		Scott Vinkle - see: https://codepen.io/svinkle/pen/mKfru
 //				via https://a11yproject.com/patterns.html
 // @link      	https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
+
+var isSmallerScreenSize = true;
 
 (function (document, window, undefined) {
 	
@@ -22,8 +24,8 @@
 
 	// Vars
 	var toggleSection	= jQuery('#home-chart'),
-		toggleButton	= jQuery('.js-faq-question'),
-		toggleTextinfo	= jQuery('.js-faq-answer'),
+		toggleButton	= jQuery('.js-openclosebutton'),
+		toggleTextinfo	= jQuery('.js-descriptionbox'),
 		showOneAnswerAtATime = true,
 		sectionHeight	= 210;
 
@@ -53,13 +55,13 @@
 		
 		// Reset other tab attributes
 		thisSectiontoggleButtons.each(function () {
-//			jQuery(this).attr('tabindex', '-1');
+			jQuery(this).attr('tabindex', '-1');
 			jQuery(this).attr('aria-selected', 'false');
 		});
 		
 		// Set this tab attributes
 		elem.attr({
-//			'tabindex': '0',
+			'tabindex': '0',
 			'aria-selected': 'true'
 		});
 		
@@ -90,15 +92,19 @@
 				toggleButton.attr('aria-expanded', 'false');
 			}
 
-			var domRect = thisSection.height();			
-			var verplaats = ( ( domRect + sectionHeight ) * -1 );
 			
 			// Show answer
 			thisSection.addClass('active');      
 			elem.attr('aria-expanded', 'true');      
 			thisSection.attr('aria-hidden', 'false');
-			thisSection.attr("style", "transform: translateY(" + verplaats + "px)");
-
+			
+			console.log( "isSmallerScreenSize " + isSmallerScreenSize );
+			
+			if ( ! isSmallerScreenSize ) {
+				var domRect = thisSection.height();			
+				var verplaats = ( ( domRect + sectionHeight ) * -1 );
+				thisSection.attr("style", "transform: translateY(" + verplaats + "px)");
+			}
 
 		}
 	};
@@ -112,8 +118,11 @@
 		previousSection 	= elem.prev().prev().is('section.step') ? elem.prev().prev() : false,
 		firstSection 		= elem.parent().find('section.step:first'),
 		lastSection 		= elem.parent().find('section.step:last');
+
+console.log('Keycode: ' + keyCode );
 		
 		switch(keyCode) {
+
 	
 			// Escape
 			case 27:
@@ -200,7 +209,7 @@
 			'aria-controls': 'faq-answer-' + i,
 			'aria-expanded': 'false',
 			'aria-selected': 'false',
-//			'tabindex': '-1'
+			'tabindex': '-1'
 		});
 	});
 	
@@ -217,7 +226,7 @@
 	// Each FAQ Section
 	toggleSection.each(function () {
 		var $this = jQuery(this),
-		thisSectiontoggleButtons = $this.find('.js-faq-question');
+		thisSectiontoggleButtons = $this.find('.js-openclosebutton');
 		
 		// Set section attributes
 		$this.attr({
@@ -230,7 +239,7 @@
 			
 			// Make first tab clickable
 			if (i === 0) {
-//				$this.attr('tabindex', '0');
+				$this.attr('tabindex', '0');
 			}
 			
 			// Click event
@@ -251,3 +260,33 @@
 	});
 	
 })(document, window  );
+
+
+// =========================================================================================================
+
+// media query change
+function WidthChange(mq) {
+
+	console.log( "isSmallerScreenSize " + isSmallerScreenSize );
+	
+	if (mq.matches) {
+		// window width is at least 800px
+		isSmallerScreenSize = false;
+	}
+	else {
+		// window width is less than 800px
+		isSmallerScreenSize = true;
+	}
+	
+}
+
+// =========================================================================================================
+
+// media query event handler
+if (matchMedia ) {
+	var mq = window.matchMedia('(min-width: 800px)');
+	mq.addListener(WidthChange);
+	WidthChange(mq);
+}
+
+// =========================================================================================================

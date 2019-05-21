@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.5
- * Version description: CSS-bugfixes; tabindex-gerommel uit JS weggehaald.
+ * Version:             0.0.6
+ * Version description: Stap-pagina voor desktop.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -86,7 +86,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',       trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_VERSION',          '0.0.5' );
+define( 'ICTU_GC_VERSION',          '0.0.6' );
 
 //========================================================================================================
 
@@ -97,7 +97,7 @@ define( 'ICTU_GC_VERSION',          '0.0.5' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.0.5
+ * @since    0.0.6
  */
 
 
@@ -124,7 +124,17 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
      */
     public function __construct() {
 
+      $this->includes();
       $this->setup_actions();
+
+    }
+  
+    /** ----------------------------------------------------------------------------------------------------
+     * Hook this plugins functions into WordPress
+     */
+	private function includes() {
+		
+      require_once dirname( __FILE__ ) . '/includes/inclusie.acf-definitions.php';
 
     }
   
@@ -134,13 +144,11 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 	private function setup_actions() {
 		
 		add_action( 'init', array( $this, 'ictu_gc_register_post_type' ) );
-		//      add_action( 'init', array( $this, 'initialize_acf_fields' ) );
-		
-		
+		add_action( 'init', 'ictu_gc_inclusie_initialize_acf_fields' );
+
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'init', array( $this, 'ictu_gc_add_rewrite_rules' ) );
-		
-		
+
 		add_filter( 'genesis_single_crumb',   array( $this, 'filter_breadcrumb' ), 10, 2 );
 		add_filter( 'genesis_page_crumb',     array( $this, 'filter_breadcrumb' ), 10, 2 );
 		add_filter( 'genesis_archive_crumb',  array( $this, 'filter_breadcrumb' ), 10, 2 ); 				
@@ -182,12 +190,12 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     * @param array $post_templates Array of page templates. Keys are filenames, values are translated names.
     * @return array Expanded array of page templates.
     */
-    function ictu_gc_add_page_templates( $post_templates ) {
-
-      $post_templates[$this->template_home]  = _x( 'Home Inclusie', "naam template",  "ictu-gc-posttypes-inclusie" );    
-      return $post_templates;
-    
-    }
+	function ictu_gc_add_page_templates( $post_templates ) {
+		
+		$post_templates[$this->template_home]  = _x( 'Home Inclusie', "naam template",  "ictu-gc-posttypes-inclusie" );    
+		return $post_templates;
+	
+	}
 
     //========================================================================================================
     /**
@@ -197,6 +205,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
      */
      
 	public function ictu_gc_frontend_home_after_content() {
+
 		global $post;
 		
 		if ( function_exists( 'get_field' ) ) {
@@ -221,7 +230,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
 					echo $section_text;
 					if ( $section_link ) {
-					echo '<p><a href="' . $section_link['url'] . '" class="cta">' . $section_link['title'] . '</a></p>';
+						echo '<p><a href="' . $section_link['url'] . '" class="cta">' . $section_link['title'] . '</a></p>';
 					}
 					echo '</section>';
 				
@@ -251,56 +260,118 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		if ( ! $homepageID ) {
 			return;
 		}
+
+		if ( function_exists( 'get_field' ) ) {
+			
+			$home_stappen     					= get_field( 'home_template_stappen', $homepageID );
 		
-		$home_stappen     					= get_field( 'home_template_stappen', $homepageID );
-
-		if( $home_stappen ): 
-			
-			$section_title  = _x( 'Stappen', 'titel op home-pagina', 'ictu-gc-posttypes-inclusie' );
-			$title_id       = sanitize_title( $section_title . '-' . $post->ID );
-			$stepcounter    = 0;
-			
-			echo '<div aria-labelledby="' . $title_id . '" class="flexbox wrap" id="stappen-chart">';
-			echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
-
-			foreach( $home_stappen as $stap ): 
-			
-				$stepcounter++;
-				$current 	= '';
-				$class 		= 'deel';
-				$titel 		= get_the_title( $stap->ID );
-				$tagend		= '</a>';
-				$tagstart	= '<a>';
+			if( $home_stappen ): 
 				
-				if ( $stap->ID === $post->ID ) {
-					$current 	= ' current';
-					$tagstart 	= '<span class="label current">';
-					$tagend		= '</span>';
-				}
-				else {
+				$section_title  = _x( 'Stappen', 'titel op home-pagina', 'ictu-gc-posttypes-inclusie' );
+				$title_id       = sanitize_title( $section_title . '-' . $post->ID );
+				$stepcounter    = 0;
+				
+				echo '<div aria-labelledby="' . $title_id . '" class="flexbox wrap" id="stappen-chart">';
+				echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
+		
+				foreach( $home_stappen as $stap ): 
+				
+					$stepcounter++;
+					$current 	= '';
+					$class 		= 'deel';
+					$titel 		= get_the_title( $stap->ID );
+					$tagend		= '</a>';
 					$tagstart	= '<a href="' . get_permalink( $stap->ID ) . '" class="label">';
-				}
+					
+					if ( $stap->ID === $post->ID ) {
+						$current 	= ' current';
+						$tagstart 	= '<span class="label">';
+						$tagend		= '</span>';
+					}
+		
+					if ( get_field( 'stap_verkorte_titel', $stap->ID ) ) {
+						$titel = get_field( 'stap_verkorte_titel', $stap->ID );
+					}
+		
+					if ( get_field( 'stap_icon', $stap->ID ) ) {
+						$class = get_field( 'stap_icon', $stap->ID );
+					}
+		
+					$title_id   = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
+					$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
+		
+					echo '<div id="step_' . $stepcounter . '" class="step flexblock ' . $class . $current . '">';
+					echo '<p id="' . $title_id . '">' . $tagstart . $titel . $tagend . '</p>';
+					echo '</div>';
 				
-				if ( get_field( 'stap_verkorte_titel', $stap->ID ) ) {
-					$titel = get_field( 'stap_verkorte_titel', $stap->ID );
-				}
-
-				if ( get_field( 'stap_icon', $stap->ID ) ) {
-					$class = get_field( 'stap_icon', $stap->ID );
-				}
-
-				$title_id   = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
-				$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
-
- 				echo '<div id="step_' . $stepcounter . '" class="step flexblock ' . $class . '">';
-				echo '<h3 id="' . $title_id . '">' . $tagstart . $titel . $tagend . '</h3>';
+				endforeach;
+		
 				echo '</div>';
 			
-			endforeach;
+			endif; 
 
-			echo '</div>';
+			$stap_inleiding 		= get_field( 'stap_inleiding', $post->ID );
+			$stap_methodes  		= get_field( 'stap_methodes', $post->ID );
+			$stap_methode_inleiding	= get_field( 'stap_methode_inleiding', $post->ID );
+
+			echo '<div id="step-inleiding">';
+			echo '<header class="entry-header wrap"><h1 class="entry-title" itemprop="headline">' . get_the_title( ) . '</h1></header>';
+			
+			if ( $stap_inleiding ) {
+				echo $stap_inleiding;
+			}
+
+			echo '</div>'; // #step-inleiding
+
+			
+			if( $stap_methodes ):
+				
+				$section_title = _x( 'Methoden', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+				$title_id       = sanitize_title( $section_title . '-' . $post->ID );
+				
+				echo '<section aria-labelledby="' . $title_id . '" id="step-methoden">';
+				echo '<div class="inleiding">';
+				echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
+				
+				if ( $stap_methode_inleiding ) {
+					echo $stap_methode_inleiding;
+				}
+				else {
+					echo sprintf( '<p>%s</p>', _x( 'Dit is een selectie van methoden, technieken en instrumenten die je in kunt zetten bij het uitvoeren van deze stap. Soms gaat het om standaardmethoden die worden ingezet voor het uitvoeren van een ontwerptraject waarbij de gebruiker centraal staat. Andere methoden richten zich specifiek op inclusie. ', 'Stap: intro bij methoden', 'ictu-gc-posttypes-inclusie' ) ); 
+				}
+				echo '</div>'; // .inleiding
+
+				
+				echo '<div class="flexbox cards">';
+				
+				// loop through the rows of data
+				foreach( $stap_methodes as $post ):
+				
+					setup_postdata( $post );
+					
+					$theid = $post->ID;
+					
+					$section_title  = get_the_title( $theid );
+					$section_text   = get_the_excerpt( $theid );
+					$section_link   = get_sub_field( 'home_template_teaser_link' );
+					$title_id       = sanitize_title( $section_title );
+					
+					echo '<div class="flexblock no-image">';
+					echo '<h3 id="' . $title_id . '"><a href="' . get_permalink( $theid ) . '">' . $section_title . '</a></h3>';
+					echo $section_text;
+					echo '</div>';
+					
+				endforeach;
+				
+				wp_reset_postdata();            
+				
+				echo '</div>';
+				echo '</section>';
+			
+			endif; 
+			
 		
-		endif; 
+		}
 		
 	
 	}
@@ -370,28 +441,19 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 						$inleiding      = apply_filters('the_content', $content);   
 					}
 					
-					$xtraclass = ' hidden';
-					
-					if  ( $stepcounter == 1 ) {
-//						$xtraclass = '';
-					}
-					else {
-//						break;
-					}
-					$title_id       = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
-
+					$xtraclass 	= ' hidden';
+					$title_id   = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
 					$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
 					$readmore	= sprintf( _x( '%s <span class="visuallyhidden">over %s</span>', 'home lees meer', 'ictu-gc-posttypes-inclusie' ), _x( 'Lees meer', 'home lees meer', 'ictu-gc-posttypes-inclusie' ), get_the_title( $stap->ID ) ); 
 
 					
 					echo '<section id="step_' . $stepcounter . '" class="step ' . $class . '" aria-labelledby="' . $title_id . '">';
-					echo '<button class="js-faq-question">' . $steptitle . '<span>&nbsp;</span></button>';
-					echo '<div class="description' . $xtraclass . ' js-faq-answer">';
+					echo '<button class="js-openclosebutton">' . $steptitle . '<span>&nbsp;</span></button>';
+					echo '<div class="description' . $xtraclass . ' js-descriptionbox">';
 					echo '<h3 id="' . $title_id . '">' . get_the_title( $stap->ID ) . '</h3>';
 					echo $inleiding;
-					echo '<a href="' . get_permalink( $stap->ID ) . '" class="cta">' . $readmore . '</a>';
+					echo '<p><a href="' . get_permalink( $stap->ID ) . '" class="cta">' . $readmore . '</a></p>';
 					echo '</div>';
-//					echo '<button class="stepcounter">' . $stepcounter . '</button>';
 					echo '</section>';
 				
 				endforeach;
@@ -430,10 +492,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					if ( get_field('doelgroep_avatar', $doelgroep->ID) ) {
 						$doelgroeppoppetje	= get_field('doelgroep_avatar', $doelgroep->ID);
 					}
-					
-					
-					
-					
+
 					echo '<section aria-labelledby="' . $title_id . '" class="doelgroepcard ' . $doelgroeppoppetje . ' flexblock" id="' . $section_id . '">';
 					echo '<h2 id="' . $title_id . '"><a href="' . get_permalink( $doelgroep->ID ) . '"><span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span><span>' . get_the_title( $doelgroep->ID ) . '</span></a></h2>';
 					echo '<div class="tegeltje">' . $content . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
@@ -442,8 +501,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				endwhile;
 				
 				echo '</div>';
-				
-//				$obj	= get_post_type_object( $posttype );
+
 				$label	= _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie' ); // $obj->name;
 				echo '<p id="doelgroep-archive-p"><a href="' . get_post_type_archive_link( $posttype ) . '" class="cta ' . $posttype . '">' . $label . '</a></p>';
 
@@ -499,10 +557,81 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				
 			endif; 
 			
-			if ( $header_css ) {
-				wp_add_inline_style( ICTU_GC_ARCHIVE_CSS, $header_css );
-			}
 		}
+
+		$gerelateerdecontent = get_field( 'gerelateerde_content_toevoegen', $acfid );
+		
+		if ( $gerelateerdecontent == 'ja' ) {
+
+			$related_items  = get_field('content_block_items');
+
+			// loop through the rows of data
+			foreach( $related_items as $post ):
+			
+				setup_postdata( $post );
+
+				$image          = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+				
+				if ( $image[0] ) {
+					$header_css .= "#related_" . $post->ID . " .featured-image:after { ";
+					$header_css .= "background-image: url('" . $image[0] . "'); ";
+					$header_css .= "background-size: cover; ";
+					$header_css .= "} ";
+				}
+
+				
+			endforeach;
+			
+			wp_reset_postdata();            
+
+
+		}
+			
+		$handigelinks = get_field( 'handige_links_toevoegen', $post->ID );
+		
+		if ( $handigelinks == 'ja' ) {
+			
+			$section_title  = get_field( 'links_block_title', $post->ID );
+			$title_id       = sanitize_title( $section_title . '-title' );
+			
+			echo '<section aria-labelledby="' . $title_id . '">';
+			echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
+			
+			$links_block_items = get_field('links_block_items');
+			
+			if( $links_block_items ): 
+			
+				echo '<ul>';
+				
+				while( have_rows('links_block_items') ): the_row();
+				
+					$links_block_item_url         = get_sub_field('links_block_item_url');
+					$links_block_item_linktext    = get_sub_field('links_block_item_linktext');
+					$links_block_item_description = get_sub_field('links_block_item_description');
+					
+					echo '<li> <a href="' . esc_url( $links_block_item_url ) . '">' . sanitize_text_field( $links_block_item_linktext ) . '</a>';
+					
+					if ( $links_block_item_description ) {
+						echo '<br>' . sanitize_text_field( $links_block_item_description );
+					}
+					
+					echo '</li>';
+					
+				endwhile;
+				
+				echo '</ul>';
+				
+			endif; 
+			
+			echo '</section>';
+			
+		}
+
+		if ( $header_css ) {
+			wp_add_inline_style( ICTU_GC_ARCHIVE_CSS, $header_css );
+		}
+
+		
     }
 
     //========================================================================================================
@@ -528,7 +657,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			//* Remove the post content (requires HTML5 theme support)
 			remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 			
-			// append actielijnen
+			// append content
 			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_home_before_content' ), 8 ); 				
 			add_action( 'genesis_after_content',  array( $this, 'ictu_gc_frontend_home_after_content' ), 12 ); 				
 			
@@ -536,8 +665,17 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		}
 		elseif ( ICTU_GC_CPT_STAP == get_post_type( ) )  {
 
+			//* Remove standard header
+			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
+			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
+			remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+
 			add_action( 'genesis_before_loop',  array( $this, 'ictu_gc_frontend_stap_before_content' ), 8 ); 				
 
+			add_action( 'genesis_entry_header',  array( $this, 'ictu_gc_frontend_stap_append_title' ), 10 ); 				
+
+			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_get_related_content' ), 12 ); 				
+	
 		}
 
 		//=================================================
@@ -559,62 +697,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     /** ----------------------------------------------------------------------------------------------------
      * filter the breadcrumb
      */
-    public function prepend_content( $thecontent) {
+    public function prepend_content( $thecontent ) {
 
       global $post;
 
       if ( is_singular( ICTU_GC_CPT_STAP ) ) {
 
-        if ( function_exists( 'get_field' ) ) {
 
-          $stap_inleiding = get_field( 'stap_inleiding', $post->ID );
-          $stap_methodes  = get_field( 'stap_methodes', $post->ID );
-          
-          if ( $stap_inleiding ) {
-            echo $stap_inleiding;
-          }
-
-          if( $stap_methodes ):
-
-            $section_title = _x( 'Methoden', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
-            $title_id       = sanitize_title( $section_title . '-' . $post->ID );
-          
-            echo '<section aria-labelledby="' . $title_id . '">';
-            echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-            echo '<div class="flexbox">';
-          
-            // loop through the rows of data
-            foreach( $stap_methodes as $post ):
-
-              setup_postdata( $post );
-
-              $theid = $post->ID;
-          
-              $section_title  = get_the_title( $theid );
-              $section_text   = get_the_excerpt( $theid );
-              $section_link   = get_sub_field( 'home_template_teaser_link' );
-              $title_id       = sanitize_title( $section_title );
-          
-              echo '<div class="flexblock">';
-              echo '<h3 id="' . $title_id . '">' . $section_title . '</h3>';
-              echo $section_text;
-              echo '<p><a href="' . get_permalink( $theid ) . '">' . get_the_title( $theid ) . '</a></p>';
-              echo '</div>';
-          
-            endforeach;
-            
-            wp_reset_postdata();            
-  
-            echo '</div>';
-            echo '</section>';
-          
-          endif; 
-
-          $section_title = _x( 'Proces', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
-          $title_id       = sanitize_title( $section_title . '-' . $post->ID );
-          echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-          
-        }
       }
       elseif ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
 
@@ -810,92 +899,126 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
       
       if ( is_singular( ICTU_GC_CPT_STAP ) || is_singular( 'page' ) ) {
 
-        if ( function_exists( 'get_field' ) ) {
-          
-          $gerelateerdecontent = get_field( 'gerelateerde_content_toevoegen', get_the_id() );
-  
-          if ( $gerelateerdecontent == 'ja' ) {
-  
-            $section_title  = get_field( 'content_block_title', $post->ID );
-            $title_id       = sanitize_title( $section_title . '-title' );
-            $related_items  = get_field('content_block_items');
-  
-            echo '<section aria-labelledby="' . $title_id . '" class="related-content">';
-            echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-            echo '<div class="flexbox">';
-          
-            // loop through the rows of data
-            foreach( $related_items as $post ):
-  
-              setup_postdata( $post );
-  
-              $theid = $post->ID;
-          
-              $section_title  = get_the_title( $theid );
-              $section_text   = get_the_excerpt( $theid );
-              $section_link   = get_sub_field( 'home_template_teaser_link' );
-              $title_id       = sanitize_title( $section_title );
-          
-              echo '<div class="flexblock">';
-              echo '<h3 id="' . $title_id . '">' . $section_title . '</h3>';
-              echo $section_text;
-              echo '<p><a href="' . get_permalink( $theid ) . '">' . get_the_title( $theid ) . '</a></p>';
-              echo '</div>';
-          
-            endforeach;
-            
-            wp_reset_postdata();            
-  
-            echo '</div>';
-            echo '</section>';
 
-          }
-          
-          $handigelinks = get_field( 'handige_links_toevoegen', $post->ID );
-          
-          if ( $handigelinks == 'ja' ) {
-  
-            $section_title  = get_field( 'links_block_title', $post->ID );
-            $title_id       = sanitize_title( $section_title . '-title' );
-            
-            echo '<section aria-labelledby="' . $title_id . '">';
-            echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-            
-            $links_block_items = get_field('links_block_items');
-    
-            if( $links_block_items ): 
-  
-              echo '<ul>';
-  
-              while( have_rows('links_block_items') ): the_row();
-              
-              	$links_block_item_url         = get_sub_field('links_block_item_url');
-              	$links_block_item_linktext    = get_sub_field('links_block_item_linktext');
-              	$links_block_item_description = get_sub_field('links_block_item_description');
-  
-                echo '<li> <a href="' . esc_url( $links_block_item_url ) . '">' . sanitize_text_field( $links_block_item_linktext ) . '</a>';
-                
-                if ( $links_block_item_description ) {
-                  echo '<br>' . sanitize_text_field( $links_block_item_description );
-                }
-                
-                echo '</li>';
-
-              endwhile;
-  
-              echo '</ul>';
-              
-            endif; 
-  
-            echo '</section>';
-  
-          }
-
-        }
                 
       }
 
       return $thecontent;
+
+    }
+
+    
+    /** ----------------------------------------------------------------------------------------------------
+     * Prepends a title before the content
+     */
+    public function ictu_gc_frontend_get_related_content() {
+	    
+	    global $post;
+
+		if ( function_exists( 'get_field' ) ) {
+			
+			$gerelateerdecontent = get_field( 'gerelateerde_content_toevoegen', get_the_id() );
+			
+			if ( $gerelateerdecontent == 'ja' ) {
+				
+				$section_title  = get_field( 'content_block_title', $post->ID );
+				$title_id       = sanitize_title( $section_title . '-title' );
+				$related_items  = get_field('content_block_items');
+				
+				echo '<section aria-labelledby="' . $title_id . '" class="related-content">';
+				echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
+				echo '<div class="flexbox cards">';
+				
+				// loop through the rows of data
+				foreach( $related_items as $post ):
+				
+					setup_postdata( $post );
+					
+					$theid = $post->ID;
+					
+					$section_title  	= get_the_title( $theid );
+					$section_text   	= get_the_excerpt( $theid );
+					$section_link   	= get_sub_field( 'home_template_teaser_link' );
+					$title_id       	= sanitize_title( $section_title );
+					$block_id       	= sanitize_title( 'related_' . $theid );
+					$imageplaceholder	= '';
+					$image          	= wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+					
+					if ( $image[0] ) {
+						$class = ' with-image';
+						$imageplaceholder = '<div class="featured-image">&nbsp;</div>';
+					}
+					else {
+						$class = ' no-image';
+					}
+					
+					
+					echo '<div class="flexblock' . $class . '" id="' . $block_id . '">' . $imageplaceholder;
+					echo '<h3 id="' . $title_id . '"><a href="' . get_permalink( $theid ) . '">' . $section_title . '</a></h3>';
+					echo "<p>"  . $section_text . "</p>";
+					echo '</div>';
+					
+				endforeach;
+				
+				wp_reset_postdata();            
+				
+				echo '</div>';
+				echo '</section>';
+				
+			}
+			
+			$handigelinks = get_field( 'handige_links_toevoegen', $post->ID );
+			
+			if ( $handigelinks == 'ja' ) {
+				
+				$section_title  = get_field( 'links_block_title', $post->ID );
+				$title_id       = sanitize_title( $section_title . '-title' );
+				
+				echo '<section aria-labelledby="' . $title_id . '" class="related-links">';
+				echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
+				
+				$links_block_items = get_field('links_block_items');
+				
+				if( $links_block_items ): 
+				
+					echo '<ul>';
+					
+					while( have_rows('links_block_items') ): the_row();
+					
+						$links_block_item_url         = get_sub_field('links_block_item_url');
+						$links_block_item_linktext    = get_sub_field('links_block_item_linktext');
+						$links_block_item_description = get_sub_field('links_block_item_description');
+						
+						echo '<li> <span><a href="' . esc_url( $links_block_item_url ) . '">' . sanitize_text_field( $links_block_item_linktext ) . '</a>';
+						
+						if ( $links_block_item_description ) {
+							echo '<br>' . sanitize_text_field( $links_block_item_description );
+						}
+						
+						echo '</span></li>';
+						
+					endwhile;
+					
+					echo '</ul>';
+					
+				endif; 
+				
+				echo '</section>';
+				
+			}
+		}
+	}
+
+    /** ----------------------------------------------------------------------------------------------------
+     * Prepends a title before the content
+     */
+    public function ictu_gc_frontend_stap_append_title() {
+	
+		global $post;
+
+		$section_title = _x( 'Tips', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+		$title_id       = sanitize_title( $section_title . '-' . $post->ID );
+		echo '<h2 id="' . $title_id . '" class="entry-title">' . $section_title . '</h2>';
 
     }
     
@@ -1545,981 +1668,36 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     //** ---------------------------------------------------------------------------------------------------
 
 
-    public function initialize_acf_fields() {
-      
-      if( function_exists('acf_add_local_field_group') ):
-      
-      acf_add_local_field_group(array(
-      	'key' => 'group_5c8f882222034',
-      	'title' => 'Citaat: auteur',
-      	'fields' => array(
-      		array(
-      			'key' => 'field_5c8f882d1c131',
-      			'label' => 'citaat auteur',
-      			'name' => 'citaat_auteur',
-      			'type' => 'text',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'default_value' => '',
-      			'placeholder' => '',
-      			'prepend' => '',
-      			'append' => '',
-      			'maxlength' => '',
-      		),
-      	),
-      	'location' => array(
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'citaat',
-      			),
-      		),
-      	),
-      	'menu_order' => 0,
-      	'position' => 'acf_after_title',
-      	'style' => 'default',
-      	'label_placement' => 'top',
-      	'instruction_placement' => 'label',
-      	'hide_on_screen' => '',
-      	'active' => true,
-      	'description' => '',
-      ));
-      
-      acf_add_local_field_group(array(
-      	'key' => 'group_5c8fd53fbda24',
-      	'title' => 'Doelgroep: citaat, facts & figures',
-      	'fields' => array(
-      		array(
-      			'key' => 'field_5c922f65f8152',
-      			'label' => 'Bijbehorende citaten',
-      			'name' => 'facts_citaten',
-      			'type' => 'relationship',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'post_type' => array(
-      				0 => 'citaat',
-      			),
-      			'taxonomy' => '',
-      			'filters' => array(
-      				0 => 'search',
-      			),
-      			'elements' => '',
-      			'min' => '',
-      			'max' => '',
-      			'return_format' => 'object',
-      		),
-      		array(
-      			'key' => 'field_5c8fd54f1a328',
-      			'label' => 'facts_title',
-      			'name' => 'facts_title',
-      			'type' => 'text',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'default_value' => '',
-      			'placeholder' => '',
-      			'prepend' => '',
-      			'append' => '',
-      			'maxlength' => '',
-      		),
-      		array(
-      			'key' => 'field_5c8fd568b08ec',
-      			'label' => 'facts_description',
-      			'name' => 'facts_description',
-      			'type' => 'wysiwyg',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'tabs' => 'all',
-      			'toolbar' => 'full',
-      			'media_upload' => 1,
-      			'default_value' => '',
-      			'delay' => 0,
-      		),
-      		array(
-      			'key' => 'field_5c8fd57f464c4',
-      			'label' => 'facts_source_url',
-      			'name' => 'facts_source_url',
-      			'type' => 'url',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'default_value' => '',
-      			'placeholder' => '',
-      		),
-      		array(
-      			'key' => 'field_5c8fd5975c283',
-      			'label' => 'facts_source_label',
-      			'name' => 'facts_source_label',
-      			'type' => 'text',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'default_value' => '',
-      			'placeholder' => '',
-      			'prepend' => '',
-      			'append' => '',
-      			'maxlength' => '',
-      		),
-      	),
-      	'location' => array(
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'doelgroep',
-      			),
-      		),
-      	),
-      	'menu_order' => 0,
-      	'position' => 'normal',
-      	'style' => 'default',
-      	'label_placement' => 'top',
-      	'instruction_placement' => 'label',
-      	'hide_on_screen' => '',
-      	'active' => true,
-      	'description' => '',
-      ));
-      
-      acf_add_local_field_group(array(
-      	'key' => 'group_5c8fd6bacf265',
-      	'title' => 'Doelgroep: vaardigheden',
-      	'fields' => array(
-      		array(
-      			'key' => 'field_5c924f598eeab',
-      			'label' => 'doelgroep_vaardigheden',
-      			'name' => 'doelgroep_vaardigheden',
-      			'type' => 'relationship',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'post_type' => array(
-      				0 => 'vaardigheden',
-      			),
-      			'taxonomy' => '',
-      			'filters' => array(
-      				0 => 'search',
-      				1 => 'taxonomy',
-      			),
-      			'elements' => '',
-      			'min' => '',
-      			'max' => '',
-      			'return_format' => 'object',
-      		),
-      	),
-      	'location' => array(
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'doelgroep',
-      			),
-      		),
-      	),
-      	'menu_order' => 0,
-      	'position' => 'normal',
-      	'style' => 'default',
-      	'label_placement' => 'top',
-      	'instruction_placement' => 'label',
-      	'hide_on_screen' => '',
-      	'active' => true,
-      	'description' => '',
-      ));
-
-		acf_add_local_field_group(array(
-			'key' => 'group_5c90e063ca578',
-			'title' => 'Homepage template: inleiding, stappen en doelgroepen',
-			'fields' => array(
-				array(
-					'key' => 'field_5c90fd5fe0a58',
-					'label' => 'Inleiding op homepage',
-					'name' => 'home_template_inleiding',
-					'type' => 'wysiwyg',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'tabs' => 'all',
-					'toolbar' => 'full',
-					'media_upload' => 1,
-					'delay' => 0,
-				),
-				array(
-					'key' => 'field_5c90e0739fa4b',
-					'label' => 'Stappen',
-					'name' => 'home_template_stappen',
-					'type' => 'relationship',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'post_type' => array(
-						0 => 'stap',
-					),
-					'taxonomy' => '',
-					'filters' => array(
-						0 => 'search',
-						1 => 'taxonomy',
-					),
-					'elements' => '',
-					'min' => '',
-					'max' => '',
-					'return_format' => 'object',
-				),
-				array(
-					'key' => 'field_5c90e096cca0a',
-					'label' => 'Doelgroepen',
-					'name' => 'home_template_doelgroepen',
-					'type' => 'repeater',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'collapsed' => '',
-					'min' => 0,
-					'max' => 0,
-					'layout' => 'table',
-					'button_label' => '',
-					'sub_fields' => array(
-						array(
-							'key' => 'field_5c9104bff7ade',
-							'label' => 'Kies doelgroep',
-							'name' => 'home_template_doelgroepen_doelgroep',
-							'type' => 'post_object',
-							'instructions' => '',
-							'required' => 0,
-							'conditional_logic' => 0,
-							'wrapper' => array(
-								'width' => '',
-								'class' => '',
-								'id' => '',
-							),
-							'post_type' => array(
-								0 => 'doelgroep',
-							),
-							'taxonomy' => '',
-							'allow_null' => 1,
-							'multiple' => 0,
-							'return_format' => 'object',
-							'ui' => 1,
-						),
-						array(
-							'key' => 'field_5c910507f7adf',
-							'label' => 'Kies citaat',
-							'name' => 'home_template_doelgroepen_citaat',
-							'type' => 'post_object',
-							'instructions' => '',
-							'required' => 0,
-							'conditional_logic' => 0,
-							'wrapper' => array(
-								'width' => '',
-								'class' => '',
-								'id' => '',
-							),
-							'post_type' => array(
-								0 => 'citaat',
-							),
-							'taxonomy' => '',
-							'allow_null' => 1,
-							'multiple' => 0,
-							'return_format' => 'object',
-							'ui' => 1,
-						),
-					),
-				),
-				array(
-					'key' => 'field_5ccfec39e2de3',
-					'label' => 'home_template_poster',
-					'name' => 'home_template_poster',
-					'type' => 'file',
-					'instructions' => 'Upload de PDF voor de poster',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'return_format' => 'array',
-					'library' => 'all',
-					'min_size' => '',
-					'max_size' => '',
-					'mime_types' => '',
-				),
-				array(
-					'key' => 'field_5ccfeccee8a61',
-					'label' => 'home_template_poster_linktekst',
-					'name' => 'home_template_poster_linktekst',
-					'type' => 'text',
-					'instructions' => 'Dit is de tekst op de downloadknop als je een PDF met de poster hebt toegevoegd.',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => 'Download de poster',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-			),
-			'location' => array(
-				array(
-					array(
-						'param' => 'page_template',
-						'operator' => '==',
-						'value' => 'home-inclusie.php',
-					),
-				),
-			),
-			'menu_order' => 0,
-			'position' => 'acf_after_title',
-			'style' => 'default',
-			'label_placement' => 'top',
-			'instruction_placement' => 'label',
-			'hide_on_screen' => '',
-			'active' => true,
-			'description' => '',
-		));
-
-      
-      
-      acf_add_local_field_group(array(
-      	'key' => 'group_5c91ff4e9f37c',
-      	'title' => 'Homepage template: teasers',
-      	'fields' => array(
-      		array(
-      			'key' => 'field_5c91ff4eb3ace',
-      			'label' => 'Doelgroepen',
-      			'name' => 'home_template_teasers',
-      			'type' => 'repeater',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'collapsed' => 'field_5c91ff4ebb071',
-      			'min' => 0,
-      			'max' => 0,
-      			'layout' => 'block',
-      			'button_label' => '',
-      			'sub_fields' => array(
-      				array(
-      					'key' => 'field_5c91ff4ebb071',
-      					'label' => 'Titel',
-      					'name' => 'home_template_teaser_title',
-      					'type' => 'text',
-      					'instructions' => '',
-      					'required' => 0,
-      					'conditional_logic' => 0,
-      					'wrapper' => array(
-      						'width' => '',
-      						'class' => '',
-      						'id' => '',
-      					),
-      					'default_value' => '',
-      					'placeholder' => '',
-      					'prepend' => '',
-      					'append' => '',
-      					'maxlength' => '',
-      				),
-      				array(
-      					'key' => 'field_5c91ff4ebb07a',
-      					'label' => 'home_template_teaser_text',
-      					'name' => 'home_template_teaser_text',
-      					'type' => 'wysiwyg',
-      					'instructions' => '',
-      					'required' => 0,
-      					'conditional_logic' => 0,
-      					'wrapper' => array(
-      						'width' => '',
-      						'class' => '',
-      						'id' => '',
-      					),
-      					'default_value' => '',
-      					'tabs' => 'all',
-      					'toolbar' => 'basic',
-      					'media_upload' => 0,
-      					'delay' => 0,
-      				),
-      				array(
-      					'key' => 'field_5c92023852c87',
-      					'label' => 'home_template_teaser_link',
-      					'name' => 'home_template_teaser_link',
-      					'type' => 'link',
-      					'instructions' => '',
-      					'required' => 0,
-      					'conditional_logic' => 0,
-      					'wrapper' => array(
-      						'width' => '',
-      						'class' => '',
-      						'id' => '',
-      					),
-      					'return_format' => 'array',
-      				),
-      			),
-      		),
-      	),
-      	'location' => array(
-      		array(
-      			array(
-      				'param' => 'page_template',
-      				'operator' => '==',
-      				'value' => 'home-inclusie.php',
-      			),
-      		),
-      	),
-      	'menu_order' => 0,
-      	'position' => 'acf_after_title',
-      	'style' => 'default',
-      	'label_placement' => 'top',
-      	'instruction_placement' => 'label',
-      	'hide_on_screen' => '',
-      	'active' => true,
-      	'description' => '',
-      ));
-      
-      acf_add_local_field_group(array(
-      	'key' => 'group_5c8f9ba967736',
-      	'title' => 'Stap en pagina\'s: gerelateerde content',
-      	'fields' => array(
-      		array(
-      			'key' => 'field_5c8fe203a8435',
-      			'label' => 'Gerelateerde content toevoegen?',
-      			'name' => 'gerelateerde_content_toevoegen',
-      			'type' => 'radio',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'choices' => array(
-      				'ja' => 'Ja',
-      				'nee' => 'Nee',
-      			),
-      			'allow_null' => 0,
-      			'other_choice' => 0,
-      			'default_value' => 'nee',
-      			'layout' => 'vertical',
-      			'return_format' => 'value',
-      			'save_other_choice' => 0,
-      		),
-      		array(
-      			'key' => 'field_5c8fd404bd765',
-      			'label' => 'content_block_title',
-      			'name' => 'content_block_title',
-      			'type' => 'text',
-      			'instructions' => '',
-      			'required' => 1,
-      			'conditional_logic' => array(
-      				array(
-      					array(
-      						'field' => 'field_5c8fe203a8435',
-      						'operator' => '==',
-      						'value' => 'ja',
-      					),
-      				),
-      			),
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'default_value' => '',
-      			'placeholder' => '',
-      			'prepend' => '',
-      			'append' => '',
-      			'maxlength' => '',
-      		),
-      		array(
-      			'key' => 'field_5c8fd42e15a23',
-      			'label' => 'content_block_items',
-      			'name' => 'content_block_items',
-      			'type' => 'relationship',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => array(
-      				array(
-      					array(
-      						'field' => 'field_5c8fe203a8435',
-      						'operator' => '==',
-      						'value' => 'ja',
-      					),
-      				),
-      			),
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'post_type' => array(
-      				0 => 'post',
-      				1 => 'page',
-      				2 => 'doelgroep',
-      				3 => 'stap',
-      			),
-      			'taxonomy' => '',
-      			'filters' => array(
-      				0 => 'search',
-      				1 => 'post_type',
-      				2 => 'taxonomy',
-      			),
-      			'elements' => '',
-      			'min' => '',
-      			'max' => '',
-      			'return_format' => 'object',
-      		),
-      	),
-      	'location' => array(
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'stap',
-      			),
-      		),
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'page',
-      			),
-      		),
-      	),
-      	'menu_order' => 0,
-      	'position' => 'normal',
-      	'style' => 'default',
-      	'label_placement' => 'top',
-      	'instruction_placement' => 'label',
-      	'hide_on_screen' => '',
-      	'active' => true,
-      	'description' => '',
-      ));
-      
-      acf_add_local_field_group(array(
-      	'key' => 'group_5c8fdeebf0c34',
-      	'title' => 'Stap en pagina\'s: handige (externe) links',
-      	'fields' => array(
-      		array(
-      			'key' => 'field_5c8fe142c5418',
-      			'label' => 'Handige links toevoegen?',
-      			'name' => 'handige_links_toevoegen',
-      			'type' => 'radio',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'choices' => array(
-      				'ja' => 'Ja',
-      				'nee' => 'Nee',
-      			),
-      			'allow_null' => 0,
-      			'other_choice' => 0,
-      			'default_value' => 'nee',
-      			'layout' => 'vertical',
-      			'return_format' => 'value',
-      			'save_other_choice' => 0,
-      		),
-      		array(
-      			'key' => 'field_5c8fdeec07d4b',
-      			'label' => 'links_block_title',
-      			'name' => 'links_block_title',
-      			'type' => 'text',
-      			'instructions' => '',
-      			'required' => 1,
-      			'conditional_logic' => array(
-      				array(
-      					array(
-      						'field' => 'field_5c8fe142c5418',
-      						'operator' => '==',
-      						'value' => 'ja',
-      					),
-      				),
-      			),
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'default_value' => '',
-      			'placeholder' => '',
-      			'prepend' => '',
-      			'append' => '',
-      			'maxlength' => '',
-      		),
-      		array(
-      			'key' => 'field_5c8fdeec07d58',
-      			'label' => 'links_block_items',
-      			'name' => 'links_block_items',
-      			'type' => 'repeater',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => array(
-      				array(
-      					array(
-      						'field' => 'field_5c8fe142c5418',
-      						'operator' => '==',
-      						'value' => 'ja',
-      					),
-      				),
-      			),
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'collapsed' => '',
-      			'min' => 1,
-      			'max' => 0,
-      			'layout' => 'table',
-      			'button_label' => '',
-      			'sub_fields' => array(
-      				array(
-      					'key' => 'field_5c8fdf2a0c1a1',
-      					'label' => 'links_block_item_url',
-      					'name' => 'links_block_item_url',
-      					'type' => 'url',
-      					'instructions' => '',
-      					'required' => 0,
-      					'conditional_logic' => 0,
-      					'wrapper' => array(
-      						'width' => '30',
-      						'class' => '',
-      						'id' => '',
-      					),
-      					'default_value' => '',
-      					'placeholder' => '',
-      				),
-      				array(
-      					'key' => 'field_5c8fe1000c1a2',
-      					'label' => 'links_block_item_linktext',
-      					'name' => 'links_block_item_linktext',
-      					'type' => 'text',
-      					'instructions' => '',
-      					'required' => 0,
-      					'conditional_logic' => 0,
-      					'wrapper' => array(
-      						'width' => '30',
-      						'class' => '',
-      						'id' => '',
-      					),
-      					'default_value' => '',
-      					'placeholder' => '',
-      					'prepend' => '',
-      					'append' => '',
-      					'maxlength' => '',
-      				),
-      				array(
-      					'key' => 'field_5c8fe10d0c1a3',
-      					'label' => 'links_block_item_description',
-      					'name' => 'links_block_item_description',
-      					'type' => 'textarea',
-      					'instructions' => '',
-      					'required' => 0,
-      					'conditional_logic' => 0,
-      					'wrapper' => array(
-      						'width' => '40',
-      						'class' => '',
-      						'id' => '',
-      					),
-      					'default_value' => '',
-      					'placeholder' => '',
-      					'maxlength' => '',
-      					'rows' => '',
-      					'new_lines' => '',
-      				),
-      			),
-      		),
-      	),
-      	'location' => array(
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'stap',
-      			),
-      		),
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'page',
-      			),
-      		),
-      	),
-      	'menu_order' => 0,
-      	'position' => 'normal',
-      	'style' => 'default',
-      	'label_placement' => 'top',
-      	'instruction_placement' => 'label',
-      	'hide_on_screen' => '',
-      	'active' => true,
-      	'description' => '',
-      ));
-
-		acf_add_local_field_group(array(
-			'key' => 'group_5c8fde441c0a9',
-			'title' => 'Stap: inleiding en methodes',
-			'fields' => array(
-				array(
-					'key' => 'field_5c91fb7281870',
-					'label' => 'Verkorte titel',
-					'name' => 'stap_verkorte_titel',
-					'type' => 'text',
-					'instructions' => 'Deze tekst wordt als label getoond in het stappenschema. Gebruik bij voorkeur 1 woord.',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-				array(
-					'key' => 'field_5cdb1d4374d09',
-					'label' => 'Icoontje',
-					'name' => 'stap_icon',
-					'type' => 'radio',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'choices' => array(
-						'identificeer' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/identificeer.png"> Identificeer',
-						'verdiep' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/verdiep.png"> Verdiep',
-						'ontwerp' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/ontwerp.png"> Ontwerp',
-						'evalueer' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/evalueer.png"> Evalueer',
-						'deel' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/deel.png"> Deel',
-					),
-					'allow_null' => 0,
-					'other_choice' => 0,
-					'default_value' => 'identificeer',
-					'layout' => 'vertical',
-					'return_format' => 'value',
-					'save_other_choice' => 0,
-				),
-				array(
-					'key' => 'field_5c90bae01c857',
-					'label' => 'Inleiding',
-					'name' => 'stap_inleiding',
-					'type' => 'wysiwyg',
-					'instructions' => 'korte inleiding bij deze stap. Wordt getoond in het cirkelschema op de homepage.',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'tabs' => 'all',
-					'toolbar' => 'basic',
-					'media_upload' => 1,
-					'delay' => 0,
-				),
-				array(
-					'key' => 'field_5c8fde5259d46',
-					'label' => 'Methodes',
-					'name' => 'stap_methodes',
-					'type' => 'relationship',
-					'instructions' => 'Kies de bij deze stap horende methodes.',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'post_type' => array(
-						0 => 'methode',
-					),
-					'taxonomy' => '',
-					'filters' => array(
-						0 => 'search',
-					),
-					'elements' => '',
-					'min' => '',
-					'max' => '',
-					'return_format' => 'object',
-				),
-			),
-			'location' => array(
-				array(
-					array(
-						'param' => 'post_type',
-						'operator' => '==',
-						'value' => 'stap',
-					),
-				),
-			),
-			'menu_order' => 0,
-			'position' => 'acf_after_title',
-			'style' => 'default',
-			'label_placement' => 'top',
-			'instruction_placement' => 'label',
-			'hide_on_screen' => '',
-			'active' => true,
-			'description' => '',
-		));
-
-
-      
-      acf_add_local_field_group(array(
-      	'key' => 'group_5c9398df21747',
-      	'title' => 'Vaardigheid: aan- en afraders',
-      	'fields' => array(
-      		array(
-      			'key' => 'field_5c9398f446669',
-      			'label' => 'Afraders',
-      			'name' => 'vaardigheid_afraders',
-      			'type' => 'relationship',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'post_type' => array(
-      				0 => 'afrader',
-      			),
-      			'taxonomy' => '',
-      			'filters' => array(
-      				0 => 'search',
-      				1 => 'taxonomy',
-      			),
-      			'elements' => '',
-      			'min' => '',
-      			'max' => '',
-      			'return_format' => 'object',
-      		),
-      		array(
-      			'key' => 'field_5c93993e49d5c',
-      			'label' => 'Aanraders',
-      			'name' => 'vaardigheid_aanraders',
-      			'type' => 'relationship',
-      			'instructions' => '',
-      			'required' => 0,
-      			'conditional_logic' => 0,
-      			'wrapper' => array(
-      				'width' => '',
-      				'class' => '',
-      				'id' => '',
-      			),
-      			'post_type' => array(
-      				0 => 'aanrader',
-      			),
-      			'taxonomy' => '',
-      			'filters' => array(
-      				0 => 'search',
-      				1 => 'taxonomy',
-      			),
-      			'elements' => '',
-      			'min' => '',
-      			'max' => '',
-      			'return_format' => 'object',
-      		),
-      	),
-      	'location' => array(
-      		array(
-      			array(
-      				'param' => 'post_type',
-      				'operator' => '==',
-      				'value' => 'vaardigheden',
-      			),
-      		),
-      	),
-      	'menu_order' => 0,
-      	'position' => 'normal',
-      	'style' => 'default',
-      	'label_placement' => 'top',
-      	'instruction_placement' => 'label',
-      	'hide_on_screen' => '',
-      	'active' => true,
-      	'description' => '',
-      ));
-      
-      endif;
-            
-    }  
+  
 
 }
 
 endif;
 
 //========================================================================================================
+/*
+	
+remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
+remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );
 
+remove_action( 'genesis_footer', 'genesis_do_footer' );
+remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
+remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
+
+remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
+remove_action( 'genesis_footer', 'genesis_do_footer' );
+remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
+
+*/
+ 
+//add_action('genesis_entry_footer', 'wbvb_dump_actions', 5);
+
+function wbvb_dump_actions(){ 
+
+	$hook_name = 'genesis_entry_footer';
+	global $wp_filter;
+	var_dump( $wp_filter[$hook_name] );	
+
+}
+
+//========================================================================================================
