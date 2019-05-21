@@ -1,7 +1,7 @@
 /*!
 
 
-<!--                 frontend.css - v0.0.6                     -->
+<!--                 frontend.css - v0.0.7                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -78,13 +78,9 @@ body.page,
 body.single {
   background: #f2ebe4;
 }
-body.page #maincontent,
-body.single #maincontent {
-  padding-top: 11rem;
-}
 #maincontent {
   background-color: #f2ebe4;
-  background-image: url('../images/page-top-bg.svg');
+  background-image: url('../images/page-top-bg.svg?ad');
   background-position: center top;
   background-repeat: no-repeat;
   max-width: 1900px;
@@ -124,7 +120,7 @@ body.single #maincontent {
   padding-left: 0;
   padding-right: 0;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 800px) {
   .home #maincontent {
     background-image: url('../images/inclusie-home-bg.png');
     background-position: center top;
@@ -143,14 +139,12 @@ body.single #maincontent {
   -webkit-justify-content: flex-start;
           justify-content: flex-start;
 }
-.flexbox .flexblock {
-  margin: 1rem;
-}
 @media only screen and (min-width: 800px) {
   .flexbox .flexblock {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
             flex: 1;
+    margin: 1rem;
   }
 }
 .flexbox .flexblock h2,
@@ -311,6 +305,26 @@ STYLING STEPS
   float: left;
   margin-bottom: 2rem;
 }
+.step .description p {
+  margin-bottom: 0;
+}
+.step .description p + p {
+  margin-top: 1em;
+}
+.step .description p.read-more {
+  text-align: center;
+  overflow: hidden;
+}
+.step .description p.read-more a {
+  float: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 0;
+}
 @media only screen and (max-width: 800px) {
   .step button {
     padding-left: 5rem;
@@ -337,6 +351,9 @@ STYLING STEPS
   }
   .step button[aria-expanded="true"] span {
     background-image: url('../images/arrow-up.svg');
+  }
+  .step .description {
+    overflow: hidden;
   }
 }
 @media only screen and (min-width: 800px) {
@@ -386,15 +403,6 @@ STYLING STEPS
     -webkit-clip-path: polygon(21% 0, 100% 100%, 100% 0);
             clip-path: polygon(21% 0, 100% 100%, 100% 0);
     z-index: 9999;
-  }
-  .step .description a.cta {
-    margin-left: auto;
-    margin-right: auto;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    float: none;
-    margin-bottom: 0;
   }
   .step:before {
     content: ' ';
@@ -550,7 +558,7 @@ STYLING STEPS
 }
 #home-inleiding {
   color: #fff;
-  padding: 1em;
+  padding: 2rem;
 }
 #home-inleiding h1 {
   font-size: 54px;
@@ -579,12 +587,16 @@ STYLING STEPS
     margin-top: 2rem;
     position: relative;
   }
+  #home-inleiding p {
+    font-size: 20px;
+  }
   #home-inleiding .entry-title {
     padding-top: 0;
     margin-top: 0;
-    max-width: 43rem;
+    max-width: 41rem;
     font-size: 70px;
     line-height: 1;
+    text-transform: uppercase;
   }
   #home-inleiding a.download {
     position: absolute;
@@ -599,11 +611,10 @@ STYLING STEPS
     height: 83rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -12rem;
+    margin-top: -16rem;
   }
   #home-inleiding #home-chart .step {
     position: absolute;
-    background: rgba(255, 245, 4, 0.3);
   }
   #home-inleiding #home-chart #step_1 {
     top: 37.5rem;
@@ -690,17 +701,15 @@ STYLING STEPS
 /*
 DOELGROEPEN
 ---------------------------------------------------------------------------------------------------- */
-#home_template_doelgroepen {
-  padding: 1em;
-}
 @media only screen and (max-width: 650px) {
   #home_template_doelgroepen {
+    padding: 2rem;
     margin-top: 6rem;
   }
 }
 @media only screen and (min-width: 650px) {
   #home_template_doelgroepen {
-    margin-top: 4rem;
+    padding: 2rem;
   }
 }
 #doelgroep-archive-p {
@@ -716,6 +725,8 @@ DOELGROEPEN
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 250px 364.4278607px;
+  padding: 2rem;
+  margin: 0;
 }
 .doelgroepcard.poppetje-1 {
   background-image: url('../images/avatar/poppetje-1.svg');
@@ -728,6 +739,12 @@ DOELGROEPEN
 }
 .doelgroepcard.poppetje-4 {
   background-image: url('../images/avatar/poppetje-4.svg');
+}
+.doelgroepcard.poppetje-5 {
+  background-image: url('../images/avatar/poppetje-5.svg');
+}
+.doelgroepcard.poppetje-6 {
+  background-image: url('../images/avatar/poppetje-6.svg');
 }
 @media only screen and (max-width: 800px) {
   .doelgroepcard + .doelgroepcard {
@@ -746,6 +763,12 @@ DOELGROEPEN
   bottom: 0;
   left: -1px;
   right: -1px;
+}
+.doelgroepcard h2 a:before,
+.doelgroepcard h3 a:before {
+  border: 20px solid red;
+  display: none !important;
+  content: '';
 }
 .doelgroepcard h2 span,
 .doelgroepcard h3 span {
@@ -897,12 +920,231 @@ DOELGROEPEN
 #home_template_teasers .wrap {
   max-width: 1180px;
 }
+#home_template_teasers .cta {
+  float: left;
+}
 #home_template_teasers .flexbox {
   margin-bottom: 0;
 }
+@media only screen and (max-width: 800px) {
+  #home_template_teasers .flexblock {
+    margin: 4rem 2rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  #home_template_teasers .cta {
+    margin-top: 2rem;
+  }
+  #home_template_teasers .flexblock {
+    margin: 8rem 4rem;
+  }
+}
 /*
-MISC. ELEMENTS
+WP TEMPLATES
 ---------------------------------------------------------------------------------------------------- */
+body.single-doelgroep #maincontent {
+  padding-top: 2rem;
+}
+body.single-doelgroep #maincontent article.entry {
+  background: #fff;
+}
+body.single-doelgroep #maincontent article.entry .entry-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+body.single-doelgroep #maincontent article.entry .entry-title,
+body.single-doelgroep #maincontent article.entry .wrap {
+  max-width: 761px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.single-doelgroep #doelgroep-inleiding {
+  position: relative;
+  padding-bottom: 34rem;
+}
+@media only screen and (min-width: 800px) {
+  body.single-doelgroep #doelgroep-inleiding {
+    margin-top: 8rem;
+    margin-bottom: 16rem;
+  }
+}
+body.single-doelgroep #doelgroep-inleiding:before {
+  content: ' ';
+  height: 22rem;
+  width: 100%;
+  -webkit-clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
+  background: #25B34B;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+body.single-doelgroep #doelgroep-inleiding-citaten {
+  height: 30rem;
+  background-repeat: no-repeat;
+  background-position: 6.5rem bottom;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+body.single-doelgroep #doelgroep-inleiding-citaten.poppetje-1 {
+  background-image: url('../images/avatar/poppetje-1.svg');
+}
+body.single-doelgroep #doelgroep-inleiding-citaten.poppetje-2 {
+  background-image: url('../images/avatar/poppetje-2.svg');
+}
+body.single-doelgroep #doelgroep-inleiding-citaten.poppetje-3 {
+  background-image: url('../images/avatar/poppetje-3.svg');
+}
+body.single-doelgroep #doelgroep-inleiding-citaten.poppetje-4 {
+  background-image: url('../images/avatar/poppetje-4.svg');
+}
+body.single-doelgroep #doelgroep-inleiding-citaten.poppetje-5 {
+  background-image: url('../images/avatar/poppetje-5.svg');
+}
+body.single-doelgroep #doelgroep-inleiding-citaten.poppetje-6 {
+  background-image: url('../images/avatar/poppetje-6.svg');
+}
+body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje {
+  margin-top: 1rem;
+  width: 66.66666667%;
+  float: right;
+  height: 32rem;
+  z-index: 400;
+  font-size: 34px;
+  position: relative;
+}
+body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje .author {
+  position: absolute;
+  bottom: 0;
+}
+body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje .author strong {
+  font-size: 22px;
+}
+body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:after,
+body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:before {
+  left: -4rem;
+  height: 4rem;
+  width: 4rem;
+  top: 4rem;
+  bottom: auto;
+  right: auto;
+  -webkit-clip-path: polygon(100% 29%, 0% 100%, 100% 100%);
+          clip-path: polygon(100% 29%, 0% 100%, 100% 100%);
+}
+body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:after {
+  z-index: 420;
+  box-shadow: 0px 10px 0px 0px rgba(0, 0, 0, 0.2);
+}
+body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:before {
+  z-index: 380;
+  left: -4rem;
+}
+body.single-doelgroep .facts-figures {
+  background: #00303d;
+  max-width: 960px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -8rem;
+  margin-bottom: 4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+body.single-doelgroep .facts-figures * {
+  color: #fff;
+}
+body.single-doelgroep .facts-figures span {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  font-size: 20px;
+  padding: 3rem;
+}
+body.single-doelgroep .facts-figures cite {
+  display: block;
+  clear: both;
+  float: none;
+  font-size: 14px;
+  padding-top: 2rem;
+}
+body.single-doelgroep .facts-figures .source {
+  -webkit-flex-basis: 66.66666667%;
+          flex-basis: 66.66666667%;
+}
+body.single-doelgroep .facts-figures .hugely {
+  background: #004152;
+  text-align: center;
+  font-size: 45px;
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  padding: 4rem;
+  -webkit-flex-basis: 33.33333333%;
+          flex-basis: 33.33333333%;
+}
+body.single-doelgroep .dosdonts .flexblock {
+  border-style: none;
+  margin-top: 5rem;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid #D1DFE3;
+  padding: 2rem;
+}
+body.single-doelgroep .dosdonts .flexblock ul li {
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+body.single-doelgroep .dosdonts .flexblock.aanrader ul li {
+  list-style-image: url('../images/list-item-do.svg');
+}
+body.single-doelgroep .dosdonts .flexblock.afrader ul li {
+  list-style-image: url('../images/list-item-dont.svg');
+}
+body.single-doelgroep .dosdonts h4 {
+  padding-bottom: 2rem;
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid #D1DFE3;
+}
+#doelgroep-inleiding,
+#step-inleiding {
+  background: #148839;
+  color: #fff;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 800px) {
+  #doelgroep-inleiding,
+  #step-inleiding {
+    padding: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  #doelgroep-inleiding,
+  #step-inleiding {
+    padding: 4rem;
+  }
+}
+#doelgroep-inleiding header,
+#step-inleiding header,
+#doelgroep-inleiding header h1,
+#step-inleiding header h1 {
+  margin: 0;
+  padding: 0;
+}
+#doelgroep-inleiding header h1,
+#step-inleiding header h1 {
+  margin-bottom: 1rem;
+}
+#doelgroep-inleiding p,
+#step-inleiding p {
+  margin: 0;
+}
 body.single-stap #maincontent {
   padding-top: 2rem;
 }
@@ -919,36 +1161,6 @@ body.single-stap #maincontent article.entry .wrap {
   margin-left: auto;
   margin-right: auto;
 }
-body.single-stap #step-inleiding {
-  background: #148839;
-  color: #fff;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media only screen and (max-width: 800px) {
-  body.single-stap #step-inleiding {
-    padding: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-}
-@media only screen and (min-width: 800px) {
-  body.single-stap #step-inleiding {
-    padding: 4rem;
-  }
-}
-body.single-stap #step-inleiding header,
-body.single-stap #step-inleiding header h1 {
-  margin: 0;
-  padding: 0;
-}
-body.single-stap #step-inleiding header h1 {
-  margin-bottom: 1rem;
-}
-body.single-stap #step-inleiding p {
-  margin: 0;
-}
 body.single-stap #step-methoden {
   margin-bottom: 4rem;
 }
@@ -962,8 +1174,27 @@ body.single-stap #step-methoden .inleiding {
     margin-bottom: 4rem;
   }
 }
+body.single-stap #step-methoden .flexblock {
+  border-style: none;
+}
 @media only screen and (min-width: 800px) {
   body.single-stap #step-methoden .flexblock {
+    -webkit-flex-basis: 33%;
+            flex-basis: 33%;
+    max-width: 31%;
+  }
+}
+.post-type-archive-doelgroep .flexbox {
+  margin-bottom: 10rem;
+  margin-top: 5rem;
+}
+.post-type-archive-doelgroep .flexbox .flexblock {
+  border-style: none;
+  margin-top: 5rem;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+@media only screen and (min-width: 800px) {
+  .post-type-archive-doelgroep .flexbox .flexblock {
     -webkit-flex-basis: 33%;
             flex-basis: 33%;
     max-width: 31%;
@@ -1028,5 +1259,13 @@ a.download:active {
   background-image: url('../images/list-image-arrow.svg');
   background-repeat: no-repeat;
   background-position: left center;
+}
+.posttype-description,
+.taxonomy-description {
+  color: #fff;
+}
+.posttype-description .archive-title,
+.taxonomy-description .archive-title {
+  text-align: center;
 }
 /*# sourceMappingURL=frontend.css.map */

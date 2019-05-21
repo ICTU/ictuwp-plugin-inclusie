@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.6
- * Version description: Stap-pagina voor desktop.
+ * Version:             0.0.7
+ * Version description: Doelgroeppagina. Bugfixes homepage, stap-pagina.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -86,7 +86,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',       trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_VERSION',          '0.0.6' );
+define( 'ICTU_GC_VERSION',          '0.0.7' );
 
 //========================================================================================================
 
@@ -97,7 +97,7 @@ define( 'ICTU_GC_VERSION',          '0.0.6' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.0.6
+ * @since    0.0.7
  */
 
 
@@ -243,6 +243,71 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			
 		}
 		
+	}
+
+    //========================================================================================================
+    /**
+     * Handles the front-end display. 
+     *
+     * @return void
+     */
+	public function ictu_gc_frontend_doelgroep_before_content() {
+		
+		global $post;
+		
+		$stap_inleiding 		= get_field( 'stap_inleiding', $post->ID );
+		$stap_methodes  		= get_field( 'stap_methodes', $post->ID );
+		$stap_methode_inleiding	= get_field( 'stap_methode_inleiding', $post->ID );
+
+		echo '<div id="doelgroep-inleiding">';
+		echo '<header class="entry-header wrap"><h1 class="entry-title" itemprop="headline">' . get_the_title( ) . '</h1></header>';
+		
+		if ( $stap_inleiding ) {
+			echo sanitize_text_field( $stap_inleiding );
+		}
+		else {
+			if ( get_the_excerpt( $post->ID ) ) {
+				echo get_the_excerpt( $post->ID );
+			}
+		}
+
+		$doelgroeppoppetje	= 'poppetje-1';
+		if ( get_field('doelgroep_avatar', $post->ID) ) {
+			$doelgroeppoppetje	= get_field('doelgroep_avatar', $post->ID);
+		}
+
+        $section_title  = _x( 'Citaten', 'titel op methode-pagina', 'ictu-gc-posttypes-inclusie' );
+        $title_id       = sanitize_title( $section_title . '-' . $post->ID );
+        $facts_citaten  = get_field( 'facts_citaten', $post->ID );
+
+        echo '<div class="' . $doelgroeppoppetje . '" id="doelgroep-inleiding-citaten">';
+
+        // loop through the rows of data
+        foreach( $facts_citaten as $post ):
+
+          setup_postdata( $post );
+
+          $theid = $post->ID;
+      
+          $section_title  = get_the_title( $theid );
+          $title_id       = sanitize_title( $section_title );
+          $citaat_post    = get_post( $theid );
+          $content        = '&rdquo;' . $citaat_post->post_content . '&rdquo;';
+          $section_text   = apply_filters('the_content', $content);   
+          $citaat_auteur  = sanitize_text_field( get_field( 'citaat_auteur', $theid ) );
+
+          echo '<div class="tegeltje">' . $section_text . '<p class="author"><strong>' . $citaat_auteur . '</strong></p></div>';
+      
+        endforeach;
+
+        echo '</div>';
+        
+		echo '</div>'; // #doelgroep-inleiding
+        
+        wp_reset_postdata();            
+
+        
+
 	}
 
     //========================================================================================================
@@ -452,7 +517,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					echo '<div class="description' . $xtraclass . ' js-descriptionbox">';
 					echo '<h3 id="' . $title_id . '">' . get_the_title( $stap->ID ) . '</h3>';
 					echo $inleiding;
-					echo '<p><a href="' . get_permalink( $stap->ID ) . '" class="cta">' . $readmore . '</a></p>';
+					echo '<p class="read-more"><a href="' . get_permalink( $stap->ID ) . '" class="cta">' . $readmore . '</a></p>';
 					echo '</div>';
 					echo '</section>';
 				
@@ -476,27 +541,10 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				// loop through the rows of data
 				while ( have_rows('home_template_doelgroepen') ) : the_row();          
 				
-					$doelgroep      = get_sub_field('home_template_doelgroepen_doelgroep');
-					$citaat         = get_sub_field('home_template_doelgroepen_citaat');
-					$citaat_auteur  = sanitize_text_field( get_field( 'citaat_auteur', $citaat->ID ) );
+					$doelgroep      	= get_sub_field('home_template_doelgroepen_doelgroep');
+					$citaat         	= get_sub_field('home_template_doelgroepen_citaat');
 					
-					$citaat_post    = get_post( $citaat->ID );
-					$content        = '&ldquo;' . $citaat_post->post_content . '&rdquo;';
-					$content        = apply_filters('the_content', $content);   
-					$posttype       = get_post_type( $doelgroep->ID );
-					$title_id       = sanitize_title( 'title-' . $posttype . '-' . $doelgroep->ID );
-					$section_id     = sanitize_title( 'section-' . $posttype . '-' . $doelgroep->ID );
-					
-					
-					$doelgroeppoppetje	= 'poppetje-1';
-					if ( get_field('doelgroep_avatar', $doelgroep->ID) ) {
-						$doelgroeppoppetje	= get_field('doelgroep_avatar', $doelgroep->ID);
-					}
-
-					echo '<section aria-labelledby="' . $title_id . '" class="doelgroepcard ' . $doelgroeppoppetje . ' flexblock" id="' . $section_id . '">';
-					echo '<h2 id="' . $title_id . '"><a href="' . get_permalink( $doelgroep->ID ) . '"><span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span><span>' . get_the_title( $doelgroep->ID ) . '</span></a></h2>';
-					echo '<div class="tegeltje">' . $content . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
-					echo '</section>';
+					echo $this->ictu_gc_doelgroep_card( $doelgroep, $citaat );
 				
 				endwhile;
 				
@@ -677,13 +725,71 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_get_related_content' ), 12 ); 				
 	
 		}
+		elseif ( is_archive( ICTU_GC_CPT_DOELGROEP ) ) {
+
+			add_action( 'genesis_loop', array( $this, 'ictu_gc_add_posttype_title' ), 9 ); 	
+
+		    /** Replace the standard loop with our custom loop */
+		    remove_action( 'genesis_loop', 'genesis_do_loop' );
+		    remove_action( 'genesis_loop', 'gc_wbvb_archive_loop' );
+
+			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_archive_doelgroep_loop' ), 10 ); 				
+			
+			
+		}
+		elseif ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
+
+			//* Remove standard header
+			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
+			remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
+			remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+
+			add_action( 'genesis_before_entry',  array( $this, 'ictu_gc_frontend_doelgroep_before_content' ), 8 ); 				
+
+			add_action( 'genesis_entry_header',  array( $this, 'ictu_gc_frontend_doelgroep_append_cijfers' ), 10 ); 
+			
+							
+			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_doelgroep_append_title' ), 9 ); 				
+
+			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_get_related_content' ), 20 ); 				
+	
+		}
+
 
 		//=================================================
 		
 		add_filter( 'genesis_post_info',   array( $this, 'filter_postinfo' ), 10, 2 );
 		
 	}
+
+	
+    /** ----------------------------------------------------------------------------------------------------
+     * Add an archive title
+     */
+    public function ictu_gc_add_posttype_title() {
     
+	    if ( ! is_post_type_archive( ICTU_GC_CPT_DOELGROEP ) )
+	        return;
+
+		$headline	= '';
+		$intro_text	= '';
+		$class 		= 'taxonomy-description';
+
+		if ( is_post_type_archive( ICTU_GC_CPT_DOELGROEP ) ) {
+			$class 		= 'posttype-description';
+			$headline = sprintf( '<h1 class="archive-title">%s</h1>', _x( "Doelgroepen", "Post type name", 'ictu-gc-posttypes-inclusie' ) );
+	    }
+	
+	    if ( $headline || $intro_text ) {
+	        printf( '<div class="' . $class . '">%s</div>', $headline . $intro_text );
+	    }
+	    else {
+	        echo '';
+	    }
+  
+	}
+    
+
 
     /** ----------------------------------------------------------------------------------------------------
      * Add rewrite rules
@@ -691,9 +797,49 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     public function ictu_gc_add_rewrite_rules() {
     
   
-    }
+	}
+    
 
+    /** ----------------------------------------------------------------------------------------------------
+     * A new version of the_loop for doelgroepen
+     */
+	public function ictu_gc_frontend_archive_doelgroep_loop() {
+		// code for a completely custom loop
+		global $post;
 
+		$args = array(
+		    'post_type'             =>  ICTU_GC_CPT_DOELGROEP,
+			'posts_per_page'        =>  -1,
+			'order'                 =>  'ASC',
+			'orderby'               =>  'post_title'
+		    
+		  );
+		$sidebarposts = new WP_query( $args );
+		
+		if ($sidebarposts->have_posts()) {
+	
+			echo '<div class="flexbox">';
+			
+			$postcounter = 0;
+			
+			while ($sidebarposts->have_posts()) : $sidebarposts->the_post();
+			
+				$postcounter++;
+				
+				$doelgroep      	= get_field('doelgroep_avatar', $post->ID );
+				$citaat         	= get_field('facts_citaten', $post->ID );
+
+				echo $this->ictu_gc_doelgroep_card( $doelgroep, $citaat );
+
+			endwhile;
+			
+			echo '</div>';
+			
+			wp_reset_query();
+			
+		}
+	}
+		
     /** ----------------------------------------------------------------------------------------------------
      * filter the breadcrumb
      */
@@ -706,40 +852,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
       }
       elseif ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
-
-        $section_title  = _x( 'Citaten', 'titel op methode-pagina', 'ictu-gc-posttypes-inclusie' );
-        $title_id       = sanitize_title( $section_title . '-' . $post->ID );
-        $facts_citaten  = get_field( 'facts_citaten', $post->ID );
-
-        echo '<section aria-labelledby="' . $title_id . '">';
-        echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
-
-        echo '<div class="flexbox tegeltjes">';
-
-        // loop through the rows of data
-        foreach( $facts_citaten as $post ):
-
-          setup_postdata( $post );
-
-          $theid = $post->ID;
-      
-          $section_title  = get_the_title( $theid );
-          $title_id       = sanitize_title( $section_title );
-          $citaat_post    = get_post( $theid );
-          $content        = $citaat_post->post_content;
-          $section_text   = apply_filters('the_content', $content);   
-          $citaat_auteur  = sanitize_text_field( get_field( 'citaat_auteur', $theid ) );
-
-          echo '<div class="flexblock tegeltje">' . $section_text . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
-      
-        endforeach;
-
-        echo '</div>';
-        echo '</section>';
-        
-        wp_reset_postdata();            
-
-        
+	      
       }
 
     }
@@ -769,26 +882,6 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
       }
       elseif ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
 
-        $section_title      = _x( 'Cijfers', 'titel op doelgroep-pagina', 'ictu-gc-posttypes-inclusie' );
-        $title_id           = sanitize_title( $section_title . '-title' );
-        $facts_title        = get_field( 'facts_title' );
-        $facts_description  = get_field( 'facts_description' );
-        $facts_source_url   = get_field( 'facts_source_url' );
-        $facts_source_label = get_field( 'facts_source_label' );
-        
-        if ( $facts_title ) {
-        
-          echo '<section aria-labelledby="' . $title_id . '" class="facts-figures">';
-          echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
-          echo '<div><span class="hugely">' . sanitize_text_field( $facts_title ) . '</span> ';
-          echo sanitize_text_field( $facts_description ) . '</div>';
-          if ( $facts_source_url && $facts_source_label ) {
-            echo '<p><a href="' . esc_url( $facts_source_url ) . '">' . sanitize_text_field( $facts_source_label ) . '</a></p>';
-          }
-          echo '</section>';
-        
-        }
-        
 
         $stap_methodes  = get_field( 'doelgroep_vaardigheden', $post->ID );
 
@@ -824,10 +917,10 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
             if( $vaardigheid_afraders || $vaardigheid_aanraders ):
 
-              echo '<div class="flexbox">';
+              echo '<div class="flexbox dosdonts">';
 
               if ( $vaardigheid_aanraders ) {
-                $section_title = _x( 'Aanrader', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+                $section_title = _x( 'Aanraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
                 echo '<div class="aanrader flexblock">';
                 echo '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
                 echo '<ul>';
@@ -839,7 +932,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
                 echo '</div>';
               }
               if ( $vaardigheid_afraders ) {
-                $section_title = _x( 'Afrader', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+                $section_title = _x( 'Afraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
                 echo '<div class="afrader flexblock">';
                 echo '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
                 echo '<ul>';
@@ -1012,6 +1105,50 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     /** ----------------------------------------------------------------------------------------------------
      * Prepends a title before the content
      */
+    public function ictu_gc_frontend_doelgroep_append_title() {
+	    
+		global $post;
+		
+		$title	= sprintf( _x( 'Over %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), get_the_title( )  ); 
+	    echo '<h2>' . $title. '</h2>';
+	    
+	}
+
+    /** ----------------------------------------------------------------------------------------------------
+     * Prepends a title before the content
+     */
+    public function ictu_gc_frontend_doelgroep_append_cijfers() {
+	
+		global $post;
+
+		$section_title      = _x( 'Cijfers', 'titel op doelgroep-pagina', 'ictu-gc-posttypes-inclusie' );
+		$title_id           = sanitize_title( $section_title . '-title' );
+		$facts_title        = get_field( 'facts_title' );
+		$facts_description  = get_field( 'facts_description' );
+		$facts_source_url   = get_field( 'facts_source_url' );
+		$facts_source_label = get_field( 'facts_source_label' );
+		
+		if ( $facts_title ) {
+		
+			echo '<section aria-labelledby="' . $title_id . '" class="facts-figures">';
+			echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
+			echo '<span class="hugely">' . sanitize_text_field( $facts_title ) . '</span><span class="source">';
+			echo sanitize_text_field( $facts_description );
+			if ( $facts_source_url && $facts_source_label ) {
+				echo '<cite>' . _x( 'Bron:', "Cijfers",  "ictu-gc-posttypes-inclusie" ) . '<br>';
+				echo '<a href="' . esc_url( $facts_source_url ) . '">' . sanitize_text_field( $facts_source_label ) . '</a></cite>';
+			}
+			echo '</span></section>';
+			
+		}
+		
+
+    }
+
+
+    /** ----------------------------------------------------------------------------------------------------
+     * Prepends a title before the content
+     */
     public function ictu_gc_frontend_stap_append_title() {
 	
 		global $post;
@@ -1021,7 +1158,44 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		echo '<h2 id="' . $title_id . '" class="entry-title">' . $section_title . '</h2>';
 
     }
-    
+
+    /** ----------------------------------------------------------------------------------------------------
+     * Prepends a title before the content
+     */
+    public function ictu_gc_doelgroep_card( $doelgroep, $citaat ) {
+
+		if ( 'WP_Post' == get_class( $citaat ) ) {
+			$citaat_post    	= get_post( $citaat->ID );
+			$citaat_auteur  	= sanitize_text_field( get_field( 'citaat_auteur', $citaat->ID ) );
+			$content        	= '&ldquo;' . $citaat_post->post_content . '&rdquo;';
+		}
+		else {
+			if ( $citaat[0]->post_content ) {
+				$content        = '&ldquo;' . $citaat[0]->post_content . '&rdquo;';
+				$citaat_auteur  = sanitize_text_field( get_field( 'citaat_auteur', $citaat[0]->ID ) );
+			}
+			else {
+				return '';
+			}
+		}
+
+		$content        	= apply_filters('the_content', $content);   
+		$posttype       	= get_post_type( $doelgroep->ID );
+		$title_id       	= sanitize_title( 'title-' . $posttype . '-' . $doelgroep->ID );
+		$section_id     	= sanitize_title( 'section-' . $posttype . '-' . $doelgroep->ID );
+		$doelgroeppoppetje	= 'poppetje-1';
+		if ( get_field('doelgroep_avatar', $doelgroep->ID) ) {
+			$doelgroeppoppetje	= get_field('doelgroep_avatar', $doelgroep->ID);
+		}
+
+		$return 	= '<section aria-labelledby="' . $title_id . '" class="doelgroepcard ' . $doelgroeppoppetje . ' flexblock" id="' . $section_id . '">';
+		$return    .= '<h2 id="' . $title_id . '"><a href="' . get_permalink( $doelgroep->ID ) . '"><span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span><span>' . get_the_title( $doelgroep->ID ) . '</span></a></h2>';
+		$return    .= '<div class="tegeltje">' . $content . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
+		$return    .= '</section>';
+			
+		return $return;
+
+    }
 
     /** ----------------------------------------------------------------------------------------------------
      * Do actually register the post types we need
@@ -1690,13 +1864,15 @@ remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
 
 */
  
-//add_action('genesis_entry_footer', 'wbvb_dump_actions', 5);
+//add_action('genesis_after_header', 'wbvb_dump_actions', 5);
 
 function wbvb_dump_actions(){ 
 
-	$hook_name = 'genesis_entry_footer';
+	$hook_name = 'genesis_loop';
 	global $wp_filter;
+	echo '<pre>';
 	var_dump( $wp_filter[$hook_name] );	
+	echo '</pre>';
 
 }
 

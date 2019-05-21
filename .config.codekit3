@@ -51,6 +51,17 @@
 		"oAP": "/ictu-gc-posttypes-inclusie.php",
 		"oF": 0
 		},
+	"/images/.list-item-do~imageoptim.png": {
+		"ft": 32768,
+		"iS": 304,
+		"oA": 0,
+		"oAP": "/images/.list-item-do~imageoptim.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/images/01b. Homepage hover.png": {
 		"ft": 32768,
 		"iS": 729720,
@@ -572,6 +583,48 @@
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/images/list-image-arrow.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/list-item-do.png": {
+		"ft": 32768,
+		"iS": 691,
+		"oA": 0,
+		"oAP": "/images/list-item-do.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/list-item-do.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/list-item-do.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/list-item-dont.png": {
+		"ft": 32768,
+		"iS": 524,
+		"oA": 0,
+		"oAP": "/images/list-item-dont.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/list-item-dont.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/list-item-dont.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,

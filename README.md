@@ -8,9 +8,10 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Paul van Buuren: paul@wbvb.nl
 
 ## Current version:
-0.0.6 - Stap-pagina voor desktop.
+0.0.7 - Doelgroeppagina. Bugfixes homepage, stap-pagina.
 
 ## Version history
+* 0.0.7 - Doelgroeppagina. Bugfixes homepage, stap-pagina.
 * 0.0.6 - Stap-pagina voor desktop.
 * 0.0.5 - CSS-bugfixes; tabindex-gerommel uit JS weggehaald.
 * 0.0.4 - Animatie toegevoegd.

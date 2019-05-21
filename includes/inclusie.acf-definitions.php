@@ -84,6 +84,8 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							'poppetje-2' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-2-small.png"> poppetje-2',
 							'poppetje-3' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-3-small.png"> poppetje-3',
 							'poppetje-4' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-4-small.png"> poppetje-4',
+							'poppetje-5' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-5-small.png"> poppetje-5',
+							'poppetje-6' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-6-small.png"> poppetje-6',
 						),
 						'allow_null' => 0,
 						'other_choice' => 0,
