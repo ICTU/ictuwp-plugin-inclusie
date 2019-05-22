@@ -7,15 +7,15 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.7
-// @desc.     Doelgroeppagina. Bugfixes homepage, stap-pagina.
+// @version   0.0.8
+// @desc.     Bugfixes doelgroeppagina: styling toonbaar smallere schermen.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
 /*!
 
 
-<!--                 frontend.css - v0.0.7                     -->
+<!--                 frontend.css - v0.0.8                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -92,7 +92,7 @@ body {
 
 #maincontent {
 	background-color: @gc_pantybrown_light;
-	background-image: url('../images/page-top-bg.svg?ad');
+	background-image: url('../images/page-top-bg.svg');
 	background-position: center top;
 	background-repeat: no-repeat;
 	max-width: @containermaxwidth;
@@ -157,9 +157,10 @@ body {
 	
 	.flexblock {
 
-		@media only screen and ( min-width: ( @break_fullwidth ) ) {
+		@media only screen and ( min-width: ( @break_phone ) ) {
 			flex: 1;
 			margin: 1rem;
+			flex-basis: 47%;
 		}
 
 		h2, h3, h4, h5, h6 {
@@ -914,6 +915,7 @@ body.single-doelgroep {
 		
 		article.entry {
 			background: @wit;
+			margin-bottom: @demarges;
 
 			.entry-content {
 				padding-left: 0;
@@ -922,6 +924,8 @@ body.single-doelgroep {
 			.entry-title,
 			.wrap {
 				max-width: @contentwidth_761;
+				padding-left: @linkerrechtermarge;
+				padding-right: @linkerrechtermarge;
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -929,16 +933,20 @@ body.single-doelgroep {
 			}
 		}
 	}
-	
+
 	#doelgroep-inleiding {
+
 		position: relative;
-		padding-bottom: 34rem;
+		padding-bottom: 0;
+		
 		@media only screen and (min-width: ( @break_fullwidth ) ) {
+
+			padding-bottom: ( @citaten_minheight + 4rem );
 			margin-top: 8rem;
 			margin-bottom: 16rem;
 		}	
 		
-		&:before {
+		&:after {
 			content: ' ';
 			height: 22rem;
 			width: 100%;
@@ -951,85 +959,147 @@ body.single-doelgroep {
 			right: 0;
 		}
 	}
+
 		
 	#doelgroep-inleiding-citaten {
-		height: 30rem;
-		background-repeat: no-repeat;
-		background-position: 6.5rem bottom;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	
-		&.poppetje-1 {
-			background-image: url('../images/avatar/poppetje-1.svg');
-		}
-		&.poppetje-2 {
-			background-image: url('../images/avatar/poppetje-2.svg');
-		}
-		&.poppetje-3 {
-			background-image: url('../images/avatar/poppetje-3.svg');
-		}
-		&.poppetje-4 {
-			background-image: url('../images/avatar/poppetje-4.svg');
-		}
-		&.poppetje-5 {
-			background-image: url('../images/avatar/poppetje-5.svg');
-		}
-		&.poppetje-6 {
-			background-image: url('../images/avatar/poppetje-6.svg');
-		}
-		
+		margin-top: 4rem;
+		display: flex;
+		flex-wrap: wrap;
+		position: inherit;
+		z-index: 999;
+
+		.feat-image,
 		.tegeltje {
-			margin-top: 1rem;
-			width: ( ( 100% / 3 ) * 2 );
-			float: right;
-			height: 32rem;
+			flex: 1;
+			margin: 0;
+		}
+
+		.feat-image {
+			margin-top: -2rem;
+			min-height: @citaten_minheight;
+			background-repeat: no-repeat;
+			background-position: center bottom;
+
+			&.poppetje-1 {
+				background-image: url('../images/avatar/poppetje-1.svg');
+			}
+			&.poppetje-2 {
+				background-image: url('../images/avatar/poppetje-2.svg');
+			}
+			&.poppetje-3 {
+				background-image: url('../images/avatar/poppetje-3.svg');
+			}
+			&.poppetje-4 {
+				background-image: url('../images/avatar/poppetje-4.svg');
+			}
+			&.poppetje-5 {
+				background-image: url('../images/avatar/poppetje-5.svg');
+			}
+			&.poppetje-6 {
+				background-image: url('../images/avatar/poppetje-6.svg');
+			}
+
+		}
+
+		.tegeltje {
 			z-index: 400;
-			.font-size( 34 );
 			position: relative;
-			
-			.author {
-				position: absolute;
-				bottom: 0;
-				strong {
-					.font-size( 22 );
-				}			
+		}
+
+
+		@media only screen and (max-width: ( @break_fullwidth ) ) {
+			max-width: 40rem;
+			margin-left: auto;
+			margin-right: auto;
+			flex-direction: column;
+
+			.tegeltje {
+
+				&:before {
+					// transp grijs
+					right: 15%;
+				}
+				&:after {
+					// wit
+					right: 14%;
+				}
 			}
-			
-			&:after,
-			&:before {
-				left: -4rem;
-				height: 4rem;
-				width: 4rem;
-				top: 4rem;
-				bottom: auto;
-				right: auto;
-				clip-path: polygon(100% 29%, 0% 100%, 100% 100%);
+		}
+		@media only screen and (min-width: ( @break_fullwidth ) ) {
+			flex-direction: row;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			min-height: @citaten_minheight;
+//				min-height: ( @citaten_minheight + 4rem );
+
+			.tegeltje {
+				.font-size( 34 );
+				order: 2;
+				flex-basis: ( ( 100% / 3 ) * 2 );
+				min-height: ( @citaten_minheight + 4rem );
+				transform: translateY( 4rem );
+
+				&:after,
+				&:before {
+					left: -4rem;
+					height: 4rem;
+					width: 4rem;
+					top: 5rem;
+					bottom: auto;
+					right: auto;
+					clip-path: polygon(100% 29%, 0% 100%, 100% 100%)
+				}
 				
+				&:after {
+					left: -3.95rem;
+				}
+								
 			}
-			&:after {
-				z-index: 420;
-				box-shadow: 0px 10px 0px 0px rgba(0, 0, 0, 0.2);	
-			}
-			&:before {
-				z-index: 380;
-				left: -4rem;
+			.feat-image {
+				order: 1;
+				flex-basis: ( ( 100% / 3 ) * 1 );
 			}
 		}
 	}
+
 	
 	.facts-figures {
 		background: @gc_darkerblue;
 		max-width: @contentwidth_960;
-		overflow: hidden;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -8rem;
-		margin-bottom: 4rem;
-		
 		display: flex;
+		width: 100%;
+		width: ~"calc(100% - @{demarges})";
+		margin-top: 2rem;
 		
+		@media only screen and (max-width: ( @break_fullwidth ) ) {
+			flex-direction: column;
+			margin-left: @linkerrechtermarge;
+			margin-right: @linkerrechtermarge;
+			
+			span {
+				text-align: center;
+			}
+		}
+		
+		@media only screen and (min-width: ( @break_fullwidth ) ) {
+			flex-direction: row;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: -8rem;
+			margin-bottom: 4rem;
+
+			
+			.source {
+				flex-basis: ( ( 100% / 3 ) * 2 );
+			}
+			
+			.hugely {
+				flex-basis: ( ( 100% / 3 ) * 1 );
+			}
+		}		
+
 		* {
 			color: @wit;
 		}
@@ -1046,23 +1116,19 @@ body.single-doelgroep {
 			.font-size( 14 );
 			padding-top: 2rem;
 		}
-		.source {
-			flex-basis: ( ( 100% / 3 ) * 2 );
-		}
 		
 		.hugely {
 			background: @gc_darkblue;
-//			width: 33.33%;
 			text-align: center;
 			.font-size( 45 );
 			font-family: @bodyfont_bold;
 			line-height: 1.2;
 			padding: 4rem;
-			flex-basis: ( ( 100% / 3 ) * 1 );
 		}
 	}
 
 	.dosdonts {
+		margin-bottom: 4rem;
 
 		.flexblock {
 			border-style: none;
@@ -1072,7 +1138,7 @@ body.single-doelgroep {
 			padding: 2rem;
 
 			ul li {
-				padding-left: 2rem;
+				padding-left: 1rem;
 				margin-bottom: 2rem;
 			}
 			
@@ -1188,7 +1254,8 @@ body.single-stap {
 			margin-top: 5rem;
 			box-shadow: 3px 3px 0px rgba(#000, 0.2);
 			
-			@media only screen and (min-width: ( @break_fullwidth ) ) {
+			@media only screen and (min-width: ( ( @break_fullwidth + 200px ) ) ) {
+				// @break_fullwidth + 200px om de negatieve ruimte aan weerskanten van flexbox te compenseren
 				flex-basis: 33%;
 				max-width: 31%;
 			}			

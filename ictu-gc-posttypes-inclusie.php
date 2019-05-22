@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.7
- * Version description: Doelgroeppagina. Bugfixes homepage, stap-pagina.
+ * Version:             0.0.8
+ * Version description: Bugfixes doelgroeppagina: styling toonbaar smallere schermen.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -86,7 +86,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',       trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_VERSION',          '0.0.7' );
+define( 'ICTU_GC_VERSION',          '0.0.8' );
 
 //========================================================================================================
 
@@ -97,7 +97,7 @@ define( 'ICTU_GC_VERSION',          '0.0.7' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.0.7
+ * @since    0.0.8
  */
 
 
@@ -280,7 +280,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
         $title_id       = sanitize_title( $section_title . '-' . $post->ID );
         $facts_citaten  = get_field( 'facts_citaten', $post->ID );
 
-        echo '<div class="' . $doelgroeppoppetje . '" id="doelgroep-inleiding-citaten">';
+        echo '<div class="" id="doelgroep-inleiding-citaten">';
 
         // loop through the rows of data
         foreach( $facts_citaten as $post ):
@@ -299,6 +299,8 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
           echo '<div class="tegeltje">' . $section_text . '<p class="author"><strong>' . $citaat_auteur . '</strong></p></div>';
       
         endforeach;
+
+		echo '<div class="feat-image ' . $doelgroeppoppetje . '">&nbsp;</div>';
 
         echo '</div>';
         
