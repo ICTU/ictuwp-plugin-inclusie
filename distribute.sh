@@ -6,7 +6,6 @@ echo 'Distribute GC post type plugin';
 
 # clear the log file
 > '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/debug.log'
-> '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/gc_live_import/wp-content/debug.log'
 
 # copy to temp dir
 rsync -r -a --delete '/shared-paul-files/Webs/git-repos/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies/' '/shared-paul-files/Webs/temp/'
@@ -52,10 +51,6 @@ rsync -r -a --delete '/shared-paul-files/Webs/temp/' '/shared-paul-files/Webs/IC
 # remove temp dir
 rm -rf '/shared-paul-files/Webs/temp/'
 
-
-
-# Naar GC import
-rsync -r -a  --delete '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictu-gc-posttypes-inclusie/' '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/gc_live_import/wp-content/plugins/ictu-gc-posttypes-inclusie/'
 
 # Naar Eriks server
 rsync -r -a  --delete '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictu-gc-posttypes-inclusie/' '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/live-dutchlogic/wp-content/plugins/ictu-gc-posttypes-inclusie/'
