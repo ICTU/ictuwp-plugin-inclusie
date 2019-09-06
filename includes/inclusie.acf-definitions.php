@@ -8,8 +8,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.6
-// @desc.     Stap-pagina voor desktop.
+// @version   0.0.9
+// @desc.     Bugfixing. Styling for page and other content types. Title for methodes.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
 
@@ -816,7 +816,9 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-			
+
+			//------------------------------------------------------------------------------------------------
+
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8fde441c0a9',
 				'title' => 'Stap: inleiding en methodes',
@@ -887,6 +889,25 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						'delay' => 0,
 					),
 					array(
+						'key' => 'field_5d7245be8ffc0',
+						'label' => 'Titel bij de methodes',
+						'name' => 'stap_methodes_titel',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => 'Methodes',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+					),
+					array(
 						'key' => 'field_5ce3d0e2f8917',
 						'label' => 'Inleiding bij de methodes',
 						'name' => 'stap_methode_inleiding',
@@ -949,7 +970,9 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-			
+
+			//------------------------------------------------------------------------------------------------
+
 			acf_add_local_field_group(array(
 				'key' => 'group_5c9398df21747',
 				'title' => 'Vaardigheid: aan- en afraders',

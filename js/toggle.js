@@ -98,7 +98,7 @@ var isSmallerScreenSize = true;
 			elem.attr('aria-expanded', 'true');      
 			thisSection.attr('aria-hidden', 'false');
 			
-			console.log( "isSmallerScreenSize " + isSmallerScreenSize );
+//			console.log( "isSmallerScreenSize " + isSmallerScreenSize );
 			
 			if ( ! isSmallerScreenSize ) {
 				var domRect = thisSection.height();			
@@ -119,14 +119,14 @@ var isSmallerScreenSize = true;
 		firstSection 		= elem.parent().find('section.step:first'),
 		lastSection 		= elem.parent().find('section.step:last');
 
-console.log('Keycode: ' + keyCode );
+//console.log('Keycode: ' + keyCode );
 		
 		switch(keyCode) {
 
 	
 			// Escape
 			case 27:
-			console.log('Esc!');
+//console.log('Esc!');
 				e.preventDefault();
 				e.stopPropagation();
 				closeAllSections();
@@ -267,7 +267,7 @@ console.log('Keycode: ' + keyCode );
 // media query change
 function WidthChange(mq) {
 
-	console.log( "isSmallerScreenSize " + isSmallerScreenSize );
+// console.log( "isSmallerScreenSize " + isSmallerScreenSize );
 	
 	if (mq.matches) {
 		// window width is at least 800px

@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.8
- * Version description: Bugfixes doelgroeppagina: styling toonbaar smallere schermen.
+ * Version:             0.0.9
+ * Version description: Bugfixing. Styling for page and other content types. Title for methodes.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -86,7 +86,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',       trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_VERSION',          '0.0.8' );
+define( 'ICTU_GC_VERSION',          '0.0.9' );
 
 //========================================================================================================
 
@@ -97,7 +97,7 @@ define( 'ICTU_GC_VERSION',          '0.0.8' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.0.8
+ * @since    0.0.9
  */
 
 
@@ -368,7 +368,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
 		
 					echo '<div id="step_' . $stepcounter . '" class="step flexblock ' . $class . $current . '">';
-					echo '<p id="' . $title_id . '">' . $tagstart . $titel . $tagend . '</p>';
+					echo '<p id="' . $title_id . '" class="icon ' . $class . $current . '">' . $tagstart . $titel . $tagend . '</p>';
 					echo '</div>';
 				
 				endforeach;
@@ -380,12 +380,19 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			$stap_inleiding 		= get_field( 'stap_inleiding', $post->ID );
 			$stap_methodes  		= get_field( 'stap_methodes', $post->ID );
 			$stap_methode_inleiding	= get_field( 'stap_methode_inleiding', $post->ID );
+			$stap_methodes_titel	= get_field( 'stap_methodes_titel', $post->ID );
+			
+			if ( ! $stap_methodes_titel ) {
+				$stap_methodes_titel = _x( 'Methoden', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+			}
+			
 
 			echo '<div id="step-inleiding">';
 			echo '<header class="entry-header wrap"><h1 class="entry-title" itemprop="headline">' . get_the_title( ) . '</h1></header>';
 			
-			if ( $stap_inleiding ) {
+			if ( $section_title ) {
 				echo $stap_inleiding;
+				$section_title = $stap_methodes_titel;
 			}
 
 			echo '</div>'; // #step-inleiding
@@ -393,7 +400,6 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			
 			if( $stap_methodes ):
 				
-				$section_title = _x( 'Methoden', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
 				$title_id       = sanitize_title( $section_title . '-' . $post->ID );
 				
 				echo '<section aria-labelledby="' . $title_id . '" id="step-methoden">';
@@ -553,7 +559,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				echo '</div>';
 
 				$label	= _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie' ); // $obj->name;
-				echo '<p id="doelgroep-archive-p"><a href="' . get_post_type_archive_link( $posttype ) . '" class="cta ' . $posttype . '">' . $label . '</a></p>';
+				echo '<p id="doelgroep-archive-p"><a href="' . get_post_type_archive_link( ICTU_GC_CPT_DOELGROEP ) . '" class="cta ' . $posttype . '">' . $label . '</a></p>';
 
 			endif; 
 
@@ -567,6 +573,8 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
      * Register frontend styles
      */
 	public function ictu_gc_register_frontend_style_script( ) {
+	
+		global $post;
 	
 		$infooter = true;
 		if ( WP_DEBUG ) {
@@ -636,46 +644,49 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 
 		}
-			
-		$handigelinks = get_field( 'handige_links_toevoegen', $post->ID );
+
+		if ( $post ) {
 		
-		if ( $handigelinks == 'ja' ) {
+			$handigelinks = get_field( 'handige_links_toevoegen', $post->ID );
 			
-			$section_title  = get_field( 'links_block_title', $post->ID );
-			$title_id       = sanitize_title( $section_title . '-title' );
-			
-			echo '<section aria-labelledby="' . $title_id . '">';
-			echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-			
-			$links_block_items = get_field('links_block_items');
-			
-			if( $links_block_items ): 
-			
-				echo '<ul>';
+			if ( $handigelinks == 'ja' ) {
 				
-				while( have_rows('links_block_items') ): the_row();
+				$section_title  = get_field( 'links_block_title', $post->ID );
+				$title_id       = sanitize_title( $section_title . '-title' );
 				
-					$links_block_item_url         = get_sub_field('links_block_item_url');
-					$links_block_item_linktext    = get_sub_field('links_block_item_linktext');
-					$links_block_item_description = get_sub_field('links_block_item_description');
-					
-					echo '<li> <a href="' . esc_url( $links_block_item_url ) . '">' . sanitize_text_field( $links_block_item_linktext ) . '</a>';
-					
-					if ( $links_block_item_description ) {
-						echo '<br>' . sanitize_text_field( $links_block_item_description );
-					}
-					
-					echo '</li>';
-					
-				endwhile;
+				echo '<section aria-labelledby="' . $title_id . '">';
+				echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
 				
-				echo '</ul>';
+				$links_block_items = get_field('links_block_items');
 				
-			endif; 
-			
-			echo '</section>';
-			
-		}
+				if( $links_block_items ): 
+				
+					echo '<ul>';
+					
+					while( have_rows('links_block_items') ): the_row();
+					
+						$links_block_item_url         = get_sub_field('links_block_item_url');
+						$links_block_item_linktext    = get_sub_field('links_block_item_linktext');
+						$links_block_item_description = get_sub_field('links_block_item_description');
+						
+						echo '<li> <a href="' . esc_url( $links_block_item_url ) . '">' . sanitize_text_field( $links_block_item_linktext ) . '</a>';
+						
+						if ( $links_block_item_description ) {
+							echo '<br>' . sanitize_text_field( $links_block_item_description );
+						}
+						
+						echo '</li>';
+						
+					endwhile;
+					
+					echo '</ul>';
+					
+				endif; 
+				
+				echo '</section>';
+				
+			}
+		}			
 
 		if ( $header_css ) {
 			wp_add_inline_style( ICTU_GC_ARCHIVE_CSS, $header_css );
@@ -794,10 +805,11 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 
     /** ----------------------------------------------------------------------------------------------------
-     * Add rewrite rules
+     * Post info: do not write any post info
      */
-    public function ictu_gc_add_rewrite_rules() {
+    public function filter_postinfo() {
     
+    	return '';
   
 	}
     
@@ -859,6 +871,14 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
     }
 
+    /** ----------------------------------------------------------------------------------------------------
+     * Add rewrite rules
+     */
+    public function ictu_gc_add_rewrite_rules() {
+    
+    	return '';
+  
+	}
 
     /** ----------------------------------------------------------------------------------------------------
      * filter the breadcrumb
@@ -1137,7 +1157,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			echo '<span class="hugely">' . sanitize_text_field( $facts_title ) . '</span><span class="source">';
 			echo sanitize_text_field( $facts_description );
 			if ( $facts_source_url && $facts_source_label ) {
-				echo '<cite>' . _x( 'Bron:', "Cijfers",  "ictu-gc-posttypes-inclusie" ) . '<br>';
+				echo '<cite>' . _x( 'Bron:', "Cijfers",  "ictu-gc-posttypes-inclusie" ) . ' ';
 				echo '<a href="' . esc_url( $facts_source_url ) . '">' . sanitize_text_field( $facts_source_label ) . '</a></cite>';
 			}
 			echo '</span></section>';
@@ -1157,7 +1177,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 		$section_title = _x( 'Tips', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
 		$title_id       = sanitize_title( $section_title . '-' . $post->ID );
-		echo '<h2 id="' . $title_id . '" class="entry-title">' . $section_title . '</h2>';
+		
+		// force a title, but do not make it seeable
+		echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
 
     }
 

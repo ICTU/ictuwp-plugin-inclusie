@@ -7,15 +7,15 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.8
-// @desc.     Bugfixes doelgroeppagina: styling toonbaar smallere schermen.
+// @version   0.0.9
+// @desc.     Bugfixing. Styling for page and other content types. Title for methodes.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
 /*!
 
 
-<!--                 frontend.css - v0.0.8                     -->
+<!--                 frontend.css - v0.0.9                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -71,6 +71,9 @@ Imports
 @thesize1:			56px;		
 @thesize: 			75px;		
 
+@eenderde: 			( ( 100% / 3 ) * 1 );		
+
+
 /*
 STRUCTURE & BASE
 ---------------------------------------------------------------------------------------------------- */
@@ -83,10 +86,6 @@ body {
 	&.page,
 	&.single {
 		background: @gc_pantybrown_light;
-
-		#maincontent {
-//			padding-top: 11rem;
-		}
 	}
 }
 
@@ -98,7 +97,20 @@ body {
 	max-width: @containermaxwidth;
 	
 	article.entry {
-		background-color: @wit;
+		.wrap {
+			background-color: @wit;
+			padding-bottom: 2rem;
+		}
+
+		@media only screen and ( max-width: ( @break_fullwidth ) ) {
+			margin-top: 2rem;
+		}
+
+		@media only screen and ( min-width: ( @break_fullwidth ) ) {
+			margin-top: 10rem;
+			margin-bottom: 4rem;
+		}
+		
 	}
 	
 }
@@ -115,7 +127,6 @@ body {
 	}
 }	
 
-
 .home {
 	#maincontent {
 		background: @gc_pantybrown_light;
@@ -124,7 +135,11 @@ body {
 			float: none;
 
 			article.entry {
-				background-color: transparent;
+				margin-top: 0;
+				&, 
+				.wrap {
+					background-color: transparent;
+				}
 			}
 			
 			&, .wrap {
@@ -155,13 +170,30 @@ body {
 	flex-flow: row wrap;
 	justify-content: flex-start;
 	
+//	border: 10px solid red;
+	padding: 0;
+	
 	.flexblock {
+
+		@media only screen and ( max-width: ( @break_phone ) ) {
+			margin: 1rem;
+		}
 
 		@media only screen and ( min-width: ( @break_phone ) ) {
 			flex: 1;
 			margin: 1rem;
-			flex-basis: 47%;
+			flex-basis: 48%;
+			max-width: 47%;
+			max-width: ~"calc(50% - @{linkerrechtermarge})";
 		}
+
+		@media only screen and (min-width: ( ( @break_fullwidth + 200px ) ) ) {
+			// @break_fullwidth + 200px om de negatieve ruimte aan weerskanten van flexbox te compenseren
+			flex-basis: 33%;
+			max-width: 30%;
+			max-width: ~"calc(33% - @{demarges})";
+		}			
+
 
 		h2, h3, h4, h5, h6 {
 			margin-top: 0;
@@ -247,11 +279,6 @@ body {
 					padding-right: 2rem;
 				}
 			}
-
-			@media only screen and (min-width: ( @break_fullwidth ) ) {
-				flex-basis: 50%;
-				max-width: 47%;
-			}			
 		}
 	}		
 }
@@ -453,22 +480,56 @@ STYLING STEPS
 }
 
 #stappen-chart {
-	background-image: url('../images/stappen-chart.svg');
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: contain;
-	margin-top: 2rem;
 	margin-bottom: 2rem;
 	padding-top: 4rem;
+
+	@media only screen and ( min-width: @break_fullwidth ) {
+		background-image: url('../images/stappen-chart.svg');
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: contain;
+		margin-top: 2rem;
+		padding-top: 6rem;
+	}
 
 	.step {
 		p,
 		h3 {
-			text-align: center;
-			margin-top: 2rem;
 			font-family: @montserrat_semibold;
 			.font-size( 16 );
 		}
+
+		@media only screen and ( max-width: @break_fullwidth ) {
+			p.icon {
+				.font-size( 18 );
+				line-height: 2;
+				
+				&:before {
+					content: ' ';
+					background-color: green;
+					display: block;
+					float: left;
+					width: 40px;
+					height: 40px;
+					background-repeat: no-repeat;
+					background-size: 30px 30px;
+
+					border-radius: 50%;
+					border: 1px solid @inclusieoranje;
+					background-color: @inclusieoranje;
+					background-position: center center;
+					margin-right: .75rem;
+					
+				}
+				&.current {
+					&:before {
+						background-color: @gc_pantybrown;
+						border-color: @gc_pantybrown;
+					}
+				}
+			}
+		}
+
 		a {
 			color: @wit;
 			border: 1px solid transparent;
@@ -497,6 +558,31 @@ STYLING STEPS
 					background-size: @thesize @thesize;
 					border-color: @wit;
 				}	
+			}
+		}
+
+		@media only screen and ( max-width: @break_fullwidth ) {
+			flex-basis: 100%;
+			margin: 0;
+			text-align: left;
+			p,
+			h3 {
+				padding: 1rem 2rem;
+				margin: 0;
+			}
+		}
+		
+		@media only screen and ( min-width: @break_fullwidth ) {
+			 flex-basis: 20%;
+			 max-width: 20%;
+			 
+
+
+			 margin-left: 0;
+			 margin-right: 0;
+			p,
+			h3 {
+				text-align: center;
 			}
 		}
 	}
@@ -672,11 +758,11 @@ DOELGROEPEN
 
 #home_template_doelgroepen {
 	@media only screen and ( max-width: ( @break_tablet ) ) {
-		padding: 2rem;
-		margin-top: 6rem;
+		padding: 1%;
+//		margin-top: 6rem;
 	}
 	@media only screen and ( min-width: ( @break_tablet ) ) {
-		padding: 2rem;
+		padding: 1%;
 //		margin-top: 4rem;
 	}
 }
@@ -739,7 +825,6 @@ DOELGROEPEN
 
 		a {
 			&:before {
-				border: 20px solid red;
 				display: none !important;
 				content: '';
 			}
@@ -891,7 +976,8 @@ DOELGROEPEN
 
 	@media only screen and (max-width: ( @break_fullwidth ) ) {
 		.flexblock {
-			margin: 4rem 2rem;
+			margin-top: 4rem;
+			margin-bottom: 4rem;
 		}
 	}
 	@media only screen and (min-width: ( @break_fullwidth ) ) {
@@ -899,7 +985,12 @@ DOELGROEPEN
 			margin-top: 2rem;
 		}
 		.flexblock {
-			margin: 8rem 4rem;
+			margin-top: 8rem;
+			margin-bottom: 8rem;
+			flex-basis: 50%;
+
+			max-width: ~"calc(50% - @{demarges})";
+
 		}
 	}
 	
@@ -1032,7 +1123,6 @@ body.single-doelgroep {
 			right: 0;
 			bottom: 0;
 			min-height: @citaten_minheight;
-//				min-height: ( @citaten_minheight + 4rem );
 
 			.tegeltje {
 				.font-size( 34 );
@@ -1054,6 +1144,12 @@ body.single-doelgroep {
 				
 				&:after {
 					left: -3.95rem;
+				}
+				
+				.author {
+					.font-size( 22 );
+					position: absolute;
+					bottom: 2rem;
 				}
 								
 			}
@@ -1082,6 +1178,7 @@ body.single-doelgroep {
 				text-align: center;
 			}
 		}
+
 		
 		@media only screen and (min-width: ( @break_fullwidth ) ) {
 			flex-direction: row;
@@ -1089,14 +1186,23 @@ body.single-doelgroep {
 			margin-right: auto;
 			margin-top: -8rem;
 			margin-bottom: 4rem;
+			align-items: stretch;
 
-			
+			background: @gc_darkerblue; /* Old browsers */
+			background: -moz-linear-gradient(left,  @gc_darkblue 0%, @gc_darkblue @eenderde, @gc_darkerblue @eenderde, @gc_darkerblue 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left,  @gc_darkblue 0%,@gc_darkblue @eenderde,@gc_darkerblue @eenderde,@gc_darkerblue 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right,  @gc_darkblue 0%,@gc_darkblue @eenderde,@gc_darkerblue @eenderde,@gc_darkerblue 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+			span {
+				margin: auto;
+				height: 100%;
+			}			
 			.source {
 				flex-basis: ( ( 100% / 3 ) * 2 );
 			}
 			
 			.hugely {
-				flex-basis: ( ( 100% / 3 ) * 1 );
+				flex-basis: @eenderde;
 			}
 		}		
 
@@ -1203,6 +1309,16 @@ body.single-stap {
 		article.entry {
 			background: @wit;
 
+			@media only screen and (max-width: ( @break_fullwidth ) ) {
+				padding: 2rem;
+				margin-left: 2rem;
+				margin-right: 2rem;
+				
+				h2 {
+					padding-top: 0;
+				}
+			}
+
 			.entry-content {
 				padding-left: 0;
 				padding-right: 0;
@@ -1222,6 +1338,11 @@ body.single-stap {
 	#step-methoden {
 		margin-bottom: 4rem;
 
+		@media only screen and (max-width: ( @break_fullwidth ) ) {
+			margin-left: 2rem;
+			margin-right: 2rem;
+		}
+		
 		.inleiding {
 			max-width: @contentwidth_960; 
 			margin-left: auto;
@@ -1233,13 +1354,17 @@ body.single-stap {
 
 		.flexblock {
 			border-style: none;
-			
+
+			@media only screen and ( max-width: ( @break_phone ) ) {
+				margin-bottom: 2rem;
+			}
+
 			@media only screen and (min-width: ( @break_fullwidth ) ) {
 				flex-basis: 33%;
 				max-width: 31%;
 			}			
 		}
-	}	
+	}
 }
 
 .post-type-archive-doelgroep {
@@ -1253,12 +1378,6 @@ body.single-stap {
 			border-style: none;
 			margin-top: 5rem;
 			box-shadow: 3px 3px 0px rgba(#000, 0.2);
-			
-			@media only screen and (min-width: ( ( @break_fullwidth + 200px ) ) ) {
-				// @break_fullwidth + 200px om de negatieve ruimte aan weerskanten van flexbox te compenseren
-				flex-basis: 33%;
-				max-width: 31%;
-			}			
 		}
 	}
 }
@@ -1340,3 +1459,28 @@ a.download {
 		text-align: center;
 	}
 }
+
+//========================================================================================================
+
+@media screen and (-ms-high-contrast: active) and (min-width: ( @break_fullwidth ) ), screen and (-ms-high-contrast: none) and (min-width: ( @break_fullwidth ) ) {  
+   /* IE10+ specific styles go here */  
+
+	.tegeltje {
+	
+		&:before,
+		&:after {
+			clip-path: none;
+			box-shadow: none;
+		}
+		&:before {
+			background: none;
+		}
+		&:after {
+			background: transparent url('../images/inclusie-speech-bubble-arrow.svg') no-repeat;
+			background-position: left bottom;
+		}
+	}
+}
+
+//========================================================================================================
+
