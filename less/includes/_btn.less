@@ -1,0 +1,21 @@
+@import "../mixins";
+
+.cta {
+  margin-top: 2rem;
+}
+
+.btn {
+  &--arrow {
+    background: url('../images/arrow-right.svg') center center no-repeat;
+    background-size: 12px auto;
+    min-width: 3.6rem;
+    display: inline-block;
+    border: 1px solid @wit;
+    transition: border-color .2s;
+
+    &:hover {
+      border-color: @gc_darkblue;
+      box-shadow: 4px 4px 0 @lichtgrijs;
+    }
+  }
+}
