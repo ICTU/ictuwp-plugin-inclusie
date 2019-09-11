@@ -121,7 +121,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fd54f1a328',
-						'label' => 'facts_title',
+						'label' => 'Titel boven facts & figures',
 						'name' => 'facts_title',
 						'type' => 'text',
 						'instructions' => '',
@@ -140,7 +140,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fd568b08ec',
-						'label' => 'facts_description',
+						'label' => 'Beschrijving facts & figures',
 						'name' => 'facts_description',
 						'type' => 'wysiwyg',
 						'instructions' => '',
@@ -159,7 +159,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fd57f464c4',
-						'label' => 'facts_source_url',
+						'label' => 'URL facts & figures',
 						'name' => 'facts_source_url',
 						'type' => 'url',
 						'instructions' => '',
@@ -175,7 +175,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fd5975c283',
-						'label' => 'facts_source_label',
+						'label' => 'Linktekst URL facts & figures',
 						'name' => 'facts_source_label',
 						'type' => 'text',
 						'instructions' => '',
@@ -1048,7 +1048,54 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-			
+
+			// theme settings
+			acf_add_local_field_group(array(
+				'key' => 'group_5d726d93a46f2',
+				'title' => 'Instellingen voor inclusiewebsite',
+				'fields' => array(
+					array(
+						'key' => 'field_5d726daa06090',
+						'label' => 'Pagina met doelgroepoverzicht',
+						'name' => 'themesettings_inclusie_doelgroeppagina',
+						'type' => 'post_object',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'page',
+						),
+						'taxonomy' => '',
+						'allow_null' => 0,
+						'multiple' => 0,
+						'return_format' => 'object',
+						'ui' => 1,
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'options_page',
+							'operator' => '==',
+							'value' => 'instellingen',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			));
+
 		endif;
     }
 }    

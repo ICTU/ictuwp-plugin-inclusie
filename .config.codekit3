@@ -51,17 +51,6 @@
 		"oAP": "/ictu-gc-posttypes-inclusie.php",
 		"oF": 0
 		},
-	"/images/01b. Homepage hover.png": {
-		"ft": 32768,
-		"iS": 729720,
-		"oA": 0,
-		"oAP": "/images/01b. Homepage hover.png",
-		"oF": 0,
-		"oIPL": 1,
-		"opt": 1,
-		"oT": 1,
-		"q": 100
-		},
 	"/images/arrow-down.png": {
 		"ft": 32768,
 		"iS": 720,
@@ -648,17 +637,6 @@
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"/images/m01a. Homepage.png": {
-		"ft": 32768,
-		"iS": 450651,
-		"oA": 0,
-		"oAP": "/images/m01a. Homepage.png",
-		"oF": 0,
-		"oIPL": 1,
-		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},

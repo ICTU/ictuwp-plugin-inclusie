@@ -1460,6 +1460,27 @@ a.download {
 	}
 }
 
+@breedte_terms: 13rem;
+
+.methode-classifications {
+	li {
+		clear: both;
+		float: none;
+	}
+	.term-values,
+	.term {
+		display: inline-block;
+		float: left;
+	}
+	.term {
+		min-width: @breedte_terms;
+	}
+	.term-values {
+		max-width: ~"calc(100% - @{breedte_terms})";
+	}
+}
+
+
 //========================================================================================================
 
 @media screen and (-ms-high-contrast: active) and (min-width: ( @break_fullwidth ) ), screen and (-ms-high-contrast: none) and (min-width: ( @break_fullwidth ) ) {  

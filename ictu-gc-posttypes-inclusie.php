@@ -145,6 +145,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		
 		add_action( 'init', array( $this, 'ictu_gc_register_post_type' ) );
 		add_action( 'init', 'ictu_gc_inclusie_initialize_acf_fields' );
+		add_action( 'init', array( $this, 'ictu_gc_admin_inclusie_set_terms_order' ) );
+
+		add_action( 'get_the_terms', array( $this, 'ictu_gc_admin_inclusie_get_terms_in_order' ), 10, 4 );
 
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'init', array( $this, 'ictu_gc_add_rewrite_rules' ) );
@@ -158,8 +161,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		add_action( 'genesis_entry_content',  array( $this, 'append_content' ), 15 ); 			
 		
 		// add a page temlate name
-		$this->templates                      = array();
-		$this->template_home   		        = 'home-inclusie.php';
+		$this->templates 						= array();
+		$this->template_home 					= 'home-inclusie.php';
+		$this->template_doelgroeppagina			= 'inclusie_template_doelgroeppagina.php';
 		
 		// add the page template to the templates list
 		add_filter( 'theme_page_templates',   array( $this, 'ictu_gc_add_page_templates' ) );
@@ -175,27 +179,62 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     /** ----------------------------------------------------------------------------------------------------
      * Initialise translations
      */
-    public function load_plugin_textdomain() {
+	public function load_plugin_textdomain() {
+		
+		load_plugin_textdomain( "ictu-gc-posttypes-inclusie", false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		
+	}
+	
+	
+	//========================================================================================================
+	
+	/**
+	* Hides the custom post template for pages on WordPress 4.6 and older
+	*
+	* @param array $post_templates Array of page templates. Keys are filenames, values are translated names.
+	* @return array Expanded array of page templates.
+	*/
+	function ictu_gc_add_page_templates( $post_templates ) {
+	
+		$post_templates[$this->template_home]				= _x( 'Inclusie Home page', "naam template",  "ictu-gc-posttypes-inclusie" );    
+		$post_templates[$this->template_doelgroeppagina]	= _x( 'Inclusie Page Doelgroepen', "naam template",  "ictu-gc-posttypes-inclusie" );    
+		return $post_templates;
+		
+	}
 
-      load_plugin_textdomain( "ictu-gc-posttypes-inclusie", false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
-    }
+
 
 
     //========================================================================================================
-
     /**
-    * Hides the custom post template for pages on WordPress 4.6 and older
-    *
-    * @param array $post_templates Array of page templates. Keys are filenames, values are translated names.
-    * @return array Expanded array of page templates.
-    */
-	function ictu_gc_add_page_templates( $post_templates ) {
-		
-		$post_templates[$this->template_home]  = _x( 'Home Inclusie', "naam template",  "ictu-gc-posttypes-inclusie" );    
-		return $post_templates;
-	
+     * Admin: force tax to sort by assigned sort order 
+     * @in: terms, term ID, taxonomy
+     * @return terms
+     */
+	public function ictu_gc_admin_inclusie_get_terms_in_order ( $terms, $id, $taxonomy ) {
+	    $terms = wp_cache_get( $id, "{$taxonomy}_relationships_sorted" );
+	    if ( false === $terms ) {
+	        $terms = wp_get_object_terms( $id, $taxonomy, array( 'orderby' => 'term_order' ) );
+	        wp_cache_add($id, $terms, $taxonomy . '_relationships_sorted');
+	    }
+	    return $terms;
 	}
+
+    //========================================================================================================
+    /**
+     * Admin: force tax to sort by assigned sort order 
+     *
+     * @return void
+     */
+	public function ictu_gc_admin_inclusie_set_terms_order () {
+	    global $wp_taxonomies;  //fixed missing semicolon
+	    // the following relates to tags, but you can add more lines like this for any taxonomy
+	    $wp_taxonomies['post_tag']->sort = true;
+	    $wp_taxonomies['post_tag']->args = array( 'orderby' => 'term_order' );    
+	}
+	
+
 
     //========================================================================================================
     /**
@@ -242,6 +281,87 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			endif; 
 			
 		}
+		
+	}
+
+    //========================================================================================================
+    /**
+     * Handles the front-end display. 
+     *
+     * @return void
+     */
+	public function ictu_gc_frontend_doelgroeppagina_content() {
+
+		global $post;
+
+		$all_or_some	= get_field('doelgroeppagina_showall_or_select', $post->ID );
+
+		if ( 'showsome' === $all_or_some ) {
+
+			$doelgroepen	= get_field('doelgroeppagina_kies_doelgroepen', $post->ID );
+
+			if ( $doelgroepen ) {
+		
+				echo '<div class="flexbox">';
+				
+				$postcounter = 0;
+				
+				foreach( $doelgroepen as $post):
+				
+					setup_postdata($post);
+				
+					$postcounter++;
+					$citaat         	= get_field('facts_citaten', $post->ID );
+	
+					echo $this->ictu_gc_doelgroep_card( $post, $citaat );
+	
+				endforeach; 
+				
+				echo '</div>';
+				
+				wp_reset_query();
+				
+			}
+			else {
+				echo '<p>' . _x( 'Geen doelgroepen geselecteerd voor deze pagina.', "error",  "ictu-gc-posttypes-inclusie" ) . '</p>';
+			}
+		}
+		else {
+
+			$args = array(
+			    'post_type'             =>  ICTU_GC_CPT_DOELGROEP,
+				'posts_per_page'        =>  -1,
+				'order'                 =>  'ASC',
+				'orderby'               =>  'post_title'
+			    
+			  );
+			$sidebarposts = new WP_query( $args );
+			
+			if ($sidebarposts->have_posts()) {
+		
+				echo '<div class="flexbox">';
+				
+				$postcounter = 0;
+				
+				while ($sidebarposts->have_posts()) : $sidebarposts->the_post();
+				
+					$postcounter++;
+					
+	//				$doelgroep      	= get_field('doelgroep_avatar', $post->ID );
+					$citaat         	= get_field('facts_citaten', $post->ID );
+	
+					echo $this->ictu_gc_doelgroep_card( $post, $citaat );
+	
+				endwhile;
+				
+				echo '</div>';
+				
+				wp_reset_query();
+				
+			}
+				
+			}
+
 		
 	}
 
@@ -724,6 +844,23 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			
 			
 		}
+		elseif ( $this->template_doelgroeppagina == $page_template ) {
+			// template voor doelgroeppagina.
+
+
+			add_action( 'genesis_loop', array( $this, 'ictu_gc_add_posttype_title' ), 9 ); 	
+
+//		    remove_action( 'genesis_loop', 'genesis_do_loop' );
+//		    remove_action( 'genesis_loop', 'gc_wbvb_archive_loop' );
+
+
+//			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_archive_doelgroep_loop' ), 10 ); 		
+//			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_archive_doelgroep_loop' ), 11 ); 			
+				
+			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_doelgroeppagina_content' ), 12 ); 				
+
+			
+		}
 		elseif ( ICTU_GC_CPT_STAP == get_post_type( ) )  {
 
 			//* Remove standard header
@@ -738,11 +875,11 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_get_related_content' ), 12 ); 				
 	
 		}
-		elseif ( is_archive( ICTU_GC_CPT_DOELGROEP ) ) {
+/*
+			elseif ( is_archive( ICTU_GC_CPT_DOELGROEP ) ) {
 
 			add_action( 'genesis_loop', array( $this, 'ictu_gc_add_posttype_title' ), 9 ); 	
 
-		    /** Replace the standard loop with our custom loop */
 		    remove_action( 'genesis_loop', 'genesis_do_loop' );
 		    remove_action( 'genesis_loop', 'gc_wbvb_archive_loop' );
 
@@ -750,6 +887,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			
 			
 		}
+*/		
 		elseif ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
 
 			//* Remove standard header
@@ -818,8 +956,11 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
      * A new version of the_loop for doelgroepen
      */
 	public function ictu_gc_frontend_archive_doelgroep_loop() {
+
 		// code for a completely custom loop
 		global $post;
+
+echo '<h1> ictu_gc_frontend_archive_doelgroep_loop </h1>';
 
 		$args = array(
 		    'post_type'             =>  ICTU_GC_CPT_DOELGROEP,
@@ -840,10 +981,10 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			
 				$postcounter++;
 				
-				$doelgroep      	= get_field('doelgroep_avatar', $post->ID );
+//				$doelgroep      	= get_field('doelgroep_avatar', $post->ID );
 				$citaat         	= get_field('facts_citaten', $post->ID );
 
-				echo $this->ictu_gc_doelgroep_card( $doelgroep, $citaat );
+				echo $this->ictu_gc_doelgroep_card( $post, $citaat );
 
 			endwhile;
 			
@@ -1003,7 +1144,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
         
           echo '<section aria-labelledby="' . $title_id . '" class="related-content">';
           echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-          echo '<ul>';
+          echo '<ul class="methode-classifications">';
           echo $classificering;
           echo '</ul>';
           echo '</section>';
@@ -1013,9 +1154,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
       }
       
       if ( is_singular( ICTU_GC_CPT_STAP ) || is_singular( 'page' ) ) {
-
-
-                
+	  	// 
       }
 
       return $thecontent;
@@ -1188,7 +1327,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
      */
     public function ictu_gc_doelgroep_card( $doelgroep, $citaat ) {
 
-		if ( 'WP_Post' == get_class( $citaat ) ) {
+		if ( is_object( $citaat ) && 'WP_Post' == get_class( $citaat ) ) {
 			$citaat_post    	= get_post( $citaat->ID );
 			$citaat_auteur  	= sanitize_text_field( get_field( 'citaat_auteur', $citaat->ID ) );
 			$content        	= '&ldquo;' . $citaat_post->post_content . '&rdquo;';
@@ -1204,17 +1343,30 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		}
 
 		$content        	= apply_filters('the_content', $content);   
-		$posttype       	= get_post_type( $doelgroep->ID );
-		$title_id       	= sanitize_title( 'title-' . $posttype . '-' . $doelgroep->ID );
-		$section_id     	= sanitize_title( 'section-' . $posttype . '-' . $doelgroep->ID );
-		$doelgroeppoppetje	= 'poppetje-1';
-		if ( get_field('doelgroep_avatar', $doelgroep->ID) ) {
-			$doelgroeppoppetje	= get_field('doelgroep_avatar', $doelgroep->ID);
+		
+		if ( is_object( $doelgroep ) ) { 
+			$doelgroep_ID		= $doelgroep->ID;
+		}
+		elseif( $doelgroep > 0 ) {
+			$doelgroep_ID		= $doelgroep;
+		}
+		else {
+			return;
 		}
 
-		$return 	= '<section aria-labelledby="' . $title_id . '" class="doelgroepcard ' . $doelgroeppoppetje . ' flexblock" id="' . $section_id . '">';
-		$return    .= '<h2 id="' . $title_id . '"><a href="' . get_permalink( $doelgroep->ID ) . '"><span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span><span>' . get_the_title( $doelgroep->ID ) . '</span></a></h2>';
+		$posttype       	= get_post_type( $doelgroep_ID );
+		$title_id       	= sanitize_title( 'title-' . $posttype . '-' . $doelgroep_ID );
+		$section_id     	= sanitize_title( 'section-' . $posttype . '-' . $doelgroep_ID );
+		$doelgroeppoppetje	= 'poppetje-1';
+
+		if ( get_field('doelgroep_avatar', $doelgroep_ID ) ) {
+			$doelgroeppoppetje	= get_field('doelgroep_avatar', $doelgroep_ID );
+		}
+
+		$return 	= '<section aria-labelledby="' . $title_id . '" class="flexblock" id="' . $section_id . '">';
+		$return    .= '<div  class="doelgroepcard ' . $doelgroeppoppetje . '"><h2 id="' . $title_id . '"><a href="' . get_permalink( $doelgroep_ID ) . '"><span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span><span>' . get_the_title( $doelgroep_ID ) . '</span></a></h2>';
 		$return    .= '<div class="tegeltje">' . $content . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
+		$return    .= '</div>';
 		$return    .= '</section>';
 			
 		return $return;
@@ -1299,7 +1451,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
     		"show_ui"             => true,
     		"show_in_rest"        => false,
     		"rest_base"           => "",
-    		"has_archive"         => true,
+    		"has_archive"         => false,
     		"show_in_menu"        => true,
     		"exclude_from_search" => false,
     		"capability_type"     => "post",
@@ -1422,24 +1574,24 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
       		);
       
       	$args = array(
-        "label"               => _x( "Aanraders", "Label tips", 'ictu-gc-posttypes-inclusie' ),
-        "labels"              => $labels,
-        "menu_icon"           => "dashicons-yes",      		
-        "description"         => "",
-        "public"              => true,
-        "publicly_queryable"  => true,
-        "show_ui"             => true,
-        "show_in_rest"        => false,
-        "rest_base"           => "",
-        "has_archive"         => false,
-        "show_in_menu"        => true,
-        "exclude_from_search" => false,
-        "capability_type"     => "post",
-        "map_meta_cap"        => true,
-        "hierarchical"        => false,
-        "rewrite"             => array( "slug" => ICTU_GC_CPT_AANRADER, "with_front" => true ),
-        "query_var"           => true,
-        "supports"            => array( "title", "excerpt" ),		
+	        "label"               => _x( "Aanraders", "Label tips", 'ictu-gc-posttypes-inclusie' ),
+	        "labels"              => $labels,
+	        "menu_icon"           => "dashicons-yes",      		
+	        "description"         => "",
+	        "public"              => true,
+	        "publicly_queryable"  => true,
+	        "show_ui"             => true,
+	        "show_in_rest"        => false,
+	        "rest_base"           => "",
+	        "has_archive"         => false,
+	        "show_in_menu"        => true,
+	        "exclude_from_search" => false,
+	        "capability_type"     => "post",
+	        "map_meta_cap"        => true,
+	        "hierarchical"        => false,
+	        "rewrite"             => array( "slug" => ICTU_GC_CPT_AANRADER, "with_front" => true ),
+	        "query_var"           => true,
+	        "supports"            => array( "title", "excerpt" ),		
   			);
       	register_post_type( ICTU_GC_CPT_AANRADER, $args );
 
@@ -1802,66 +1954,85 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 //
   
+	/** ----------------------------------------------------------------------------------------------------
+	* filter the breadcrumb
+	*/
+	public function get_classifications( $theid = '', $taxonomy = '', $wrapper = 'li' ) {
+		
+		$return     = '';
+		
+		if ( $theid && $taxonomy ) {
+	
+			$args = array(
+				'name' => $taxonomy
+			);
+			$output		= 'objects'; // or names
+			
+			$taxobject  = get_taxonomies( $args, $output ); 
+			$tax_info   = array_values($taxobject)[0];
+			$return     = '<' . $wrapper . '><span class="term">' . $tax_info->label . '</span>: <span class="term-values">';
+			$term_list  = wp_get_post_terms( $theid, $taxonomy, array("fields" => "all"));
+			$counter    = 0;
+			
+			foreach( $term_list as $term_single ) {
+				
+				$counter++;
+				$term_link = get_term_link( $term_single );
+				
+				if ( $counter > 1 ) {
+					$return .= ', '; //do something here
+				}
+//				$return .= '<a href="' . esc_url( $term_link ) . '">' . $term_single->name . '</a>';
+				$return .= $term_single->name;
+			}
+			
+			$return .= '</span></' . $wrapper . '>';
+			
+		}
+		
+		return $return;
+		
+	}
+
     /** ----------------------------------------------------------------------------------------------------
      * filter the breadcrumb
      */
-    public function get_classifications( $theid = '', $taxonomy = '', $wrapper = 'li' ) {
+	public function filter_breadcrumb( $crumb = '', $args = '' ) {
+		
+		global $post;
 
-      $return     = 'START';
+		$span_before_start  = '<span class="breadcrumb-link-wrap" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
+		$span_between_start = '<span itemprop="name">';
+		$span_before_end    = '</span>';
 
-      if ( $theid && $taxonomy ) {
+		if ( is_singular( ICTU_GC_CPT_CITAAT ) || is_singular( ICTU_GC_CPT_STAP ) ) {
+		
+			$crumb = get_the_title( get_the_id() ) ;
+		
+		}
+		// 'doelgroep'
+		
+		if ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
+			
+			$crumb = 'poepje ' . ICTU_GC_CPT_DOELGROEP . '<br>';
+			
+			$brief_page_overview        = get_field('themesettings_inclusie_doelgroeppagina', 'option');		// code hier
+			
+			if ( $brief_page_overview ) {
 
+				$actueelpagetitle = get_the_title( $brief_page_overview );
+				
+				if ( $brief_page_overview ) {
+					$crumb = gc_wbvb_breadcrumbstring( $brief_page_overview, $args );
+				}
+			}
 
-        $args=array(
-          'name' => $taxonomy
-        );
-        $output = 'objects'; // or names
-        
-        $taxobject  = get_taxonomies( $args, $output ); 
-        $tax_info   = array_values($taxobject)[0];
-        $return     = '<' . $wrapper . '><span class="term">' . $tax_info->label . '</span>: ';
-        $term_list  = wp_get_post_terms( $theid, $taxonomy, array("fields" => "all"));
-        $counter    = 0;
-
-        foreach( $term_list as $term_single ) {
-
-          $counter++;
-          $term_link = get_term_link( $term_single );
-          
-          if ( $counter > 1 ) {
-            $return .= ', '; //do something here
-          }
-          $return .= '<a href="' . esc_url( $term_link ) . '">' . $term_single->name . '</a>';
-        }
-
-        $return .= '</' . $wrapper . '>';
-
-      }
-
-      return $return;
-
-    }
-    
-
-
-//
-  
-    /** ----------------------------------------------------------------------------------------------------
-     * filter the breadcrumb
-     */
-    public function filter_breadcrumb( $crumb = '', $args = '' ) {
-
-      global $post;
-      
-      if ( is_singular( ICTU_GC_CPT_CITAAT ) || is_singular( ICTU_GC_CPT_STAP ) ) {
-        
-        $crumb = get_the_title( get_the_id() ) ;
-        
-      }
-
-      return $crumb;
-
-    }
+			
+		}
+		
+		return $crumb;
+		
+	}
     
     //** ---------------------------------------------------------------------------------------------------
 
@@ -1897,6 +2068,32 @@ function wbvb_dump_actions(){
 	echo '<pre>';
 	var_dump( $wp_filter[$hook_name] );	
 	echo '</pre>';
+
+}
+
+//========================================================================================================
+
+if (! function_exists( 'gc_wbvb_breadcrumbstring' ) ) {
+
+	function gc_wbvb_breadcrumbstring( $currentpageID, $args ) {
+	
+		global $post;
+		$crumb = '';
+		$countertje = 0;
+		
+		if ( $currentpageID ) {
+			$crumb = '<a href="' . get_permalink( $currentpageID ) . '">' . get_the_title( $currentpageID ) .'</a>' . $args['sep'] . ' ' . get_the_title( $post->ID );
+			$postparents = get_post_ancestors( $currentpageID );
+	
+			foreach( $postparents as $postparent ) {
+				$countertje ++;
+				$crumb = '<a href="' . get_permalink( $postparent ) . '">' . get_the_title( $postparent ) .'</a>' . $args['sep'] . $crumb;
+			}
+		}
+		
+		return $crumb;
+		
+	}
 
 }
 
