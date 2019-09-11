@@ -255,7 +255,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			if( have_rows('home_template_teasers') ):
 			
 				echo '<div id="home_template_teasers">';
-				echo '<div class="flexbox wrap">';
+        echo '<div class="grid grid--col-2">';
 				
 				// loop through the rows of data
 				while ( have_rows('home_template_teasers') ) : the_row();
@@ -274,10 +274,10 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					echo '</section>';
 				
 				endwhile;
-				
+
 				echo '</div>';
 				echo '</div>';
-			
+
 			endif; 
 			
 		}
@@ -664,7 +664,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				$title_id       = sanitize_title( $section_title . '-' . $post->ID );
 				$posttype       = '';
 
-				echo '<div class="flexbox" id="home_template_doelgroepen">';
+				echo '<div id="home_template_doelgroepen" class="grid grid--col-3">';
 				
 				// loop through the rows of data
 				while ( have_rows('home_template_doelgroepen') ) : the_row();          
@@ -1363,12 +1363,20 @@ echo '<h1> ictu_gc_frontend_archive_doelgroep_loop </h1>';
 			$doelgroeppoppetje	= get_field('doelgroep_avatar', $doelgroep_ID );
 		}
 
-		$return 	= '<section aria-labelledby="' . $title_id . '" class="flexblock" id="' . $section_id . '">';
-		$return    .= '<div  class="doelgroepcard ' . $doelgroeppoppetje . '"><h2 id="' . $title_id . '"><a href="' . get_permalink( $doelgroep_ID ) . '"><span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span><span>' . get_the_title( $doelgroep_ID ) . '</span></a></h2>';
+		$return 	= '<section aria-labelledby="' . $title_id . '" class="card card--doelgroep ' . $doelgroeppoppetje . '" id="' . $section_id . '">';
+		$return    .= '<div class="card__image"></div>';
+		$return    .= '<div class="card__content">';
+		$return    .=
+      '<h2 id="' . $title_id . '">'.
+      '<a href="' . get_permalink( $doelgroep->ID ) . '">'.
+      '<span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span>'.
+      '<span>' . get_the_title( $doelgroep->ID ) . '</span>'.
+      '<span class="btn btn--arrow"></span>'.
+      '</a></h2>';
 		$return    .= '<div class="tegeltje">' . $content . '<p><strong>' . $citaat_auteur . '</strong></p></div>';
 		$return    .= '</div>';
 		$return    .= '</section>';
-			
+
 		return $return;
 
     }

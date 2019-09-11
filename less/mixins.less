@@ -51,6 +51,10 @@
 
 @gc_cardbordergrey: 		#D1DFE3; 
 
+@white:					    #FFF;
+
+@color-primary:				@gc_a11y_green;
+
 
 
 //=========================================================================================================
@@ -63,6 +67,14 @@
 @contentwidth_960:			960px; 
 @contentwidth_761:			761px; 
 @containermaxwidth: 		1900px;
+
+
+// Gutters & Margins
+@gutter: 3rem;
+
+@spacer-default:			3rem;
+@spacer-med:				5rem;
+@spacer-large:				8rem;
 
 //=========================================================================================================
 
@@ -89,6 +101,10 @@
 @demarges:					( @linkerrechtermarge * 2 );
 
 @citaten_minheight:			30rem;
+
+@font-primary-reg:			@headerfont2;
+
+@font-secondary:			@headerfont;
 
 
 //=========================================================================================================
@@ -199,3 +215,29 @@
 
 //=========================================================================================================
 
+
+.gc-padding {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+
+	@media only screen and ( min-width: @break_fullwidth ) {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
+.gc-box-shadow {
+	box-shadow: 4px 4px 0 rgba(#000, 0.1);
+}
+
+.gc-section-heading {
+	.font-size(34);
+	font-family: @font-secondary;
+	text-transform: uppercase;
+	line-height: 40px;
+
+	@media only screen and ( min-width: @break_fullwidth ) {
+		.font-size(46);
+		line-height: 50px;
+	}
+}
