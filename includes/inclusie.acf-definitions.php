@@ -1049,6 +1049,91 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'description' => '',
 			));
 
+			//--------------------------------------------------------------------------------------------
+			// instellingen voor paginatemplate inclusie_template_doelgroeppagina
+			acf_add_local_field_group(array(
+				'key' => 'group_5d7278b291f4c',
+				'title' => 'Doelgroepen op doelgroeppagina',
+				'fields' => array(
+					array(
+						'key' => 'field_5d7278f7a35d2',
+						'label' => 'Wil je alle doelgroepen tonen op deze pagina?',
+						'name' => 'doelgroeppagina_showall_or_select',
+						'type' => 'radio',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'showall' => 'Ja, toon alle doelgroepen',
+							'showsome' => 'Nee, laat mij de doelgroepen selecteren',
+						),
+						'allow_null' => 0,
+						'other_choice' => 0,
+						'default_value' => 'showall',
+						'layout' => 'vertical',
+						'return_format' => 'value',
+						'save_other_choice' => 0,
+					),
+					array(
+						'key' => 'field_5d7278c6a98c9',
+						'label' => 'Kies doelgroepen',
+						'name' => 'doelgroeppagina_kies_doelgroepen',
+						'type' => 'relationship',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_5d7278f7a35d2',
+									'operator' => '==',
+									'value' => 'showsome',
+								),
+							),
+						),
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'doelgroep',
+						),
+						'taxonomy' => '',
+						'filters' => array(
+							0 => 'search',
+							1 => 'taxonomy',
+						),
+						'elements' => '',
+						'min' => '',
+						'max' => '',
+						'return_format' => 'object',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'page_template',
+							'operator' => '==',
+							'value' => 'inclusie_template_doelgroeppagina.php',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			));
+
+			//--------------------------------------------------------------------------------------------
 			// theme settings
 			acf_add_local_field_group(array(
 				'key' => 'group_5d726d93a46f2',
