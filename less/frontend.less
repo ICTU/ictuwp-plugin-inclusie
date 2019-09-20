@@ -5,13 +5,13 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.9
-// @desc.     Bugfixing. Styling for page and other content types. Title for methodes.
+// @version   0.0.10
+// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 /*!
 
 
-<!--                 frontend.css - v0.0.9                     -->
+<!--                 frontend.css - v0.0.10d                     -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -63,10 +63,12 @@ Imports
 @import "includes/_flexblock.less";
 @import "includes/_card.less";
 @import "includes/_btn";
+@import "includes/_card_tipkaart.less";              // styling card Optimaal Digitaal
 
 // PAges
-
-@import "includes/_page-home";
+@import "includes/_page-home.less";                  // styling homepage
+@import "includes/_single-step.less";                // styling step page
+@import "includes/_template_doelgroeppagina.less";   // styling template doelgroep page
 
 /*
 ---------------------------------------------------------------------------------------------------- */
@@ -108,15 +110,47 @@ body {
       background-color: @wit;
       padding-bottom: 2rem;
     }
+    
+    &.inleiding {
+	    .wrap {
+			background-color: @gc_a11y_green;
+			&, * {
+				color: @wit;
+			}
+	    }
+		.entry-header {
+			padding-bottom: 0;
+			.entry-title {
+				text-transform: none;
+				.font-size(34);
+				line-height: 1;
+				padding-top: 2rem;			
+			}
+		}
+		.entry-header,
+		.entry-content {
+			.gc-padding();			
+		}				
+    }
 
     @media only screen and ( max-width: ( @break_fullwidth ) ) {
       margin-top: 2rem;
     }
 
     @media only screen and ( min-width: ( @break_fullwidth ) ) {
-      margin-top: 10rem;
-      margin-bottom: 4rem;
-    }
+		margin-top: 10rem;
+		margin-bottom: 4rem;
+		
+		&.inleiding {
+			.entry-header .entry-title {
+				.font-size(70);
+			}
+			p {
+				.font-size(20);
+			}
+		}
+	}
+		
   }
 }
 
@@ -461,17 +495,19 @@ STYLING STEPS
 }
 
 #stappen-chart {
-  margin-bottom: 2rem;
-  padding-top: 4rem;
+	margin-bottom: 2rem;
+	padding-top: 4rem;
 
-  @media only screen and ( min-width: @break_fullwidth ) {
-    background-image: url('../images/stappen-chart.svg');
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-top: 2rem;
-    padding-top: 6rem;
-  }
+	@media only screen and ( min-width: @break_fullwidth ) {
+		background-image: url('../images/stappen-chart.svg');
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: contain;
+		margin-top: 2rem;
+		padding-top: 6rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
   .step {
     p,
@@ -612,6 +648,33 @@ DOELGROEPEN
   }
   &.poppetje-6 {
     background-image: url('../images/avatar/poppetje-6.svg');
+  }
+  &.poppetje-7 {
+    background-image: url('../images/avatar/poppetje-7.svg');
+  }
+  &.poppetje-8 {
+    background-image: url('../images/avatar/poppetje-8.svg');
+  }
+  &.poppetje-9 {
+    background-image: url('../images/avatar/poppetje-9.svg');
+  }
+  &.poppetje-10 {
+    background-image: url('../images/avatar/poppetje-10.svg');
+  }
+  &.poppetje-11 {
+    background-image: url('../images/avatar/poppetje-11.svg');
+  }
+  &.poppetje-12 {
+    background-image: url('../images/avatar/poppetje-12.svg');
+  }
+  &.poppetje-13 {
+    background-image: url('../images/avatar/poppetje-13.svg');
+  }
+  &.poppetje-14 {
+    background-image: url('../images/avatar/poppetje-14.svg');
+  }
+  &.poppetje-15 {
+    background-image: url('../images/avatar/poppetje-15.svg');
   }
 
   @media only screen and (max-width: ( @break_fullwidth ) ) {
@@ -856,6 +919,34 @@ body.single-doelgroep {
       &.poppetje-6 {
         background-image: url('../images/avatar/poppetje-6.svg');
       }
+      &.poppetje-7 {
+        background-image: url('../images/avatar/poppetje-7.svg');
+      }
+      &.poppetje-8 {
+        background-image: url('../images/avatar/poppetje-8.svg');
+      }
+      &.poppetje-9 {
+        background-image: url('../images/avatar/poppetje-9.svg');
+      }
+      &.poppetje-10 {
+        background-image: url('../images/avatar/poppetje-10.svg');
+      }
+      &.poppetje-11 {
+        background-image: url('../images/avatar/poppetje-11.svg');
+      }
+      &.poppetje-12 {
+        background-image: url('../images/avatar/poppetje-12.svg');
+      }
+      &.poppetje-13 {
+        background-image: url('../images/avatar/poppetje-13.svg');
+      }
+      &.poppetje-14 {
+        background-image: url('../images/avatar/poppetje-14.svg');
+      }
+      &.poppetje-15 {
+        background-image: url('../images/avatar/poppetje-15.svg');
+      }
+
 
     }
 
@@ -1099,36 +1190,31 @@ body.single-stap {
     }
   }
 
-  #step-methoden {
-    margin-bottom: 4rem;
-
-    @media only screen and (max-width: ( @break_fullwidth ) ) {
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
-
-    .inleiding {
-      max-width: @contentwidth_960;
-      margin-left: auto;
-      margin-right: auto;
-      @media only screen and (min-width: ( @break_fullwidth ) ) {
-        margin-bottom: 4rem;
-      }
-    }
-
-    .flexblock {
-      border-style: none;
-
-      @media only screen and ( max-width: ( @break_phone ) ) {
-        margin-bottom: 2rem;
-      }
-
-      @media only screen and (min-width: ( @break_fullwidth ) ) {
-        flex-basis: 33%;
-        max-width: 31%;
-      }
-    }
-  }
+	#step-methoden {
+		margin-bottom: 4rem;
+		
+		@media only screen and (max-width: ( @break_fullwidth ) ) {
+			margin-left: 2rem;
+			margin-right: 2rem;
+		}
+		
+		.inleiding {
+			max-width: @contentwidth_960;
+			margin-left: auto;
+			margin-right: auto;
+			@media only screen and (min-width: ( @break_fullwidth ) ) {
+				margin-bottom: 4rem;
+			}
+		}
+		
+		.flexblock {
+			border-style: none;
+			
+			@media only screen and ( max-width: ( @break_phone ) ) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
 }
 
 .post-type-archive-doelgroep {
@@ -1224,6 +1310,27 @@ a.download {
   }
 }
 
+@breedte_terms: 13rem;
+
+.methode-classifications {
+	li {
+		clear: both;
+		float: none;
+	}
+	.term-values,
+	.term {
+		display: inline-block;
+		float: left;
+	}
+	.term {
+		min-width: @breedte_terms;
+	}
+	.term-values {
+		max-width: ~"calc(100% - @{breedte_terms})";
+	}
+}
+
+
 //========================================================================================================
 
 @media screen and (-ms-high-contrast: active) and (min-width: ( @break_fullwidth ) ), screen and (-ms-high-contrast: none) and (min-width: ( @break_fullwidth ) ) {
@@ -1244,6 +1351,10 @@ a.download {
     }
   }
 }
+
+//========================================================================================================
+
+.tipcardstyling();
 
 //========================================================================================================
 
