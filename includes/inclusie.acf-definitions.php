@@ -8,7 +8,7 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.9
+// @version   0.0.10c
 // @desc.     Bugfixing. Styling for page and other content types. Title for methodes.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
@@ -86,6 +86,15 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							'poppetje-4' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-4-small.png"> poppetje-4',
 							'poppetje-5' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-5-small.png"> poppetje-5',
 							'poppetje-6' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-6-small.png"> poppetje-6',
+							'poppetje-7' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-7-small.png"> poppetje-7',
+							'poppetje-8' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-8-small.png"> poppetje-8',
+							'poppetje-9' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-9-small.png"> poppetje-9',
+							'poppetje-10' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-10-small.png"> poppetje-10',
+							'poppetje-11' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-11-small.png"> poppetje-11',
+							'poppetje-12' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-12-small.png"> poppetje-12',
+							'poppetje-13' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-13-small.png"> poppetje-13',
+							'poppetje-14' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-14-small.png"> poppetje-14',
+							'poppetje-15' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/avatar/poppetje-15-small.png"> poppetje-15',
 						),
 						'allow_null' => 0,
 						'other_choice' => 0,
