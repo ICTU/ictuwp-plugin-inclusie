@@ -8,8 +8,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.10c
-// @desc.     Bugfixing. Styling for page and other content types. Title for methodes.
+// @version   0.0.10
+// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
 
@@ -827,7 +827,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 			));
 
 			//------------------------------------------------------------------------------------------------
-
+/*
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8fde441c0a9',
 				'title' => 'Stap: inleiding en methodes',
@@ -979,7 +979,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-
+*/
 			//------------------------------------------------------------------------------------------------
 
 			acf_add_local_field_group(array(
