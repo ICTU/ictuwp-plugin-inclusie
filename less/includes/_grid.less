@@ -9,8 +9,8 @@
   @media only screen and ( min-width: ( @break_phone ) ) {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -@gutter / 2;
-    margin-right: -@gutter / 2;
+    margin-left: ( @gutter / -2 );
+    margin-right: ( @gutter / -2 );
   }
 
   &--col-3 {
@@ -19,8 +19,8 @@
       > div,
       > section {
         width: calc(50% - @gutter);
-        margin-left: @gutter/  2;
-        margin-right: @gutter / 2;
+        margin-left: ( @gutter / 2 );
+        margin-right: ( @gutter / 2 );
 
         &:first-child {
           width: 100%;
@@ -31,10 +31,10 @@
     @media only screen and ( min-width: ( @break_fullwidth )) {
       > div,
       > section {
-        width: calc(33.333% - @gutter);
+		width: ~"calc(33.333% - @{gutter})";
 
         &:first-child {
-          width: calc(33.333% - @gutter);
+			width: ~"calc(33.333% - @{gutter})";
         }
       }
     }
@@ -45,9 +45,9 @@
 
       > div,
       > section {
-        width: calc(50% - @gutter);
-        margin-left: @gutter/  2;
-        margin-right: @gutter / 2;
+		width: ~"calc(50% - @{gutter})";
+        margin-left: ( @gutter / 2 );
+        margin-right: ( @gutter / 2 );
       }
     }
   }
