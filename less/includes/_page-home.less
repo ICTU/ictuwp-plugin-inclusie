@@ -70,6 +70,26 @@
       button {
         width: auto;
         background: @color-primary;
+
+		&.btn-close {
+			background-color: transparent;
+			color: @txt;
+			text-decoration: none;
+			position: absolute;
+			top: 2rem;
+			right: 2rem;
+			margin: 0;
+			padding: 0 .75rem;
+			border-style: none;
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: @wit;
+				background: @inclusierood;
+			}
+		}
+        
       }
     }
 

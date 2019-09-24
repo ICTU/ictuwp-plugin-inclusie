@@ -8,7 +8,7 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.10
+ * Version:             0.0.11f
  * Version description: CPT tips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
@@ -719,7 +719,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					}
 					
 					$xtraclass 	= ' hidden';
-					$title_id   = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
+					$title_id   = sanitize_title( "stap-" . $stepcounter . "-" . get_the_title( $stap->ID ) );
 					$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
 					$readmore	= sprintf( _x( '%s <span class="visuallyhidden">over %s</span>', 'home lees meer', 'ictu-gc-posttypes-inclusie' ), _x( 'Lees meer', 'home lees meer', 'ictu-gc-posttypes-inclusie' ), get_the_title( $stap->ID ) ); 
 
@@ -791,6 +791,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		global $post;
 	
 		$infooter = true;
+		
+		wp_enqueue_script('jquery-ui-core');
+		
 		if ( WP_DEBUG ) {
 			wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/toggle.js', '', ICTU_GC_INCL_VERSION, $infooter );
 		}
