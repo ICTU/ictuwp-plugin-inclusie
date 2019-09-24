@@ -23,9 +23,9 @@
 // allemaal nog maar voorlopig dit...
 	.tipkaart {
 		text-align: center;
-		
+		position: relative;
 		background: @gc_cardbordergrey;
-		
+		padding: 0;
 		
 		* {
 			padding: 0;
@@ -35,8 +35,20 @@
 			color: @txt;
 			border: 5px solid transparent;
 			display: block;
-			padding: 0 0 ( @tipkleurhoogte + 1rem ) 0;
-			position: relative;
+			
+			&:before {
+				position: absolute;
+				content: ' ';
+				display: block;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: @tipkleurhoogte;
+				border: 5px solid transparent;
+				border-top-style: none;
+				background-color: darken( @gc_cardbordergrey, 10% );
+				clip-path: polygon(0 14%, 100% 0, 100% 100%, 0% 100%);
+			}
 			
 			&:hover,
 			&:active,
@@ -44,6 +56,9 @@
 				text-decoration: underline;
 				color: @txt;
 				border-color: @wit;
+				&:before {
+					border-color: @wit;
+				}
 			}
 		}
 
@@ -83,15 +98,15 @@
 			font-family: @headerfont;
 			.font-size(28);
 			text-transform: uppercase;
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			height: @tipkleurhoogte;
-			padding-top: 2rem;
-			padding-bottom: 2rem;
-			background-color: darken( @gc_cardbordergrey, 10% );
-			
+			position: relative;
+			background-position: center top;
+			background-repeat: no-repeat;
+
+			span {
+				margin-top: 8rem;
+				margin-bottom: 1rem;
+				display: inline-block;
+			}
 		}
 
 		&.inclusie {
@@ -104,10 +119,13 @@
 				&:focus {
 					color: @wit;
 				}
+				&:before {
+					background-color: darken( @inclusierood, 10% );
+				}
 			}
 
 			.contentinfo {
-				background-color: darken( @inclusierood, 10% );
+				background-image: url('../images/svg/thema-inclusie.svg');
 			}
 		}
 		
