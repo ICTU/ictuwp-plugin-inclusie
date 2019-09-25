@@ -62,6 +62,14 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"/ictu-gc-plugin-inclusie.code-workspace": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/ictu-gc-plugin-inclusie.code-workspace",
+		"oF": 0
+		},
 	"/ictu-gc-posttypes-inclusie.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1176,23 +1184,6 @@
 		"oA": 0,
 		"oAP": "/languages/index.php",
 		"oF": 0
-		},
-	"/less/frontend.less": {
-		"aP": 1,
-		"bl": 1,
-		"eJ": 0,
-		"ft": 1,
-		"ie": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 0,
-		"oAP": "/css/frontend.css",
-		"oF": 0,
-		"oS": 1,
-		"rwU": 0,
-		"sI": 1,
-		"sU": 1
 		},
 	"/less/includes/_btn.less": {
 		"aP": 0,
