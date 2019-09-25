@@ -7,8 +7,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.9
-// @desc.     Bugfixing. Styling for page and other content types. Title for methodes.
+// @version   0.0.10
+// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 
@@ -70,7 +70,7 @@
 
 
 // Gutters & Margins
-@gutter: 3rem;
+@gutter: 					3rem;
 
 @spacer-default:			3rem;
 @spacer-med:				5rem;
@@ -215,8 +215,7 @@
 
 //=========================================================================================================
 
-
-.gc-padding {
+.gc-padding() {
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 
@@ -226,11 +225,15 @@
 	}
 }
 
-.gc-box-shadow {
+//=========================================================================================================
+
+.gc-box-shadow() {
 	box-shadow: 4px 4px 0 rgba(#000, 0.1);
 }
 
-.gc-section-heading {
+//=========================================================================================================
+
+.gc-section-heading() {
 	.font-size(34);
 	font-family: @font-secondary;
 	text-transform: uppercase;
@@ -242,6 +245,7 @@
 	}
 }
 
+<<<<<<< HEAD
 .gc-font-small {
 	font-size: 15px;
 	line-height: 22px;
@@ -261,3 +265,7 @@
 		line-height: 76px;
 	}
 }
+=======
+//=========================================================================================================
+
+>>>>>>> ea4534a04b02cf0d1e60646851134d9b1e41b025

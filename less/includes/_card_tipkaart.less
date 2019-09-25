@@ -1,0 +1,117 @@
+
+/*
+// Gebruiker Centraal - less/includes/_card_tipkaart.less
+// ----------------------------------------------------------------------------------
+// CSS specifiek voor tipcards van Optimaal Digitaal.
+// wellicht herbruikbaar
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   0.0.10
+// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+ */
+
+@import "../mixins";
+
+
+@tipkleurhoogte: 10rem;
+
+.tipcardstyling() {
+
+// allemaal nog maar voorlopig dit...
+	.tipkaart {
+		text-align: center;
+		
+		background: @gc_cardbordergrey;
+		
+		
+		* {
+			padding: 0;
+		}
+		a {
+			text-decoration: none;
+			color: @txt;
+			border: 5px solid transparent;
+			display: block;
+			padding: 0 0 ( @tipkleurhoogte + 1rem ) 0;
+			position: relative;
+			
+			&:hover,
+			&:active,
+			&:focus {
+				text-decoration: underline;
+				color: @txt;
+				border-color: @wit;
+			}
+		}
+
+		.tipnummer {
+			font-family: @headerfont;
+			text-transform: uppercase;
+			.font-size(20);
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			
+			&:after,
+			&:before {
+				display: inline-block;
+				transform: translateY(-9px);
+				line-height: 1;
+			}
+			
+			&:before {
+				content: '_ ';
+				margin-right: 8px;
+			}
+			&:after {
+				content: ' _';
+				margin-left: 8px;
+			}
+		}
+		
+		h3, h2 {
+			min-height: 15rem;
+			font-family: @bodyfont_bold;
+			.font-size(36);
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+		
+		.contentinfo {
+			font-family: @headerfont;
+			.font-size(28);
+			text-transform: uppercase;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: @tipkleurhoogte;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			background-color: darken( @gc_cardbordergrey, 10% );
+			
+		}
+
+		&.inclusie {
+			background-color: @inclusierood;
+			
+			a {
+				color: @wit;
+				&:hover,
+				&:active,
+				&:focus {
+					color: @wit;
+				}
+			}
+
+			.contentinfo {
+				background-color: darken( @inclusierood, 10% );
+			}
+		}
+		
+		
+	}
+
+}
