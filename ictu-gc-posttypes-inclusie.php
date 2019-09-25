@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.11f
- * Version description: CPT tips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
+ * Version:             0.0.11
+ * Version description: JS homepage voor openen en sluiten modal windows verbeterd.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -92,7 +92,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',		trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_INCL_VERSION',		'0.0.11f' );
+define( 'ICTU_GC_INCL_VERSION',		'0.0.11' );
 
 //========================================================================================================
 

@@ -5,13 +5,14 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.11f
-// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
+// @version   0.0.11
+// @desc.     JS homepage voor openen en sluiten modal windows verbeterd.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
 /*!
 
 
-<!--                 frontend.css - v0.0.11f                    -->
+<!--                 frontend.css - v0.0.11                    -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -325,10 +326,10 @@ STYLING STEPS
 
 
 .step {
-  color: @txt;
-  margin-bottom: 1em;
-
-  button {
+	color: @txt;
+	margin-bottom: 1em;
+	
+	.js-openclosebutton {
     margin-top: 0;
     padding-top: .25em;
     padding-bottom: .25em;
@@ -386,7 +387,7 @@ STYLING STEPS
   }
 
   @media only screen and ( max-width: @break_fullwidth ) {
-    button {
+	.js-openclosebutton {
       padding-left: 5rem;
       background-size: 30px 30px;
       line-height: 1.6;
@@ -427,7 +428,7 @@ STYLING STEPS
 
   @media only screen and ( min-width: @break_fullwidth ) {
 
-    button {
+	.js-openclosebutton {
       margin-left: auto;
       margin-right: auto;
       margin-top: -1rem;
@@ -498,7 +499,7 @@ STYLING STEPS
           background-size: @thesize @thesize;
           border-color: @wit;
         }
-        button {
+		.js-openclosebutton {
           text-decoration: underline;
         }
       }

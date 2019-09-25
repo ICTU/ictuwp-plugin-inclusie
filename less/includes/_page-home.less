@@ -1,3 +1,16 @@
+
+
+// Gebruiker Centraal - _page-home.less
+// ----------------------------------------------------------------------------------
+// styling voor homepage template
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   0.0.11
+// @desc.     JS homepage voor openen en sluiten modal windows verbeterd.
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
 @import "../mixins";
 
 
@@ -67,29 +80,9 @@
     }
 
     .step {
-      button {
+      .js-openclosebutton {
         width: auto;
         background: @color-primary;
-
-		&.btn-close {
-			background-color: transparent;
-			color: @txt;
-			text-decoration: none;
-			position: absolute;
-			top: 2rem;
-			right: 2rem;
-			margin: 0;
-			padding: 0 .75rem;
-			border-style: none;
-
-			&:hover,
-			&:active,
-			&:focus {
-				color: @wit;
-				background: @inclusierood;
-			}
-		}
-        
       }
     }
 

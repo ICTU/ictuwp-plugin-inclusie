@@ -7,8 +7,8 @@
 // @package   	ictu-gc-posttypes-inclusie
 // @author    	Paul van Buuren
 // @license		GPL-2.0+
-// @version		0.0.11f
-// @desc.		CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
+// @version		0.0.11
+// @desc.		JS homepage voor openen en sluiten modal windows verbeterd.
 // @credits		Scott Vinkle - see: https://codepen.io/svinkle/pen/mKfru
 //				via https://a11yproject.com/patterns.html
 // @link      	https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
@@ -28,16 +28,11 @@ var isSmallerScreenSize = true;
 	var toggleSection			= jQuery('#home-chart'),
 		buttonsWithOpenFunction	= jQuery('.js-openclosebutton'),
 		toggleTextinfo			= jQuery('.js-descriptionbox'),
-		showOneAnswerAtATime	= true,
+		showOneAnswerAtATime,
 		modalOpen 				= false,
 		allFocusable  			= jQuery( ":focusable" ),
 		theModal,
 		sectionHeight			= 210;
-
-	toggleSection.addClass("jsloaded");
-
-
-
 
 	/**
 	* Save section focus
@@ -52,7 +47,7 @@ var isSmallerScreenSize = true;
 			if (thisSection.hasClass('active')) {
 				// Hide answer
 				thisSection.removeClass('active');      
-				thisSection.find('.btn-close').remove();
+				thisSection.find('.btn--close').remove();
 				thisSection.attr('aria-hidden', 'true');
 			}
 		});
@@ -86,28 +81,26 @@ var isSmallerScreenSize = true;
 	// and then stop.
 	function focusRestrict ( event ) {
 
-		if ( modalOpen ) {
-			console.log('modal = open. focusRestrict ' + event.target );
+		if ( modalOpen && showOneAnswerAtATime && ! isSmallerScreenSize ) {
+			// is the focus inside the opened popup?
+			if ( jQuery(event.target).parents("#" + theModal.attr('id') ).length == 1 ) { 
+				// focus is inside the right container
+				// no need for action
+			}
+			else {
+				// outside. put it back in
+				event.stopPropagation();
+				theModal.focus();
+			}
 		}
 		else {
-			console.log('modal not open');
+			// modal not open
 		}
 
-		if ( modalOpen && ( ! theModal.find( event.target ) ) ) {
-			event.stopPropagation();
-			theModal.focus();
-		}
 	}
-
 	
-	// restrict tab focus on elements only inside modal window
-//	for ( var i = 0; i < allFocusable.length; i++ ) {
-//		allFocusable.item(i).addEventListener('focus', focusRestrict);
-//	}
-
-allFocusable.bind( "focus", focusRestrict() );
-
-
+	jQuery( ":focusable" ).bind('focus', focusRestrict );
+	
 	
 	/**
 	* Show answer on click
@@ -150,17 +143,17 @@ allFocusable.bind( "focus", focusRestrict() );
 				thisSection.attr("style", "transform: translateY(" + verplaats + "px)");
 
 
-				if ( thisSection.find('btn-close').length ) {
+				if ( thisSection.find('btn--close').length ) {
 					console.log('knop al aanwezig');
 				}
 				else {
 					console.log('knop nog toevoegen');
 
-//					thisSection.find('h3').append( 'button.btn-close' );
-					thisSection.append( '<button class="btn-close">×</button>' );
+//					thisSection.find('h3').append( 'button.btn--close' );
+					thisSection.append( '<button class="btn--close">×</button>' );
 					
 					// close modal by btn click/hit
-					var mClose        	= thisSection.find('button.btn-close');
+					var mClose        	= thisSection.find('button.btn--close');
 					
 					console.log('knop toegevoegd');
 					
@@ -345,10 +338,12 @@ function checkWidthChange(mq) {
 	if (mq.matches) {
 		// window width is at least 800px
 		isSmallerScreenSize = false;
+		showOneAnswerAtATime = true;
 	}
 	else {
 		// window width is less than 800px
 		isSmallerScreenSize = true;
+		showOneAnswerAtATime = false;
 	}
 	
 }
