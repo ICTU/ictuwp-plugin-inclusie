@@ -235,7 +235,6 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					echo '</section>';
 				
 				endwhile;
-
 				echo '</div>';
 				echo '</div>';
 
@@ -832,7 +831,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		
 		if ($sidebarposts->have_posts()) {
 	
-			echo '<div class="flexbox">';
+			echo '<div class="overview grid grid--col-3 overview--doelgroep">';
 			
 			$postcounter = 0;
 			
@@ -1216,7 +1215,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		$return    .= '<div class="card__image"></div>';
 		$return    .= '<div class="card__content">';
 		$return    .=
-      '<h2 id="' . $title_id . '">'.
+      '<h2 class="card__title" id="' . $title_id . '">'.
       '<a href="' . get_permalink( $doelgroep->ID ) . '">'.
       '<span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span>'.
       '<span>' . get_the_title( $doelgroep->ID ) . '</span>'.

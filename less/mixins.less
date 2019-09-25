@@ -241,3 +241,23 @@
 		line-height: 50px;
 	}
 }
+
+.gc-font-small {
+	font-size: 15px;
+	line-height: 22px;
+}
+
+.gc-heading-1 {
+	.font-size(32);
+	line-height: 38px;
+
+	@media only screen and ( min-width: @break_tablet ) {
+		.font-size(44);
+		line-height: 48px;
+	}
+
+	@media only screen and ( min-width: @break_fullwidth ) {
+		.font-size(68);
+		line-height: 76px;
+	}
+}

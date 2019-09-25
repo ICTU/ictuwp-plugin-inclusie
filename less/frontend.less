@@ -63,10 +63,18 @@ Imports
 @import "includes/_flexblock.less";
 @import "includes/_card.less";
 @import "includes/_btn";
+@import "includes/_overview";
 
-// PAges
 
+// Pages
+@import "includes/_page";
 @import "includes/_page-home";
+
+
+// Inclusie specifiek
+
+@import "includes/_card-doelgroep";
+@import "includes/_inclusie-design";
 
 /*
 ---------------------------------------------------------------------------------------------------- */
@@ -703,63 +711,6 @@ DOELGROEPEN
   }
   h3 {
     text-align: center;
-  }
-}
-
-.tegeltje {
-  padding: 1em;
-  min-height: 120px;
-  color: @txt;
-  background: white;
-  margin-bottom: 25rem;
-  margin-top: -5rem;
-
-  .font-size(22);
-
-  box-shadow: 3px 3px 0px rgba(#000, 0.2);
-  position: relative;
-  z-index: 500;
-
-  &:before {
-    content: ' ';
-    display: block;
-    height: 28px;
-    width: 28px;
-    position: absolute;
-    right: 1.8rem;
-    bottom: 0;
-    background: rgba(#000, 0.2); // @wit;
-    transform: translateY(28px);
-    z-index: 450;
-    clip-path: polygon(0 0, 0 100%, 70% 0);
-  }
-
-  &:after {
-    content: ' ';
-    display: block;
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    right: 2rem;
-    bottom: 0;
-    background: @wit;
-    transform: translateY(25px);
-    z-index: 450;
-    box-shadow: 3px 3px 0px rgba(#000, 0.2);
-    clip-path: polygon(0 0, 0 100%, 70% 0);
-  }
-
-  strong {
-    font-family: @bodyfont_bold;
-    font-weight: 700;
-    .font-size(14);
-    &:before {
-      content: '– ';
-      display: inline-block;
-      float: left;
-      line-height: 2.8;
-      margin-right: .5em;
-    }
   }
 }
 
