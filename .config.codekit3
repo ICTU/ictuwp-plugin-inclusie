@@ -35,6 +35,14 @@
 		"oAP": "/css/frontend.css.map",
 		"oF": 0
 		},
+	"/css/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/css/index.php",
+		"oF": 0
+		},
 	"/distribute.sh": {
 		"cB": 0,
 		"ft": 8192,
@@ -53,14 +61,6 @@
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
-		},
-	"/ictu-gc-plugin-inclusie.code-workspace": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/ictu-gc-plugin-inclusie.code-workspace",
-		"oF": 0
 		},
 	"/ictu-gc-posttypes-inclusie.php": {
 		"cB": 0,
@@ -121,6 +121,14 @@
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
+		},
+	"/images/avatar/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/images/avatar/index.php",
+		"oF": 0
 		},
 	"/images/avatar/poppetje-1-small.png": {
 		"ft": 32768,
@@ -869,9 +877,9 @@
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "/images/index.php",
-		"oF": 1
+		"oF": 0
 		},
 	"/images/list-image-arrow.png": {
 		"ft": 32768,
@@ -1067,12 +1075,36 @@
 		"oAP": "/includes/inclusie.acf-definitions.php",
 		"oF": 0
 		},
+	"/includes/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/includes/index.php",
+		"oF": 0
+		},
 	"/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/index.php",
+		"oF": 0
+		},
+	"/js/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/js/index.php",
+		"oF": 0
+		},
+	"/js/min/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/js/min/index.php",
 		"oF": 0
 		},
 	"/js/min/toggle-min.js": {
@@ -1135,6 +1167,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/languages/ictu-gc-posttypes-inclusie.pot",
+		"oF": 0
+		},
+	"/languages/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/languages/index.php",
 		"oF": 0
 		},
 	"/less/frontend.less": {
@@ -1290,6 +1330,22 @@
 		"sI": 0,
 		"sU": 0
 		},
+	"/less/includes/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/less/includes/index.php",
+		"oF": 0
+		},
+	"/less/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/less/index.php",
+		"oF": 0
+		},
 	"/less/mixins.less": {
 		"aP": 0,
 		"bl": 0,
@@ -1323,14 +1379,6 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"/README.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/README.html",
-		"oF": 0
-		},
 	"/README.md": {
 		"cB": 0,
 		"cS": 0,
@@ -1361,11 +1409,11 @@
 	},
 "hooks": [
 	{
-		"enabled": 0,
+		"enabled": 1,
 		"name": "Hook #1",
 		"predicateDataBase64Encoded": "YnBsaXN0MDDUAQIDBAUGYmNYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QFgcIDxQcJicqMTU6Oz5CRktMT1VZXV9VJG51bGzTCQoLDA0OXxAXTlNDb21wb3VuZFByZWRpY2F0ZVR5cGVfEA9OU1N1YnByZWRpY2F0ZXNWJGNsYXNzEAKAAoAV0hALERNaTlMub2JqZWN0c6ESgAOAFNQLFRYXGBkaG18QEU5TUmlnaHRFeHByZXNzaW9uXxAQTlNMZWZ0RXhwcmVzc2lvbl8QE05TUHJlZGljYXRlT3BlcmF0b3KAE4AOgASAEdUdHh8gCyEiIyQlWU5TT3BlcmFuZF5OU1NlbGVjdG9yTmFtZV8QEE5TRXhwcmVzc2lvblR5cGVbTlNBcmd1bWVudHOABoAFEAOACIANXHZhbHVlRm9yS2V5OtIfCygpEAGAB9IrLC0uWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU1NlbGZFeHByZXNzaW9uoy0vMFxOU0V4cHJlc3Npb25YTlNPYmplY3TSEAsyNKEzgAmADNMLHzY3ODlZTlNLZXlQYXRogAsQCoAKXWlucHV0RnVsbFBhdGjSKyw8PV8QHE5TS2V5UGF0aFNwZWNpZmllckV4cHJlc3Npb26jPC8w0issP0BeTlNNdXRhYmxlQXJyYXmjP0EwV05TQXJyYXnSKyxDRF8QE05TS2V5UGF0aEV4cHJlc3Npb26kQ0UvMF8QFE5TRnVuY3Rpb25FeHByZXNzaW9u00cfC0hJSl8QD05TQ29uc3RhbnRWYWx1ZYAPEACAEF8QPEdlYnJ1aWtlci1DZW50cmFhbC0tLUluY2x1c2llLS0tY3VzdG9tLXBvc3QtdHlwZXMtdGF4b25vbWllc9IrLE1OXxAZTlNDb25zdGFudFZhbHVlRXhwcmVzc2lvbqNNLzDUC1BRUlNJKFRaTlNNb2RpZmllcldOU0ZsYWdzXk5TT3BlcmF0b3JUeXBlgBIQY9IrLFZXXxAVTlNJblByZWRpY2F0ZU9wZXJhdG9yo1ZYMF8QE05TUHJlZGljYXRlT3BlcmF0b3LSKyxaW18QFU5TQ29tcGFyaXNvblByZWRpY2F0ZaNaXDBbTlNQcmVkaWNhdGXSKyxBXqJBMNIrLGBhXxATTlNDb21wb3VuZFByZWRpY2F0ZaNgXDBfEA9OU0tleWVkQXJjaGl2ZXLRZGVUcm9vdIABAAgAEQAaACMALQAyADcAUABWAF0AdwCJAJAAkgCUAJYAmwCmAKgAqgCsALUAyQDcAPIA9AD2APgA+gEFAQ8BHgExAT0BPwFBAUMBRQFHAVQBWQFbAV0BYgFtAXYBiQGNAZoBowGoAaoBrAGuAbUBvwHBAcMBxQHTAdgB9wH7AgACDwITAhsCIAI2AjsCUgJZAmsCbQJvAnECsAK1AtEC1QLeAukC8QMAAwIDBAMJAyEDJQM7A0ADWANcA2gDbQNwA3UDiwOPA6EDpAOpAAAAAAAAAgEAAAAAAAAAZgAAAAAAAAAAAAAAAAAAA6s=",
 		"runOrder": 0,
-		"scriptSourceString": "sh '/shared-paul-files/Webs/git-repos/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies/distribute.sh' &>/dev/null",
+		"scriptSourceString": "sh '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictu-gc-posttypes-inclusie/distribute.sh' &>/dev/null\n",
 		"scriptType": 1,
 		"uuidString": "CBF957AC-9E7F-4EF9-9E64-2E2A5656E769"
 		}
@@ -1376,8 +1424,8 @@
 	"creationDate": 574360784.37326002,
 	"displayValue": "ICTU plugin GC Inclusie",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "/images/logo.png",
-	"iconImageWasSetByUser": 1
+	"iconImageName": "logo-react",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
