@@ -7,7 +7,7 @@
 // @package   	ictu-gc-posttypes-inclusie
 // @author    	Paul van Buuren
 // @license		GPL-2.0+
-// @version		0.0.11
+// @version		0.0.11a
 // @desc.		JS homepage voor openen en sluiten modal windows verbeterd.
 // @credits		Scott Vinkle - see: https://codepen.io/svinkle/pen/mKfru
 //				via https://a11yproject.com/patterns.html
@@ -16,6 +16,7 @@
 
 var console;
 var isSmallerScreenSize = true;
+var showOneAnswerAtATime = false;
 
 
 (function (document, window, undefined) {
@@ -28,7 +29,6 @@ var isSmallerScreenSize = true;
 	var toggleSection			= jQuery('#home-chart'),
 		buttonsWithOpenFunction	= jQuery('.js-openclosebutton'),
 		toggleTextinfo			= jQuery('.js-descriptionbox'),
-		showOneAnswerAtATime,
 		modalOpen 				= false,
 		allFocusable  			= jQuery( ":focusable" ),
 		theModal,
@@ -85,20 +85,26 @@ toggleSection.focus();
 	// and then stop.
 	function focusRestrict ( event ) {
 
+// console.log("focusRestrict: modalOpen=" + modalOpen + ", showOneAnswerAtATime=" + showOneAnswerAtATime + ", isSmallerScreenSize=" + isSmallerScreenSize);
+
 		if ( modalOpen && showOneAnswerAtATime && ! isSmallerScreenSize ) {
+// console.log("dus wel checken. ID=" + theModal.attr('id') );
 			// is the focus inside the opened popup?
 			if ( jQuery(event.target).parents("#" + theModal.attr('id') ).length == 1 ) { 
 				// focus is inside the right container
 				// no need for action
+// console.log('alles is fleks. niks doen');
 			}
 			else {
 				// outside. put it back in
 				event.stopPropagation();
 				theModal.focus();
+// console.log('HO ho, terug in je hok!');
 			}
 		}
 		else {
 			// modal not open
+// console.log("dus niet checken");
 		}
 
 	}
@@ -148,10 +154,12 @@ toggleSection.focus();
 
 
 				if ( thisSection.find('btn--close').length ) {
-					console.log('knop al aanwezig');
+					// knop is al aanwezig
+// console.log('knop al aanwezig');
 				}
 				else {
-					console.log('knop nog toevoegen');
+					// knop nog toevoegen
+// console.log('knop nog toevoegen');
 
 //					thisSection.find('h3').append( 'button.btn--close' );
 					thisSection.append( '<button class="btn--close">×</button>' );
@@ -159,13 +167,13 @@ toggleSection.focus();
 					// close modal by btn click/hit
 					var mClose        	= thisSection.find('button.btn--close');
 					
-					console.log('knop toegevoegd');
+// console.log('knop toegevoegd');
 					
 					mClose.attr( "aria-label", "Sluit pop-up" );
 					
 					// Handle button click event
 					mClose.on( "click", closeAllSections );    
-					console.log('event listener toegevoegd');
+// console.log('event listener toegevoegd');
 				}
 
 			}
@@ -193,12 +201,12 @@ toggleSection.focus();
 		firstSection 		= elem.parent().find('section.step:first'),
 		lastSection 		= elem.parent().find('section.step:last');
 
-		console.log('Keycode: ' + keyCode );
+		// console.log('Keycode: ' + keyCode );
 		
 		switch(keyCode) {
 			// Escape
 			case 27:
-console.log('Esc!');
+// console.log('Esc!');
 				e.preventDefault();
 				e.stopPropagation();
 				closeAllSections();
