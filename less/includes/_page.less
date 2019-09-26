@@ -1,3 +1,47 @@
 h1 {
-  .gc-heading-1;
+  .gc-heading-1();
+}
+
+// Regular page layout
+
+.inleiding {
+  .gc-box-shadow;
+  .gc-content-container;
+}
+
+.content-sidebar-wrap {
+  position: relative;
+  .gc-padding();
+  padding-bottom: 5rem;
+
+  @media only screen and ( min-width: ( @break_fullwidth )) {
+    padding-bottom: 10rem;
+  }
+}
+
+#maincontent {
+  position: relative;
+
+  &:before {
+    content: " ";
+    background: @inclusiekoraal;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 300px;
+  }
+}
+
+ article.entry {
+   max-width: @contentwidth_960;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+.entry-content.wrap {
+  h2 {
+    .gc-section-heading;
+    text-transform: none;
+  }
 }

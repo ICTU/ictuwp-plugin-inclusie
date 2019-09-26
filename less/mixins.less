@@ -48,9 +48,10 @@
 @gc_pantybrown_light: 		#f2ebe4; // ook wel 'GC PantyBrown Light'
 @gc_pantybrown: 			#e8d8c7; // ook wel 'GC PantyBrown'
 
+@gc_blue_light:				#6F99A3;
 
-@gc_cardbordergrey: 		#D1DFE3; 
 
+@gc_cardbordergrey: 		#D1DFE3;
 @white:					    #FFF;
 
 @color-primary:				@gc_a11y_green;
@@ -75,6 +76,8 @@
 @spacer-default:			3rem;
 @spacer-med:				5rem;
 @spacer-large:				8rem;
+
+@max-width-content:			957px;
 
 //=========================================================================================================
 
@@ -103,7 +106,6 @@
 @citaten_minheight:			30rem;
 
 @font-primary-reg:			@headerfont2;
-
 @font-secondary:			@headerfont;
 
 
@@ -245,13 +247,18 @@
 	}
 }
 
-<<<<<<< HEAD
-.gc-font-small {
+.gc-content-container() {
+	max-width: @max-width-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gc-font-small() {
 	font-size: 15px;
 	line-height: 22px;
 }
 
-.gc-heading-1 {
+.gc-heading-1() {
 	.font-size(32);
 	line-height: 38px;
 
@@ -265,7 +272,16 @@
 		line-height: 76px;
 	}
 }
-=======
+
+.gc-section-heading() {
+	.font-size(32);
+	line-height: 38px;
+
+	@media only screen and ( min-width: @break_fullwidth ) {
+		.font-size(46);
+		line-height: 50px;
+	}
+}
+
 //=========================================================================================================
 
->>>>>>> ea4534a04b02cf0d1e60646851134d9b1e41b025
