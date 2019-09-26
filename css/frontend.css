@@ -1,7 +1,7 @@
 /*!
 
 
-<!--                 frontend.css - v0.0.11a                    -->
+<!--                 frontend.css - v0.0.11                    -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -124,28 +124,14 @@ Imports
   }*/
 }
 .card {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
+  background: #FFF;
   position: relative;
-  background: #fff;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-}
-.card:not(.card--doelgroep) {
-  overflow: hidden;
-  /* ben niet helemaal zeker hiervan, ik wacht even af */
-}
-.card:not(.card--doelgroep) p,
-.card:not(.card--doelgroep) h2,
-.card:not(.card--doelgroep) h3 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-.card.card--doelgroep {
-  background: #148839;
-  padding-top: 10rem;
 }
 .card h2 a,
 .card h3 a {
@@ -170,74 +156,14 @@ Imports
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   border-color: #004152;
 }
-.card--doelgroep .tegeltje {
-  position: absolute;
-  top: 0;
-  left: 1.5rem;
-  right: 1.5rem;
-  margin-top: -44rem;
-}
-.card--doelgroep:before {
-  content: " ";
-  width: 200px;
-  height: 290px;
-  margin: 3rem auto 0;
-  background: url('../images/avatar/poppetje-1.svg') center top no-repeat;
-  background-size: 100% auto;
-}
-.card--doelgroep.poppetje-1:before {
-  background-image: url('../images/avatar/poppetje-1.svg');
-}
-.card--doelgroep.poppetje-2:before {
-  background-image: url('../images/avatar/poppetje-2.svg');
-}
-.card--doelgroep.poppetje-3:before {
-  background-image: url('../images/avatar/poppetje-3.svg');
-}
-.card--doelgroep.poppetje-4:before {
-  background-image: url('../images/avatar/poppetje-4.svg');
-}
-.card--doelgroep.poppetje-5:before {
-  background-image: url('../images/avatar/poppetje-5.svg');
-}
-.card--doelgroep.poppetje-6:before {
-  background-image: url('../images/avatar/poppetje-6.svg');
-}
-.card--doelgroep.poppetje-7:before {
-  background-image: url('../images/avatar/poppetje-7.svg');
-}
-.card--doelgroep.poppetje-8:before {
-  background-image: url('../images/avatar/poppetje-8.svg');
-}
-.card--doelgroep.poppetje-9:before {
-  background-image: url('../images/avatar/poppetje-9.svg');
-}
-.card--doelgroep.poppetje-10:before {
-  background-image: url('../images/avatar/poppetje-10.svg');
-}
-.card--doelgroep.poppetje-11:before {
-  background-image: url('../images/avatar/poppetje-11.svg');
-}
-.card--doelgroep.poppetje-12:before {
-  background-image: url('../images/avatar/poppetje-12.svg');
-}
-.card--doelgroep.poppetje-13:before {
-  background-image: url('../images/avatar/poppetje-13.svg');
-}
-.card--doelgroep.poppetje-14:before {
-  background-image: url('../images/avatar/poppetje-14.svg');
-}
-.card--doelgroep.poppetje-15:before {
-  background-image: url('../images/avatar/poppetje-15.svg');
-}
-.card--doelgroep .card__content {
+.card .card__content {
   padding: 0;
   background: none;
 }
-.card--doelgroep .card__content:before {
+.card .card__content:before {
   display: none;
 }
-.card--doelgroep .card__content:after {
+.card .card__content:after {
   position: absolute;
   content: " ";
   bottom: 0;
@@ -247,26 +173,26 @@ Imports
   height: 7rem;
   z-index: -1;
 }
-.card--doelgroep .card__content h2 {
+.card .card__content h2 {
   font-size: 40px;
   margin-top: -5rem;
   padding: 3rem 2rem 1.5rem 3rem;
   min-height: 11rem;
 }
-.card--doelgroep .card__content h2,
-.card--doelgroep .card__content h3 {
+.card .card__content h2,
+.card .card__content h3 {
   background: none;
   overflow: hidden;
   position: relative;
 }
-.card--doelgroep .card__content h2 a,
-.card--doelgroep .card__content h3 a {
+.card .card__content h2 a,
+.card .card__content h3 a {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
 }
-.card--doelgroep .card__content h2:before,
-.card--doelgroep .card__content h3:before {
+.card .card__content h2:before,
+.card .card__content h3:before {
   content: " ";
   position: absolute;
   top: 0;
@@ -279,12 +205,12 @@ Imports
           transform: rotate(2deg);
   z-index: -1;
 }
-.card--doelgroep .card__content h2 span,
-.card--doelgroep .card__content h3 span {
+.card .card__content h2 span,
+.card .card__content h3 span {
   display: block;
 }
-.card--doelgroep .card__content h2 span:first-child,
-.card--doelgroep .card__content h3 span:first-child {
+.card .card__content h2 span:first-child,
+.card .card__content h3 span:first-child {
   width: 100%;
   font-size: 14px;
   font-family: 'montserrat_semiboldregular', Helvetica, Arial, sans-serif;
@@ -292,8 +218,8 @@ Imports
   margin-bottom: 0.8rem;
 }
 @media only screen and (min-width: 800px) {
-  .card--doelgroep .card__content h2,
-  .card--doelgroep .card__content h3 {
+  .card .card__content h2,
+  .card .card__content h3 {
     font-size: 44px;
   }
 }
@@ -321,7 +247,33 @@ Imports
           transform: rotate(2deg);
 }
 .card__content h2 {
+  font-size: 32px;
+  line-height: 34px;
+  padding-right: 5rem;
   overflow: hidden;
+}
+@media only screen and (min-width: 650px) {
+  .card__content h2 {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}
+.card__content h2 a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: flex;
+}
+.card__content h2 a .btn--arrow {
+  margin-left: auto;
+}
+.card__content h2 a:hover,
+.card__content h2 a:focus {
+  text-decoration: underline;
+}
+.card__content h2 a:hover .btn,
+.card__content h2 a:focus .btn {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border-color: #004152;
 }
 .cta {
   margin-top: 2rem;
@@ -357,6 +309,93 @@ Imports
   text-decoration: none;
   color: #fff;
   background: #D94721;
+}
+.overview.grid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media only screen and (min-width: 800px) {
+  .overview.grid {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+h1 {
+  font-size: 32px;
+  line-height: 38px;
+}
+@media only screen and (min-width: 650px) {
+  h1 {
+    font-size: 44px;
+    line-height: 48px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  h1 {
+    font-size: 68px;
+    line-height: 76px;
+  }
+}
+.inleiding {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  max-width: 957px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-sidebar-wrap {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 5rem;
+}
+@media only screen and (min-width: 800px) {
+  .content-sidebar-wrap {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .content-sidebar-wrap {
+    padding-bottom: 10rem;
+  }
+}
+#maincontent {
+  position: relative;
+}
+#maincontent:before {
+  content: " ";
+  background: #C73D19;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 300px;
+}
+article.entry {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.entry-content.wrap h2 {
+  font-size: 34px;
+  font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  line-height: 40px;
+  font-size: 32px;
+  line-height: 38px;
+  text-transform: none;
+}
+@media only screen and (min-width: 800px) {
+  .entry-content.wrap h2 {
+    font-size: 46px;
+    line-height: 50px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .entry-content.wrap h2 {
+    font-size: 46px;
+    line-height: 50px;
+  }
 }
 #home-inleiding {
   padding-left: 1.5rem;
@@ -630,6 +669,14 @@ Imports
   font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   line-height: 40px;
+  font-size: 32px;
+  line-height: 38px;
+}
+@media only screen and (min-width: 800px) {
+  #home_template_teasers h2 {
+    font-size: 46px;
+    line-height: 50px;
+  }
 }
 @media only screen and (min-width: 800px) {
   #home_template_teasers h2 {
@@ -648,9 +695,535 @@ Imports
 #step-procestips .card + .card {
   margin-top: 2rem;
 }
-.page-template-inclusie_template_doelgroeppagina.full-width-content.page .entry-content,
-.page-template-inclusie_template_doelgroeppagina.full-width-content.page .content {
-  min-height: 0;
+/*
+// Gebruiker Centraal - less/includes/_template_doelgroeppagina.less
+// ----------------------------------------------------------------------------------
+// CSS specifiek voor pagina's gebaseerd op 
+// het template 'inclusie_template_doelgroeppagina'
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   0.0.10c
+// @desc.     Bugfixing. Styling for page and other content types. Title for methodes.
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+ */
+/*
+WP TEMPLATES - Doelgroep
+---------------------------------------------------------------------------------------------------- */
+body.single-doelgroep #maincontent article.entry {
+  margin-bottom: 4rem;
+  margin-top: 0;
+  position: relative;
+}
+body.single-doelgroep #maincontent article.entry .entry-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+body.single-doelgroep #maincontent article.entry .entry-title,
+body.single-doelgroep #maincontent article.entry .wrap {
+  max-width: 761px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.single-doelgroep #maincontent article.entry .wrap {
+  background: none;
+}
+@media only screen and (min-width: 800px) {
+  body.single-doelgroep #maincontent article.entry .wrap {
+    padding-top: 5rem;
+  }
+}
+#doelgroep-inleiding {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 2rem;
+  background: #148839;
+  color: #FFF;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+}
+#doelgroep-inleiding:after {
+  content: ' ';
+  height: 22rem;
+  width: 100%;
+  -webkit-clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
+  background: #25B34B;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -2;
+}
+@media only screen and (max-width: 650px) {
+  #doelgroep-inleiding {
+    padding-bottom: calc(30rem - 2rem );
+  }
+}
+@media only screen and (min-width: 650px) {
+  #doelgroep-inleiding {
+    margin-top: 4rem;
+    padding-left: 40%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    min-height: 35rem;
+  }
+  #doelgroep-inleiding:after {
+    display: none;
+  }
+  #doelgroep-inleiding > header {
+    -webkit-box-ordinal-group: 3;
+            order: 2;
+  }
+  #doelgroep-inleiding #doelgroep-inleiding-citaten {
+    -webkit-box-ordinal-group: 2;
+            order: 1;
+  }
+  #doelgroep-inleiding .doelgroep__posttext {
+    -webkit-box-ordinal-group: 4;
+            order: 3;
+    padding-right: 5rem;
+  }
+  #doelgroep-inleiding .tegeltje {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  #doelgroep-inleiding .tegeltje:before {
+    right: auto;
+    left: 0;
+    bottom: 50px;
+    margin-left: -28px;
+    -webkit-clip-path: polygon(100% 34%, 0 100%, 100% 100%);
+            clip-path: polygon(100% 34%, 0 100%, 100% 100%);
+  }
+  #doelgroep-inleiding .tegeltje:after {
+    right: auto;
+    left: 0;
+    bottom: 50px;
+    margin-left: -28px;
+    -webkit-clip-path: polygon(100% 34%, 0 100%, 100% 100%);
+            clip-path: polygon(100% 34%, 0 100%, 100% 100%);
+  }
+}
+@media only screen and (min-width: 800px) {
+  #doelgroep-inleiding {
+    margin-top: 8rem;
+    padding-left: 340px;
+  }
+}
+#doelgroep-inleiding header {
+  padding-left: 0;
+  margin: 0;
+}
+#doelgroep-inleiding h1 {
+  font-size: 40px;
+  line-height: 48px;
+}
+@media only screen and (min-width: 650px) {
+  #doelgroep-inleiding h1 {
+    font-size: 68px;
+    line-height: 64px;
+    text-transform: none;
+    margin-top: 2rem;
+  }
+}
+#doelgroep-inleiding .tegeltje {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 650px) {
+  #doelgroep-inleiding .tegeltje {
+    margin-left: -3rem;
+    margin-top: -5rem;
+  }
+}
+.doelgroep__avatar {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  background: url('../images/avatar/poppetje-1.svg') center bottom no-repeat;
+  z-index: -1;
+}
+@media only screen and (max-width: 650px) {
+  .doelgroep__avatar {
+    bottom: 0;
+    left: 50%;
+    margin-left: -15rem;
+  }
+}
+@media only screen and (min-width: 650px) {
+  .doelgroep__avatar {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 35%;
+    min-width: 260px;
+    background-color: #25B34B;
+    overflow: hidden;
+    background-position: 20% 100%;
+    background-size: 80% auto;
+  }
+  .doelgroep__avatar:after {
+    content: " ";
+    background: #148839;
+    position: absolute;
+    width: 5rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+    margin-right: -0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .doelgroep__avatar {
+    background-size: auto 300px;
+    background-position: 35% 100%;
+    width: 340px;
+    height: 100%;
+  }
+}
+.doelgroep--poppetje-2 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-2.svg');
+}
+.doelgroep--poppetje-3 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-3.svg');
+}
+.doelgroep--poppetje-4 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-4.svg');
+}
+.doelgroep--poppetje-5 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-5.svg');
+}
+.doelgroep--poppetje-6 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-6.svg');
+}
+.doelgroep--poppetje-7 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-7.svg');
+}
+.doelgroep--poppetje-8 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-8.svg');
+}
+.doelgroep--poppetje-9 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-9.svg');
+}
+.doelgroep__posttext {
+  margin-top: 1.6rem;
+}
+.facts-figures {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  background: #00303d;
+  color: #FFF;
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  z-index: 5;
+}
+.facts-figures .source {
+  background: #00303d;
+}
+@media only screen and (min-width: 800px) {
+  .facts-figures {
+    background: #00303d;
+    /* Old browsers */
+    position: relative;
+  }
+  .facts-figures .source {
+    flex-basis: 66.66666667%;
+  }
+  .facts-figures .hugely {
+    position: relative;
+    width: 318px;
+    display: block;
+    overflow: hidden;
+  }
+  .facts-figures .hugely:before {
+    content: " ";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 5rem;
+    margin-right: -4rem;
+    margin-top: -0.5rem;
+    background: #00303d;
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  .facts-figures:after {
+    margin-bottom: -10rem;
+    height: 10rem;
+  }
+}
+.facts-figures span {
+  padding: 3rem;
+  display: block;
+}
+.facts-figures .source {
+  font-size: 20px;
+  z-index: 1;
+  position: relative;
+}
+.facts-figures cite {
+  display: block;
+  clear: both;
+  float: none;
+  font-size: 14px;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 0.1rem solid #6F99A3;
+}
+.facts-figures .hugely {
+  background: #004152;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  padding: 4rem;
+}
+.spacer-doelgroep {
+  background: #f2ebe4;
+  height: 5rem;
+}
+@media only screen and (min-width: 800px) {
+  .spacer-doelgroep {
+    height: 10rem;
+  }
+}
+.dosdonts {
+  margin-bottom: 4rem;
+}
+.dosdonts .flexblock {
+  border-style: none;
+  margin-top: 5rem;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid #D1DFE3;
+  padding: 2rem;
+}
+.dosdonts .flexblock ul li {
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+.dosdonts .flexblock.aanrader ul li {
+  list-style-image: url('../images/list-item-do.svg');
+}
+.dosdonts .flexblock.afrader ul li {
+  list-style-image: url('../images/list-item-dont.svg');
+}
+.dosdonts h4 {
+  padding-bottom: 2rem;
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid #D1DFE3;
+}
+.card--doelgroep .tegeltje {
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  margin-top: -44rem;
+}
+.card--doelgroep .card__image {
+  height: 42rem;
+  width: 100%;
+  background: #148839 url('../images/avatar/poppetje-1.svg') center bottom no-repeat;
+  background-size: auto 290px;
+}
+.card--doelgroep .card__content {
+  background: none;
+}
+.card--doelgroep .card__content:before {
+  display: none;
+}
+.card--doelgroep .card__content:after {
+  position: absolute;
+  content: " ";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+  height: 7rem;
+  z-index: -1;
+}
+.card--doelgroep .card__content h2 {
+  font-size: 40px;
+  background: none;
+  overflow: hidden;
+  position: relative;
+  margin-top: -5rem;
+  min-height: 11rem;
+  z-index: 1;
+  padding: 4rem 0 0 0;
+}
+.card--doelgroep .card__content h2 > a {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 2rem 1.5rem 3rem;
+}
+.card--doelgroep .card__content h2:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 17rem;
+  background: #FFF;
+  margin: 3rem -2rem 0;
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+  z-index: -1;
+}
+.card--doelgroep .card__content h2 span {
+  display: block;
+}
+.card--doelgroep .card__content h2 span:first-child {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0.8rem;
+  font-family: 'montserrat_semiboldregular', Helvetica, Arial, sans-serif;
+  text-transform: none;
+}
+.card--doelgroep .btn--arrow {
+  position: absolute;
+  right: 1.5rem;
+  top: 7.8rem;
+  height: 4.5rem;
+}
+.poppetje-2 .card__image {
+  background-image: url('../images/avatar/poppetje-2.svg');
+}
+.poppetje-3 .card__image {
+  background-image: url('../images/avatar/poppetje-3.svg');
+}
+.poppetje-4 .card__image {
+  background-image: url('../images/avatar/poppetje-4.svg');
+}
+.poppetje-5 .card__image {
+  background-image: url('../images/avatar/poppetje-5.svg');
+}
+.poppetje-6 .card__image {
+  background-image: url('../images/avatar/poppetje-6.svg');
+}
+.poppetje-7 .card__image {
+  background-image: url('../images/avatar/poppetje-7.svg');
+}
+.poppetje-8 .card__image {
+  background-image: url('../images/avatar/poppetje-8.svg');
+}
+.grid--col-3 > .card--doelgroep {
+  margin-top: 5rem;
+}
+.tegeltje {
+  padding: 1em;
+  min-height: 120px;
+  color: #002F3E;
+  background: white;
+  margin-bottom: 25rem;
+  margin-top: -5rem;
+  font-size: 22px;
+  line-height: 34px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 500;
+}
+.tegeltje:before {
+  content: ' ';
+  display: block;
+  height: 28px;
+  width: 28px;
+  position: absolute;
+  right: 1.8rem;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(28px);
+          transform: translateY(28px);
+  z-index: 450;
+  -webkit-clip-path: polygon(0 0, 0 100%, 70% 0);
+          clip-path: polygon(0 0, 0 100%, 70% 0);
+}
+.tegeltje:after {
+  content: ' ';
+  display: block;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 2rem;
+  bottom: 0;
+  background: #fff;
+  -webkit-transform: translateY(25px);
+          transform: translateY(25px);
+  z-index: 450;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  -webkit-clip-path: polygon(0 0, 0 100%, 70% 0);
+          clip-path: polygon(0 0, 0 100%, 70% 0);
+}
+.tegeltje p {
+  margin: 0;
+}
+.tegeltje strong {
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+.tegeltje strong:before {
+  content: '– ';
+  display: inline-block;
+  float: left;
+  line-height: 2.8;
+  margin-right: 0.5em;
+}
+.full-width-content .breadcrumb {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin: 0;
+}
+@media only screen and (min-width: 800px) {
+  .full-width-content .breadcrumb {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.full-width-content .breadcrumb .wrap {
+  max-width: none;
+}
+.full-width-content .nav-primary #mainnav {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media only screen and (min-width: 800px) {
+  .full-width-content .nav-primary #mainnav {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.full-width-content .menu-met-js {
+  padding-left: 0;
+}
+.full-width-content .site-header > .wrap {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media only screen and (min-width: 800px) {
+  .full-width-content .site-header > .wrap {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 /*
 ---------------------------------------------------------------------------------------------------- */
@@ -669,9 +1242,6 @@ body.single {
 }
 #maincontent {
   background-color: #f2ebe4;
-  background-image: url('../images/page-top-bg.svg');
-  background-position: center top;
-  background-repeat: no-repeat;
   max-width: 1900px;
 }
 #maincontent article.entry .wrap {
@@ -1446,340 +2016,6 @@ DOELGROEPEN
 .doelgroepcard h3 {
   text-align: center;
 }
-.tegeltje {
-  padding: 1em;
-  min-height: 120px;
-  color: #002F3E;
-  background: white;
-  margin-bottom: 25rem;
-  margin-top: -5rem;
-  font-size: 22px;
-  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 500;
-}
-.tegeltje:before {
-  content: ' ';
-  display: block;
-  height: 28px;
-  width: 28px;
-  position: absolute;
-  right: 1.8rem;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-  -webkit-transform: translateY(28px);
-          transform: translateY(28px);
-  z-index: 450;
-  -webkit-clip-path: polygon(0 0, 0 100%, 70% 0);
-          clip-path: polygon(0 0, 0 100%, 70% 0);
-}
-.tegeltje:after {
-  content: ' ';
-  display: block;
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  right: 2rem;
-  bottom: 0;
-  background: #fff;
-  -webkit-transform: translateY(25px);
-          transform: translateY(25px);
-  z-index: 450;
-  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
-  -webkit-clip-path: polygon(0 0, 0 100%, 70% 0);
-          clip-path: polygon(0 0, 0 100%, 70% 0);
-}
-.tegeltje strong {
-  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-}
-.tegeltje strong:before {
-  content: '– ';
-  display: inline-block;
-  float: left;
-  line-height: 2.8;
-  margin-right: 0.5em;
-}
-/*
-WP TEMPLATES
----------------------------------------------------------------------------------------------------- */
-body.single-doelgroep #maincontent {
-  padding-top: 2rem;
-}
-body.single-doelgroep #maincontent article.entry {
-  background: #fff;
-  margin-bottom: 4rem;
-}
-body.single-doelgroep #maincontent article.entry .entry-content {
-  padding-left: 0;
-  padding-right: 0;
-}
-body.single-doelgroep #maincontent article.entry .entry-title,
-body.single-doelgroep #maincontent article.entry .wrap {
-  max-width: 761px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-body.single-doelgroep #doelgroep-inleiding {
-  position: relative;
-  padding-bottom: 0;
-}
-@media only screen and (min-width: 800px) {
-  body.single-doelgroep #doelgroep-inleiding {
-    padding-bottom: 34rem;
-    margin-top: 8rem;
-    margin-bottom: 16rem;
-  }
-}
-body.single-doelgroep #doelgroep-inleiding:after {
-  content: ' ';
-  height: 22rem;
-  width: 100%;
-  -webkit-clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
-          clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
-  background: #25B34B;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-body.single-doelgroep #doelgroep-inleiding-citaten {
-  margin-top: 4rem;
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: wrap;
-  position: inherit;
-  z-index: 999;
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image,
-body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje {
-  -webkit-box-flex: 1;
-          flex: 1;
-  margin: 0;
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image {
-  margin-top: -2rem;
-  min-height: 30rem;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-1 {
-  background-image: url('../images/avatar/poppetje-1.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-2 {
-  background-image: url('../images/avatar/poppetje-2.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-3 {
-  background-image: url('../images/avatar/poppetje-3.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-4 {
-  background-image: url('../images/avatar/poppetje-4.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-5 {
-  background-image: url('../images/avatar/poppetje-5.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-6 {
-  background-image: url('../images/avatar/poppetje-6.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-7 {
-  background-image: url('../images/avatar/poppetje-7.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-8 {
-  background-image: url('../images/avatar/poppetje-8.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-9 {
-  background-image: url('../images/avatar/poppetje-9.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-10 {
-  background-image: url('../images/avatar/poppetje-10.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-11 {
-  background-image: url('../images/avatar/poppetje-11.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-12 {
-  background-image: url('../images/avatar/poppetje-12.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-13 {
-  background-image: url('../images/avatar/poppetje-13.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-14 {
-  background-image: url('../images/avatar/poppetje-14.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .feat-image.poppetje-15 {
-  background-image: url('../images/avatar/poppetje-15.svg');
-}
-body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje {
-  z-index: 400;
-  position: relative;
-}
-@media only screen and (max-width: 800px) {
-  body.single-doelgroep #doelgroep-inleiding-citaten {
-    max-width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-  }
-  body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:before {
-    right: 15%;
-  }
-  body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:after {
-    right: 14%;
-  }
-}
-@media only screen and (min-width: 800px) {
-  body.single-doelgroep #doelgroep-inleiding-citaten {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-            flex-direction: row;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    min-height: 30rem;
-  }
-  body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje {
-    font-size: 34px;
-    -webkit-box-ordinal-group: 3;
-            order: 2;
-    flex-basis: 66.66666667%;
-    min-height: 34rem;
-    -webkit-transform: translateY(4rem);
-            transform: translateY(4rem);
-  }
-  body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:after,
-  body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:before {
-    left: -4rem;
-    height: 4rem;
-    width: 4rem;
-    top: 5rem;
-    bottom: auto;
-    right: auto;
-    -webkit-clip-path: polygon(100% 29%, 0% 100%, 100% 100%);
-            clip-path: polygon(100% 29%, 0% 100%, 100% 100%);
-  }
-  body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje:after {
-    left: -3.95rem;
-  }
-  body.single-doelgroep #doelgroep-inleiding-citaten .tegeltje .author {
-    font-size: 22px;
-    position: absolute;
-    bottom: 2rem;
-  }
-  body.single-doelgroep #doelgroep-inleiding-citaten .feat-image {
-    -webkit-box-ordinal-group: 2;
-            order: 1;
-    flex-basis: 33.33333333%;
-  }
-}
-body.single-doelgroep .facts-figures {
-  background: #00303d;
-  max-width: 960px;
-  display: -webkit-box;
-  display: flex;
-  width: 100%;
-  width: calc(100% - 4rem);
-  margin-top: 2rem;
-  border-top-style: none;
-}
-@media only screen and (max-width: 800px) {
-  body.single-doelgroep .facts-figures {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-  body.single-doelgroep .facts-figures span {
-    text-align: center;
-  }
-}
-@media only screen and (min-width: 800px) {
-  body.single-doelgroep .facts-figures {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-            flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -8rem;
-    margin-bottom: 4rem;
-    -webkit-box-align: stretch;
-            align-items: stretch;
-    background: #00303d;
-    /* Old browsers */
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #004152 0%, #004152 33.33333333%, #00303d 33.33333333%, #00303d 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: -webkit-gradient(linear, left top, right top, from(#004152), color-stop(33.33333333%, #004152), color-stop(33.33333333%, #00303d), to(#00303d));
-    background: linear-gradient(to right, #004152 0%, #004152 33.33333333%, #00303d 33.33333333%, #00303d 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  }
-  body.single-doelgroep .facts-figures span {
-    margin: auto;
-    height: 100%;
-  }
-  body.single-doelgroep .facts-figures .source {
-    flex-basis: 66.66666667%;
-  }
-  body.single-doelgroep .facts-figures .hugely {
-    flex-basis: 33.33333333%;
-  }
-}
-body.single-doelgroep .facts-figures * {
-  color: #fff;
-}
-body.single-doelgroep .facts-figures span {
-  -webkit-box-flex: 1;
-          flex: 1;
-  font-size: 20px;
-  padding: 3rem;
-}
-body.single-doelgroep .facts-figures cite {
-  display: block;
-  clear: both;
-  float: none;
-  font-size: 14px;
-  padding-top: 2rem;
-}
-body.single-doelgroep .facts-figures .hugely {
-  background: #004152;
-  text-align: center;
-  font-size: 45px;
-  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
-  line-height: 1.2;
-  padding: 4rem;
-}
-body.single-doelgroep .dosdonts {
-  margin-bottom: 4rem;
-}
-body.single-doelgroep .dosdonts .flexblock {
-  border-style: none;
-  margin-top: 5rem;
-  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
-  border: 1px solid #D1DFE3;
-  padding: 2rem;
-}
-body.single-doelgroep .dosdonts .flexblock ul li {
-  padding-left: 1rem;
-  margin-bottom: 2rem;
-}
-body.single-doelgroep .dosdonts .flexblock.aanrader ul li {
-  list-style-image: url('../images/list-item-do.svg');
-}
-body.single-doelgroep .dosdonts .flexblock.afrader ul li {
-  list-style-image: url('../images/list-item-dont.svg');
-}
-body.single-doelgroep .dosdonts h4 {
-  padding-bottom: 2rem;
-  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
-  border-bottom: 1px solid #D1DFE3;
-}
-#doelgroep-inleiding,
 #step-inleiding {
   background: #148839;
   color: #fff;
@@ -1788,7 +2024,6 @@ body.single-doelgroep .dosdonts h4 {
   margin-right: auto;
 }
 @media only screen and (max-width: 800px) {
-  #doelgroep-inleiding,
   #step-inleiding {
     padding: 2rem;
     margin-left: 2rem;
@@ -1796,23 +2031,18 @@ body.single-doelgroep .dosdonts h4 {
   }
 }
 @media only screen and (min-width: 800px) {
-  #doelgroep-inleiding,
   #step-inleiding {
     padding: 4rem;
   }
 }
-#doelgroep-inleiding header,
 #step-inleiding header,
-#doelgroep-inleiding header h1,
 #step-inleiding header h1 {
   margin: 0;
   padding: 0;
 }
-#doelgroep-inleiding header h1,
 #step-inleiding header h1 {
   margin-bottom: 1rem;
 }
-#doelgroep-inleiding p,
 #step-inleiding p {
   margin: 0;
 }

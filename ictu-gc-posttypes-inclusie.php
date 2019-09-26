@@ -277,7 +277,6 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					echo '</section>';
 				
 				endwhile;
-
 				echo '</div>';
 				echo '</div>';
 
@@ -378,7 +377,14 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		$stap_methodes  		= get_field( 'stap_methodes', $post->ID );
 		$stap_methode_inleiding	= get_field( 'stap_methode_inleiding', $post->ID );
 
-		echo '<div id="doelgroep-inleiding">';
+		// Set doelgroeppoppetje
+
+    $doelgroeppoppetje	= 'poppetje-1';
+    if ( get_field('doelgroep_avatar', $post->ID) ) {
+      $doelgroeppoppetje	= get_field('doelgroep_avatar', $post->ID);
+    }
+
+		echo '<div id="doelgroep-inleiding" class="doelgroep--'. $doelgroeppoppetje.'">';
 		echo '<header class="entry-header wrap"><h1 class="entry-title">' . get_the_title( ) . '</h1></header>';
 		
 		if ( $stap_inleiding ) {
@@ -386,13 +392,8 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		}
 		else {
 			if ( get_the_excerpt( $post->ID ) ) {
-				echo get_the_excerpt( $post->ID );
+				echo '<p class="doelgroep__posttext">'.get_the_excerpt( $post->ID ).'</p>';
 			}
-		}
-
-		$doelgroeppoppetje	= 'poppetje-1';
-		if ( get_field('doelgroep_avatar', $post->ID) ) {
-			$doelgroeppoppetje	= get_field('doelgroep_avatar', $post->ID);
 		}
 
         $section_title  = _x( 'Citaten', 'titel op methode-pagina', 'ictu-gc-posttypes-inclusie' );
@@ -418,13 +419,14 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			echo '<div class="tegeltje">' . $section_text . '<p class="author"><strong>' . $citaat_auteur . '</strong></p></div>';
 			
 		endforeach;
-		
-		echo '<div class="feat-image ' . $doelgroeppoppetje . '">&nbsp;</div>';
+
+		//echo '<div class="feat-image ' . $doelgroeppoppetje . '">;</div>';
 
         echo '</div>';
         
+		echo '<div class="doelgroep__avatar"></div>'; // #doelgroep-inleiding
 		echo '</div>'; // #doelgroep-inleiding
-        
+
         wp_reset_postdata();            
 
 	}
@@ -1206,7 +1208,7 @@ echo '<h1> ictu_gc_frontend_archive_doelgroep_loop </h1>';
 		
 		if ($sidebarposts->have_posts()) {
 	
-			echo '<div class="flexbox">';
+			echo '<div class="overview grid grid--col-3 overview--doelgroep">';
 			
 			$postcounter = 0;
 			
@@ -1456,6 +1458,9 @@ echo '<h1> ictu_gc_frontend_archive_doelgroep_loop </h1>';
 				echo '<a href="' . esc_url( $facts_source_url ) . '">' . sanitize_text_field( $facts_source_label ) . '</a></cite>';
 			}
 			echo '</span></section>';
+
+			// Sorry :(
+      echo '<div class="spacer-doelgroep">&nbsp;</div>';
 			
 		}
 		
@@ -1529,7 +1534,7 @@ echo '<h1> ictu_gc_frontend_archive_doelgroep_loop </h1>';
 		$return    .= '<div class="card__image"></div>';
 		$return    .= '<div class="card__content">';
 		$return    .=
-      '<h2 id="' . $title_id . '">'.
+      '<h2 class="card__title" id="' . $title_id . '">'.
       '<a href="' . get_permalink( $doelgroep->ID ) . '">'.
       '<span>' . _x( 'Ontwerpen voor', 'Home section doelgroep', 'ictu-gc-posttypes-inclusie' ) . ' </span>'.
       '<span>' . $cardtitle . '</span>'.
