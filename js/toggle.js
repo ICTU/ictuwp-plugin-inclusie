@@ -34,6 +34,10 @@ var isSmallerScreenSize = true;
 		theModal,
 		sectionHeight			= 210;
 
+toggleSection.addClass("jsloaded");
+toggleSection.attr('tabindex', '0');
+toggleSection.focus();
+
 	/**
 	* Save section focus
 	*/

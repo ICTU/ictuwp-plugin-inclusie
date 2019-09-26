@@ -54,14 +54,6 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"/ictu-gc-plugin-inclusie.code-workspace": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/ictu-gc-plugin-inclusie.code-workspace",
-		"oF": 0
-		},
 	"/ictu-gc-posttypes-inclusie.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -936,6 +928,27 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/logo-inclusie.png": {
+		"ft": 32768,
+		"iS": 8425,
+		"oA": 0,
+		"oAP": "/images/logo-inclusie.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/logo-inclusie.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/logo-inclusie.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/logo.png": {
 		"ft": 32768,
 		"iS": 9410,
@@ -1378,8 +1391,8 @@
 	"creationDate": 574360784.37326002,
 	"displayValue": "ICTU plugin GC Inclusie",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "logo-react",
-	"iconImageWasSetByUser": 0
+	"iconImageName": "/images/logo-inclusie.png",
+	"iconImageWasSetByUser": 1
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
