@@ -5,7 +5,7 @@
  * @package             ictu-gc-posttypes-inclusie
  *
  * @wordpress-plugin
- * Plugin Name:         ICTU / Gebruiker Centraal Inclusie post types and taxonomies
+ * Plugin Name:         ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
  * Version:             0.0.11
