@@ -27,6 +27,12 @@ if ( ! defined( 'WPINC' ) ) {
 
 add_action( 'plugins_loaded', array( 'ICTU_GC_Register_taxonomies', 'init' ), 10 );
 
+add_action('wp_enqueue_scripts','stepchart');
+
+function stepchart_init() {
+  wp_enqueue_script( 'stepchart-js', plugins_url( '/js/stepchart.js', __FILE__ ));
+}
+
 //========================================================================================================
 
 if ( ! defined( 'ICTU_GC_CPT_STAP' ) ) {
@@ -701,8 +707,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				$title_id       = sanitize_title( $section_title . '-' . $post->ID );
 				$stepcounter    = 0;
 				
-				echo '<div aria-labelledby="' . $title_id . '" id="home-chart">';
+				echo '<div aria-labelledby="' . $title_id . '" class="stepchart">';
 				echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
+				echo '<ol class="stepchart__items">';
 	
 				foreach( $home_stappen as $stap ): 
 				
@@ -732,21 +739,28 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					
 					$xtraclass 	= ' hidden';
 					$title_id   = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
-					$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel ); 
+					$steptitle	= sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel );
 					$readmore	= sprintf( _x( '%s <span class="visuallyhidden">over %s</span>', 'home lees meer', 'ictu-gc-posttypes-inclusie' ), _x( 'Lees meer', 'home lees meer', 'ictu-gc-posttypes-inclusie' ), get_the_title( $stap->ID ) ); 
 
-					
-					echo '<section id="step_' . $stepcounter . '" class="step ' . $class . '" aria-labelledby="' . $title_id . '">';
-					echo '<button class="js-openclosebutton">' . $steptitle . '<span>&nbsp;</span></button>';
-					echo '<div class="description' . $xtraclass . ' js-descriptionbox">';
-					echo '<h3 id="' . $title_id . '">' . get_the_title( $stap->ID ) . '</h3>';
-					echo $inleiding;
-					echo '<p class="read-more"><a href="' . get_permalink( $stap->ID ) . '" class="cta">' . $readmore . '</a></p>';
-					echo '</div>';
-					echo '</section>';
+
+          echo '<li class="stepchart__item">';
+
+          echo '<button class="stepchart__button btn btn--stepchart '.$class.'">'.
+            '<span class="btn__icon"></span>'.
+            '<span class="btn__text">'.$steptitle.'</span>'.
+            '</button>';
+
+          echo '<section class="stepchart__description" aria-hidden="true" aria-labelledby="'.$title_id.'">'.
+            '<h3 id="' . $title_id . '" class="stepchart__title">' . get_the_title( $stap->ID ) . '</h3>'.
+            '<div class="description">'. $inleiding.'</div>'.
+            '<a href="' . get_permalink( $stap->ID ) . '" class="cta">' . $readmore . '</a>'.
+            '</section>';
+
+          echo '</li>';
 				
 				endforeach;
-	
+
+				echo '</ol>';
 				echo '</div>';
 			
 			endif; 
@@ -802,14 +816,17 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		global $post;
 	
 		$infooter = true;
+
 		if ( WP_DEBUG ) {
 			wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/toggle.js', '', ICTU_GC_INCL_VERSION, $infooter );
+      wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter );
 		}
 		else {
 			wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/min/toggle-min.js', '', ICTU_GC_INCL_VERSION, $infooter );
+			wp_enqueue_script( 'functions-stepchart', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter );
 		}
 		
-		wp_enqueue_style( ICTU_GC_ARCHIVE_CSS, trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/frontend.css', array(), ICTU_GC_INCL_VERSION, 'all' );
+		 wp_enqueue_style( ICTU_GC_ARCHIVE_CSS, trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/frontend.css', array(), ICTU_GC_INCL_VERSION, 'all' );
 		
 		$header_css     = '';
 		$acfid          = get_the_id();
