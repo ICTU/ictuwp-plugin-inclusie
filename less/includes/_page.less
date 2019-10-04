@@ -1,5 +1,8 @@
-h1 {
+h1,
+.page .entry-header .entry-title {
   .gc-heading-1();
+  text-transform: none;
+  letter-spacing: 0; //echt niet :(
 }
 
 // Regular page layout
@@ -33,11 +36,9 @@ h1 {
   }
 }
 
- article.entry {
-   max-width: @contentwidth_960;
-   margin-left: auto;
-   margin-right: auto;
- }
+.page .content .entry-content {
+  min-height: 10rem;
+}
 
 .entry-content.wrap {
   h2 {
