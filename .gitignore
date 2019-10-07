@@ -23,3 +23,6 @@ images/m01a. Homepage.png
 
 node_modules
 ictu-gc-plugin-inclusie.code-workspace
+
+.idea
+.idea/*
