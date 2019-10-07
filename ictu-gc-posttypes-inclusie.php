@@ -699,7 +699,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			if ( $home_template_poster && $home_template_poster_linktekst ) {
 				echo '<a href="' . $home_template_poster['url'] . '" class="download poster">' . $home_template_poster_linktekst . '</a>';
 			}
-			
+
 			
 			if( $home_stappen ): 
 				
@@ -709,6 +709,12 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				
 				echo '<div aria-labelledby="' . $title_id . '" class="stepchart">';
 				echo '<h2 id="' . $title_id . '" class="visuallyhidden">' . $section_title . '</h2>';
+
+				echo '<div class="stepchart__bg">'.
+          // Dit kan vast beter..  Paul? :)
+          '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/stappenplan-bg-fullscreen.svg" alt="Stepchart Background">'.
+          '</div>';
+
 				echo '<ol class="stepchart__items">';
 	
 				foreach( $home_stappen as $stap ): 
@@ -745,7 +751,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
           echo '<li class="stepchart__item">';
 
-          echo '<button class="stepchart__button btn btn--stepchart '.$class.'">'.
+          echo '<button class="stepchart__button btn btn--stepchart '.$class.'" aria-selected="false">'.
             '<span class="btn__icon"></span>'.
             '<span class="btn__text">'.$steptitle.'</span>'.
             '</button>';
