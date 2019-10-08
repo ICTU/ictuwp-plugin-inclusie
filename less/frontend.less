@@ -64,6 +64,7 @@ Imports
 @import "includes/_btn";
 @import "includes/_card_tipkaart.less";
 @import "includes/_stepchart"; // idee - generiek popupcomponent van maken
+@import "includes/_stepnav";
 // styling card Optimaal Digitaal
 @import "includes/_overview";
 // PAges / Singles
@@ -391,65 +392,6 @@ DOELGROEPEN
   }
 }
 
-body.single-stap {
-
-  #maincontent {
-    padding-top: 2rem;
-
-    article.entry {
-      background: @wit;
-
-      @media only screen and (max-width: ( @break_fullwidth ) ) {
-        padding: 2rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-
-        h2 {
-          padding-top: 0;
-        }
-      }
-
-      .entry-content {
-        padding-left: 0;
-        padding-right: 0;
-      }
-      .entry-title,
-      .wrap {
-        max-width: @contentwidth_761;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .entry-title {
-      }
-    }
-  }
-
-  #step-methoden {
-    margin-bottom: 4rem;
-
-    @media only screen and (max-width: ( @break_fullwidth ) ) {
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
-
-    .inleiding {
-      max-width: @contentwidth_960;
-      margin-left: auto;
-      margin-right: auto;
-      @media only screen and (min-width: ( @break_fullwidth ) ) {
-        margin-bottom: 4rem;
-      }
-    }
-
-    .flexblock {
-      border-style: none;
-
-      @media only screen and ( max-width: ( @break_phone ) ) {
-        margin-bottom: 2rem;
-      }
-    }
-  }
-}
 
 .post-type-archive-doelgroep {
   .flexbox {
