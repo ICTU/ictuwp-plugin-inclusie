@@ -18,4 +18,22 @@
       box-shadow: 4px 4px 0 @lichtgrijs;
     }
   }
+
+  &--close {
+    background: url('../images/cross.svg') center center no-repeat;
+    background-size: 18px auto;
+    padding: 0;
+    width: 3.6rem;
+    height: 4.6rem;
+    color: transparent;
+    border: .1rem solid transparent;
+    transition: border-color .2s;
+
+    &:hover,
+    &:focus {
+      .gc-box-shadow;
+      border-color: @bordercolor;
+      color: transparent;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-(function (document, window, undefined) {
+(function ($, document, window) {
 
   var setFocus = false;
   var bp = 650;
@@ -38,14 +38,28 @@
     }
   }
 
-  jQuery(window).resize(function(){
+
+  // Remove all popups when we are on desktop
+  jQuery(window).resize(function () {
     var windowWidth = jQuery(window).width();
 
-    // Remove all popups when we are on desktop
     if (windowWidth >= bp) {
       jQuery('.stepchart__description[aria-hidden=false]').attr('aria-hidden', 'true');
       jQuery('.show-popover').removeClass('show-popover')
     }
   });
 
-})(document, window);
+  // CLose when clicking outside of popover
+  $(document).mouseup(function (e) {
+
+    var container = $('.stepchart__item.show-popover');
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      container.removeClass('show-popover');
+      container.find('.stepchart__description').attr('aria-hidden', 'true');
+    }
+
+  });
+
+})(jQuery, document, window);

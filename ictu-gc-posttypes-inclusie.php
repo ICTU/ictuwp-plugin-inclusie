@@ -757,6 +757,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
             '</button>';
 
           echo '<section class="stepchart__description" aria-hidden="true" aria-labelledby="'.$title_id.'">'.
+            '<button type="button" class="btn btn--close" data-trigger="action-popover-close">Sluit</button>'.
             '<h3 id="' . $title_id . '" class="stepchart__title">' . get_the_title( $stap->ID ) . '</h3>'.
             '<div class="description">'. $inleiding.'</div>'.
             '<a href="' . get_permalink( $stap->ID ) . '" class="cta">' . $readmore . '</a>'.
@@ -826,10 +827,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		if ( WP_DEBUG ) {
 			wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/toggle.js', '', ICTU_GC_INCL_VERSION, $infooter );
       wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter );
+      wp_enqueue_script( 'functions-btn', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter );
+      wp_enqueue_script( 'functions-btn', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter );
 		}
 		else {
 			wp_enqueue_script( 'functions-toggle', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/min/toggle-min.js', '', ICTU_GC_INCL_VERSION, $infooter );
 			wp_enqueue_script( 'functions-stepchart', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter );
+			wp_enqueue_script( 'functions-btn', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter );
 		}
 		
 		 wp_enqueue_style( ICTU_GC_ARCHIVE_CSS, trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/frontend.css', array(), ICTU_GC_INCL_VERSION, 'all' );

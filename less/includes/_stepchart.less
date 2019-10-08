@@ -81,27 +81,30 @@
   background: @wit;
   color: @gc_darkerblue;
   padding: 2rem;
-  transition: opacity .2s;
-  transition-delay: .5s;
-  opacity: 0;
-
-  &[aria-hidden=false] {
-    opacity: 1;
-  }
 
   .cta {
     float: none;
   }
 
+  .btn--close {
+    display: none;
+    @media only screen and ( min-width: ( @break_tablet )) {
+      display: block;
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+    }
+  }
+
   @media only screen and ( min-width: ( @break_tablet )) {
     .gc-box-shadow();
     position: absolute;
-    bottom: 13rem;
+    bottom: 13.5rem;
     width: 40rem;
     left: 50%;
     margin-left: -20rem;
     text-align: center;
-    padding: 3rem 5rem;
+    padding: 2rem 4.5rem 3rem;
     z-index: 90;
 
     .cta {
@@ -150,6 +153,7 @@
 
   @media only screen and ( min-width: ( @break_tablet )) {
     .font-size(42);
+    margin: 1rem 1.5rem 0;
   }
 }
 
@@ -251,6 +255,7 @@
       height: 95px;
       border-radius: 50%;
       transition: transform .2s, background-color .2s;
+      z-index: -1;
     }
 
     .btn__text {
