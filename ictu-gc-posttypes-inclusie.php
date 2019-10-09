@@ -498,7 +498,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             }
 
             if (get_field('stap_icon', $stap->ID)) {
-              $icon_classes[] = 'icon--' .get_field('stap_icon', $stap->ID);
+              $icon_classes[] = 'icon--' . get_field('stap_icon', $stap->ID);
             }
 
             if ($stap->ID === $post->ID) {
@@ -510,8 +510,8 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
 
             echo '<li id="step_' . $stepcounter . '" class="stepnav__step">' .
-              '<a href="' . get_permalink($stap->ID) . '" class="stepnav__link '. (($active) ? 'is-active' : '') . '" title="' . $titel . '" >' .
-              '<span class="'. implode(' ', $icon_classes) .'">&nbsp;</span>' .
+              '<a href="' . get_permalink($stap->ID) . '" class="stepnav__link ' . (($active) ? 'is-active' : '') . '" title="' . $titel . '" >' .
+              '<span class="' . implode(' ', $icon_classes) . '">&nbsp;</span>' .
               '<span class="stepnav__linktext">' . $titel . '</span>' .
               '</a>' .
               '</li>';
@@ -538,9 +538,10 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
           $stap_methodes_titel = _x('Methoden', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
         }
 
-
-        echo '<div id="step-inleiding">';
-        echo '<header class="entry-header wrap"><h1 class="entry-title">' . get_the_title() . '</h1></header>';
+        // Make reusable Intro region as a data container
+        echo '<div class="page-intro l-intro-region wrap">' .
+          '<div class="page-intro__intro">' .
+          '<header class="entry-header"><h1 class="entry-title">' . get_the_title() . '</h1>' . '</header>';
 
         if ($section_title) {
           echo $stap_inleiding;
@@ -555,7 +556,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
           $title_id = sanitize_title($section_title . '-' . $post->ID);
 
           echo '<section aria-labelledby="' . $title_id . '" id="step-methoden" class="wrap">';
-          echo '<div class="inleiding">';
+          echo '<div class="page-intro__intro-text">';
           echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
 
           if ($stap_methode_inleiding) {
@@ -565,6 +566,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             echo sprintf('<p>%s</p>', _x('Dit is een selectie van methoden, technieken en instrumenten die je in kunt zetten bij het uitvoeren van deze stap. Soms gaat het om standaardmethoden die worden ingezet voor het uitvoeren van een ontwerptraject waarbij de gebruiker centraal staat. Andere methoden richten zich specifiek op inclusie. ', 'Stap: intro bij methoden', 'ictu-gc-posttypes-inclusie'));
           }
           echo '</div>'; // .inleiding
+          echo '</div>';
 
 
           echo '<div class="grid grid--col-3 cards">';

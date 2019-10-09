@@ -37,8 +37,6 @@ body.single-stap {
 
       @media only screen and (max-width: ( @break_fullwidth ) ) {
         padding: 2rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
 
         h2 {
           padding-top: 0;
@@ -60,29 +58,9 @@ body.single-stap {
     }
   }
 
-  #step-methoden {
-    margin-bottom: 4rem;
-
-    @media only screen and (max-width: ( @break_fullwidth ) ) {
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
-
-    .inleiding {
-      max-width: @contentwidth_960;
-      margin-left: auto;
-      margin-right: auto;
-      @media only screen and (min-width: ( @break_fullwidth ) ) {
-        margin-bottom: 4rem;
-      }
-    }
-
-    .flexblock {
-      border-style: none;
-
-      @media only screen and ( max-width: ( @break_phone ) ) {
-        margin-bottom: 2rem;
-      }
-    }
+  // OVerride
+  .site-inner header {
+    margin: 0;
+    padding: 0;
   }
 }
