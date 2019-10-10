@@ -2,6 +2,7 @@
 
 
 .card--doelgroep {
+  padding: 0;
 
   .tegeltje {
     position: absolute;
@@ -45,11 +46,17 @@
       min-height: 11rem;
       z-index: +1;
       padding: 4rem 0 0 0;
+      text-transform: uppercase;
+      font-family: @font-secondary;
 
       > a {
         display: flex;
         flex-wrap: wrap;
         padding: 1rem 2rem 1.5rem @gutter;
+
+        .btn {
+          margin-right: 0;
+        }
       }
 
       &:before {

@@ -13,7 +13,6 @@
  */
 @import "../mixins";
 
-
 /*
 WP TEMPLATES - Doelgroep
 ---------------------------------------------------------------------------------------------------- */
@@ -42,11 +41,17 @@ body.single-doelgroep {
     }
   }
 
-  #maincontent article.entry .wrap {
-    background: none;
+  #maincontent article.entry {
+    max-width: @contentwidth_960;
+    margin-left: auto;
+    margin-right: auto;
 
-    @media only screen and (min-width: ( @break_fullwidth )) {
-      padding-top: 5rem;
+    .wrap {
+      background: none;
+
+      @media only screen and (min-width: ( @break_fullwidth )) {
+        padding-top: 5rem;
+      }
     }
   }
 }
