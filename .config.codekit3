@@ -35,6 +35,14 @@
 		"oAP": "/css/frontend.css.map",
 		"oF": 0
 		},
+	"/css/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/css/index.php",
+		"oF": 0
+		},
 	"/distribute.sh": {
 		"cB": 0,
 		"ft": 8192,
@@ -113,6 +121,14 @@
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
+		},
+	"/images/avatar/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/images/avatar/index.php",
+		"oF": 0
 		},
 	"/images/avatar/poppetje-1-small.png": {
 		"ft": 32768,
@@ -1090,12 +1106,36 @@
 		"oAP": "/includes/inclusie.acf-definitions.php",
 		"oF": 0
 		},
+	"/includes/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/includes/index.php",
+		"oF": 0
+		},
 	"/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/index.php",
+		"oF": 0
+		},
+	"/js/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/js/index.php",
+		"oF": 0
+		},
+	"/js/min/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/js/min/index.php",
 		"oF": 0
 		},
 	"/js/min/toggle-min.js": {
@@ -1158,6 +1198,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/languages/ictu-gc-posttypes-inclusie.pot",
+		"oF": 0
+		},
+	"/languages/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/languages/index.php",
 		"oF": 0
 		},
 	"/less/frontend.less": {
@@ -1380,6 +1428,22 @@
 		"rwU": 0,
 		"sI": 0,
 		"sU": 0
+		},
+	"/less/includes/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/less/includes/index.php",
+		"oF": 0
+		},
+	"/less/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/less/index.php",
+		"oF": 0
 		},
 	"/less/mixins.less": {
 		"aP": 0,
