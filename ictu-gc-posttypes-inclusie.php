@@ -26,12 +26,6 @@ if (!defined('WPINC')) {
 
 add_action('plugins_loaded', ['ICTU_GC_Register_taxonomies', 'init'], 10);
 
-add_action('wp_enqueue_scripts', 'stepchart');
-
-function stepchart_init() {
-  wp_enqueue_script('stepchart-js', plugins_url('/js/stepchart.js', __FILE__));
-}
-
 //========================================================================================================
 
 if (!defined('ICTU_GC_CPT_STAP')) {
@@ -156,10 +150,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
       add_action('init', 'ictu_gc_inclusie_initialize_acf_fields');
       add_action('init', [$this, 'ictu_gc_admin_inclusie_set_terms_order']);
 
-      add_action('get_the_terms', [
-        $this,
-        'ictu_gc_admin_inclusie_get_terms_in_order',
-      ], 10, 4);
+      add_action('get_the_terms', [$this, 'ictu_gc_admin_inclusie_get_terms_in_order', ], 10, 4);
 
       add_action('plugins_loaded', [$this, 'load_plugin_textdomain']);
       add_action('init', [$this, 'ictu_gc_add_rewrite_rules']);
@@ -181,17 +172,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
       add_filter('theme_page_templates', [$this, 'ictu_gc_add_page_templates']);
 
       // activate the page filters
-      add_action('template_redirect', [
-        $this,
-        'ictu_gc_frontend_use_page_template',
-      ]);
+      add_action('template_redirect', [$this, 'ictu_gc_frontend_use_page_template']);
 
       // add styling and scripts
-      add_action('wp_enqueue_scripts', [
-        $this,
-        'ictu_gc_register_frontend_style_script',
-      ]);
-
+      add_action('wp_enqueue_scripts', [$this, 'ictu_gc_register_frontend_style_script']);
+      
     }
 
     /** ----------------------------------------------------------------------------------------------------
@@ -488,7 +473,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
           foreach ($home_stappen as $stap):
             unset($icon_classes);
-            unset($active);
+			$active = '';
             $icon_classes[] = 'stepnav__icon';
             $stepcounter++;
             $titel = get_the_title($stap->ID);
@@ -841,15 +826,14 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
       $infooter = TRUE;
 
       if (WP_DEBUG) {
-        wp_enqueue_script('functions-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/toggle.js', '', ICTU_GC_INCL_VERSION, $infooter);
-        wp_enqueue_script('functions-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
-        wp_enqueue_script('functions-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
-        wp_enqueue_script('functions-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
+        wp_enqueue_script('inclusie-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/toggle.js', '', ICTU_GC_INCL_VERSION, $infooter);
+        wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
+        wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
       }
       else {
-        wp_enqueue_script('functions-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/min/toggle-min.js', '', ICTU_GC_INCL_VERSION, $infooter);
-        wp_enqueue_script('functions-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
-        wp_enqueue_script('functions-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
+        wp_enqueue_script('inclusie-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/min/toggle-min.js', '', ICTU_GC_INCL_VERSION, $infooter);
+        wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
+        wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
       }
 
       wp_enqueue_style(ICTU_GC_ARCHIVE_CSS, trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css', [], ICTU_GC_INCL_VERSION, 'all');
