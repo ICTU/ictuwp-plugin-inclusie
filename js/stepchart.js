@@ -1,7 +1,7 @@
 (function ($, document, window) {
 
   var setFocus = false;
-  var bp = 650;
+  var breakpoint_desktop = 650; // breakpoint for desktop styling, in pixels
 
   // On hover or click set popover.
   jQuery('.stepchart__button').focus(function (e) {
@@ -25,7 +25,7 @@
 
     if (popover.attr('aria-hidden') === 'true') {
       // If bigger then desktop remove focus from other popovers
-      if (windowWidth >= bp) {
+      if (windowWidth >= breakpoint_desktop) {
         jQuery('.stepchart__description[aria-hidden=false]').attr('aria-hidden', 'true');
         jQuery('.show-popover').removeClass('show-popover')
       }
@@ -43,7 +43,7 @@
   jQuery(window).resize(function () {
     var windowWidth = jQuery(window).width();
 
-    if (windowWidth >= bp) {
+    if (windowWidth >= breakpoint_desktop) {
       jQuery('.stepchart__description[aria-hidden=false]').attr('aria-hidden', 'true');
       jQuery('.show-popover').removeClass('show-popover')
     }
