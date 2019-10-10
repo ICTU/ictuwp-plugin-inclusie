@@ -1,12 +1,16 @@
-h1 {
+h1,
+.page .entry-header .entry-title {
   .gc-heading-1();
+  text-transform: none;
+  letter-spacing: 0; //echt niet :(
 }
 
 // Regular page layout
 
-.inleiding {
-  .gc-box-shadow;
-  .gc-content-container;
+.inleiding,
+.page-intro {
+	.gc-box-shadow();
+	.gc-content-container();
 }
 
 .content-sidebar-wrap {
@@ -33,15 +37,58 @@ h1 {
   }
 }
 
- article.entry {
-   max-width: @contentwidth_960;
-   margin-left: auto;
-   margin-right: auto;
- }
+.page .content .entry-content {
+  min-height: 10rem;
+}
 
 .entry-content.wrap {
   h2 {
-    .gc-section-heading;
+    .gc-section-heading();
     text-transform: none;
+  }
+}
+
+.l-intro-region {
+  background: @wit;
+
+  @media only screen and ( min-width: ( @break_fullwidth )) {
+    margin-top: -10rem;
+  }
+}
+
+.page-intro__intro {
+  background: @gc_a11y_green;
+  color: @wit;
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+
+  @media only screen and ( min-width: ( @break_fullwidth )) {
+    padding: 3rem 5rem;
+  }
+}
+
+.page-intro__intro-text {
+  max-width: @max-width-inner;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 2rem;
+
+  h2 {
+    .gc-section-heading();
+    margin: 2rem 0 0;
+    padding: 0;
+
+    + p {
+      margin-top: 1.8rem;
+    }
+  }
+}
+
+.single.single-methode {
+  article.entry {
+    max-width: @contentwidth_960;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
