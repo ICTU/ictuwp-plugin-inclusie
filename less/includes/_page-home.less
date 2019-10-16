@@ -251,7 +251,7 @@
 .page-template-home-inclusie  {
   #maincontent article.entry {
     @media only screen and ( min-width: ( @break_fullwidth )) {
-      margin-bottom: calc(@spacer-large - 2rem); // There was already a margin
+		margin-bottom: ~"calc(@{spacer-large} - 2rem)";
     }
   }
 }
