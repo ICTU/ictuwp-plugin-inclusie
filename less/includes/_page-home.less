@@ -1,3 +1,16 @@
+
+
+// Gebruiker Centraal - _page-home.less
+// ----------------------------------------------------------------------------------
+// styling voor homepage template
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   0.0.11
+// @desc.     JS homepage voor openen en sluiten modal windows verbeterd.
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
 @import "../mixins";
 
 
@@ -67,7 +80,7 @@
     }
 
     .step {
-      button {
+      .js-openclosebutton {
         width: auto;
         background: @color-primary;
       }
@@ -238,7 +251,7 @@
 .page-template-home-inclusie  {
   #maincontent article.entry {
     @media only screen and ( min-width: ( @break_fullwidth )) {
-      margin-bottom: calc(@spacer-large - 2rem); // There was already a margin
+		margin-bottom: ~"calc(@{spacer-large} - 2rem)";
     }
   }
 }
