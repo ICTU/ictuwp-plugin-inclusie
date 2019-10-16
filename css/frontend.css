@@ -134,6 +134,16 @@ Imports
   position: relative;
   padding: 2rem;
 }
+@media only screen and (min-width: 800px) {
+  .card {
+    padding: 2rem 3rem;
+  }
+  .card h2,
+  .card h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
 .card h2,
 .card h3 {
   margin: 0;
@@ -175,16 +185,6 @@ Imports
 .card h2 + p,
 .card h3 + p {
   margin-top: 2rem;
-}
-@media only screen and (min-width: 800px) {
-  .card {
-    padding: 2rem 3rem;
-  }
-  .card h2,
-  .card h3 {
-    font-size: 24px;
-    line-height: 32px;
-  }
 }
 .card > p {
   margin-right: 1.5rem;
@@ -1528,6 +1528,9 @@ body.single-doelgroep #maincontent article.entry .wrap {
   position: relative;
   z-index: 5;
 }
+.facts-figures a {
+  color: #FFF;
+}
 .facts-figures .source {
   background: #00303d;
 }
@@ -1542,7 +1545,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   }
   .facts-figures .hugely {
     position: relative;
-    width: 318px;
+    width: 319px;
     display: block;
     overflow: hidden;
   }
@@ -1672,7 +1675,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem 2rem 1.5rem 3rem;
+  padding: 1rem 3.5rem 1.5rem 3rem;
 }
 .card--doelgroep .card__content h2 > a .btn {
   margin-right: 0;
