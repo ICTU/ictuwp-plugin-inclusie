@@ -162,6 +162,8 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
       add_filter('genesis_page_crumb', [$this, 'filter_breadcrumb'], 10, 2);
       add_filter('genesis_archive_crumb', [$this, 'filter_breadcrumb'], 10, 2);
 
+		/** Adding custom Favicon */
+		add_filter( 'genesis_pre_load_favicon', [$this, 'custom_favicon'] ); 
 
       add_action('genesis_entry_content', [$this, 'prepend_content'], 8);
       add_action('genesis_entry_content', [$this, 'append_content'], 15);
@@ -983,19 +985,18 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
       }
       elseif ($this->template_doelgroeppagina == $page_template) {
         // template voor doelgroeppagina.
-
-
+        
         add_action('genesis_loop', [$this, 'ictu_gc_add_posttype_title'], 9);
 
-        //		    remove_action( 'genesis_loop', 'genesis_do_loop' );
-        //		    remove_action( 'genesis_loop', 'gc_wbvb_archive_loop' );
+//		    remove_action( 'genesis_loop', 'genesis_do_loop' );
+//		    remove_action( 'genesis_loop', 'gc_wbvb_archive_loop' );
 
-			add_filter( 'genesis_attr_entry', array( $this, 'add_class_inleiding_to_entry' ) );
-			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_doelgroeppagina_content' ), 12 ); 				
+		add_filter( 'genesis_attr_entry', array( $this, 'add_class_inleiding_to_entry' ) );
+		add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_doelgroeppagina_content' ), 12 ); 				
 
 
-        //			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_archive_doelgroep_loop' ), 10 );
-        //			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_archive_doelgroep_loop' ), 11 );
+//			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_archive_doelgroep_loop' ), 10 );
+//			add_action( 'genesis_loop',  array( $this, 'ictu_gc_frontend_archive_doelgroep_loop' ), 11 );
 
 
 
@@ -1036,29 +1037,19 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
 		}
 */
-      elseif (is_singular(ICTU_GC_CPT_DOELGROEP)) {
-
-        //* Remove standard header
-        remove_action('genesis_entry_header', 'genesis_entry_header_markup_open', 5);
-        remove_action('genesis_entry_header', 'genesis_entry_header_markup_close', 15);
-        remove_action('genesis_entry_header', 'genesis_do_post_title');
-
-        add_action('genesis_before_entry', [
-          $this,
-          'ictu_gc_frontend_doelgroep_before_content',
-        ], 8);
-
-        add_action('genesis_entry_header', [
-          $this,
-          'ictu_gc_frontend_doelgroep_append_cijfers',
-        ], 10);
-
-			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_doelgroep_append_tips' ), 15 ); 			
-			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_doelgroep_append_vaardigheden' ), 17 ); 			
-
-
-			add_action( 'genesis_entry_content',  array( $this, 'ictu_gc_frontend_get_related_content' ), 20 ); 				
-	
+		elseif (is_singular(ICTU_GC_CPT_DOELGROEP)) {
+			
+			//* Remove standard header
+			remove_action('genesis_entry_header',	'genesis_entry_header_markup_open', 5);
+			remove_action('genesis_entry_header',	'genesis_entry_header_markup_close', 15);
+			remove_action('genesis_entry_header',	'genesis_do_post_title');
+			
+			add_action( 'genesis_before_entry',		array( $this, 'ictu_gc_frontend_doelgroep_before_content' ), 8 ); 			
+			add_action( 'genesis_entry_header',		array( $this, 'ictu_gc_frontend_doelgroep_append_cijfers' ), 10 ); 			
+			add_action( 'genesis_entry_content',	array( $this, 'ictu_gc_frontend_doelgroep_append_tips' ), 15 ); 			
+			add_action( 'genesis_entry_content',	array( $this, 'ictu_gc_frontend_doelgroep_append_vaardigheden' ), 17 ); 			
+			add_action( 'genesis_entry_content',	array( $this, 'ictu_gc_frontend_get_related_content' ), 20 ); 				
+			
 		}
 
 
@@ -1084,7 +1075,6 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 		$title_id       = sanitize_title( $section_title . '-' . $post->ID );
 	
 	    if( $doelgroep_tips ):
-//	      endforeach;
 
 	      $title_id       = sanitize_title( $section_title . '-' . $post->ID );
 	    
@@ -2443,6 +2433,10 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
       return $attributes;
     }
 
+		function custom_favicon( $icon ) {
+			$icon = ICTU_GC_ASSETS_URL . 'images/favicon.png';
+			return $icon;
+		}
 
   }
 
