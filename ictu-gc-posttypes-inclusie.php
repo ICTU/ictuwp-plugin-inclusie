@@ -8,7 +8,7 @@
  * Plugin Name:         ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.11
+ * Version:             0.0.12
  * Version description: JS homepage voor openen en sluiten modal windows verbeterd.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
@@ -92,7 +92,7 @@ define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );
 define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',		trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_INCL_VERSION',		'0.0.11' );
+define( 'ICTU_GC_INCL_VERSION',		'0.0.12' );
 
 //========================================================================================================
 
@@ -698,6 +698,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
           echo $home_inleiding;
         }
 
+
         if ($home_template_poster && $home_template_poster_linktekst) {
           echo '<a href="' . $home_template_poster['url'] . '" class="download poster">' . $home_template_poster_linktekst . '</a>';
         }
@@ -717,7 +718,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/stappenplan-bg-fullscreen.svg" alt="Stepchart Background">' .
             '</div>';
 
-          echo '<ol class="stepchart__items">';
+          echo '<div class="stepchart__items" role="tablist">';
 
           foreach ($home_stappen as $stap):
 
@@ -751,9 +752,9 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             $readmore = sprintf(_x('%s <span class="visuallyhidden">over %s</span>', 'home lees meer', 'ictu-gc-posttypes-inclusie'), _x('Lees meer', 'home lees meer', 'ictu-gc-posttypes-inclusie'), get_the_title($stap->ID));
 
 
-            echo '<li class="stepchart__item">';
+            echo '<div class="stepchart__item">';
 
-            echo '<button class="stepchart__button btn btn--stepchart ' . $class . '" aria-selected="false">' .
+            echo '<button class="stepchart__button btn btn--stepchart ' . $class . '" aria-selected="false" role="tab">' .
               '<span class="btn__icon"></span>' .
               '<span class="btn__text">' . $steptitle . '</span>' .
               '</button>';
@@ -765,11 +766,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
               '<a href="' . get_permalink($stap->ID) . '" class="cta">' . $readmore . '</a>' .
               '</section>';
 
-            echo '</li>';
+            echo '</div>';
 
           endforeach;
 
-          echo '</ol>';
+          echo '</div>';
           echo '</div>';
 
         endif;
@@ -827,12 +828,10 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
       $infooter = TRUE;
 
       if (WP_DEBUG) {
-        wp_enqueue_script('inclusie-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/toggle.js', '', ICTU_GC_INCL_VERSION, $infooter);
         wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
         wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
       }
       else {
-        wp_enqueue_script('inclusie-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/min/toggle-min.js', '', ICTU_GC_INCL_VERSION, $infooter);
         wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
         wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
       }
