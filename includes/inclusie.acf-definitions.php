@@ -220,14 +220,56 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
+
+
+			//------------------------------------------------------------------------------------------------
+			// velden voor doelgroep: vaardigheden
 			
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8fd6bacf265',
 				'title' => 'Doelgroep: vaardigheden',
 				'fields' => array(
 					array(
+						'key' => 'field_5d8915ca6e188',
+						'label' => 'Titel',
+						'name' => 'doelgroep_vaardigheden_titel',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+					),
+					array(
+						'key' => 'field_5d8915e2dc208',
+						'label' => 'Inleiding',
+						'name' => 'doelgroep_vaardigheden_inleiding',
+						'type' => 'wysiwyg',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'tabs' => 'all',
+						'toolbar' => 'full',
+						'media_upload' => 1,
+						'delay' => 0,
+					),
+					array(
 						'key' => 'field_5c924f598eeab',
-						'label' => 'doelgroep_vaardigheden',
+						'label' => 'Vaardigheden',
 						'name' => 'doelgroep_vaardigheden',
 						'type' => 'relationship',
 						'instructions' => '',
@@ -269,8 +311,103 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'hide_on_screen' => '',
 				'active' => true,
 				'description' => '',
+		));
+
+			//------------------------------------------------------------------------------------------------
+			// velden voor doelgroep: tips
+
+			acf_add_local_field_group(array(
+				'key' => 'group_5d8901c501a1f',
+				'title' => 'Doelgroep: tips',
+				'fields' => array(
+					array(
+						'key' => 'field_5d8910a036605',
+						'label' => 'Titel',
+						'name' => 'doelgroep_tips_titel',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => 'Tips',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+					),
+					array(
+						'key' => 'field_5d8910c61238d',
+						'label' => 'Inleiding',
+						'name' => 'doelgroep_tips_inleiding',
+						'type' => 'wysiwyg',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'tabs' => 'all',
+						'toolbar' => 'full',
+						'media_upload' => 1,
+						'default_value' => '',
+						'delay' => 0,
+					),
+					array(
+						'key' => 'field_5d8901c513ed9',
+						'label' => 'Tips',
+						'name' => 'doelgroep_tips',
+						'type' => 'relationship',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'procestip',
+						),
+						'taxonomy' => '',
+						'filters' => array(
+							0 => 'search',
+							1 => 'taxonomy',
+						),
+						'elements' => '',
+						'min' => '',
+						'max' => '',
+						'return_format' => 'object',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'post_type',
+							'operator' => '==',
+							'value' => 'doelgroep',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
 			));
 			
+			
+
+			//------------------------------------------------------------------------------------------------
+			// velden voor home template
 			acf_add_local_field_group(array(
 				'key' => 'group_5c90e063ca578',
 				'title' => 'Homepage template: inleiding, stappen en doelgroepen',
@@ -827,7 +964,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 			));
 
 			//------------------------------------------------------------------------------------------------
-/*
+			// velden voor stap
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8fde441c0a9',
 				'title' => 'Stap: inleiding en methodes',
@@ -960,6 +1097,174 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						'max' => '',
 						'return_format' => 'object',
 					),
+					array(
+						'key' => 'field_5d84d94b05b52',
+						'label' => 'Procestips titel',
+						'name' => 'stap_procestips_sectiontitle',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => 'Procestips',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+					),
+					array(
+						'key' => 'field_5d84dcb9d1473',
+						'label' => 'Bijbehorende procestips',
+						'name' => 'stap_procestips',
+						'type' => 'relationship',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'procestip',
+						),
+						'taxonomy' => '',
+						'filters' => array(
+							0 => 'search',
+							1 => 'taxonomy',
+						),
+						'elements' => '',
+						'min' => '',
+						'max' => '',
+						'return_format' => 'object',
+					),
+					array(
+						'key' => 'field_5d84d4b652e0e',
+						'label' => 'Tips Optimaal Digitaal',
+						'name' => 'stap_tips_optimaal_digitaal_sectiontitle',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => 'Optimaal Digitaal tips',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+					),
+					array(
+						'key' => 'field_5d84d3eed46b2',
+						'label' => 'Bijbehorende tips Optimaal Digitaal',
+						'name' => 'stap_tips_optimaal_digitaal',
+						'type' => 'repeater',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'collapsed' => 'field_5d84d439d46b4',
+						'min' => 0,
+						'max' => 0,
+						'layout' => 'row',
+						'button_label' => 'Nieuw tip toevoegen',
+						'sub_fields' => array(
+							array(
+								'key' => 'field_5d84d439d46b4',
+								'label' => 'Titel',
+								'name' => 'stap_tip_optimaal_digitaal_titel',
+								'type' => 'text',
+								'instructions' => 'De titel van de Optimaal Digitaal-tip',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'maxlength' => '',
+							),
+							array(
+								'key' => 'field_5d84d468d46b5',
+								'label' => 'Tip-nummer',
+								'name' => 'stap_tip_optimaal_digitaal_tipnummer',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'maxlength' => '',
+							),
+							array(
+								'key' => 'field_5d84d423d46b3',
+								'label' => 'URL',
+								'name' => 'stap_tip_optimaal_digitaal_url',
+								'type' => 'url',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'placeholder' => '',
+							),
+							array(
+								'key' => 'field_5d84d472d46b6',
+								'label' => 'Tip-thema',
+								'name' => 'stap_tip_optimaal_digitaal_tipthema',
+								'type' => 'radio',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'choices' => array(
+									'commitment' => 'Commitment',
+									'gebruiksgemak' => 'Gebruiksgemak',
+									'informatieveiligheid' => 'Informatieveiligheid',
+									'kanaalsturing' => 'Kanaalsturing',
+									'procesaanpak' => 'Procesaanpak',
+									'samenwerking' => 'Samenwerking',
+									'inclusie' => 'Inclusie',
+								),
+								'allow_null' => 0,
+								'other_choice' => 0,
+								'default_value' => 'inclusie',
+								'layout' => 'vertical',
+								'return_format' => 'value',
+								'save_other_choice' => 0,
+							),
+						),
+					),
 				),
 				'location' => array(
 					array(
@@ -979,7 +1284,8 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-*/
+
+
 			//------------------------------------------------------------------------------------------------
 
 			acf_add_local_field_group(array(

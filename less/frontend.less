@@ -5,13 +5,14 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.10
-// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
+// @version   0.0.11
+// @desc.     JS homepage voor openen en sluiten modal windows verbeterd.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
 /*!
 
 
-<!--                 frontend.css - v0.0.10d                     -->
+<!--                 frontend.css - v0.0.11                    -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -68,8 +69,8 @@ Imports
 // styling card Optimaal Digitaal
 @import "includes/_overview";
 // PAges / Singles
-@import "includes/_entry.less";
-@import "includes/_entry-home";
+@import "includes/_page";
+@import "includes/_page-home.less";
 @import "includes/_single-step.less";
 @import "includes/_single_doelgroep.less";
 // styling template doelgroep page
@@ -105,6 +106,82 @@ body {
   }
 }
 
+#maincontent {
+  background-color: @gc_pantybrown_light;
+  max-width: @containermaxwidth;
+
+  article.entry {
+    .wrap {
+      background-color: @wit;
+      padding-bottom: 2rem;
+    }
+
+    &.inleiding {
+      .wrap {
+        background-color: @gc_a11y_green;
+        &, * {
+          color: @wit;
+        }
+      }
+      .entry-header {
+        padding-bottom: 0;
+        .entry-title {
+          text-transform: none;
+          .font-size(34);
+          line-height: 1;
+          padding-top: 2rem;
+        }
+      }
+      .entry-header,
+      .entry-content {
+        .gc-padding();
+      }
+    }
+
+    @media only screen and ( max-width: ( @break_fullwidth ) ) {
+      margin-top: 2rem;
+    }
+
+    @media only screen and ( min-width: ( @break_fullwidth ) ) {
+      margin-top: 10rem;
+      margin-bottom: 4rem;
+
+      &.inleiding {
+        .entry-header .entry-title {
+          .font-size(70);
+        }
+        p {
+          .font-size(20);
+        }
+      }
+    }
+
+  }
+}
+
+.full-width-content .content {
+	width: auto;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: @contentmaxwidth;
+	.entry {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+section.border {
+	border-top: 2px solid @bordercolor;
+	margin-top: 2rem;
+	padding-top: 2rem;
+	
+	& > h2, 
+	& > h3 {
+		padding-top: 0;
+		margin-top: 0;
+	}
+}
 
 
 /*
@@ -424,21 +501,32 @@ a.download {
 @breedte_terms: 13rem;
 
 .methode-classifications {
-  li {
-    clear: both;
-    float: none;
-  }
-  .term-values,
-  .term {
-    display: inline-block;
-    float: left;
-  }
-  .term {
-    min-width: @breedte_terms;
-  }
-  .term-values {
-    max-width: ~"calc(100% - @{breedte_terms})";
-  }
+	li {
+		clear: both;
+		float: none;
+	}
+	dt {
+		clear: left;
+		font-weight: 700;
+	}
+	dd {
+		clear: right;
+	}
+	dt,
+	dd,
+	.term-values,
+	.term {
+		display: inline-block;
+		float: left;
+	}
+	dt,
+	.term {
+		min-width: @breedte_terms;
+	}
+	dd,
+	.term-values {
+		max-width: ~"calc(100% - @{breedte_terms})";
+	}
 }
 
 //========================================================================================================

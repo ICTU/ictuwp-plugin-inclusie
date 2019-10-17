@@ -1,7 +1,7 @@
 /*!
 
 
-<!--                 frontend.css - v0.0.10d                     -->
+<!--                 frontend.css - v0.0.11                    -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -338,22 +338,9 @@ Imports
 .btn--close:hover,
 .btn--close:focus {
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-  border-color: #e2e2e2;
+  border-color: #d1dfe3;
   color: transparent;
 }
-/*
-// Gebruiker Centraal - less/includes/_card_tipkaart.less
-// ----------------------------------------------------------------------------------
-// CSS specifiek voor tipcards van Optimaal Digitaal.
-// wellicht herbruikbaar
-// ----------------------------------------------------------------------------------
-// @package   ictu-gc-posttypes-inclusie
-// @author    Paul van Buuren
-// @license   GPL-2.0+
-// @version   0.0.10
-// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
-// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
- */
 .stepchart {
   position: relative;
 }
@@ -883,8 +870,7 @@ h1,
     line-height: 76px;
   }
 }
-.inleiding,
-.page-intro {
+.inleiding {
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   max-width: 960px;
   margin-left: auto;
@@ -1052,7 +1038,7 @@ h1,
     top: 1rem;
     right: 0;
   }
-  #home-inleiding .step button {
+  #home-inleiding .step .js-openclosebutton {
     width: auto;
     background: #148839;
   }
@@ -1262,18 +1248,6 @@ h1,
     line-height: 50px;
   }
 }
-/*
-// Gebruiker Centraal - less/includes/_single-step.less
-// ----------------------------------------------------------------------------------
-// CSS specifiek voor de single page voor een stap
-// ----------------------------------------------------------------------------------
-// @package   ictu-gc-posttypes-inclusie
-// @author    Paul van Buuren
-// @license   GPL-2.0+
-// @version   0.0.10
-// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
-// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
- */
 #step-procestips,
 #step-od-tips {
   max-width: 761px;
@@ -1554,6 +1528,9 @@ body.single-doelgroep #maincontent article.entry .wrap {
   position: relative;
   z-index: 5;
 }
+.facts-figures a {
+  color: #FFF;
+}
 .facts-figures .source {
   background: #00303d;
 }
@@ -1568,7 +1545,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   }
   .facts-figures .hugely {
     position: relative;
-    width: 318px;
+    width: 319px;
     display: block;
     overflow: hidden;
   }
@@ -1698,7 +1675,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem 2rem 1.5rem 3rem;
+  padding: 1rem 3.5rem 1.5rem 3rem;
 }
 .card--doelgroep .card__content h2 > a .btn {
   margin-right: 0;
@@ -1931,6 +1908,16 @@ body.single {
 .full-width-content .content .entry {
   padding-left: 0;
   padding-right: 0;
+}
+section.border {
+  border-top: 2px solid #d1dfe3;
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+section.border > h2,
+section.border > h3 {
+  padding-top: 0;
+  margin-top: 0;
 }
 /*
 ANIMATIONS 
@@ -2369,14 +2356,25 @@ a.download:active {
   clear: both;
   float: none;
 }
+.methode-classifications dt {
+  clear: left;
+  font-weight: 700;
+}
+.methode-classifications dd {
+  clear: right;
+}
+.methode-classifications dt,
+.methode-classifications dd,
 .methode-classifications .term-values,
 .methode-classifications .term {
   display: inline-block;
   float: left;
 }
+.methode-classifications dt,
 .methode-classifications .term {
   min-width: 13rem;
 }
+.methode-classifications dd,
 .methode-classifications .term-values {
   max-width: calc(100% - 13rem);
 }
@@ -2398,7 +2396,9 @@ a.download:active {
 }
 .tipkaart {
   text-align: center;
+  position: relative;
   background: #D1DFE3;
+  padding: 0;
 }
 .tipkaart * {
   padding: 0;
@@ -2408,14 +2408,31 @@ a.download:active {
   color: #002F3E;
   border: 5px solid transparent;
   display: block;
-  padding: 0 0 11rem 0;
-  position: relative;
+}
+.tipkaart a:before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10rem;
+  border: 5px solid transparent;
+  border-top-style: none;
+  background-color: #b1c9d0;
+  -webkit-clip-path: polygon(0 14%, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 14%, 100% 0, 100% 100%, 0% 100%);
 }
 .tipkaart a:hover,
 .tipkaart a:active,
 .tipkaart a:focus {
   text-decoration: underline;
   color: #002F3E;
+  border-color: #fff;
+}
+.tipkaart a:hover:before,
+.tipkaart a:active:before,
+.tipkaart a:focus:before {
   border-color: #fff;
 }
 .tipkaart .tipnummer {
@@ -2452,14 +2469,14 @@ a.download:active {
   font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
   font-size: 28px;
   text-transform: uppercase;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 10rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background-color: #b1c9d0;
+  position: relative;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.tipkaart .contentinfo span {
+  margin-top: 8rem;
+  margin-bottom: 1rem;
+  display: inline-block;
 }
 .tipkaart.inclusie {
   background-color: #D94721;
@@ -2472,7 +2489,10 @@ a.download:active {
 .tipkaart.inclusie a:focus {
   color: #fff;
 }
-.tipkaart.inclusie .contentinfo {
+.tipkaart.inclusie a:before {
   background-color: #ad391a;
+}
+.tipkaart.inclusie .contentinfo {
+  background-image: url('../images/svg/thema-inclusie.svg');
 }
 /*# sourceMappingURL=frontend.css.map */

@@ -8,10 +8,11 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Paul van Buuren: paul@wbvb.nl
 
 ## Current version:
-0.0.10 - CPT procestips toegevoegd. 
+0.0.11 - JS homepage voor openen en sluiten modal windows verbeterd.
 
 ## Version history
-* 0.0.10 - CPT procestips toegevoegd. 
+* 0.0.11 - JS homepage voor openen en sluiten modal windows verbeterd.
+* 0.0.10 - CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
 * 0.0.9 - Bugfixing. Styling for page and other content types. Title for methodes.
 * 0.0.8 - Bugfixes doelgroeppagina: styling toonbaar smallere schermen.
 * 0.0.7 - Doelgroeppagina. Bugfixes homepage, stap-pagina.

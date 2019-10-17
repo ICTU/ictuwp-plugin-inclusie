@@ -17,6 +17,12 @@
 		"oAP": "/.gitignore",
 		"oF": 0
 		},
+	"/.idea": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/.idea",
+		"oF": 0
+		},
 	"/css/frontend.css": {
 		"aP": 1,
 		"bl": 0,
@@ -61,14 +67,6 @@
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
-		},
-	"/ictu-gc-plugin-inclusie.code-workspace": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/ictu-gc-plugin-inclusie.code-workspace",
-		"oF": 0
 		},
 	"/ictu-gc-posttypes-inclusie.php": {
 		"cB": 0,
@@ -618,6 +616,26 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/b-stepnav.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/b-stepnav.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/cross.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/cross.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/deel.png": {
 		"ft": 32768,
 		"iS": 2311,
@@ -660,6 +678,28 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/favicon-512w.png": {
+		"ft": 32768,
+		"iS": 44235,
+		"oA": 0,
+		"oAP": "/images/favicon-512w.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/favicon.png": {
+		"ft": 32768,
+		"iS": 1517,
+		"oA": 0,
+		"oAP": "/images/favicon.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
 	"/images/footer-logo.png": {
 		"ft": 32768,
 		"iS": 50147,
@@ -691,6 +731,16 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"/images/icon-deel-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-deel-blue.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"/images/icon-deel.png": {
 		"ft": 32768,
@@ -734,6 +784,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/icon-evalueer-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-evalueer-blue.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/icon-evalueer.png": {
 		"ft": 32768,
 		"iS": 914,
@@ -751,6 +811,16 @@
 		"oA": 1,
 		"oAP": "/images/icon-evalueer.svg",
 		"oF": 1,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icon-identificeer-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-identificeer-blue.svg",
+		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
@@ -776,6 +846,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/icon-ontwerp-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-ontwerp-blue.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/icon-ontwerp.png": {
 		"ft": 32768,
 		"iS": 1022,
@@ -793,6 +873,16 @@
 		"oA": 1,
 		"oAP": "/images/icon-ontwerp.svg",
 		"oF": 1,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icon-verdiep-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-verdiep-blue.svg",
+		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
@@ -952,6 +1042,27 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/logo-inclusie.png": {
+		"ft": 32768,
+		"iS": 8425,
+		"oA": 0,
+		"oAP": "/images/logo-inclusie.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/logo-inclusie.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/logo-inclusie.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/logo.png": {
 		"ft": 32768,
 		"iS": 9410,
@@ -1046,13 +1157,15 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"/images/Untitled 3.sketch": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 1,
-		"oAP": "/images/Untitled 3.sketch",
-		"oF": 1
+	"/images/svg/thema-inclusie.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/svg/thema-inclusie.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"/images/verdiep.png": {
 		"ft": 32768,
@@ -1091,6 +1204,14 @@
 		"oAP": "/includes/index.php",
 		"oF": 0
 		},
+	"/inclusie.code-workspace": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/inclusie.code-workspace",
+		"oF": 0
+		},
 	"/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1098,6 +1219,17 @@
 		"oA": 0,
 		"oAP": "/index.php",
 		"oF": 0
+		},
+	"/js/btn.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/btn-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
 		},
 	"/js/index.php": {
 		"cB": 0,
@@ -1115,6 +1247,17 @@
 		"oAP": "/js/min/index.php",
 		"oF": 0
 		},
+	"/js/min/stepchart-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/min/stepchart-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"/js/min/toggle-min.js": {
 		"bF": 0,
 		"ft": 64,
@@ -1122,6 +1265,17 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/js/min/min/toggle-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"/js/stepchart.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/stepchart-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -1185,6 +1339,23 @@
 		"oAP": "/languages/index.php",
 		"oF": 0
 		},
+	"/less/frontend.less": {
+		"aP": 1,
+		"bl": 1,
+		"eJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 0,
+		"oAP": "/css/frontend.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 1,
+		"sU": 0
+		},
 	"/less/includes/_btn.less": {
 		"aP": 0,
 		"bl": 0,
@@ -1196,6 +1367,23 @@
 		"mS": 0,
 		"oA": 1,
 		"oAP": "/less/css/_btn.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/less/includes/_card-doelgroep.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_card-doelgroep.css",
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
@@ -1270,6 +1458,40 @@
 		"sI": 0,
 		"sU": 0
 		},
+	"/less/includes/_inclusie-design.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_inclusie-design.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/less/includes/_overview.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_overview.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
 	"/less/includes/_page-home.less": {
 		"aP": 0,
 		"bl": 0,
@@ -1281,6 +1503,23 @@
 		"mS": 0,
 		"oA": 1,
 		"oAP": "/less/css/_page-home.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/less/includes/_page.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_page.css",
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
@@ -1304,7 +1543,7 @@
 		"sI": 0,
 		"sU": 0
 		},
-	"/less/includes/_template_doelgroeppagina.less": {
+	"/less/includes/_single_doelgroep.less": {
 		"aP": 0,
 		"bl": 0,
 		"eJ": 0,
@@ -1314,7 +1553,41 @@
 		"ma": 1,
 		"mS": 0,
 		"oA": 1,
-		"oAP": "/less/css/_template_doelgroeppagina.css",
+		"oAP": "/less/css/_single_doelgroep.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/less/includes/_stepchart.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_stepchart.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
+	"/less/includes/_stepnav.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_stepnav.css",
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
@@ -1370,6 +1643,14 @@
 		"oO": 0,
 		"oS": 1
 		},
+	"/README.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/README.html",
+		"oF": 0
+		},
 	"/README.md": {
 		"cB": 0,
 		"cS": 0,
@@ -1415,8 +1696,8 @@
 	"creationDate": 574360784.37326002,
 	"displayValue": "ICTU plugin GC Inclusie",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "logo-react",
-	"iconImageWasSetByUser": 0
+	"iconImageName": "/images/logo-inclusie.png",
+	"iconImageWasSetByUser": 1
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

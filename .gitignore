@@ -26,3 +26,4 @@ ictu-gc-plugin-inclusie.code-workspace
 
 .idea
 .idea/*
+*.code-workspace
