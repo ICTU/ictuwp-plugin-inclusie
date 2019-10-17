@@ -539,8 +539,8 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         }
 
         // Make reusable Intro region as a data container
-        echo '<div class="page-intro l-intro-region wrap">' .
-          '<div class="page-intro__intro">' .
+        echo '<div class="region region--content-top">' .
+          '<div class="page-intro inleiding">' .
           '<header class="entry-header"><h1 class="entry-title">' . get_the_title() . '</h1>' . '</header>';
 
         if ($section_title) {
@@ -704,18 +704,20 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         $home_template_poster = get_field('home_template_poster', $post->ID);
         $home_template_poster_linktekst = get_field('home_template_poster_linktekst', $post->ID);
 
-        echo '<div id="home-inleiding">';
-        echo '<header class="entry-header wrap"><h1 class="entry-title"	>' . get_the_title() . '</h1></header>';
+        echo '<div class="region region--intro">'.
+          '<div id="entry__intro">'.
+          '<h1 class="entry-title">' . get_the_title() . '</h1>';
 
 
         if ($home_inleiding) {
-          echo $home_inleiding;
+          echo $home_inleiding ;
         }
 
         if ($home_template_poster && $home_template_poster_linktekst) {
-          echo '<a href="' . $home_template_poster['url'] . '" class="download poster">' . $home_template_poster_linktekst . '</a>';
+          echo '<a href="' . $home_template_poster['url'] . '" class="btn btn--download">' . $home_template_poster_linktekst . '</a>';
         }
 
+        echo '</div>'; // Einde Intro
 
         if ($home_stappen):
 
@@ -788,8 +790,8 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
         endif;
 
-        echo '</div>'; // #home-inleiding
 
+        echo '</div>'; // region--intro, lekker herbruikbaar!
 
         if (have_rows('home_template_doelgroepen')):
 
@@ -797,7 +799,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
           $title_id = sanitize_title($section_title . '-' . $post->ID);
           $posttype = '';
 
-          echo '<div id="home_template_doelgroepen" class="grid grid--col-3">';
+          echo '<div class="region region--content-top">'.
+
+            '<div class="overview">'.
+              // Items
+              '<div class="overview__items grid grid--col-3">';
 
           // loop through the rows of data
           while (have_rows('home_template_doelgroepen')) : the_row();
@@ -821,9 +827,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
           }
 
 
-          echo '<p id="doelgroep-archive-p"><a href="' . $doelgroeplink . '" class="cta ' . $posttype . '">' . $label . '</a></p>';
-
+          echo '<a href="' . $doelgroeplink . '" class="cta ' . $posttype . '">' . $label . '</a>';
         endif;
+
+        echo '</div>'; // Section content-top
+
 
       }
 

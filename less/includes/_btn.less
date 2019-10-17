@@ -5,6 +5,8 @@
 }
 
 .btn {
+  display: inline-block;
+
   &--arrow {
     background: url('../images/arrow-right.svg') center center no-repeat;
     background-size: 12px auto;
@@ -34,6 +36,35 @@
       .gc-box-shadow;
       border-color: @bordercolor;
       color: transparent;
+    }
+  }
+
+  &--download {
+    .gc-box-shadow();
+    padding: 1rem 2rem 1rem 4.4rem;
+    font-family: @font-secondary;
+    text-transform: uppercase;
+    background: @inclusiekoraal_2 url('../images/icon-download.svg') 16px center no-repeat;
+    font-size: 2.6rem;
+    line-height: 2.6rem;
+    text-decoration: none;
+    color: @white;
+    transition: padding .2s, background-color .2s;
+
+    .entry-content & {
+      color: @white; //:(
+
+      &:hover,
+      &:focus {
+        color: @white; // :( dit of !important
+      }
+    }
+
+    &:hover,
+    &:focus {
+      padding-left: 4.6rem;
+      text-decoration: underline;
+      background-color: @inclusierood;
     }
   }
 }

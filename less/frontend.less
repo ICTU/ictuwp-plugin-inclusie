@@ -68,8 +68,8 @@ Imports
 // styling card Optimaal Digitaal
 @import "includes/_overview";
 // PAges / Singles
-@import "includes/_page";
-@import "includes/_page-home.less";
+@import "includes/_entry.less";
+@import "includes/_entry-home";
 @import "includes/_single-step.less";
 @import "includes/_single_doelgroep.less";
 // styling template doelgroep page
@@ -105,70 +105,7 @@ body {
   }
 }
 
-#maincontent {
-  background-color: @gc_pantybrown_light;
-  max-width: @containermaxwidth;
 
-  article.entry {
-    .wrap {
-      background-color: @wit;
-      padding-bottom: 2rem;
-    }
-
-    &.inleiding {
-      .wrap {
-        background-color: @gc_a11y_green;
-        &, * {
-          color: @wit;
-        }
-      }
-      .entry-header {
-        padding-bottom: 0;
-        .entry-title {
-          text-transform: none;
-          .font-size(34);
-          line-height: 1;
-          padding-top: 2rem;
-        }
-      }
-      .entry-header,
-      .entry-content {
-        .gc-padding();
-      }
-    }
-
-    @media only screen and ( max-width: ( @break_fullwidth ) ) {
-      margin-top: 2rem;
-    }
-
-    @media only screen and ( min-width: ( @break_fullwidth ) ) {
-      margin-top: 10rem;
-      margin-bottom: 4rem;
-
-      &.inleiding {
-        .entry-header .entry-title {
-          .font-size(70);
-        }
-        p {
-          .font-size(20);
-        }
-      }
-    }
-
-  }
-}
-
-.full-width-content .content {
-  width: auto;
-  float: none;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: @contentmaxwidth;
-  .entry {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 
 /*
 ANIMATIONS 
