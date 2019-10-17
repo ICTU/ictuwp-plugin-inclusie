@@ -744,7 +744,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                       '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/stappenplan-bg-fullscreen.svg" alt="Stepchart Background">' .
                       '</div>';
 
-                    echo '<ol class="stepchart__items">';
+                    echo '<ol class="stepchart__items" role="tablist">';
 
                     foreach ($home_stappen as $stap):
 
@@ -780,12 +780,12 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
                         echo '<li class="stepchart__item">';
 
-                        echo '<button class="stepchart__button btn btn--stepchart ' . $class . '" aria-selected="false">' .
+                        echo '<button class="stepchart__button btn btn--stepchart ' . $class . '" aria-selected="false" role="tab">' .
                           '<span class="btn__icon"></span>' .
                           '<span class="btn__text">' . $steptitle . '</span>' .
                           '</button>';
 
-                        echo '<section class="stepchart__description" aria-hidden="true" aria-labelledby="' . $title_id . '">' .
+                        echo '<section class="stepchart__description" aria-hidden="true" aria-labelledby="' . $title_id . '" role="tabpanel">' .
                           '<button type="button" class="btn btn--close" data-trigger="action-popover-close">Sluit</button>' .
                           '<h3 id="' . $title_id . '" class="stepchart__title">' . get_the_title($stap->ID) . '</h3>' .
                           '<div class="description">' . $inleiding . '</div>' .
