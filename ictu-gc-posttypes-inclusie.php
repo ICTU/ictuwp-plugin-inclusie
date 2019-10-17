@@ -860,12 +860,10 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             $infooter = TRUE;
 
             if (WP_DEBUG) {
-                wp_enqueue_script('inclusie-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/toggle.js', '', ICTU_GC_INCL_VERSION, $infooter);
                 wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
                 wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
             }
             else {
-                wp_enqueue_script('inclusie-toggle', trailingslashit(plugin_dir_url(__FILE__)) . 'js/min/toggle-min.js', '', ICTU_GC_INCL_VERSION, $infooter);
                 wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
                 wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
             }
