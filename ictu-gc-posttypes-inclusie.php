@@ -9,7 +9,7 @@
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
  * Version:             0.0.12
- * Version description: JS homepage voor openen en sluiten modal windows verbeterd.
+ * Version description: Small CSS improvements. Small a11y improvement.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
