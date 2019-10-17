@@ -1,7 +1,7 @@
 /*!
 
 
-<!--                 frontend.css - v0.0.11                    -->
+<!--                 frontend.css - v0.0.12                    -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -999,6 +999,7 @@ h1,
 #home-inleiding h1 {
   font-size: 54px;
   margin: 0;
+  background: #C73D19;
   padding: 0;
 }
 #home-inleiding .download {
@@ -1028,14 +1029,14 @@ h1,
   #home-inleiding .entry-title {
     padding-top: 0;
     margin-top: 0;
-    max-width: 41rem;
+    max-width: 51rem;
     font-size: 70px;
     line-height: 1;
     text-transform: uppercase;
   }
   #home-inleiding a.download {
     position: absolute;
-    top: 1rem;
+    top: 9rem;
     right: 0;
   }
   #home-inleiding .step .js-openclosebutton {
@@ -1528,9 +1529,6 @@ body.single-doelgroep #maincontent article.entry .wrap {
   position: relative;
   z-index: 5;
 }
-.facts-figures a {
-  color: #FFF;
-}
 .facts-figures .source {
   background: #00303d;
 }
@@ -1545,7 +1543,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   }
   .facts-figures .hugely {
     position: relative;
-    width: 319px;
+    width: 318px;
     display: block;
     overflow: hidden;
   }
