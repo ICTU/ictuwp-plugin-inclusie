@@ -311,6 +311,9 @@ Imports
 .cta {
   margin-top: 2rem;
 }
+.btn {
+  display: inline-block;
+}
 .btn--arrow {
   background: url('../images/arrow-right.svg') center center no-repeat;
   background-size: 12px auto;
@@ -341,8 +344,37 @@ Imports
   border-color: #d1dfe3;
   color: transparent;
 }
+.btn--download {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem 1rem 4.4rem;
+  font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  background: #F05A24 url('../images/icon-download.svg') 16px center no-repeat;
+  font-size: 2.6rem;
+  line-height: 2.6rem;
+  text-decoration: none;
+  color: #FFF;
+  -webkit-transition: padding 0.2s, background-color 0.2s;
+  transition: padding 0.2s, background-color 0.2s;
+}
+.entry-content .btn--download {
+  color: #FFF;
+}
+.entry-content .btn--download:hover,
+.entry-content .btn--download:focus {
+  color: #FFF;
+}
+.btn--download:hover,
+.btn--download:focus {
+  padding-left: 4.6rem;
+  text-decoration: underline;
+  background-color: #D94721;
+}
 .stepchart {
   position: relative;
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media only screen and (min-width: 650px) {
   .stepchart {
@@ -351,7 +383,6 @@ Imports
 }
 .stepchart__bg {
   position: relative;
-  z-index: -1;
 }
 .stepchart__bg > img {
   display: none;
@@ -590,7 +621,6 @@ Imports
     transition: background-color 0.2s, -webkit-transform 0.2s;
     transition: transform 0.2s, background-color 0.2s;
     transition: transform 0.2s, background-color 0.2s, -webkit-transform 0.2s;
-    z-index: -1;
   }
   .btn--stepchart .btn__text {
     font-size: 24px;
@@ -839,20 +869,22 @@ Imports
     width: 1px;
   }
 }
-.overview.grid {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+.overview {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media only screen and (min-width: 800px) {
-  .overview.grid {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
+.overview .cta {
+  margin-top: 3rem;
+}
+#maincontent {
+  background-color: #f2ebe4;
 }
 h1,
 .page .entry-header .entry-title {
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
   text-transform: none;
   letter-spacing: 0;
 }
@@ -870,17 +902,26 @@ h1,
     line-height: 76px;
   }
 }
-.inleiding {
+.breadcrumb > .wrap {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.inleiding,
+.page-intro {
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
+  background: #148839;
+  color: #FFF;
 }
 .content-sidebar-wrap {
   position: relative;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 5rem;
+  padding-top: 5rem;
 }
 @media only screen and (min-width: 800px) {
   .content-sidebar-wrap {
@@ -891,10 +932,81 @@ h1,
 @media only screen and (min-width: 800px) {
   .content-sidebar-wrap {
     padding-bottom: 10rem;
+    padding-top: 12rem;
   }
+}
+.content-sidebar-wrap > .content {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background: #FFF;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+.content-sidebar-wrap > .content > .entry {
+  padding: 0;
+}
+@media only screen and (min-width: 800px) {
+  .content-sidebar-wrap > .content {
+    padding-top: 6rem;
+  }
+}
+.content-sidebar-wrap > .content .inleiding {
+  font-size: 22px;
+  padding: 2rem;
+}
+.content-sidebar-wrap > .content .inleiding .wrap {
+  max-width: none;
+  padding: 0;
+  min-height: 1rem;
+}
+.content-sidebar-wrap > .content .inleiding .entry-content.wrap {
+  min-height: 8rem;
+  padding-top: 2rem;
+}
+@media only screen and (min-width: 800px) {
+  .content-sidebar-wrap > .content .inleiding {
+    padding: 3rem 5rem;
+  }
+}
+.full-width-content .content-sidebar-wrap > .content {
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  max-width: 1180px;
+}
+.full-width-content .content-sidebar-wrap > .entry.inleiding + .grid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media only screen and (min-width: 800px) {
+  .full-width-content .content-sidebar-wrap > .entry.inleiding + .grid {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.page-template-default.full-width-content .content-sidebar-wrap > .content {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  background: #FFF;
+  padding: 3rem 2rem;
+}
+@media only screen and (min-width: 650px) {
+  .page-template-default.full-width-content .content-sidebar-wrap > .content {
+    padding: 5rem 3rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .page-template-default.full-width-content .content-sidebar-wrap > .content {
+    padding: 8rem 3rem;
+  }
+}
+.page-template-default.full-width-content .content-sidebar-wrap .entry-content {
+  margin-top: 2rem;
 }
 #maincontent {
   position: relative;
+  max-width: none;
 }
 #maincontent:before {
   content: " ";
@@ -905,10 +1017,7 @@ h1,
   right: 0;
   height: 300px;
 }
-.page .content .entry-content {
-  min-height: 10rem;
-}
-.entry-content.wrap h2 {
+.entry-content h2 {
   font-size: 34px;
   font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -916,17 +1025,9 @@ h1,
   text-transform: none;
 }
 @media only screen and (min-width: 800px) {
-  .entry-content.wrap h2 {
+  .entry-content h2 {
     font-size: 46px;
     line-height: 50px;
-  }
-}
-.l-intro-region {
-  background: #fff;
-}
-@media only screen and (min-width: 800px) {
-  .l-intro-region {
-    margin-top: -10rem;
   }
 }
 .page-intro__intro {
@@ -946,6 +1047,7 @@ h1,
   margin-left: auto;
   margin-right: auto;
   padding: 3rem 2rem;
+  color: #004152;
 }
 .page-intro__intro-text h2 {
   font-size: 34px;
@@ -969,222 +1071,119 @@ h1,
   margin-left: auto;
   margin-right: auto;
 }
-#home-inleiding {
+.region--intro {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  color: #fff;
+  background: #C73D19;
   padding-top: 5rem;
-  padding-bottom: 5rem;
-  position: relative;
-  z-index: 1;
+  color: #FFF;
 }
 @media only screen and (min-width: 800px) {
-  #home-inleiding {
+  .region--intro {
     padding-left: 3rem;
     padding-right: 3rem;
   }
 }
-#home-inleiding:before {
-  content: " ";
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  margin-left: -9999px;
-  margin-right: -9999px;
-  background: #C73D19 url(../images/inclusie-home-bg.png) center bottom no-repeat;
-  z-index: -1;
-}
-#home-inleiding h1 {
-  font-size: 54px;
+.region--intro .entry-title {
   margin: 0;
-  background: #C73D19;
   padding: 0;
+  color: #FFF;
+  text-transform: uppercase;
+  max-width: 50rem;
 }
-#home-inleiding .download {
-  margin: 1rem 0 4rem 0;
-  display: inline-block;
-}
-@media only screen and (max-width: 800px) {
-  #home-inleiding {
-    background: #D94721;
-  }
+.region--intro .entry-title + p {
+  margin-top: 1.8rem;
 }
 @media only screen and (min-width: 800px) {
-  #home-inleiding {
-    position: relative;
-    width: 83rem;
-    margin-left: auto;
-    margin-right: auto;
-    color: #fff;
+  .region--intro {
     padding-top: 10rem;
   }
-  #home-inleiding p {
-    font-size: 20px;
-    position: relative;
-    z-index: 1;
-    margin: 1.6rem 0 0;
-  }
-  #home-inleiding .entry-title {
-    padding-top: 0;
-    margin-top: 0;
-    max-width: 51rem;
-    font-size: 70px;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-  #home-inleiding a.download {
-    position: absolute;
-    top: 9rem;
-    right: 0;
-  }
-  #home-inleiding .step .js-openclosebutton {
-    width: auto;
-    background: #148839;
-  }
-  #home-inleiding #home-chart {
-    position: relative;
-    height: 83rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -16rem;
-  }
-  #home-inleiding #home-chart .step {
-    position: absolute;
-  }
-  #home-inleiding #home-chart #step_1 {
-    top: 37.5rem;
-    left: 31rem;
-  }
-  #home-inleiding #home-chart #step_1 .description {
-    margin-left: -20rem;
-  }
-  #home-inleiding #home-chart #step_2 {
-    top: 21rem;
-    left: 17rem;
-  }
-  #home-inleiding #home-chart #step_2 .description {
-    margin-left: -17rem;
-  }
-  #home-inleiding #home-chart #step_2 .description:before {
-    left: 33%;
-  }
-  #home-inleiding #home-chart #step_2 .description:after {
-    left: 34%;
-  }
-  #home-inleiding #home-chart #step_3 {
-    top: 33rem;
-    left: 53rem;
-  }
-  #home-inleiding #home-chart #step_3 .description {
-    margin-left: -27rem;
-  }
-  #home-inleiding #home-chart #step_3 .description:before {
-    left: 55%;
-  }
-  #home-inleiding #home-chart #step_3 .description:after {
-    left: 56%;
-  }
-  #home-inleiding #home-chart #step_4 {
-    top: 57rem;
-    left: 25rem;
-  }
-  #home-inleiding #home-chart #step_4 .description {
-    margin-left: -20rem;
-  }
-  #home-inleiding #home-chart #step_5 {
-    top: 61rem;
-    left: 58rem;
-  }
-  #home-inleiding #home-chart #step_5 .description {
-    margin-left: -32rem;
-  }
-  #home-inleiding #home-chart #step_5 .description:before {
-    left: 63%;
-  }
-  #home-inleiding #home-chart #step_5 .description:after {
-    left: 64%;
-  }
 }
-@media only screen and (min-width: 1180px) {
-  #home-inleiding #home-chart #step_1 .description,
-  #home-inleiding #home-chart #step_2 .description,
-  #home-inleiding #home-chart #step_3 .description,
-  #home-inleiding #home-chart #step_4 .description,
-  #home-inleiding #home-chart #step_5 .description {
-    margin-left: -20rem;
-  }
-  #home-inleiding #home-chart #step_1 .description:before,
-  #home-inleiding #home-chart #step_2 .description:before,
-  #home-inleiding #home-chart #step_3 .description:before,
-  #home-inleiding #home-chart #step_4 .description:before,
-  #home-inleiding #home-chart #step_5 .description:before {
-    left: 41%;
-  }
-  #home-inleiding #home-chart #step_1 .description:after,
-  #home-inleiding #home-chart #step_2 .description:after,
-  #home-inleiding #home-chart #step_3 .description:after,
-  #home-inleiding #home-chart #step_4 .description:after,
-  #home-inleiding #home-chart #step_5 .description:after {
-    left: 42%;
-  }
-}
-#maincontent article.entry #home-inleiding > .wrap {
-  padding: 0;
-  margin: 0;
-}
-.home #maincontent {
-  background: #f2ebe4;
-}
-.home #maincontent main.content {
-  float: none;
-}
-.home #maincontent main.content article.entry {
-  margin-top: 0;
-}
-.home #maincontent main.content article.entry,
-.home #maincontent main.content article.entry .wrap {
-  background-color: transparent;
-}
-.home #maincontent main.content,
-.home #maincontent main.content .wrap {
-  max-width: 1180px;
+#entry__intro {
+  max-width: 770px;
   margin-left: auto;
   margin-right: auto;
 }
-.home #maincontent main.content .entry-header,
-.home #maincontent main.content .entry-content,
-.home #maincontent main.content .entry {
-  padding-left: 0;
-  padding-right: 0;
+#entry__intro .btn {
+  margin-top: 2rem;
 }
 @media only screen and (min-width: 800px) {
-  #home-chart {
-    background: url(../images/stappenplan-bg-fullscreen.svg) bottom 10px left no-repeat;
-    background-size: contain;
+  #entry__intro {
+    font-size: 22px;
   }
 }
-#home_template_doelgroepen {
+.region--content-top {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  margin-top: -5rem;
+}
+@media only screen and (min-width: 800px) {
+  .region--content-top {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.home .content-sidebar-wrap {
+  padding: 0;
+}
+.home .content-sidebar-wrap > .content {
+  padding: 0;
+  box-shadow: none;
+  background: none;
+}
+.home .entry > .wrap,
+.home.full-width-content .content {
+  max-width: none;
+  width: 100%;
+}
+.home #maincontent article.entry .wrap {
+  background: none;
+  padding: 0;
+}
+.home #entry__intro {
+  font-size: 22px;
   position: relative;
   z-index: 5;
 }
 @media only screen and (min-width: 800px) {
-  #home_template_doelgroepen {
-    padding-left: 3rem;
-    padding-right: 3rem;
+  .home #entry__intro .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 1.2rem;
+  }
+  .home #entry__intro h1 {
+    margin-right: 12rem;
   }
 }
+.home .region--intro {
+  padding-bottom: 8rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.home .region--intro:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0 -5% -5%;
+  height: 40%;
+  -webkit-transform: rotate(3deg);
+          transform: rotate(3deg);
+  background: #D94721;
+}
 @media only screen and (min-width: 800px) {
-  #home_template_doelgroepen {
-    margin-top: -8rem;
+  .home .region--intro:before {
+    height: 48%;
   }
-  #home_template_doelgroepen + p {
-    margin-top: 2rem;
-  }
+}
+.home .region--content-top > .overview {
+  margin-top: -8rem;
+}
+.home .footer-widgets {
+  margin-top: 0;
 }
 #doelgroep-archive-p {
   padding-left: 1.5rem;
@@ -1205,7 +1204,7 @@ h1,
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 3rem;
-  max-width: 1180px;
+  max-width: calc(1180px + 3rem * 2);
   position: relative;
   z-index: 5;
   margin: 0 auto;
@@ -1260,8 +1259,33 @@ h1,
 #step-procestips .card + .card {
   margin-top: 2rem;
 }
+body.single-stap .content-sidebar-wrap {
+  padding-top: 0;
+}
+body.single-stap .region--content-top {
+  position: relative;
+}
+@media only screen and (min-width: 800px) {
+  body.single-stap .region--content-top {
+    margin-top: -8rem;
+  }
+}
+body.single-stap .page-intro__intro-text {
+  max-width: 1180px;
+  padding: 3rem 0 0;
+}
 body.single-stap #maincontent article.entry {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  max-width: 960px;
   background: #fff;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 800px) {
+  body.single-stap #maincontent article.entry {
+    margin-top: 8rem;
+  }
 }
 @media only screen and (max-width: 800px) {
   body.single-stap #maincontent article.entry {
@@ -1271,15 +1295,19 @@ body.single-stap #maincontent article.entry {
     padding-top: 0;
   }
 }
-body.single-stap #maincontent article.entry .entry-content {
-  padding-left: 0;
-  padding-right: 0;
-}
-body.single-stap #maincontent article.entry .entry-title,
 body.single-stap #maincontent article.entry .wrap {
-  max-width: 761px;
+  max-width: 770px;
   margin-left: auto;
   margin-right: auto;
+}
+body.single-stap #maincontent article.entry .entry-content {
+  padding: 5rem 2rem;
+}
+body.single-stap #maincontent article.entry .entry-content > h2:first-child {
+  padding: 0;
+}
+body.single-stap #maincontent article.entry .entry-content > h2:first-child + p {
+  margin-top: 2rem;
 }
 body.single-stap .site-inner header {
   margin: 0;
@@ -1363,7 +1391,6 @@ body.single-doelgroep #maincontent article.entry .wrap {
 }
 @media only screen and (min-width: 650px) {
   #doelgroep-inleiding {
-    margin-top: 4rem;
     padding-left: 40%;
     display: -webkit-box;
     display: flex;
@@ -1411,7 +1438,6 @@ body.single-doelgroep #maincontent article.entry .wrap {
 }
 @media only screen and (min-width: 800px) {
   #doelgroep-inleiding {
-    margin-top: 8rem;
     padding-left: 340px;
   }
 }
@@ -1792,18 +1818,18 @@ body.single-doelgroep #maincontent article.entry .wrap {
   margin-right: 0.5em;
 }
 .full-width-content .breadcrumb {
+  margin: 0;
+  padding: 0;
+}
+.full-width-content .breadcrumb .wrap {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  margin: 0;
 }
 @media only screen and (min-width: 800px) {
-  .full-width-content .breadcrumb {
+  .full-width-content .breadcrumb .wrap {
     padding-left: 3rem;
     padding-right: 3rem;
   }
-}
-.full-width-content .breadcrumb .wrap {
-  max-width: none;
 }
 .full-width-content .nav-primary #mainnav {
   padding-left: 1.5rem;
@@ -1886,7 +1912,6 @@ body.single {
 }
 @media only screen and (min-width: 800px) {
   #maincontent article.entry {
-    margin-top: 10rem;
     margin-bottom: 4rem;
   }
   #maincontent article.entry.inleiding .entry-header .entry-title {
