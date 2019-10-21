@@ -167,6 +167,22 @@
 
 //========================================================================================================
 
+.vaardigheden( @classname: 'default', @src: '../images/icons/vaardigheden/aandacht.svg' ) {
+
+	@fill-old: '#148839';
+	@fill-new: @txt;
+
+	h1.@{classname} {
+		.icon_replace_filler( @src, @fill-old, @fill-new);
+		background-size: 70px 70px;
+		background-repeat: no-repeat;
+		padding-left: 100px !important;
+	}
+
+}
+
+//========================================================================================================
+
 .icoontje( @classname: 'default', @src: '../images/icon-deel.svg' ) {
 
 	@fill-old: @wit;
