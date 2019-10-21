@@ -250,81 +250,93 @@ body.single-doelgroep {
 }
 
 .facts-figures {
-  .gc-box-shadow();
-  background: @gc_darkerblue;
-  color: @white;
-  display: flex;
-  position: relative;
-  z-index: 5;
+	.gc-box-shadow();
+	background: @gc_darkerblue;
+	color: @white;
+	display: flex;
+	position: relative;
+	z-index: 5;
+	
+	.source {
+		background: @gc_darkerblue;
+		*, a {
+			color: @white;
+		}
+	}
+	
+	span {
+		display: block;
+	}
+	
+	.source {
+		.font-size(20);
+		z-index: +1;
+		position: relative;;
+		padding: 3rem;
+	}
+	
+	cite {
+		display: block;
+		clear: both;
+		float: none;
+		.font-size(14);
+		margin-top: 1.5rem;
+		padding-top: 1.5rem;
+		border-top: .1rem solid @gc_blue_light;
+	}
+	
+	.hugely {
+		padding-top: 2rem;
+		.font-size(40);
+		text-align: center;
+		font-family: @bodyfont_bold;
+		line-height: 1.2;
+	}
 
-  .source {
-    background: @gc_darkerblue;
-  }
-
-  @media only screen and (min-width: ( @break_fullwidth ) ) {
-    background: @gc_darkerblue; /* Old browsers */
-    position: relative;
-
-    .source {
-      flex-basis: ( ( 100% / 3 ) * 2 );
-    }
-
-    .hugely {
-      position: relative;
-      width: 318px;
-      display: block;
-      overflow: hidden;
-
-      &:before {
-        content: " ";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        width: 5rem;
-        margin-right: -4rem;
-        margin-top: -.5rem;
-        background: @gc_darkerblue;
-        transform: rotate(-2deg);
-      }
-    }
-
-    &:after {
-      margin-bottom: -10rem;
-      height: 10rem;
-    }
-
-  }
-
-  span {
-    padding: 3rem;
-    display: block;
-  }
-
-  .source {
-    .font-size(20);
-    z-index: +1;
-    position: relative;;
-  }
-
-  cite {
-    display: block;
-    clear: both;
-    float: none;
-    .font-size(14);
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: .1rem solid @gc_blue_light;
-  }
-
-  .hugely {
-    background: @gc_darkblue;
-    text-align: center;
-    .font-size(40);
-    font-family: @bodyfont_bold;
-    line-height: 1.2;
-    padding: 4rem;
-  }
+	@media only screen and (max-width: ( @break_fullwidth ) ) {
+		& {
+			flex-direction: column;
+		}
+	}
+	
+	@media only screen and (min-width: ( @break_fullwidth ) ) {
+		background: @gc_darkerblue; /* Old browsers */
+		position: relative;
+		
+		.source {
+			flex-basis: ( ( 100% / 3 ) * 2 );
+		}
+		
+		.hugely {
+			padding: 3rem;
+			background: @gc_darkblue;
+			position: relative;
+			width: 318px;
+			display: block;
+			overflow: hidden;
+			.font-size(40);
+			line-height: 1.2;
+			padding: 4rem;
+			
+			&:before {
+				content: " ";
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 5rem;
+				margin-right: -4rem;
+				margin-top: -.5rem;
+				background: @gc_darkerblue;
+				transform: rotate(-2deg);
+			}
+		}
+		
+		&:after {
+			margin-bottom: -10rem;
+			height: 10rem;
+		}
+	}
 }
 
 .spacer-doelgroep {
@@ -337,35 +349,49 @@ body.single-doelgroep {
 }
 
 .dosdonts {
-  margin-bottom: 4rem;
-
-  .flexblock {
-    border-style: none;
-    margin-top: 5rem;
-    box-shadow: 3px 3px 0px rgba(#000, 0.2);
-    border: 1px solid @gc_cardbordergrey;
-    padding: 2rem;
-
-    ul li {
-      padding-left: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    &.aanrader {
-      ul li {
-        list-style-image: url('../images/list-item-do.svg');
-      }
-    }
-    &.afrader {
-      ul li {
-        list-style-image: url('../images/list-item-dont.svg');
-      }
-    }
-  }
-
-  h4 {
-    padding-bottom: 2rem;
-    font-family: @bodyfont_bold;
-    border-bottom: 1px solid @gc_cardbordergrey;
-  }
+	margin-bottom: 4rem;
+	box-shadow: 3px 3px 0px rgba(#000, 0.2);
+	border: 1px solid @gc_cardbordergrey;
+	
+	.flexblock {
+		border-style: none;
+		margin-top: 0;
+		padding: 2rem;
+		
+		@media only screen and ( min-width: ( @break_phone )) {
+			& {
+				width: 50%;
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+		
+		h2, h3, h4 {
+			margin-top: 0;
+			padding-top: 0;
+		}
+		
+		ul li {
+			padding-left: 1rem;
+			margin-bottom: 2rem;
+		}
+		
+		&.aanrader {
+			ul li {
+				list-style-image: url('../images/list-item-do.svg');
+			}
+		}
+		&.afrader {
+			background: @gc_pantybrown_xlight;
+			ul li {
+				list-style-image: url('../images/list-item-dont.svg');
+			}
+		}
+	}
+	
+	h4 {
+		padding-bottom: 2rem;
+		font-family: @bodyfont_bold;
+		border-bottom: 1px solid @gc_cardbordergrey;
+	}
 }
