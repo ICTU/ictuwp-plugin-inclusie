@@ -5,14 +5,14 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.12
-// @desc.     Small CSS improvements. Small a11y improvement.
+// @version   0.0.13
+// @desc.     First setup of TOC menu added.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 /*!
 
 
-<!--                 frontend.css - v0.0.12                    -->
+<!--                 frontend.css - v0.0.13                    -->
 <!--                                                            -->
 <!--                                                            -->
 <!-- ========================================================   -->
@@ -187,14 +187,6 @@ section.border {
 ANIMATIONS 
 ---------------------------------------------------------------------------------------------------- */
 
-@keyframes makethelogobigger1 {
-  0% {
-    background-size: @thesize1 @thesize1;
-  }
-  100% {
-    background-size: @thesize @thesize;
-  }
-}
 
 /*
 STYLING STEPS 
@@ -209,20 +201,31 @@ STYLING STEPS
 
 
 /*
+STYLING VAARDIGHEDEN 
+---------------------------------------------------------------------------------------------------- */
+
+// Steps
+.icon_vaardigheden(aandacht, '../images/icons/vaardigheden/aandacht.svg' );
+.icon_vaardigheden(angst-voor-technologie, '../images/icons/vaardigheden/angst-voor-technologie.svg' );
+.icon_vaardigheden(auditief, '../images/icons/vaardigheden/auditief.svg' );
+.icon_vaardigheden(creativiteit, '../images/icons/vaardigheden/creativiteit.svg' );
+.icon_vaardigheden(denken, '../images/icons/vaardigheden/denken.svg' );
+.icon_vaardigheden(geheugen, '../images/icons/vaardigheden/geheugen.svg' );
+.icon_vaardigheden(leren, '../images/icons/vaardigheden/leren.svg' );
+.icon_vaardigheden(motivatie, '../images/icons/vaardigheden/motivatie.svg' );
+.icon_vaardigheden(non-verbale-boodschappen, '../images/icons/vaardigheden/non-verbale-boodschappen.svg' );
+.icon_vaardigheden(perceptuele-snelheid, '../images/icons/vaardigheden/perceptuele-snelheid.svg' );
+.icon_vaardigheden(privacy, '../images/icons/vaardigheden/problemen-oplossen.svg' );
+.icon_vaardigheden(psychosociaal, '../images/icons/vaardigheden/psychosociaal.svg' );
+.icon_vaardigheden(rekenen, '../images/icons/vaardigheden/rekenen.svg' );
+.icon_vaardigheden(ruimtelijke-orientatie, '../images/icons/vaardigheden/ruimtelijke-orientatie.svg' );
+.icon_vaardigheden(self-efficacy, '../images/icons/vaardigheden/self-efficacy.svg' );
+.icon_vaardigheden(snelheid, '../images/icons/vaardigheden/snelheid.svg' );
+.icon_vaardigheden(taal, '../images/icons/vaardigheden/taal.svg' );
+
+/*
 DOELGROEPEN
 ---------------------------------------------------------------------------------------------------- */
-/*
-
-#home_template_doelgroepen {
-	@media only screen and ( max-width: ( @break_tablet ) ) {
-		padding: 1%;
-//		margin-top: 6rem;
-	}
-	@media only screen and ( min-width: ( @break_tablet ) ) {
-		padding: 1%;
-//		margin-top: 4rem;
-	}
-}*/
 
 .doelgroepcard {
   background: @gc_a11y_green;
@@ -234,52 +237,6 @@ DOELGROEPEN
   background-size: @avatarwidth ( @avatarwidth / @avafactor );
   padding: 2rem;
   margin: 0;
-
-  &.poppetje-1 {
-    background-image: url('../images/avatar/poppetje-1.svg');
-  }
-  &.poppetje-2 {
-    background-image: url('../images/avatar/poppetje-2.svg');
-  }
-  &.poppetje-3 {
-    background-image: url('../images/avatar/poppetje-3.svg');
-  }
-  &.poppetje-4 {
-    background-image: url('../images/avatar/poppetje-4.svg');
-  }
-  &.poppetje-5 {
-    background-image: url('../images/avatar/poppetje-5.svg');
-  }
-  &.poppetje-6 {
-    background-image: url('../images/avatar/poppetje-6.svg');
-  }
-  &.poppetje-7 {
-    background-image: url('../images/avatar/poppetje-7.svg');
-  }
-  &.poppetje-8 {
-    background-image: url('../images/avatar/poppetje-8.svg');
-  }
-  &.poppetje-9 {
-    background-image: url('../images/avatar/poppetje-9.svg');
-  }
-  &.poppetje-10 {
-    background-image: url('../images/avatar/poppetje-10.svg');
-  }
-  &.poppetje-11 {
-    background-image: url('../images/avatar/poppetje-11.svg');
-  }
-  &.poppetje-12 {
-    background-image: url('../images/avatar/poppetje-12.svg');
-  }
-  &.poppetje-13 {
-    background-image: url('../images/avatar/poppetje-13.svg');
-  }
-  &.poppetje-14 {
-    background-image: url('../images/avatar/poppetje-14.svg');
-  }
-  &.poppetje-15 {
-    background-image: url('../images/avatar/poppetje-15.svg');
-  }
 
   @media only screen and (max-width: ( @break_fullwidth ) ) {
     & + .doelgroepcard {
@@ -555,3 +512,54 @@ a.download {
 
 //========================================================================================================
 
+:target {
+	background: red;
+	color: white;
+}
+
+details {
+	border: 5px solid transparent;
+
+	&[open] {
+		border-color: red;
+	}
+	
+	summary {
+		overflow: hidden;
+		border: 5px solid transparent;
+
+		&:active,		
+		&:focus {
+			border-color: red;
+		}
+		
+		h2, h3 {
+			display: inline-block;
+			float: right;
+			width: 95%;
+			border: 1px solid red;
+			overflow: hidden;
+			clear: right;
+		}
+	}
+}
+
+//========================================================================================================
+
+.gc_avatars(poppetje-1, '../images/avatar/poppetje-1.svg');
+.gc_avatars(poppetje-2, '../images/avatar/poppetje-2.svg');
+.gc_avatars(poppetje-3, '../images/avatar/poppetje-3.svg');
+.gc_avatars(poppetje-4, '../images/avatar/poppetje-4.svg');
+.gc_avatars(poppetje-5, '../images/avatar/poppetje-5.svg');
+.gc_avatars(poppetje-6, '../images/avatar/poppetje-6.svg');
+.gc_avatars(poppetje-7, '../images/avatar/poppetje-7.svg');
+.gc_avatars(poppetje-8, '../images/avatar/poppetje-8.svg');
+.gc_avatars(poppetje-9, '../images/avatar/poppetje-9.svg');
+.gc_avatars(poppetje-10, '../images/avatar/poppetje-10.svg');
+.gc_avatars(poppetje-11, '../images/avatar/poppetje-11.svg');
+.gc_avatars(poppetje-12, '../images/avatar/poppetje-12.svg');
+.gc_avatars(poppetje-13, '../images/avatar/poppetje-13.svg');
+.gc_avatars(poppetje-14, '../images/avatar/poppetje-14.svg');
+.gc_avatars(poppetje-15, '../images/avatar/poppetje-15.svg');
+
+//========================================================================================================

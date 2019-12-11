@@ -212,37 +212,7 @@ body.single-doelgroep {
     height: 100%;
   }
 
-  .doelgroep--poppetje-2 & {
-    background-image: url('../images/avatar/poppetje-2.svg')
-  }
 
-  .doelgroep--poppetje-3 & {
-    background-image: url('../images/avatar/poppetje-3.svg')
-  }
-
-  .doelgroep--poppetje-4 & {
-    background-image: url('../images/avatar/poppetje-4.svg')
-  }
-
-  .doelgroep--poppetje-5 & {
-    background-image: url('../images/avatar/poppetje-5.svg')
-  }
-
-  .doelgroep--poppetje-6 & {
-    background-image: url('../images/avatar/poppetje-6.svg')
-  }
-
-  .doelgroep--poppetje-7 & {
-    background-image: url('../images/avatar/poppetje-7.svg')
-  }
-
-  .doelgroep--poppetje-8 & {
-    background-image: url('../images/avatar/poppetje-8.svg')
-  }
-
-  .doelgroep--poppetje-9 & {
-    background-image: url('../images/avatar/poppetje-9.svg')
-  }
 }
 
 .doelgroep__posttext {
@@ -340,12 +310,12 @@ body.single-doelgroep {
 }
 
 .spacer-doelgroep {
-  background: @gc_pantybrown_light;
-  height: 5rem;
-
-  @media only screen and (min-width: ( @break_fullwidth ) ) {
-    height: 10rem;
-  }
+	background: @gc_pantybrown_light;
+	height: 5rem;
+	
+	@media only screen and (min-width: ( @break_fullwidth ) ) {
+		height: 10rem;
+	}
 }
 
 .dosdonts {
@@ -395,3 +365,139 @@ body.single-doelgroep {
 		border-bottom: 1px solid @gc_cardbordergrey;
 	}
 }
+
+.content .doelgroep-tips-title {
+	overflow: hidden;
+	clear: both;
+	padding: 2rem 0 .5rem 0;
+	
+	margin-top: 4rem;
+	margin-bottom: 0;
+	.font-size( 46 );
+	text-transform: uppercase;
+	border-top: 2px solid @gc_cardbordergrey;
+	
+	span {
+		display: inline-block;
+		overflow: hidden;
+		float: left;
+		margin-top: .75rem;
+		margin-right: 2rem;
+		width: 7rem;
+		height: 8.5rem;
+		background: @gc_a11y_green;
+		position: relative;
+		.gc-box-shadow();
+		
+		&:before,
+		&:after {
+			content: ' ';
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			overflow: hidden;
+		}
+		&:before {
+			background: @gc_old_green;
+			bottom: 50%;
+			transform: translateX(-1rem) translateY(-2rem) rotate(8deg);
+			height: 6rem;
+			width: 10rem;
+		}
+		&:after {
+			background-image: url('../images/avatar/poppetje-1.svg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center top;
+		}
+	}
+}
+
+.doelgroep-tips {
+	border-top: 1px solid @gc_cardbordergrey;
+	padding-top: 2rem;
+	margin-top: 2rem;
+	overflow: hidden;
+	
+	h2, h3 {
+		font-family: @bodyfont_bold;
+		.font-size( 24 );
+		background: url('../images/icons/tip.svg') no-repeat left center;
+		padding-left: 4rem;
+		padding-top: .25rem;
+		padding-top: .25rem;
+		a {
+			text-decoration: none;
+			&:hover,
+			&:active,
+			&:focus {
+				color: @txt;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+
+//--------------------------------------------------------------------------------------------------------------
+// MEUK!
+//--------------------------------------------------------------------------------------------------------------
+
+@dinges1: 		( @contentwidth_960 - @contentwidth_761 );
+@dinges2: 		( @dinges1 / 2 );
+@dinges2_neg:	( @dinges2 * -1 );
+
+.table-of-contents {
+	padding-bottom: 4rem;
+	margin-left: ( -1 * @dinges2 );
+	margin-left: ~"calc( -2rem + @{dinges2_neg})";
+	margin-right: ( -1 * @dinges2 );
+	margin-right: ~"calc( -2rem + @{dinges2_neg})";
+	overflow: hidden;
+	padding: 0 ( @dinges2 * -1 ) 2rem 0;
+	
+	.table-of-contents-inner {
+		background: @gc_a11y_green;
+		box-shadow: 6px 0px 24px black;
+		width: 100%;
+		padding: 2rem;
+		padding-left: ( -1 * @dinges2 );
+		padding-left: ~"calc( 2rem + @{dinges2})";
+		padding-right: ( -1 * @dinges2 );
+		padding-right: ~"calc( 2rem + @{dinges2})";
+
+		*, a {
+			color: @wit;
+		}
+		
+	}
+
+	h2, h3 {
+		margin-top: 0;
+		padding-top: 0;
+	}
+	
+
+	ul li {
+		display: list-item;
+		padding: 0 2em 0 .3em;
+		margin-left: .2em;
+		list-style-image: url('../images/icons/icon-list-item.svg');      
+		.iconaddbullet('../images/icons/icon-list-item.svg', #002f3e, @wit );
+
+		a {
+			text-decoration: none;
+			&:hover,
+			&:active,
+			&:focus {
+				text-decoration: underline;
+				color: @wit;
+			}
+		}
+	}
+	
+}
+
