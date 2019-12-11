@@ -1812,8 +1812,8 @@
 		"oF": 0
 		},
 	"/less/frontend.less": {
-		"aP": 1,
-		"bl": 1,
+		"aP": 0,
+		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
 		"iI": 0,
@@ -1824,7 +1824,7 @@
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
-		"sI": 1,
+		"sI": 0,
 		"sU": 0
 		},
 	"/less/includes/_btn.less": {
