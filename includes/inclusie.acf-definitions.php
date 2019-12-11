@@ -1287,11 +1287,51 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 
 
 			//------------------------------------------------------------------------------------------------
-
+			// velden voor een vaardigheid
 			acf_add_local_field_group(array(
 				'key' => 'group_5c9398df21747',
-				'title' => 'Vaardigheid: aan- en afraders',
+				'title' => 'Vaardigheid: icoon en aan- en afraders',
 				'fields' => array(
+					array(
+						'key' => 'field_5dad881de7774',
+						'label' => 'Icoon bij deze vaardigheid',
+						'name' => 'vaardigheid_icoon',
+						'type' => 'radio',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'aandacht' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/aandacht.png"> Aandacht',
+							'angst-voor-technologie' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/angst-voor-technologie.png"> Angst voor technologie',
+							'auditief' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/auditief.png"> Auditief',
+							'creativiteit' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/creativiteit.png"> Creativiteit',
+							'denken' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/denken.png"> Denken',
+							'geheugen' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/geheugen.png"> Geheugen',
+							'leren' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/leren.png"> Leren',
+							'motivatie' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/motivatie.png"> Motivatie',
+							'non-verbale-boodschappen' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/non-verbale-boodschappen.png"> Non-verbale boodschappen',
+							'perceptuele-snelheid' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/perceptuele-snelheid.png"> Perceptuele snelheid',
+							'privacy' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/privacy.png"> Privacy',
+							'problemen-oplossen' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/problemen-oplossen.png"> Problemen oplossen',
+							'psychosociaal' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/psychosociaal.png"> Psychosociaal',
+							'rekenen' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/rekenen.png"> Rekenen',
+							'ruimtelijke-orientatie' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/ruimtelijke-orientatie.png"> Ruimtelijke oriëntatie',
+							'self-efficacy' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/self-efficacy.png"> Self efficacy',
+							'snelheid' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/snelheid.png"> Snelheid',
+							'taal' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/icons/vaardigheden/taal.png"> Taal',
+						),
+						'allow_null' => 0,
+						'other_choice' => 0,
+						'default_value' => 'aandacht',
+						'layout' => 'vertical',
+						'return_format' => 'value',
+						'save_other_choice' => 0,
+					),
 					array(
 						'key' => 'field_5c9398f446669',
 						'label' => 'Afraders',
@@ -1363,7 +1403,9 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
+			
 
+			
 			//--------------------------------------------------------------------------------------------
 			// instellingen voor paginatemplate inclusie_template_doelgroeppagina
 			acf_add_local_field_group(array(
