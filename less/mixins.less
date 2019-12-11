@@ -92,6 +92,7 @@
 @viewport:              	1vw;
 @basefontsize:          	10;
 @basefont:              	( @basefontsize * @pixel );
+@prem:                    	1rem;
 
 //=========================================================================================================
 
@@ -164,12 +165,15 @@
 //========================================================================================================
 
 .font-size(@input) {
-	font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel );
+//	font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel );
+  font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel );
+  font-size: ( ( @input / @basefontsize ) * @prem );
+
 }
 
 //========================================================================================================
 
-.vaardigheden( @classname: 'default', @src: '../images/icons/vaardigheden/aandacht.svg' ) {
+.icon_vaardigheden( @classname: 'default', @src: '../images/icons/vaardigheden/aandacht.svg' ) {
 
 	@fill-old: '#148839';
 	@fill-new: @txt;
@@ -179,13 +183,28 @@
 		background-repeat: no-repeat;
 		background-position: left center;
 	}
-	h2.vaardigheid.@{classname} {
-		background-size: 70px 70px;
-		padding-left: 100px !important;
-	}
-	h3.vaardigheid.@{classname} {
-		background-size: 25px 25px;
-		padding-left: 30px !important;
+	h2, h3 {
+		&.vaardigheid.@{classname} {
+			.icon_replace_filler( @src, @fill-old, @gc_a11y_green );
+			.gc-box-shadow();
+			
+			background-color: @gc_pantybrown_light;
+			background-size: 32px 32px;
+			background-position: 16px center;
+			
+			padding-left: 64px !important;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+	        font-family: @headerfont;
+			text-transform: uppercase;
+			.font-size( 36 );
+			
+			& + ul,
+			& + .dosdonts {
+				margin-top: 3rem;
+			}
+			
+		}
 	}
 
 }
@@ -302,6 +321,40 @@
 	}
 }
 
+//=========================================================================================================
+
+.iconaddbullet(@src, @fill-old, @fill-new) {
+	
+	@data-uri:          data-uri('image/svg+xml;charset=UTF-8', "@{src}");
+	
+	
+	@replace-default:   escape('fill="@{fill-old}"');
+	@replace-new:       escape('fill="@{fill-new}"');
+	@replace-src:       replace("@{data-uri}", @replace-default, @replace-new, "g");
+	
+	list-style-image: e(@replace-src);
+	
+}
 
 //=========================================================================================================
+
+.gc_avatars( @classname: 'poppetje-1', @src: '../images/avatar/poppetje-1.svg' ) {
+	.doelgroepcard {
+		&.@{classname} {
+		    background-image: url( @src );
+		}
+	}
+	.doelgroep-tips-title.@{classname} span:after {
+	    background-image: url( @src );
+	}
+	.card__image,
+	.doelgroep__avatar {
+		.@{classname} & {
+		    background-image: url( @src );
+		}
+	}
+}
+
+//=========================================================================================================
+
 
