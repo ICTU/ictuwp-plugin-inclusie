@@ -7,7 +7,7 @@
 		"uuidString": "CC4A1575-69D0-4874-8847-BD34835717A2"
 		}
 	],
-"creatorBuild": "31491",
+"creatorBuild": "31934",
 "files": {
 	"/.gitignore": {
 		"cB": 0,
@@ -626,6 +626,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/bullet.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/bullet.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/cross.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -904,6 +914,468 @@
 		"oA": 1,
 		"oAP": "/images/icon-verdiep.svg",
 		"oF": 1,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/check.png": {
+		"ft": 32768,
+		"iS": 640,
+		"oA": 0,
+		"oAP": "/images/icons/check.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/check.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/check.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/cross.png": {
+		"ft": 32768,
+		"iS": 679,
+		"oA": 0,
+		"oAP": "/images/icons/cross.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/cross.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/cross.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/icon-list-item.png": {
+		"ft": 32768,
+		"iS": 236,
+		"oA": 0,
+		"oAP": "/images/icons/icon-list-item.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/icon-list-item.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/icon-list-item.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/tip.png": {
+		"ft": 32768,
+		"iS": 240,
+		"oA": 0,
+		"oAP": "/images/icons/tip.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/tip.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/tip.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/aandacht.png": {
+		"ft": 32768,
+		"iS": 1921,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/aandacht.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/aandacht.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/aandacht.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/angst-voor-technologie.png": {
+		"ft": 32768,
+		"iS": 944,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/angst-voor-technologie.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/angst-voor-technologie.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/angst-voor-technologie.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/auditief.png": {
+		"ft": 32768,
+		"iS": 2127,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/auditief.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/auditief.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/auditief.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/creativiteit.png": {
+		"ft": 32768,
+		"iS": 1691,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/creativiteit.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/creativiteit.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/creativiteit.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/denken.png": {
+		"ft": 32768,
+		"iS": 1944,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/denken.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/denken.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/denken.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/geheugen.png": {
+		"ft": 32768,
+		"iS": 1675,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/geheugen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/geheugen.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/geheugen.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/leren.png": {
+		"ft": 32768,
+		"iS": 2143,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/leren.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/leren.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/leren.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/motivatie.png": {
+		"ft": 32768,
+		"iS": 1561,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/motivatie.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/motivatie.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/motivatie.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/non-verbale-boodschappen.png": {
+		"ft": 32768,
+		"iS": 1673,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/non-verbale-boodschappen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/non-verbale-boodschappen.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/non-verbale-boodschappen.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/perceptuele-snelheid.png": {
+		"ft": 32768,
+		"iS": 1669,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/perceptuele-snelheid.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/perceptuele-snelheid.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/perceptuele-snelheid.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/privacy.png": {
+		"ft": 32768,
+		"iS": 1032,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/privacy.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/privacy.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/privacy.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/problemen-oplossen.png": {
+		"ft": 32768,
+		"iS": 998,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/problemen-oplossen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/problemen-oplossen.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/problemen-oplossen.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/psychosociaal.png": {
+		"ft": 32768,
+		"iS": 2075,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/psychosociaal.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/psychosociaal.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/psychosociaal.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/rekenen.png": {
+		"ft": 32768,
+		"iS": 907,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/rekenen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/rekenen.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/rekenen.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/ruimtelijke-orientatie.png": {
+		"ft": 32768,
+		"iS": 2091,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/ruimtelijke-orientatie.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/ruimtelijke-orientatie.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/ruimtelijke-orientatie.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/self-efficacy.png": {
+		"ft": 32768,
+		"iS": 1861,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/self-efficacy.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/self-efficacy.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/self-efficacy.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/snelheid.png": {
+		"ft": 32768,
+		"iS": 1589,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/snelheid.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/snelheid.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/snelheid.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icons/vaardigheden/taal.png": {
+		"ft": 32768,
+		"iS": 956,
+		"oA": 0,
+		"oAP": "/images/icons/vaardigheden/taal.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/icons/vaardigheden/taal.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icons/vaardigheden/taal.svg",
+		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
@@ -1344,7 +1816,6 @@
 		"bl": 1,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1361,7 +1832,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1378,7 +1848,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1395,7 +1864,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1412,7 +1880,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1429,7 +1896,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1446,7 +1912,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1463,7 +1928,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1480,7 +1944,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1497,7 +1960,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1514,7 +1976,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1526,46 +1987,11 @@
 		"sI": 0,
 		"sU": 0
 		},
-	"/less/includes/_page-home.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"ie": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/less/css/_page-home.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/less/includes/_page.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"ie": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/less/css/_page.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
 	"/less/includes/_single-step.less": {
 		"aP": 0,
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1582,7 +2008,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1599,7 +2024,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1616,7 +2040,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1649,7 +2072,6 @@
 		"bl": 0,
 		"eJ": 0,
 		"ft": 1,
-		"ie": 1,
 		"iI": 0,
 		"ma": 1,
 		"mS": 0,
@@ -1728,7 +2150,7 @@
 	},
 "projectAttributes": {
 	"creationDate": 574360784.37326002,
-	"displayValue": "ICTU plugin GC Inclusie",
+	"displayValue": "ICTU GC Inclusie plugin",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "/images/logo-inclusie.png",
 	"iconImageWasSetByUser": 1
@@ -2166,6 +2588,7 @@
 			"flagValue": -1
 			}
 		},
+	"environmentVariablesString": "NODE_ENV:::production",
 	"esLintConfigFileHandlingType": 0,
 	"esLintECMAVersion": 7,
 	"esLintEnvironmentsMask": 1,
@@ -2267,6 +2690,10 @@
 			"optionString": "'all'"
 			},
 		"default-case": {
+			"active": 0,
+			"optionString": ""
+			},
+		"default-param-last": {
 			"active": 0,
 			"optionString": ""
 			},
@@ -2616,6 +3043,10 @@
 			},
 		"no-implied-eval": {
 			"active": 0,
+			"optionString": ""
+			},
+		"no-import-assign": {
+			"active": 1,
 			"optionString": ""
 			},
 		"no-inline-comments": {
@@ -3041,6 +3472,10 @@
 		"prefer-promise-reject-errors": {
 			"active": 0,
 			"optionString": "{'allowEmptyReject': false}"
+			},
+		"prefer-regex-literals": {
+			"active": 0,
+			"optionString": ""
 			},
 		"prefer-rest-params": {
 			"active": 0,
@@ -3650,7 +4085,6 @@
 		"autoOutputPathStyle": 2,
 		"createSourceMap": 1,
 		"enableJavascript": 0,
-		"ieCompatibility": 1,
 		"mathStyle": 0,
 		"outputStyle": 0,
 		"rewriteURLStyle": 0,
@@ -3790,6 +4224,9 @@
 	"npmTargetDependencyListType": 1,
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
+	"rollupExternals": "",
+	"rollupReplacements": "process.env.NODE_ENV:::$NODE_ENV,,,ENVIRONMENT:::$NODE_ENV",
+	"rollupTreeshakingEnabled": 1,
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, /storage/framework/sessions, node_modules",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
