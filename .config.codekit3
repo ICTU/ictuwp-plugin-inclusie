@@ -1109,7 +1109,7 @@
 		},
 	"/images/icons/vaardigheden/geheugen.png": {
 		"ft": 32768,
-		"iS": 1675,
+		"iS": 459,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/geheugen.png",
 		"oF": 0,
@@ -1130,7 +1130,7 @@
 		},
 	"/images/icons/vaardigheden/leren.png": {
 		"ft": 32768,
-		"iS": 2143,
+		"iS": 533,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/leren.png",
 		"oF": 0,
@@ -1151,7 +1151,7 @@
 		},
 	"/images/icons/vaardigheden/motivatie.png": {
 		"ft": 32768,
-		"iS": 1561,
+		"iS": 414,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/motivatie.png",
 		"oF": 0,
@@ -1172,7 +1172,7 @@
 		},
 	"/images/icons/vaardigheden/non-verbale-boodschappen.png": {
 		"ft": 32768,
-		"iS": 1673,
+		"iS": 469,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/non-verbale-boodschappen.png",
 		"oF": 0,
@@ -1193,7 +1193,7 @@
 		},
 	"/images/icons/vaardigheden/perceptuele-snelheid.png": {
 		"ft": 32768,
-		"iS": 1669,
+		"iS": 454,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/perceptuele-snelheid.png",
 		"oF": 0,
@@ -1214,7 +1214,7 @@
 		},
 	"/images/icons/vaardigheden/privacy.png": {
 		"ft": 32768,
-		"iS": 1032,
+		"iS": 298,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/privacy.png",
 		"oF": 0,
@@ -1235,7 +1235,7 @@
 		},
 	"/images/icons/vaardigheden/problemen-oplossen.png": {
 		"ft": 32768,
-		"iS": 998,
+		"iS": 341,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/problemen-oplossen.png",
 		"oF": 0,
@@ -1256,7 +1256,7 @@
 		},
 	"/images/icons/vaardigheden/psychosociaal.png": {
 		"ft": 32768,
-		"iS": 2075,
+		"iS": 541,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/psychosociaal.png",
 		"oF": 0,
@@ -1277,7 +1277,7 @@
 		},
 	"/images/icons/vaardigheden/rekenen.png": {
 		"ft": 32768,
-		"iS": 907,
+		"iS": 232,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/rekenen.png",
 		"oF": 0,
@@ -1298,7 +1298,7 @@
 		},
 	"/images/icons/vaardigheden/ruimtelijke-orientatie.png": {
 		"ft": 32768,
-		"iS": 2091,
+		"iS": 463,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/ruimtelijke-orientatie.png",
 		"oF": 0,
@@ -1319,7 +1319,7 @@
 		},
 	"/images/icons/vaardigheden/self-efficacy.png": {
 		"ft": 32768,
-		"iS": 1861,
+		"iS": 485,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/self-efficacy.png",
 		"oF": 0,
@@ -1340,7 +1340,7 @@
 		},
 	"/images/icons/vaardigheden/snelheid.png": {
 		"ft": 32768,
-		"iS": 1589,
+		"iS": 420,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/snelheid.png",
 		"oF": 0,
@@ -1361,7 +1361,7 @@
 		},
 	"/images/icons/vaardigheden/taal.png": {
 		"ft": 32768,
-		"iS": 956,
+		"iS": 268,
 		"oA": 0,
 		"oAP": "/images/icons/vaardigheden/taal.png",
 		"oF": 0,
@@ -1812,8 +1812,8 @@
 		"oF": 0
 		},
 	"/less/frontend.less": {
-		"aP": 0,
-		"bl": 0,
+		"aP": 1,
+		"bl": 1,
 		"eJ": 0,
 		"ft": 1,
 		"iI": 0,
@@ -1822,7 +1822,7 @@
 		"oA": 0,
 		"oAP": "/css/frontend.css",
 		"oF": 0,
-		"oS": 0,
+		"oS": 1,
 		"rwU": 0,
 		"sI": 0,
 		"sU": 0

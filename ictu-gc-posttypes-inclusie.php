@@ -8,8 +8,8 @@
  * Plugin Name:         ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
  * Plugin URI:          https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:         Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies
- * Version:             0.0.13
- * Version description: First setup of TOC menu added.
+ * Version:             0.0.14
+ * Version description: Some a11y bug fixes; disabled author pages;  check for 1 or columns for aanraders / afraders.
  * Author:              Paul van Buuren
  * Author URI:          https://wbvb.nl/
  * License:             GPL-2.0+
@@ -85,14 +85,10 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
     define('ICTU_GC_CPT_PROCESTIP', 'procestip');  // tax for custom cpt tip
 }
 
-
-
-
 define( 'ICTU_GC_ARCHIVE_CSS',		'ictu-gc-header-css' );  
-define( 'ICTU_GC_FOLDER',           'do-stelselplaat' );
 define( 'ICTU_GC_BASE_URL',         trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL',		trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_INCL_VERSION',		'0.0.13' );
+define( 'ICTU_GC_INCL_VERSION',		'0.0.14' );
 
 //========================================================================================================
 
@@ -149,62 +145,41 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
          */
         private function setup_actions() {
 
-            add_action('init', [$this, 'ictu_gc_register_post_type']);
+            add_action('init', array( $this, 'ictu_gc_register_post_type' ) );
             add_action('init', 'ictu_gc_inclusie_initialize_acf_fields');
-            add_action('init', [
-              $this,
-              'ictu_gc_admin_inclusie_set_terms_order',
-            ]);
+            add_action('init', array( $this, 'ictu_gc_admin_inclusie_set_terms_order' ) );
 
-            add_action('get_the_terms', [
-              $this,
-              'ictu_gc_admin_inclusie_get_terms_in_order',
-            ], 10, 4);
+            add_action('get_the_terms', array( $this, 'ictu_gc_admin_inclusie_get_terms_in_order' ), 10, 4);
 
             add_action('plugins_loaded', [$this, 'load_plugin_textdomain']);
             add_action('init', [$this, 'ictu_gc_add_rewrite_rules']);
 
-            add_filter('genesis_single_crumb', [
-              $this,
-              'filter_breadcrumb',
-            ], 10, 2);
-            add_filter('genesis_page_crumb', [
-              $this,
-              'filter_breadcrumb',
-            ], 10, 2);
-            add_filter('genesis_archive_crumb', [
-              $this,
-              'filter_breadcrumb',
-            ], 10, 2);
+            add_action('genesis_single_crumb', array( $this, 'filter_breadcrumb' ), 10, 2);
+            add_action('genesis_page_crumb', array( $this, 'filter_breadcrumb' ), 10, 2);
+            add_action('genesis_archive_crumb', array( $this, 'filter_breadcrumb' ), 10, 2);
 
             /** Adding custom Favicon */
             add_filter('genesis_pre_load_favicon', [$this, 'custom_favicon']);
 
-            add_action('genesis_entry_content', [$this, 'prepend_content'], 8);
-            add_action('genesis_entry_content', [$this, 'append_content'], 15);
+            add_action('genesis_entry_content', array( $this, 'prepend_content' ) );
+            add_action('genesis_entry_content', array( $this, 'append_content' ), 15 );
 
             // add a page temlate name
-            $this->templates = [];
-            $this->template_home = 'home-inclusie.php';
-            $this->template_doelgroeppagina = 'inclusie_template_doelgroeppagina.php';
+            $this->templates 				= [];
+            $this->template_home 			= 'home-inclusie.php';
+            $this->template_doelgroeppagina	= 'inclusie_template_doelgroeppagina.php';
 
             // add the page template to the templates list
-            add_filter('theme_page_templates', [
-              $this,
-              'ictu_gc_add_page_templates',
-            ]);
+            add_filter('theme_page_templates', array( $this, 'ictu_gc_add_page_templates' ) );
 
             // activate the page filters
-            add_action('template_redirect', [
-              $this,
-              'ictu_gc_frontend_use_page_template',
-            ]);
+            add_filter('template_redirect', array( $this, 'ictu_gc_frontend_use_page_template' ) );
+
+            // disable the author pages
+            add_filter('template_redirect', array( $this, 'ictu_gc_disable_author_pages' ) );
 
             // add styling and scripts
-            add_action('wp_enqueue_scripts', [
-              $this,
-              'ictu_gc_register_frontend_style_script',
-            ]);
+            add_action('wp_enqueue_scripts', array( $this, 'ictu_gc_register_frontend_style_script' ) );
 
         }
 
@@ -1244,7 +1219,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 		            else {
 	
 	                    $return .= '<section aria-labelledby="' . $title_id . '" class="doelgroep-tips">';
-	                    $return .= '<h3 id="' . $title_id . '"><a href="' . get_permalink($theid) . '">' . $section_title . '</a></h3>';
+	                    $return .= '<h3><a href="' . get_permalink($theid) . '" id="' . $title_id . '">' . $section_title . '</a></h3>';
 	                    $return .= $section_text;
 	                    $return .= '</section>';
 		            }
@@ -1337,8 +1312,8 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                     $section_link	= get_sub_field('home_template_teaser_link');
                     $title_id		= sanitize_title($section_title . '-' . $theid);
 
-                    $vaardigheid_afraders = get_field('vaardigheid_afraders', $theid);
-                    $vaardigheid_aanraders = get_field('vaardigheid_aanraders', $theid);
+                    $vaardigheid_afraders	= get_field('vaardigheid_afraders', $theid);
+                    $vaardigheid_aanraders	= get_field('vaardigheid_aanraders', $theid);
 
                     if ($vaardigheid_afraders || $vaardigheid_aanraders):
 
@@ -1348,15 +1323,19 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 			            else {
 	
 		                    $return .= '<section aria-labelledby="' . $title_id . '">';
-	//	                    $return .= '<summary>';
 		                    $return .= '<h3 id="' . $title_id . '"' . $vaardigheid_class . '>' . $section_title . '</h3>';
 		                    $return .= $section_text;
-	//	                    $return .= '</summary>';
+		                    $columncount = 'grid--col-1';
 	
-						    $return .= '<div class="grid grid--col-2 dosdonts">';
+							if ( $vaardigheid_aanraders && $vaardigheid_afraders ) {
+			                    $columncount = 'grid--col-2';
+							}
+
+						    $return .= '<div class="grid ' . $columncount . ' dosdonts">';
 						
 	                        if ($vaardigheid_aanraders) {
 	                            $section_title = _x('Aanraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
+			                    $title_id		= sanitize_title($section_title . '-' . $theid . '-' . $section_title);
 	                            $return .= '<div class="aanrader flexblock">';
 	                            $return .= '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
 	                            $return .= '<ul>';
@@ -1369,6 +1348,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 	                        }
 	                        if ($vaardigheid_afraders) {
 	                            $section_title = _x('Afraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
+			                    $title_id		= sanitize_title($section_title . '-' . $theid . '-' . $section_title);
 	                            $return .= '<div class="afrader flexblock">';
 	                            $return .= '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
 	                            $return .= '<ul>';
@@ -2049,24 +2029,24 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             ];
 
             $args = [
-              "label" => _x('Stappen', 'Stappen label', 'ictu-gc-posttypes-inclusie'),
-              "labels" => $labels,
-              "menu_icon" => "dashicons-editor-ol",
-              "description" => "",
-              "public" => TRUE,
-              "publicly_queryable" => TRUE,
-              "show_ui" => TRUE,
-              "show_in_rest" => FALSE,
-              "rest_base" => "",
-              "has_archive" => TRUE,
-              "show_in_menu" => TRUE,
+              "label"				=> _x('Stappen', 'Stappen label', 'ictu-gc-posttypes-inclusie'),
+              "labels" 				=> $labels,
+              "menu_icon" 			=> "dashicons-editor-ol",
+              "description"			=> "",
+              "public" 				=> TRUE,
+              "publicly_queryable"	=> TRUE,
+              "show_ui" 			=> TRUE,
+              "show_in_rest" 		=> FALSE,
+              "rest_base" 			=> "",
+              "has_archive" 		=> TRUE,
+              "show_in_menu" 		=> TRUE,
               "exclude_from_search" => FALSE,
-              "capability_type" => "post",
-              "map_meta_cap" => TRUE,
-              "hierarchical" => FALSE,
-              "rewrite" => ["slug" => ICTU_GC_CPT_STAP, "with_front" => TRUE],
-              "query_var" => TRUE,
-              "supports" => ["title", "editor", "thumbnail", "excerpt"],
+              "capability_type" 	=> "post",
+              "map_meta_cap" 		=> TRUE,
+              "hierarchical" 		=> FALSE,
+              "rewrite" 			=> ["slug" => ICTU_GC_CPT_STAP, "with_front" => TRUE],
+              "query_var" 			=> TRUE,
+              "supports" 			=> ["title", "editor", "thumbnail", "excerpt"],
             ];
             register_post_type(ICTU_GC_CPT_STAP, $args);
 
@@ -2808,32 +2788,40 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             return $attributes;
         }
 
+        /** ----------------------------------------------------------------------------------------------------
+         * add default favicon
+         */
         function custom_favicon($icon) {
             $icon = ICTU_GC_ASSETS_URL . 'images/favicon.png';
             return $icon;
         }
+
+
+        /** ----------------------------------------------------------------------------------------------------
+         * disable all author pages
+         */
+        function ictu_gc_disable_author_pages() {
+
+		    global $wp_query;
+		
+		    if ( is_author() ) {
+		        // Redirect to homepage, set status to 301 permenant redirect. 
+		        // Function defaults to 302 temporary redirect. 
+		        wp_redirect(get_option('home'), 301); 
+		        exit; 
+		    }
+
+        }
+
+
+        
+        
 
     }
 
 endif;
 
 //========================================================================================================
-/*
-
-remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
-remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );
-
-remove_action( 'genesis_footer', 'genesis_do_footer' );
-remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
-remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
-
-remove_action( 'genesis_footer', 'genesis_footer_markup_open', 5 );
-remove_action( 'genesis_footer', 'genesis_do_footer' );
-remove_action( 'genesis_footer', 'genesis_footer_markup_close', 15 );
-
-*/
-
-//add_action('genesis_after_header', 'wbvb_dump_actions', 5);
 
 function wbvb_dump_actions() {
 

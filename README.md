@@ -8,9 +8,11 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Paul van Buuren: paul@wbvb.nl
 
 ## Current version:
-0.0.12 - Small CSS improvements. Small a11y improvement.
+0.0.14 - Some a11y bug fixes; disabled author pages;  check for 1 or columns for aanraders / afraders.
 
 ## Version history
+* 0.0.14 - Some a11y bug fixes; disabled author pages;  check for 1 or columns for aanraders / afraders.
+* 0.0.13 - Added first version of a table of contents
 * 0.0.12 - Small CSS improvements. Small a11y improvement.
 * 0.0.11 - JS homepage voor openen en sluiten modal windows verbeterd.
 * 0.0.10 - CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
