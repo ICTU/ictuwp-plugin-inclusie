@@ -5,7 +5,8 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 
 ## Contact
 * Victor Zuydweg
-* Paul van Buuren: paul@wbvb.nl
+* Paul van Buuren: WordPress, CSS / front-end (paul@wbvb.nl)
+* Tamara de Haas is de geweldige ontwerper en CSS / front-end
 
 ## Current version:
 0.0.14 - Some a11y bug fixes; disabled author pages;  check for 1 or columns for aanraders / afraders.
