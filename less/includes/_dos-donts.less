@@ -1,0 +1,52 @@
+// styling voor Do's and Donts component
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren / Haas Ontwerp
+// @license   GPL-2.0+
+// @version   0.0.11
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
+.dos-donts {
+  .gc-box-shadow;
+  border: .1rem solid @bordercolor;
+  margin-top: 3rem;
+
+  @media @tablet {
+    display: flex;
+  }
+}
+
+.dos-donts__column {
+
+  h4 {
+    .font-size(22);
+    padding: 1.3rem 2.5rem 2rem;
+    border-bottom: .1rem solid @bordercolor;
+    font-family: @bodyfont_bold;
+  }
+
+  @media @tablet {
+    flex: 1;
+  }
+
+  &:nth-child(even) {
+    background: @gc_pantybrown_xlight;
+  }
+
+  ul {
+    padding: 0 2rem 2rem 5rem;
+    margin: 2rem 0 0;
+
+    li {
+      padding-left: 1rem;
+    }
+  }
+
+  &.col--dos li {
+    list-style-image: url(../images/list-item-do.svg);
+  }
+  &.col--donts li {
+    list-style-image: url(../images/list-item-dont.svg);
+  }
+}
+
