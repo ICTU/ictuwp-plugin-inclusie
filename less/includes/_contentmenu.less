@@ -1,0 +1,308 @@
+@import "../mixins";
+
+.l-content-menu-wrapper {
+  transition: padding .2s;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .l-inner {
+    background: @gc_a11y_green;
+    padding: 2rem;
+    max-width: ~"calc(@{max-width-content} - 2px)";
+    margin-left: auto;
+    margin-right: auto;
+
+    @media @tablet {
+      padding: 3rem 5rem;
+    }
+  }
+}
+
+// Had to override :(
+.entry-content {
+  .content-menu__link {
+    color: @white;
+  }
+
+  .content-menu__menu {
+    padding: 0;
+    margin: 2rem 0 0;
+
+    .content-menu__item {
+      list-style: none;
+    }
+  }
+}
+
+.content-menu {
+  .l-inner {
+    padding: .3rem 2rem;
+    overflow: hidden;
+    max-height: 0;
+    transition: padding .2s, max-height .4s;
+    position: relative;
+
+    @media @tablet {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    .l-inner {
+      max-height: 0;
+    }
+
+    &.open {
+      .l-inner {
+        max-height: 50rem;
+      }
+    }
+  }
+
+  &.open {
+    .l-inner {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      max-height: 50rem;
+
+      @media @tablet {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+  }
+}
+
+.content-menu__menu {
+  position: relative;
+  .open & {
+    opacity: 1;
+  }
+  @media @tablet {
+    column-count: 2;
+  }
+}
+
+.content .content-menu__title {
+  .font-size(20);
+  color: @white;
+  font-family: @font-primary-bold;
+  text-transform: none;
+}
+
+.content-menu__item {
+  margin-top: .3rem;
+  opacity: 0;
+  transition: opacity .2s;
+  transition-delay: .2s;
+
+  .open & {
+    opacity: 1;
+  }
+
+  @media @tablet {
+    padding-right: @gutter / 2;
+    padding-left: @gutter / 2;
+    margin-right: -@gutter / 2;
+    margin-left: -@gutter / 2;
+  }
+}
+
+.content-menu__link {
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  text-decoration: none;
+  transition: padding .2s;
+
+  &:before {
+    width: 2rem;
+    height: 2rem;
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('../images/arrow-right-white.svg') 0 8px no-repeat;
+  }
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+    padding-left: 2.1rem;
+    color: @white !important; //sorry - to specific color declaration somewhere els
+  }
+
+  &.active {
+    padding-left: 2.3rem;
+    text-decoration: underline;
+  }
+}
+
+// BTN
+
+.spacer--shade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: -1;
+  margin-top: -1.5rem;
+  opacity: 0.2;
+  transition: opacity .2s;
+
+  .inner {
+    display: block;
+    height: 3rem;
+    width: 100%;
+    max-width: 958px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(@white, 0), rgba(#000, .5) 100%);
+  }
+
+  .fixed & {
+    opacity: 1;
+  }
+}
+
+.btn--trigger-open {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: @font-primary-bold;
+  text-transform: none;
+  border: none;
+  padding: 0 2rem 0 2rem;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  background: none;
+  display: block;
+
+  &:focus,
+  &:hover {
+    background: none;
+    text-decoration: none;
+    color: @white;
+    outline: none;
+
+    &:before,
+    &:after {
+      background: @gc_a11y_green;
+    }
+
+    .btn__text {
+      text-decoration: underline;
+
+      &:after {
+        text-decoration: none;
+        color: transparent;
+      }
+    }
+  }
+  &:before,
+  &:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    background: @gc_a11y_green;
+    width: 2rem;
+    top: -1rem;
+    bottom: -1rem;
+  }
+
+  &:before {
+    left: 1.6rem;
+    transform: rotate(-15deg);
+  }
+
+  &:after {
+    right: 1.6rem;
+    transform: rotate(15deg);
+  }
+
+  .btn__text {
+    padding: .3rem 1rem .3rem 2rem;
+    background: @gc_a11y_green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+
+    &:after {
+      display: inline-block;
+      content: "  ";
+      margin-left: 1rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      float: right;
+      background: url('../images/arrow-right-white.svg') center center no-repeat;
+      color: transparent;
+      transform: rotate(90deg);
+      transition: transform .2s;
+      position: relative;
+      z-index: +1;
+      text-decoration: none;
+    }
+  }
+
+  .open & {
+    .btn__text:after {
+      transform: rotate(-90deg);
+      text-decoration: none;
+    }
+  }
+}
+
+// Add transition to padding item after menu
+.l-cm-next {
+  transition: margin .3s;
+}
+
+// Focus {
+
+.has-focus {
+  text-decoration: underline;
+}
+
+.capability__title.has-focus {
+  background: @gc_a11y_green;
+  color: @white;
+
+  .capability__icon {
+    background-color: @gc_pantybrown_xlight;
+    margin-right: 2rem;
+    background-position: center center;
+  }
+}
+
+.entry-content .doelgroep-tips h3 a {
+  text-decoration: none;
+  transition: padding .2s;
+
+  &.has-focus {
+    border: .2rem solid @gc_a11y_green;
+    padding: .3rem 1rem;
+    text-decoration: none;
+  }
+}
+
+.section__title.has-focus {
+  border-color: @gc_a11y_green;
+  color: @gc_a11y_green;
+}
+
