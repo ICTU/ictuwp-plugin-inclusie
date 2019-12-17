@@ -9,9 +9,10 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Tamara de Haas is de geweldige ontwerper en CSS / front-end
 
 ## Current version:
-0.0.14 - Some a11y bug fixes; disabled author pages;  check for 1 or columns for aanraders / afraders.
+1.0.1 - Added context-menu. Upped version to 1.0.x. since we are already live.
 
 ## Version history
+* 1.0.1 - Added context-menu. Upped version to 1.0.x. since we are already live.
 * 0.0.14 - Some a11y bug fixes; disabled author pages;  check for 1 or columns for aanraders / afraders.
 * 0.0.13 - Added first version of a table of contents
 * 0.0.12 - Small CSS improvements. Small a11y improvement.

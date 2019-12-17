@@ -1,20 +1,21 @@
 <?php
 
 /**
- * @link                https://wbvb.nl
- * @package             ictu-gc-posttypes-inclusie
- *
- * @wordpress-plugin
- * Plugin Name:         ICTU / Gebruiker Centraal / Inclusie post types and
- *   taxonomies Plugin URI:
- *   https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
- *   Description:         Plugin for digitaleoverheid.nl to register custom
- *   post types and custom taxonomies Version:             0.0.14 Version
- *   description: Some a11y bug fixes; disabled author pages;  check for 1 or
- *   columns for aanraders / afraders. Author:              Paul van Buuren
- *   Author URI:          https://wbvb.nl/ License:             GPL-2.0+
- *   License URI:         http://www.gnu.org/licenses/gpl-2.0.txt Text Domain:
- *   ictu-gc-posttypes-inclusie Domain Path:         /languages
+    * @link                    https://inclusie.gebruikercentraal.nl
+    * @package                ictu-gc-posttypes-inclusie
+    *
+    * @wordpress-plugin
+    * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
+    * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+    * Description:            Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies 
+    * Version:                1.0.1
+    * Version description:    Some a11y bug fixes; disabled author pages; check for 1 or columns for aanraders / afraders. 
+    * Author:                 Tamara de Haas & Paul van Buuren
+    * Author URI:             https://wbvb.nl/
+    * License:                GPL-2.0+
+    * License URI:            http://www.gnu.org/licenses/gpl-2.0.txt
+    * Text Domain:            ictu-gc-posttypes-inclusie 
+    * Domain Path:            /languages
  */
 
 // If this file is called directly, abort.
@@ -87,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '0.0.14');
+define('ICTU_GC_INCL_VERSION', '1.0.1');
 
 //========================================================================================================
 
