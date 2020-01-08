@@ -30,6 +30,21 @@ function styles(done) {
 
   done();
 }
+function prod(done) {
+  return gulp.src('./less/frontend.less')
+    .pipe(less({
+      plugins: [autoprefix],
+      paths: [path.join(__dirname, 'less', 'includes')]
+    }).on('error', function(err){
+      gutil.log(err);
+      this.emit('end');
+    }))
+    .pipe(gulp.dest('./css'))
+    .pipe(notify({ message: 'LESS Prod task complete'}))
+    .pipe(browserSync.stream());
+
+  done();
+}
 
 // Watch files
 function watch() {
@@ -44,3 +59,4 @@ function watch() {
 
 exports.styles = styles;
 exports.default = watch;
+exports.prod = prod;
