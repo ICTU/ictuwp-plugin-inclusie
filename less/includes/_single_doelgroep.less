@@ -443,6 +443,9 @@ body.single-doelgroep {
   }
 }
 
+.l-content-menu-wrapper + .section--tips-doelgroep > .section__title  {
+  border: none;
+}
 //--------------------------------------------------------------------------------------------------------------
 // MEUK!
 // Welnee :)
@@ -451,56 +454,6 @@ body.single-doelgroep {
 @dinges1: ( @contentwidth_960 - @contentwidth_761 );
 @dinges2: ( @dinges1 / 2 );
 @dinges2_neg: ( @dinges2 * -1 );
-
-/*
-.xtable-of-contents {
-  padding-bottom: 4rem;
-  margin-left: ( -1 * @dinges2 );
-  margin-left: ~"calc( -2rem + @{dinges2_neg})";
-  margin-right: ( -1 * @dinges2 );
-  margin-right: ~"calc( -2rem + @{dinges2_neg})";
-  overflow: hidden;
-  padding: 0 ( @dinges2 * -1 ) 2rem 0;
-
-  .table-of-contents-inner {
-    background: @gc_a11y_green;
-    box-shadow: 6px 0px 24px black;
-    width: 100%;
-    padding: 2rem;
-    padding-left: ( -1 * @dinges2 );
-    padding-left: ~"calc( 2rem + @{dinges2})";
-    padding-right: ( -1 * @dinges2 );
-    padding-right: ~"calc( 2rem + @{dinges2})";
-
-    *, a {
-      color: @wit;
-    }
-
-  }
-
-  h2, h3 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  ul li {
-    display: list-item;
-    padding: 0 2em 0 .3em;
-    margin-left: .2em;
-    list-style-image: url('../images/icons/icon-list-item.svg');
-    .iconaddbullet('../images/icons/icon-list-item.svg', #002f3e, @wit);
-
-    a {
-      text-decoration: none;
-      &:hover,
-      &:active,
-      &:focus {
-        text-decoration: underline;
-        color: @wit;
-      }
-    }
-  }
-}
 
 /* -------
  * Vaardigheden

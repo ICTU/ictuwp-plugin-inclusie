@@ -23,11 +23,13 @@
         nav.addClass('fixed');
         nav.removeClass('open');
         trigger.next().css('margin-top', '50px');
+        triggerBtnText.text('Open');
       }
       else if (direction === 'up') {
         nav.removeClass('fixed');
         nav.addClass('open');
         trigger.next().css('margin-top', cmHeight + 'px');
+        triggerBtnText.text('Sluit');
       }
     });
 
