@@ -8,8 +8,8 @@
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies 
-    * Version:                1.0.1
-    * Version description:    Some a11y bug fixes; disabled author pages; check for 1 or columns for aanraders / afraders. 
+    * Version:                1.0.2
+    * Version description:    Better version of context-menu added, translation ready. 
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
     * License:                GPL-2.0+
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.0.1');
+define('ICTU_GC_INCL_VERSION', '1.0.2');
 
 //========================================================================================================
 
@@ -788,7 +788,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                           '</button>';
 
                         echo '<section class="stepchart__description" aria-hidden="true" aria-labelledby="' . $title_id . '" role="tabpanel">' .
-                          '<button type="button" class="btn btn--close" data-trigger="action-popover-close">Sluit</button>' .
+                          '<button type="button" class="btn btn--close" data-trigger="action-popover-close">' . _x('Sluit', 'label knop stepchart', 'ictu-gc-posttypes-inclusie') . '</button>' .
                           '<h3 id="' . $title_id . '" class="stepchart__title">' . get_the_title($stap->ID) . '</h3>' .
                           '<div class="description">' . $inleiding . '</div>' .
                           '<a href="' . get_permalink($stap->ID) . '" class="cta">' . $readmore . '</a>' .
@@ -859,6 +859,9 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             global $post;
 
+
+
+
             $infooter = TRUE;
 
             if (WP_DEBUG) {
@@ -875,6 +878,16 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
                 wp_enqueue_script('inclusie-contentmenu', trailingslashit(plugin_dir_url(__FILE__)) . 'js/content-menu.js', '', ICTU_GC_INCL_VERSION, $infooter);
             }
+
+			$params = array(
+				'open' 			=> _x( 'Open menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie' ),
+				'close' 		=> _x( 'Close menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie' )
+			);
+
+//' . _x('Sluit', 'label knop stepchart', 'ictu-gc-posttypes-inclusie') . 
+			
+			wp_localize_script( 'inclusie-contentmenu', 'contentmenu', $params );
+
 
             wp_enqueue_style(ICTU_GC_ARCHIVE_CSS, trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css', [], ICTU_GC_INCL_VERSION, 'all');
 
@@ -1152,7 +1165,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 echo '</ul>'.
                   '</div>'.
                   '<span class="spacer spacer--shade" aria-hidden="true"><span class="inner">&nbsp;</span></span>'.
-                  '<button class="btn btn--trigger-open"><span class="btn__text">Sluit</span></button>'.
+                  '<button class="btn btn--trigger-open"><span class="btn__text">' . _x( 'Close menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie' ) . '</span></button>'.
                   '</div>'.
                 '</div>';
 
