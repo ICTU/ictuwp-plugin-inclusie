@@ -87,10 +87,9 @@
 //=========================================================================================================
 
 @pixel: 1px;
-
 @basefontsize: 10;
 @basefont: ( @basefontsize * @pixel );
-@prem: 1rem;
+@basis_rem: 1rem;
 
 //=========================================================================================================
 
@@ -163,12 +162,21 @@
 //========================================================================================================
 
 .font-size(@input) {
-
-  //	font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel );
-  font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel );
-  line-height: ( ((@input / @basefontsize) *1.5 ) * @pixel );
-  font-size: ( ( @input / @basefontsize ) * @prem );
-  line-height: ( ((@input / @basefontsize) *1.5 ) * @prem );
+	// deze mixin zet een font-size in px en in een rem-size.
+	// dit zorgt ervoor dat we de grootte uit het ontwerp kunnen gebruiken als 
+	// een relatieve lettergrootte.
+	// px als maat voor lettergroottes zijn de absolute satan voor toegankelijkheid
+	// want daarmee beperk je de gebruiker in zijn vrijheid om zelf een leesbare
+	// lettergrootte te kiezen.
+	// door een relatieve grootte te gebruiken, houden we die vrijheid in stand.
+	//
+	// @input-70 levert dit op:
+	// font-size: 70px;
+	// font-size: 7rem;	
+	
+	
+	font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel ); // @input
+	font-size: ( ( @input / @basefontsize ) * @basis_rem );
 
 }
 
