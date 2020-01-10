@@ -2755,7 +2755,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         /** ----------------------------------------------------------------------------------------------------
          * filter the breadcrumb
          */
-        public function get_classificationsx($theid = '', $taxonomy = '', $wrapper1 = 'dt', $wrapper2 = 'dd') {
+        public function get_classifications($theid = '', $taxonomy = '', $wrapper1 = 'dt', $wrapper2 = 'dd') {
 
             $return = '';
 
@@ -2792,45 +2792,6 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
         }
 
-        /** ----------------------------------------------------------------------------------------------------
-         * filter the breadcrumb
-         */
-        public function get_classifications($theid = '', $taxonomy = '', $wrapper = 'li') {
-
-            $return = '';
-
-            if ($theid && $taxonomy) {
-
-                $args = [
-                  'name' => $taxonomy,
-                ];
-                $output = 'objects'; // or names
-
-                $taxobject = get_taxonomies($args, $output);
-                $tax_info = array_values($taxobject)[0];
-                $return = '<' . $wrapper . '><span class="term">' . $tax_info->label . '</span>: <span class="term-values">';
-                $term_list = wp_get_post_terms($theid, $taxonomy, ["fields" => "all"]);
-                $counter = 0;
-
-                foreach ($term_list as $term_single) {
-
-                    $counter++;
-                    $term_link = get_term_link($term_single);
-
-                    if ($counter > 1) {
-                        $return .= ', '; //do something here
-                    }
-                    //				$return .= '<a href="' . esc_url( $term_link ) . '">' . $term_single->name . '</a>';
-                    $return .= $term_single->name;
-                }
-
-                $return .= '</span></' . $wrapper . '>';
-
-            }
-
-            return $return;
-
-        }
 
         /** ----------------------------------------------------------------------------------------------------
          * filter the breadcrumb
