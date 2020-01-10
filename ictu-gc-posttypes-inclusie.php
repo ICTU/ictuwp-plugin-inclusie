@@ -8,8 +8,8 @@
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies 
-    * Version:                1.0.2
-    * Version description:    Better version of context-menu added, translation ready. 
+    * Version:                1.0.3
+    * Version description:    Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
     * License:                GPL-2.0+
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.0.2');
+define('ICTU_GC_INCL_VERSION', '1.0.3');
 
 //========================================================================================================
 
