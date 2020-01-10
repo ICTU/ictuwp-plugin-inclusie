@@ -5,8 +5,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   1.0.2
-// @desc.     Better version of context-menu added, translation ready.
+// @version   1.0.3
+// @desc.     Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 /*!
@@ -54,7 +54,9 @@
 /*
 Imports
 ---------------------------------------------------------------------------------------------------- */
-@import "mixins.less";
+@import "includes/_mixins"; 
+@import "includes/_variables"; 
+
 // colors, sizes */
 /*
  * Includes / Compoments
@@ -122,6 +124,7 @@ body {
     &.inleiding {
       .wrap {
         background-color: @gc_a11y_green;
+        
         &, * {
           color: @wit;
         }
@@ -132,8 +135,14 @@ body {
           text-transform: none;
           .font-size(34);
           line-height: 1;
-          padding-top: 2rem;
+//          padding-top: 2rem;
         }
+      }
+      p {
+	      margin-bottom: 0;
+	      & + p {
+		      margin-top: 1rem;
+	      }
       }
       .entry-header,
       .entry-content {
@@ -536,7 +545,6 @@ details {
 			display: inline-block;
 			float: right;
 			width: 95%;
-			border: 1px solid red;
 			overflow: hidden;
 			clear: right;
 		}

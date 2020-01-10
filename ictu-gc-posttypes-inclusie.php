@@ -8,8 +8,8 @@
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies 
-    * Version:                1.0.2
-    * Version description:    Better version of context-menu added, translation ready. 
+    * Version:                1.0.3
+    * Version description:    Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
     * License:                GPL-2.0+
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.0.2');
+define('ICTU_GC_INCL_VERSION', '1.0.3');
 
 //========================================================================================================
 
@@ -2755,7 +2755,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         /** ----------------------------------------------------------------------------------------------------
          * filter the breadcrumb
          */
-        public function get_classificationsx($theid = '', $taxonomy = '', $wrapper1 = 'dt', $wrapper2 = 'dd') {
+        public function get_classifications($theid = '', $taxonomy = '', $wrapper1 = 'dt', $wrapper2 = 'dd') {
 
             $return = '';
 
@@ -2792,45 +2792,6 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
         }
 
-        /** ----------------------------------------------------------------------------------------------------
-         * filter the breadcrumb
-         */
-        public function get_classifications($theid = '', $taxonomy = '', $wrapper = 'li') {
-
-            $return = '';
-
-            if ($theid && $taxonomy) {
-
-                $args = [
-                  'name' => $taxonomy,
-                ];
-                $output = 'objects'; // or names
-
-                $taxobject = get_taxonomies($args, $output);
-                $tax_info = array_values($taxobject)[0];
-                $return = '<' . $wrapper . '><span class="term">' . $tax_info->label . '</span>: <span class="term-values">';
-                $term_list = wp_get_post_terms($theid, $taxonomy, ["fields" => "all"]);
-                $counter = 0;
-
-                foreach ($term_list as $term_single) {
-
-                    $counter++;
-                    $term_link = get_term_link($term_single);
-
-                    if ($counter > 1) {
-                        $return .= ', '; //do something here
-                    }
-                    //				$return .= '<a href="' . esc_url( $term_link ) . '">' . $term_single->name . '</a>';
-                    $return .= $term_single->name;
-                }
-
-                $return .= '</span></' . $wrapper . '>';
-
-            }
-
-            return $return;
-
-        }
 
         /** ----------------------------------------------------------------------------------------------------
          * filter the breadcrumb

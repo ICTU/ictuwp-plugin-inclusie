@@ -49,6 +49,16 @@
 		"oAP": "/css/index.php",
 		"oF": 0
 		},
+	"/css/mixins.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/css/mixins-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/distribute.sh": {
 		"cB": 0,
 		"ft": 8192,
@@ -97,6 +107,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/arrow-right-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 1,
+		"oAP": "/images/arrow-right-blue.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/arrow-right-white.png": {
 		"ft": 32768,
 		"iS": 187,
@@ -132,9 +152,9 @@
 	"/images/arrow-right.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "/images/arrow-right.svg",
-		"oF": 1,
+		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
@@ -2067,6 +2087,22 @@
 		"sI": 0,
 		"sU": 0
 		},
+	"/less/includes/_mixins.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_mixins.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
 	"/less/includes/_overview.less": {
 		"aP": 0,
 		"bl": 0,
@@ -2163,6 +2199,22 @@
 		"sI": 0,
 		"sU": 0
 		},
+	"/less/includes/_variables.less": {
+		"aP": 0,
+		"bl": 0,
+		"eJ": 0,
+		"ft": 1,
+		"iI": 0,
+		"ma": 1,
+		"mS": 0,
+		"oA": 1,
+		"oAP": "/less/css/_variables.css",
+		"oF": 0,
+		"oS": 0,
+		"rwU": 0,
+		"sI": 0,
+		"sU": 0
+		},
 	"/less/includes/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2178,22 +2230,6 @@
 		"oA": 0,
 		"oAP": "/less/index.php",
 		"oF": 0
-		},
-	"/less/mixins.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/css/mixins.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
 		},
 	"/LICENSE": {
 		"cB": 0,
