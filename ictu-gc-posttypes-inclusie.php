@@ -1506,13 +1506,14 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             if ($vaardigheid_afraders || $vaardigheid_aanraders):
 
-                $return = '<div class="grid grid--col-2 dosdonts">';
+//                $return = '<div class="grid grid--col-2 dosdonts">';
+                $return = '<div class="dos-donts">';
 
                 if ($vaardigheid_aanraders) {
                     $section_title = _x('Aanraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
                     $title_id = sanitize_title($section_title . '-' . $post->ID);
 
-                    $return .= '<div class="aanrader flexblock">';
+                    $return .= '<div class="dos-donts__column col--dos">';
                     $return .= '<' . $args['titletag'] . ' id="' . $title_id . '">' . $section_title . '</' . $args['titletag'] . '>';
                     $return .= '<ul>';
                     foreach ($vaardigheid_aanraders as $vaardigheid_aanrader):
@@ -1525,7 +1526,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                     $section_title = _x('Afraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
                     $title_id = sanitize_title($section_title . '-' . $post->ID);
 
-                    $return .= '<div class="aanrader flexblock">';
+                    $return .= '<div class="dos-donts__column col--donts">';
                     $return .= '<' . $args['titletag'] . ' id="' . $title_id . '">' . $section_title . '</' . $args['titletag'] . '>';
                     $return .= '<ul>';
                     foreach ($vaardigheid_afraders as $vaardigheid_afrader):
@@ -1535,7 +1536,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                     $return .= '</div>';
                 }
 
-                $return .= '</div>';
+                $return .= '</div>'; // .dos-donts
 
             else:
                 $return = 'ictu_gc_frontend_vaardigheid_append_aanraders_afraders: NO';
@@ -1720,11 +1721,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
                             if ($vaardigheid_afraders || $vaardigheid_aanraders):
 
-                                echo '<div class="grid grid--col-2 dosdonts">';
-
-                                if ($vaardigheid_aanraders) {
+								echo '<div class="dos-donts">';
+								
+								if ($vaardigheid_aanraders) {
                                     $section_title = _x('Aanraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
-                                    echo '<div class="aanrader flexblock">';
+                                    echo '<div class="dos-donts__column col--dos">';
                                     echo '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
                                     echo '<ul>';
                                     foreach ($vaardigheid_aanraders as $vaardigheid_aanrader):
@@ -1736,7 +1737,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                                 }
                                 if ($vaardigheid_afraders) {
                                     $section_title = _x('Afraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
-                                    echo '<div class="afrader flexblock">';
+                                    echo '<div class="dos-donts__column col--donts">';
                                     echo '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
                                     echo '<ul>';
                                     foreach ($vaardigheid_afraders as $vaardigheid_aanrader):
