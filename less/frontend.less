@@ -5,8 +5,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   1.0.3
-// @desc.     Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
+// @version   1.1.1a
+// @desc.     Added new page template: 'template_overzichtspagina'.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 /*!
@@ -112,62 +112,79 @@ body {
 }
 
 #maincontent {
-  background-color: @gc_pantybrown_light;
-  max-width: @containermaxwidth;
+	background-color: @gc_pantybrown_light;
+	max-width: @containermaxwidth;
 
-  article.entry {
-    .wrap {
-      background-color: @wit;
-      padding-bottom: 2rem;
-    }
+	article.entry {
+		
+		.entry-content.wrap {
+			min-height: 0;
+			padding: 1rem;
+			.gc-box-shadow();			
+		}
+		
+		.wrap {
+			background-color: @wit;
+			padding-bottom: 2rem;
+		}
+		
+		.inleiding {
+//			border: 10px solid red;
+			
+			&,
+			.wrap {
+				background-color: @gc_a11y_green;
+				
+				&, * {
+					color: @wit;
+				}
+			}
+			.entry-header {
+				padding-bottom: 0;
+				
+				.entry-title {
+					text-transform: none;
+					.font-size(34);
+					line-height: 1;
+				}
+			}
+			p {
+				margin-bottom: 0;
+				
+				& + p {
+					margin-top: 1rem;
+				}
+			}
+			.entry-header,
+			.entry-content {
+				.gc-padding();
+			}
+		}
+		
+		@media only screen and ( max-width: ( @break_fullwidth ) ) {
+			margin-top: 2rem;
+		}
+		
+		@media only screen and ( min-width: ( @break_fullwidth ) ) {
+			margin-bottom: 4rem;
 
-    &.inleiding {
-      .wrap {
-        background-color: @gc_a11y_green;
-        
-        &, * {
-          color: @wit;
-        }
-      }
-      .entry-header {
-        padding-bottom: 0;
-        .entry-title {
-          text-transform: none;
-          .font-size(34);
-          line-height: 1;
-//          padding-top: 2rem;
-        }
-      }
-      p {
-	      margin-bottom: 0;
-	      & + p {
-		      margin-top: 1rem;
-	      }
-      }
-      .entry-header,
-      .entry-content {
-        .gc-padding();
-      }
-    }
-
-    @media only screen and ( max-width: ( @break_fullwidth ) ) {
-      margin-top: 2rem;
-    }
-
-    @media only screen and ( min-width: ( @break_fullwidth ) ) {
-      margin-bottom: 4rem;
-
-      &.inleiding {
-        .entry-header .entry-title {
-          .font-size(70);
-        }
-        p {
-          .font-size(20);
-        }
-      }
-    }
-
-  }
+			.entry-content.wrap {
+				padding-top: 5rem;
+				padding-bottom: 5rem;
+				padding-left: 8rem;
+				padding-right: 8rem;
+			}
+			
+			&.inleiding {
+				.entry-header .entry-title {
+					.font-size(70);
+				}
+				p {
+					.font-size(20);
+				}
+			}
+		}
+	}
 }
 
 .full-width-content .content {

@@ -8,8 +8,8 @@
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies 
-    * Version:                1.0.3
-    * Version description:    Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
+    * Version:                1.1.1a
+    * Version description:    Added new page template: 'template_overzichtspagina'.
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
     * License:                GPL-2.0+
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.0.3');
+define('ICTU_GC_INCL_VERSION', '1.1.1a');
 
 //========================================================================================================
 
@@ -183,6 +183,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             $this->templates = [];
             $this->template_home = 'home-inclusie.php';
             $this->template_doelgroeppagina = 'inclusie_template_doelgroeppagina.php';
+            $this->template_overzichtspagina = 'inclusie_template_overzichtspagina.php';
 
             // add the page template to the templates list
             add_filter('theme_page_templates', [
@@ -231,8 +232,9 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
          */
         function ictu_gc_add_page_templates($post_templates) {
 
-            $post_templates[$this->template_home] = _x('Inclusie Home page', "naam template", "ictu-gc-posttypes-inclusie");
-            $post_templates[$this->template_doelgroeppagina] = _x('Inclusie Page Doelgroepen', "naam template", "ictu-gc-posttypes-inclusie");
+            $post_templates[$this->template_home] = _x('Inclusie - Home page', "naam template", "ictu-gc-posttypes-inclusie");
+            $post_templates[$this->template_doelgroeppagina] = _x('Inclusie - Pagina doelgroepen', "naam template", "ictu-gc-posttypes-inclusie");
+            $post_templates[$this->template_overzichtspagina] = _x('Inclusie - Overzichtspagina voor tips, vaardigheden, methodes', "naam template", "ictu-gc-posttypes-inclusie");
             return $post_templates;
 
         }
@@ -316,6 +318,164 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 endif;
 
             }
+        }
+
+
+        //========================================================================================================
+
+        /**
+         * extra content for page with template = template_overzichtspagina
+         * either show all content for self determined content type or only the 
+         * items selected
+         *
+         * @return void
+         */
+        public function gc_page_template_loop() {
+
+            global $post;
+            
+            $currentpageID = get_the_id();
+
+		        
+            $content = $post->post_content;
+            $hoofdcontent = apply_filters('the_content', $content);
+
+			$inleiding = get_field('overzichtspagina_inleiding', $currentpageID );
+
+			echo '<article class="page entry">';
+			
+			echo '<header class="entry-header inleiding wrap"><h1 class="entry-title">' . get_the_title( $currentpageID ) . '</h1>';
+			if ( $inleiding ) {
+		        echo $inleiding;
+	        }
+	        echo '</header>';
+	        if ( $hoofdcontent ) {
+				echo '<div class="entry-content wrap">' . $hoofdcontent . '</div>';
+	        }
+            
+
+            $all_or_some = get_field('overzichtspagina_showall_or_select', $post->ID);
+
+            if ('showsome' === $all_or_some) {
+
+                $items = get_field('overzichtspagina_kies_items', $post->ID);
+
+                if ($items) {
+
+					$columncounter = 'grid--col-2';
+					$countcount = count( $items );
+				
+					if ( $countcount < 2  ) {
+						$columncounter = 'grid--col-1';
+					}
+					elseif ( $countcount === 4 ) {
+						$columncounter = 'grid--col-2';
+					}
+					elseif ( $countcount > 2  ) {
+						$columncounter = 'grid--col-3';
+					}
+	
+	
+                    echo '<div class="grid ' . $columncounter . '">';
+
+                    $postcounter = 0;
+
+                    foreach ($items as $post):
+
+                        setup_postdata($post);
+                        $postcounter++;
+
+                        if ( ICTU_GC_CPT_DOELGROEP == get_post_type( $post ) ) {
+	                        $citaat = get_field('facts_citaten', $post->ID);
+	                        echo $this->ictu_gc_doelgroep_card($post, $citaat);
+                        }
+                        else {
+	                        echo $this->ictu_gc_general_item_card( $post );
+                        }
+
+                    endforeach;
+
+                    echo '</div>';
+
+                    wp_reset_query();
+
+                }
+                else {
+                    echo '<p>' . _x('Geen items geselecteerd voor deze pagina.', "error", "ictu-gc-posttypes-inclusie") . '</p>';
+                }
+            }
+            else {
+
+				$doelgroeppagina = get_field('themesettings_inclusie_doelgroeppagina', 'option');    // code hier
+				$vaardighedenpagina = get_field('themesettings_inclusie_vaardighedenpagina', 'option');    // code hier
+				$methodepagina = get_field('themesettings_inclusie_methodepagina', 'option');    // code hier
+				$tipspagina = get_field('themesettings_inclusie_tipspagina', 'option');    // code hier
+				
+
+				// by default select vaardigheden
+				$select_contenttype = ICTU_GC_CPT_VAARDIGHEDEN;				
+				
+				if ( is_object( $doelgroeppagina ) && $doelgroeppagina->ID == $currentpageID ) {
+					$select_contenttype = ICTU_GC_CPT_DOELGROEP;				
+				}
+				elseif ( is_object( $tipspagina ) && $tipspagina->ID == $currentpageID ) {
+					$select_contenttype = ICTU_GC_CPT_PROCESTIP;				
+				}
+				elseif ( is_object( $methodepagina ) && $methodepagina->ID == $currentpageID ) {
+					$select_contenttype = ICTU_GC_CPT_METHODE;				
+				}
+				
+
+                $args = array(
+                  'post_type' => $select_contenttype,
+                  'posts_per_page' => -1,
+                  'order' => 'ASC',
+                  'orderby' => 'post_title',
+                );
+                
+                $items = new WP_query($args);
+
+                if ($items->have_posts()) {
+
+					$columncounter = 'grid--col-2';
+					$countcount = $items->found_posts;
+				
+					if ( $countcount < 2  ) {
+						$columncounter = 'grid--col-1';
+					}
+					elseif ( $countcount === 4 ) {
+						$columncounter = 'grid--col-2';
+					}
+					elseif ( $countcount > 2  ) {
+						$columncounter = 'grid--col-3';
+					}
+
+                    echo '<div class="grid ' . $columncounter . '">';
+
+                    $postcounter = 0;
+
+                    while ($items->have_posts()) : $items->the_post();
+
+                        $postcounter++;
+                        if ( ICTU_GC_CPT_DOELGROEP == get_post_type( $post ) ) {
+	                        $citaat = get_field('facts_citaten', $post->ID);
+	                        echo $this->ictu_gc_doelgroep_card($post, $citaat);
+                        }
+                        else {
+	                        echo $this->ictu_gc_general_item_card( $post );
+                        }
+
+                    endwhile;
+
+                    echo '</div>';
+
+                    wp_reset_query();
+
+                }
+            }
+
+			echo '</article>';
+
         }
 
 
@@ -1035,23 +1195,13 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
 
             }
-            elseif ($this->template_doelgroeppagina == $page_template) {
-                // template voor doelgroeppagina.
+            elseif ( ( $this->template_doelgroeppagina == $page_template ) ||
+            	( $this->template_overzichtspagina == $page_template ) ) {
+                // template voor vaardighedenpagina.
 
-                add_filter('genesis_attr_entry', [
-                  $this,
-                  'add_class_inleiding_to_entry',
-                ]);
-
-                add_action('genesis_loop', [
-                  $this,
-                  'ictu_gc_add_posttype_title',
-                ], 9);
-                add_action('genesis_loop', [
-                  $this,
-                  'ictu_gc_frontend_doelgroeppagina_content',
-                ], 12);
-
+				remove_action( 'genesis_loop', 'genesis_do_loop' );
+								
+                add_action( 'genesis_loop', array( $this, 'gc_page_template_loop' ) );
 
             }
             elseif (ICTU_GC_CPT_VAARDIGHEDEN == get_post_type()) {
@@ -1065,10 +1215,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                   $this,
                   'ictu_gc_frontend_vaardigheid_append_title',
                 ], 10);
-                add_action('genesis_entry_content', [
-                  $this,
-                  'ictu_gc_frontend_vaardigheid_append_aanraders_afraders',
-                ], 12);
+                add_action('genesis_entry_content', array( $this, 'ictu_gc_frontend_vaardigheid_append_aanraders_afraders' ), 12);
 
             }
             elseif (ICTU_GC_CPT_STAP == get_post_type()) {
@@ -1552,32 +1699,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
         }
 
-        /** ----------------------------------------------------------------------------------------------------
-         * Add an archive title
-         */
-        public function ictu_gc_add_posttype_title() {
 
-            if (!is_post_type_archive(ICTU_GC_CPT_DOELGROEP)) {
-                return;
-            }
-
-            $headline = '';
-            $intro_text = '';
-            $class = 'taxonomy-description';
-
-            if (is_post_type_archive(ICTU_GC_CPT_DOELGROEP)) {
-                $class = 'posttype-description';
-                $headline = sprintf('<h1 class="archive-title">%s</h1>', _x("Doelgroepen", "Post type name", 'ictu-gc-posttypes-inclusie'));
-            }
-
-            if ($headline || $intro_text) {
-                printf('<div class="' . $class . '">%s</div>', $headline . $intro_text);
-            }
-            else {
-                echo '';
-            }
-
-        }
 
 
         /** ----------------------------------------------------------------------------------------------------
@@ -2033,6 +2155,38 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         /** ----------------------------------------------------------------------------------------------------
          * Prepends a title before the content
          */
+        public function ictu_gc_general_item_card( $vaardigheid ) {
+
+            if (is_object($vaardigheid)) {
+                $post_ID = $vaardigheid->ID;
+            }
+            elseif ($doelgroep > 0) {
+                $post_ID = $vaardigheid;
+            }
+            else {
+                return;
+            }
+
+            $section_title = get_the_title($post_ID);
+            $section_text = get_the_excerpt($post_ID);
+            $section_link = get_sub_field('home_template_teaser_link');
+            $title_id = sanitize_title($section_title);
+
+            echo '<div class="card no-image">';
+            echo '<h3 id="' . $title_id . '"><a href="' . get_permalink( $post_ID ) . '">' . $section_title .
+              '<span class="btn btn--arrow"></span>' .
+              '</a></h3>';
+            echo '<p>';
+            echo $section_text;
+            echo '</p>';
+            echo '</div>';
+
+
+        }
+
+        /** ----------------------------------------------------------------------------------------------------
+         * Prepends a title before the content
+         */
         public function ictu_gc_doelgroep_card($doelgroep, $citaat) {
 
             if (is_object($citaat) && 'WP_Post' == get_class($citaat)) {
@@ -2452,7 +2606,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
               "show_ui" => TRUE,
               "show_in_rest" => FALSE,
               "rest_base" => "",
-              "has_archive" => TRUE,
+              "has_archive" => FALSE,
               "show_in_menu" => TRUE,
               "exclude_from_search" => FALSE,
               "capability_type" => "post",
@@ -2812,23 +2966,35 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             }
             // 'doelgroep'
 
-            if (is_singular(ICTU_GC_CPT_DOELGROEP)) {
+            if ( 
+            	is_singular( ICTU_GC_CPT_DOELGROEP ) ||
+            	is_singular( ICTU_GC_CPT_VAARDIGHEDEN ) ||
+            	is_singular( ICTU_GC_CPT_METHODE ) ||
+            	is_singular( ICTU_GC_CPT_PROCESTIP )
+            ) {
 
-                $crumb = 'poepje ' . ICTU_GC_CPT_DOELGROEP . '<br>';
+                $crumb = '';
+                $overview_page = '';
 
-                $brief_page_overview = get_field('themesettings_inclusie_doelgroeppagina', 'option');    // code hier
+            	if ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
+	                $overview_page = get_field('themesettings_inclusie_doelgroeppagina', 'option');    // code hier
+            	}
+            	elseif ( is_singular( ICTU_GC_CPT_VAARDIGHEDEN ) ) {
+	                $overview_page = get_field('themesettings_inclusie_vaardighedenpagina', 'option');    // code hier
+            	}
+            	elseif ( is_singular( ICTU_GC_CPT_METHODE ) ) {
+	                $overview_page = get_field('themesettings_inclusie_methodepagina', 'option');    // code hier
+            	}
+            	elseif ( is_singular( ICTU_GC_CPT_PROCESTIP ) ) {
+	                $overview_page = get_field('themesettings_inclusie_tipspagina', 'option');    // code hier
+            	}
 
-                if ($brief_page_overview) {
-
-                    $actueelpagetitle = get_the_title($brief_page_overview);
-
-                    if ($brief_page_overview) {
-                        $crumb = gc_wbvb_breadcrumbstring($brief_page_overview, $args);
-                    }
+                if ($overview_page) {
+                    $crumb = gc_wbvb_breadcrumbstring($overview_page, $args);
                 }
-
-
+                
             }
+
 
             return $crumb;
 

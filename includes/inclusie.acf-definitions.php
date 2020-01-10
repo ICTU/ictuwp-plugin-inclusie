@@ -8,8 +8,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   0.0.10
-// @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
+// @version   1.1.1a
+// @desc.     Added new page template: 'template_overzichtspagina'.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
 
@@ -207,7 +207,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						array(
 							'param' => 'post_type',
 							'operator' => '==',
-							'value' => 'doelgroep',
+							'value' => ICTU_GC_CPT_DOELGROEP,
 						),
 					),
 				),
@@ -299,7 +299,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						array(
 							'param' => 'post_type',
 							'operator' => '==',
-							'value' => 'doelgroep',
+							'value' => ICTU_GC_CPT_DOELGROEP,
 						),
 					),
 				),
@@ -390,7 +390,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						array(
 							'param' => 'post_type',
 							'operator' => '==',
-							'value' => 'doelgroep',
+							'value' => ICTU_GC_CPT_DOELGROEP,
 						),
 					),
 				),
@@ -490,7 +490,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 									'id' => '',
 								),
 								'post_type' => array(
-									0 => 'doelgroep',
+									0 => ICTU_GC_CPT_DOELGROEP,
 								),
 								'taxonomy' => '',
 								'allow_null' => 1,
@@ -579,7 +579,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-			
+			/*
 			acf_add_local_field_group(array(
 				'key' => 'group_5c91ff4e9f37c',
 				'title' => 'Homepage template: teasers',
@@ -677,6 +677,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
+			*/
 			
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8f9ba967736',
@@ -757,8 +758,8 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						'post_type' => array(
 							0 => 'post',
 							1 => 'page',
-							2 => 'doelgroep',
-							3 => 'stap',
+							2 => ICTU_GC_CPT_DOELGROEP,
+							3 => ICTU_GC_CPT_STAP,
 						),
 						'taxonomy' => '',
 						'filters' => array(
@@ -1099,7 +1100,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5d84d94b05b52',
-						'label' => 'Procestips titel',
+						'label' => 'Titel boven het blok met tips',
 						'name' => 'stap_procestips_sectiontitle',
 						'type' => 'text',
 						'instructions' => '',
@@ -1458,7 +1459,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							'id' => '',
 						),
 						'post_type' => array(
-							0 => 'doelgroep',
+							0 => ICTU_GC_CPT_DOELGROEP,
 						),
 						'taxonomy' => '',
 						'filters' => array(
@@ -1491,6 +1492,114 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 			));
 
 			//--------------------------------------------------------------------------------------------
+			// instellingen voor paginatemplate template_overzichtspagina
+			acf_add_local_field_group(array(
+				'key' => 'group_5e18684eebb2a',
+				'title' => 'Items op overzichtspagina',
+				'fields' => array(
+					array(
+						'key' => 'field_5e18970ac3dd0',
+						'label' => 'Inleiding',
+						'name' => 'overzichtspagina_inleiding',
+						'type' => 'textarea',
+						'instructions' => 'deze tekst wordt getoond onder de titel in het groene vlak',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'placeholder' => '',
+						'maxlength' => '',
+						'rows' => '',
+						'new_lines' => '',
+					),
+					array(
+						'key' => 'field_5e1868f51b16a',
+						'label' => 'Wil je alle items (i.e. tips, vaardigheden) tonen op deze pagina?',
+						'name' => 'overzichtspagina_showall_or_select',
+						'type' => 'radio',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'showall' => 'Ja, toon alle items',
+							'showsome' => 'Nee, laat mij de items selecteren',
+						),
+						'allow_null' => 0,
+						'other_choice' => 0,
+						'default_value' => 'showall',
+						'layout' => 'vertical',
+						'return_format' => 'value',
+						'save_other_choice' => 0,
+					),
+					array(
+						'key' => 'field_5e1869949274f',
+						'label' => 'Kies items',
+						'name' => 'overzichtspagina_kies_items',
+						'type' => 'relationship',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_5e1868f51b16a',
+									'operator' => '==',
+									'value' => 'showsome',
+								),
+							),
+						),
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => ICTU_GC_CPT_VAARDIGHEDEN,
+							1 => ICTU_GC_CPT_PROCESTIP,
+							2 => ICTU_GC_CPT_METHODE,
+							3 => ICTU_GC_CPT_DOELGROEP,
+						),
+						'taxonomy' => '',
+						'filters' => array(
+							0 => 'search',
+							1 => 'post_type',
+							2 => 'taxonomy',
+						),
+						'elements' => '',
+						'min' => '',
+						'max' => '',
+						'return_format' => 'object',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'page_template',
+							'operator' => '==',
+							'value' => 'inclusie_template_overzichtspagina.php',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'acf_after_title',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			));
+
+
+			//--------------------------------------------------------------------------------------------
 			// theme settings
 			acf_add_local_field_group(array(
 				'key' => 'group_5d726d93a46f2',
@@ -1500,6 +1609,72 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						'key' => 'field_5d726daa06090',
 						'label' => 'Pagina met doelgroepoverzicht',
 						'name' => 'themesettings_inclusie_doelgroeppagina',
+						'type' => 'post_object',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'page',
+						),
+						'taxonomy' => '',
+						'allow_null' => 0,
+						'multiple' => 0,
+						'return_format' => 'object',
+						'ui' => 1,
+					),
+					array(
+						'key' => 'field_5d726daa06091',
+						'label' => 'Pagina met vaardighedenoverzicht',
+						'name' => 'themesettings_inclusie_vaardighedenpagina',
+						'type' => 'post_object',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'page',
+						),
+						'taxonomy' => '',
+						'allow_null' => 0,
+						'multiple' => 0,
+						'return_format' => 'object',
+						'ui' => 1,
+					),
+					array(
+						'key' => 'field_5d726daa06092',
+						'label' => 'Pagina met methodes-overzicht',
+						'name' => 'themesettings_inclusie_methodepagina',
+						'type' => 'post_object',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'post_type' => array(
+							0 => 'page',
+						),
+						'taxonomy' => '',
+						'allow_null' => 0,
+						'multiple' => 0,
+						'return_format' => 'object',
+						'ui' => 1,
+					),
+					array(
+						'key' => 'field_5d726daa06093',
+						'label' => 'Pagina met tips-overzicht',
+						'name' => 'themesettings_inclusie_tipspagina',
 						'type' => 'post_object',
 						'instructions' => '',
 						'required' => 1,
