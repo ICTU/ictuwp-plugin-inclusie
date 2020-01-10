@@ -97,6 +97,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/arrow-right-blue.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 1,
+		"oAP": "/images/arrow-right-blue.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/arrow-right-white.png": {
 		"ft": 32768,
 		"iS": 187,
@@ -132,9 +142,9 @@
 	"/images/arrow-right.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "/images/arrow-right.svg",
-		"oF": 1,
+		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
