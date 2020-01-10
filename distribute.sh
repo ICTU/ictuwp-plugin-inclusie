@@ -1,4 +1,4 @@
-
+# shortcode: 'inclusie'
 # sh '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictu-gc-posttypes-inclusie/distribute.sh' &>/dev/null
 
 echo '-- JA --';

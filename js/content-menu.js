@@ -23,13 +23,13 @@
         nav.addClass('fixed');
         nav.removeClass('open');
         trigger.next().css('margin-top', '50px');
-        triggerBtnText.text('Open');
+        triggerBtnText.text(contentmenu.open);
       }
       else if (direction === 'up') {
         nav.removeClass('fixed');
         nav.addClass('open');
         trigger.next().css('margin-top', cmHeight + 'px');
-        triggerBtnText.text('Sluit');
+        triggerBtnText.text(contentmenu.close);
       }
     });
 
@@ -50,11 +50,11 @@
   $('.btn--trigger-open').click(function () {
     if (nav.hasClass('open')) {
       // Is open, so close
-      triggerBtnText.text('Open');
+      triggerBtnText.text(contentmenu.open);
 
     } else if (!nav.hasClass('open')) {
       // Id closed, so open
-      triggerBtnText.text('Sluit');
+      triggerBtnText.text(contentmenu.close);
     }
     nav.toggleClass('open');
   });
@@ -79,7 +79,7 @@
       }, 800, 'easeInOutExpo');
 
       nav.removeClass('open');
-      triggerBtnText.text('Open');
+      triggerBtnText.text(contentmenu.open);
 
       // Add focus class to target, add active
       $(this).addClass('active');
