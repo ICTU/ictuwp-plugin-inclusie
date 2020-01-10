@@ -9,7 +9,7 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Tamara de Haas is de geweldige ontwerper en CSS / front-end
 
 ## Current version:
-1.0.1 - Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
+1.0.3 - Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
 
 ## Version history
 * 1.0.3 - Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
