@@ -57,7 +57,7 @@ rsync -r -a --delete '/shared-paul-files/Webs/temp/' '/shared-paul-files/Webs/IC
 rsync -r -a --delete '/shared-paul-files/Webs/temp/' '/shared-paul-files/Webs/ICTU/Gebruiker Centraal/sentia/live/www/wp-content/plugins/ictu-gc-posttypes-inclusie/'
 
 # remove temp dir
-#  rm -rf '/shared-paul-files/Webs/temp/'
+rm -rf '/shared-paul-files/Webs/temp/'
 
 
 echo 'Ready';
