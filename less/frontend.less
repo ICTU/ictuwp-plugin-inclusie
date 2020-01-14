@@ -5,8 +5,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   1.0.3
-// @desc.     Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
+// @version   1.1.1
+// @desc.     Added new page template: 'page_template_overzichtspagina'. zie: _page-overzichtspagina.less (Trello: 45-maken-overzichtspagina).
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 /*!
@@ -83,18 +83,9 @@ Imports
 @import "includes/_card-doelgroep";
 @import "includes/_inclusie-design";
 
-/*
----------------------------------------------------------------------------------------------------- */
+@import "includes/_page";
+@import "includes/_page-overzichtspagina";
 
-@buttonwidth: 9rem;
-@descwidth: 50rem;
-@hoogtewijspijl: 50px;
-
-// animaties
-@thesize1: 56px;
-@thesize: 75px;
-
-@eenderde: ( ( 100% / 3 ) * 1 );
 
 /*
 STRUCTURE & BASE
@@ -111,64 +102,6 @@ body {
   }
 }
 
-#maincontent {
-  background-color: @gc_pantybrown_light;
-  max-width: @containermaxwidth;
-
-  article.entry {
-    .wrap {
-      background-color: @wit;
-      padding-bottom: 2rem;
-    }
-
-    &.inleiding {
-      .wrap {
-        background-color: @gc_a11y_green;
-        
-        &, * {
-          color: @wit;
-        }
-      }
-      .entry-header {
-        padding-bottom: 0;
-        .entry-title {
-          text-transform: none;
-          .font-size(34);
-          line-height: 1;
-//          padding-top: 2rem;
-        }
-      }
-      p {
-	      margin-bottom: 0;
-	      & + p {
-		      margin-top: 1rem;
-	      }
-      }
-      .entry-header,
-      .entry-content {
-        .gc-padding();
-      }
-    }
-
-    @media only screen and ( max-width: ( @break_fullwidth ) ) {
-      margin-top: 2rem;
-    }
-
-    @media only screen and ( min-width: ( @break_fullwidth ) ) {
-      margin-bottom: 4rem;
-
-      &.inleiding {
-        .entry-header .entry-title {
-          .font-size(70);
-        }
-        p {
-          .font-size(20);
-        }
-      }
-    }
-
-  }
-}
 
 .full-width-content .content {
 	width: auto;
