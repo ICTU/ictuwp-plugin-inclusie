@@ -8,10 +8,12 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   1.1.1a
-// @desc.     Added new page template: 'template_overzichtspagina'.
+// @version   1.1.1
+// @desc.     Added new page template: 'page_template_overzichtspagina'. zie: _page-overzichtspagina.less (Trello: 45-maken-overzichtspagina).
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
+
+
 
 
 if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
@@ -1406,93 +1408,8 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 			));
 			
 
-			
 			//--------------------------------------------------------------------------------------------
-			// instellingen voor paginatemplate inclusie_template_doelgroeppagina
-			acf_add_local_field_group(array(
-				'key' => 'group_5d7278b291f4c',
-				'title' => 'Doelgroepen op doelgroeppagina',
-				'fields' => array(
-					array(
-						'key' => 'field_5d7278f7a35d2',
-						'label' => 'Wil je alle doelgroepen tonen op deze pagina?',
-						'name' => 'doelgroeppagina_showall_or_select',
-						'type' => 'radio',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'choices' => array(
-							'showall' => 'Ja, toon alle doelgroepen',
-							'showsome' => 'Nee, laat mij de doelgroepen selecteren',
-						),
-						'allow_null' => 0,
-						'other_choice' => 0,
-						'default_value' => 'showall',
-						'layout' => 'vertical',
-						'return_format' => 'value',
-						'save_other_choice' => 0,
-					),
-					array(
-						'key' => 'field_5d7278c6a98c9',
-						'label' => 'Kies doelgroepen',
-						'name' => 'doelgroeppagina_kies_doelgroepen',
-						'type' => 'relationship',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => array(
-							array(
-								array(
-									'field' => 'field_5d7278f7a35d2',
-									'operator' => '==',
-									'value' => 'showsome',
-								),
-							),
-						),
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'post_type' => array(
-							0 => ICTU_GC_CPT_DOELGROEP,
-						),
-						'taxonomy' => '',
-						'filters' => array(
-							0 => 'search',
-							1 => 'taxonomy',
-						),
-						'elements' => '',
-						'min' => '',
-						'max' => '',
-						'return_format' => 'object',
-					),
-				),
-				'location' => array(
-					array(
-						array(
-							'param' => 'page_template',
-							'operator' => '==',
-							'value' => 'inclusie_template_doelgroeppagina.php',
-						),
-					),
-				),
-				'menu_order' => 0,
-				'position' => 'normal',
-				'style' => 'default',
-				'label_placement' => 'top',
-				'instruction_placement' => 'label',
-				'hide_on_screen' => '',
-				'active' => true,
-				'description' => '',
-			));
-
-			//--------------------------------------------------------------------------------------------
-			// instellingen voor paginatemplate template_overzichtspagina
+			// instellingen voor paginatemplate page_template_overzichtspagina
 			acf_add_local_field_group(array(
 				'key' => 'group_5e18684eebb2a',
 				'title' => 'Items op overzichtspagina',
@@ -1521,7 +1438,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						'label' => 'Wil je alle items (i.e. tips, vaardigheden) tonen op deze pagina?',
 						'name' => 'overzichtspagina_showall_or_select',
 						'type' => 'radio',
-						'instructions' => '',
+						'instructions' => '<a href="/wp-admin/themes.php?page=instellingen">Via de instellingen-pagina</a> kun je deze pagina als een overzichtspagina aanwijzen voor een contenttype. Op basis van deze keuze weet de pagina welke items getoond moeten worden.<br>Als deze pagina niet als de overzichtspagina voor een contenttype is ingesteld worden alle vaardigheden getoond.<br>De instellingen-pagina vind je via:<br>[admin] > Weergave > Theme-instelling.',
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
@@ -1584,7 +1501,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						array(
 							'param' => 'page_template',
 							'operator' => '==',
-							'value' => 'inclusie_template_overzichtspagina.php',
+							'value' => 'page_template_overzichtspagina.php',
 						),
 					),
 				),

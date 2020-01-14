@@ -8,8 +8,8 @@
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies 
-    * Version:                1.1.1a
-    * Version description:    Added new page template: 'template_overzichtspagina'.
+    * Version:                1.1.1
+    * Version description:    Added new page template: 'page_template_overzichtspagina'. zie: _page-overzichtspagina.less (Trello: 45-maken-overzichtspagina).
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
     * License:                GPL-2.0+
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.1.1a');
+define('ICTU_GC_INCL_VERSION', '1.1.1');
 
 //========================================================================================================
 
@@ -182,8 +182,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             // add a page temlate name
             $this->templates = [];
             $this->template_home = 'home-inclusie.php';
-            $this->template_doelgroeppagina = 'inclusie_template_doelgroeppagina.php';
-            $this->template_overzichtspagina = 'inclusie_template_overzichtspagina.php';
+            $this->page_template_overzichtspagina = 'page_template_overzichtspagina.php';
 
             // add the page template to the templates list
             add_filter('theme_page_templates', [
@@ -233,8 +232,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         function ictu_gc_add_page_templates($post_templates) {
 
             $post_templates[$this->template_home] = _x('Inclusie - Home page', "naam template", "ictu-gc-posttypes-inclusie");
-            $post_templates[$this->template_doelgroeppagina] = _x('Inclusie - Pagina doelgroepen', "naam template", "ictu-gc-posttypes-inclusie");
-            $post_templates[$this->template_overzichtspagina] = _x('Inclusie - Overzichtspagina voor tips, vaardigheden, methodes', "naam template", "ictu-gc-posttypes-inclusie");
+            $post_templates[$this->page_template_overzichtspagina] = _x('Inclusie - Overzichtspagina voor tips, vaardigheden, methodes', "naam template", "ictu-gc-posttypes-inclusie");
             return $post_templates;
 
         }
@@ -285,10 +283,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             global $post;
 
+//echo '<h1>home_template_teasers</h1>';
+
             if (function_exists('get_field')) {
 
                 $home_teasers = get_field('home_template_teasers', $post->ID);
-
 
                 if (have_rows('home_template_teasers')):
 
@@ -324,7 +323,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         //========================================================================================================
 
         /**
-         * extra content for page with template = template_overzichtspagina
+         * extra content for page with template = page_template_overzichtspagina
          * either show all content for self determined content type or only the 
          * items selected
          *
@@ -1083,6 +1082,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             }
 
             $gerelateerdecontent = get_field('gerelateerde_content_toevoegen', $acfid);
+            
 
             if ($gerelateerdecontent == 'ja') {
 
@@ -1110,6 +1110,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             }
 
+/*
+// START VERBODEN CODE
+// DEZE CODE HOORT HIER NIET
+// DIT IS DE PLEK OM CSS AAN DE HEADER TOE TE VOEGEN	
+	
             if ($post) {
 
                 $handigelinks = get_field('handige_links_toevoegen', $post->ID);
@@ -1152,6 +1157,8 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
                 }
             }
+// EINDE VERBODEN CODE
+*/            
 
             if ($header_css) {
                 wp_add_inline_style(ICTU_GC_ARCHIVE_CSS, $header_css);
@@ -1183,20 +1190,17 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 //* Remove the post content (requires HTML5 theme support)
                 remove_action('genesis_entry_content', 'genesis_do_post_content');
 
+                // poppetje en citaat toevoegen
+                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_home_before_content' ), 8 );
+
                 // append content
-                add_action('genesis_entry_content', [
-                  $this,
-                  'ictu_gc_frontend_home_before_content',
-                ], 8);
-                add_action('genesis_after_content', [
-                  $this,
-                  'ictu_gc_frontend_home_after_content',
-                ], 12);
+                add_action( 'genesis_after_content', array( $this, 'ictu_gc_frontend_home_after_content' ), 12 );
+
+                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_stap_get_related_content' ), 12 );
 
 
             }
-            elseif ( ( $this->template_doelgroeppagina == $page_template ) ||
-            	( $this->template_overzichtspagina == $page_template ) ) {
+            elseif ( $this->page_template_overzichtspagina == $page_template ) {
                 // template voor vaardighedenpagina.
 
 				remove_action( 'genesis_loop', 'genesis_do_loop' );
@@ -1210,11 +1214,10 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 remove_action('genesis_entry_header', 'genesis_entry_header_markup_open', 5);
                 remove_action('genesis_entry_header', 'genesis_entry_header_markup_close', 15);
                 remove_action('genesis_entry_header', 'genesis_do_post_title');
+                
 
-                add_action('genesis_entry_header', [
-                  $this,
-                  'ictu_gc_frontend_vaardigheid_append_title',
-                ], 10);
+                // append content
+                add_action( 'genesis_entry_header', array( $this, 'ictu_gc_frontend_vaardigheid_append_title' ), 10 );
                 add_action('genesis_entry_content', array( $this, 'ictu_gc_frontend_vaardigheid_append_aanraders_afraders' ), 12);
 
             }
@@ -1226,18 +1229,10 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 remove_action('genesis_entry_header', 'genesis_do_post_title');
 
 
-                add_action('genesis_before_loop', [
-                  $this,
-                  'ictu_gc_frontend_stap_before_content',
-                ], 8);
-                add_action('genesis_entry_header', [
-                  $this,
-                  'ictu_gc_frontend_stap_append_title',
-                ], 10);
-                add_action('genesis_entry_content', [
-                  $this,
-                  'ictu_gc_frontend_stap_get_related_content',
-                ], 12);
+                // append content
+                add_action( 'genesis_before_loop', array( $this, 'ictu_gc_frontend_stap_before_content' ), 8 );
+                add_action( 'genesis_entry_header', array( $this, 'ictu_gc_frontend_stap_append_title' ), 10 );
+                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_stap_get_related_content' ), 12 );
 
             }
             elseif (is_singular(ICTU_GC_CPT_DOELGROEP)) {
@@ -1248,28 +1243,16 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 remove_action('genesis_entry_header', 'genesis_do_post_title');
 
                 // poppetje en citaat toevoegen
-                add_action('genesis_before_entry', [
-                  $this,
-                  'ictu_gc_frontend_doelgroep_avatar_en_citaat',
-                ], 8);
+                add_action( 'genesis_before_entry', array( $this, 'ictu_gc_frontend_doelgroep_avatar_en_citaat' ), 8 );
 
                 // cijfers toevoegen
-                add_action('genesis_entry_header', [
-                  $this,
-                  'ictu_gc_frontend_doelgroep_append_cijfers',
-                ], 10);
+                add_action( 'genesis_entry_header', array( $this, 'ictu_gc_frontend_doelgroep_append_cijfers' ), 10 );
 
                 // inhoudsopgave (menu) toevoegen
-                add_action('genesis_entry_content', [
-                  $this,
-                  'ictu_gc_frontend_doelgroep_append_toc',
-                ], 12);
+                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_doelgroep_append_toc' ), 12 );
 
                 // tips toevoegen
-                add_action('genesis_entry_content', [
-                  $this,
-                  'ictu_gc_frontend_doelgroep_append_content',
-                ], 14);
+                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_doelgroep_append_content' ), 14 );
 
 
             }
@@ -1328,8 +1311,6 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             global $post;
 
-            //			echo '<h1>ictu_gc_frontend_doelgroep_append_content</h1>';
-
             $args = [
               'getmenu' => FALSE,
             ];
@@ -1373,7 +1354,6 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             $args = wp_parse_args($args, $defaults);
 
             $return = '';
-            //			$return = '<h1>ictu_gc_frontend_doelgroep_construct_page</h1>';
 
             if ($args['getmenu']) {
 
@@ -1720,7 +1700,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             // code for a completely custom loop
             global $post;
 
-            echo '<h1> ictu_gc_frontend_archive_doelgroep_loop </h1>';
+//            echo '<h1> ictu_gc_frontend_archive_doelgroep_loop </h1>';
 
             $args = [
               'post_type' => ICTU_GC_CPT_DOELGROEP,
@@ -1961,7 +1941,22 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                     else {
                         $return = '<section aria-labelledby="' . $title_id . '" class="border related-content">';
                         $return .= '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-                        $return .= '<div class="flexbox cards">';
+
+						$columncounter = 'grid--col-2';
+						$countcount = count( $related_items );
+					
+						if ( $countcount < 2  ) {
+							$columncounter = 'grid--col-1';
+						}
+						elseif ( $countcount === 4 ) {
+							$columncounter = 'grid--col-2';
+						}
+						elseif ( $countcount > 2  ) {
+							$columncounter = 'grid--col-3';
+						}
+	
+	                    $return .= '<div class="grid ' . $columncounter . '">';
+
                     }
 
                     // loop through the rows of data
@@ -1992,15 +1987,34 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                             else {
                                 $class = ' no-image';
                             }
-
+/*
                             $return .= '<div class="flexblock' . $class . '" id="' . $block_id . '">' . $imageplaceholder;
                             $return .= '<h3 id="' . $title_id . '"><a href="' . get_permalink($theid) . '">' . $section_title . '</a></h3>';
                             $return .= '<p>' . $section_text . '</p>';
                             $return .= '</div>';
+*/
+
+                            $return .= '<div class="card no-image">';
+                            $return .= '<h3 id="' . $title_id . '"><a href="' . get_permalink( $theid ) . '">' . $section_title .
+              '<span class="btn btn--arrow"></span>' .
+              '</a></h3>';
+                            $return .= '<p>';
+                            $return .= $section_text;
+                            $return .= '</p>';
+                            $return .= '</div>';
+
 
                         }
 
                     endforeach;
+
+                    if ($args['getmenu']) {
+                    }
+                    else {
+	                    $return .= '</div>'; // class="grid ' . $columncounter . '">';
+	                    $return .= '</section>';
+                    }
+                    
 
                     wp_reset_postdata();
 
