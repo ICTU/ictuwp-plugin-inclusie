@@ -86,6 +86,9 @@ Imports
 @import "includes/_page";
 @import "includes/_page-overzichtspagina";
 
+// related links block
+@import "includes/_section-related-links";
+
 
 /*
 STRUCTURE & BASE
@@ -337,59 +340,12 @@ a.download {
   }
 }
 
-.related-content,
-.related-links {
+.related-content {
   margin-bottom: 4rem;
 
-  h2 {
-    padding-top: 0;
-  }
 }
 
-.related-links {
-  a {
-    font-family: @bodyfont_bold;
-    text-decoration: none;
 
-    &:hover,
-    &:focus,
-    &:active {
-      color: @txt;
-      text-decoration: underline;
-    }
-  }
-  ul {
-    padding-left: 1rem;
-    margin-left: 1rem;
-
-    li {
-      list-style: none;
-      padding-left: 0;
-      margin-left: 0;
-      border-top: 1px solid @gc_cardbordergrey;
-      padding-top: 2rem;
-      margin-bottom: 2rem;
-      overflow: hidden;
-      float: none;
-      span {
-        float: left;
-        width: ~"calc(99% - @{listimagewidth})";
-      }
-      &:before {
-        content: ' ';
-        display: block;
-        float: left;
-        width: @listimagewidth;
-        height: 3rem;
-        background-image: url('../images/list-image-arrow.svg');
-        background-repeat: no-repeat;
-        background-position: left center;
-		speak: none;
-
-      }
-    }
-  }
-}
 
 .posttype-description,
 .taxonomy-description {
