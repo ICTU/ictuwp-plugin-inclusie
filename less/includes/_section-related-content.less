@@ -44,16 +44,11 @@
 
 	@media only screen and (min-width: ( @contentmaxwidth )) {
 
-		&.col-2 {
-			max-width: @contentwidth_960;
-			margin-left: auto;
-			margin-right: auto;
-		}
+		&.col-2,
 		&.col-3 {
-			max-width: @contentmaxwidth; // 1180px;
 			background: none;
 			position: relative;
-				overflow: hidden;
+			overflow: hidden;
 
 			.wrap-outer {
 				max-width: @contentwidth_960;
@@ -67,8 +62,8 @@
 					content: ' ';
 					position: absolute;
 					background: @wit;
-					left: ( ( @contentmaxwidth - @contentwidth_960 ) / 2 );
-					right: ( ( @contentmaxwidth - @contentwidth_960 ) / 2 );
+					left: 0;
+					right: 0;
 					height: 50%;
 				}
 				&:after {
@@ -77,14 +72,28 @@
 					right: 0;
 					bottom: -10%;
 					transform: rotate(3deg);
+					transform-origin: left top;
 					height: 70%;
-				}
-				
-				.wrap {
-					position: relative;
+					width: 150%;
 				}
 			}
+		}
+		&.col-2 {
+			max-width: @contentwidth_960;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		&.col-3 {
+			max-width: @contentmaxwidth; // 1180px;
 
+			.wrap-outer {
+				&:after,
+				&:before {
+					left: ( ( @contentmaxwidth - @contentwidth_960 ) / 2 );
+					right: ( ( @contentmaxwidth - @contentwidth_960 ) / 2 );
+				}
+			}
+			
 			.grid {
 				max-width: none;
 				padding-left: 0;
