@@ -581,7 +581,10 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
+
 			/*
+*/
+				
 			acf_add_local_field_group(array(
 				'key' => 'group_5c91ff4e9f37c',
 				'title' => 'Homepage template: teasers',
@@ -626,7 +629,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							),
 							array(
 								'key' => 'field_5c91ff4ebb07a',
-								'label' => 'home_template_teaser_text',
+								'label' => 'Korte beschrijving',
 								'name' => 'home_template_teaser_text',
 								'type' => 'wysiwyg',
 								'instructions' => '',
@@ -645,7 +648,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							),
 							array(
 								'key' => 'field_5c92023852c87',
-								'label' => 'home_template_teaser_link',
+								'label' => 'Link',
 								'name' => 'home_template_teaser_link',
 								'type' => 'link',
 								'instructions' => '',
@@ -679,6 +682,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
+/*			
 			*/
 			
 			acf_add_local_field_group(array(
@@ -711,7 +715,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fd404bd765',
-						'label' => 'content_block_title',
+						'label' => 'Titel',
 						'name' => 'content_block_title',
 						'type' => 'text',
 						'instructions' => '',
@@ -738,7 +742,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fd42e15a23',
-						'label' => 'content_block_items',
+						'label' => 'Items',
 						'name' => 'content_block_items',
 						'type' => 'relationship',
 						'instructions' => '',
@@ -831,7 +835,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fdeec07d4b',
-						'label' => 'links_block_title',
+						'label' => 'Titel',
 						'name' => 'links_block_title',
 						'type' => 'text',
 						'instructions' => '',
@@ -858,7 +862,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 					),
 					array(
 						'key' => 'field_5c8fdeec07d58',
-						'label' => 'links_block_items',
+						'label' => 'Links',
 						'name' => 'links_block_items',
 						'type' => 'repeater',
 						'instructions' => '',
@@ -885,7 +889,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						'sub_fields' => array(
 							array(
 								'key' => 'field_5c8fdf2a0c1a1',
-								'label' => 'links_block_item_url',
+								'label' => 'URL',
 								'name' => 'links_block_item_url',
 								'type' => 'url',
 								'instructions' => '',
@@ -901,7 +905,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							),
 							array(
 								'key' => 'field_5c8fe1000c1a2',
-								'label' => 'links_block_item_linktext',
+								'label' => 'Link-tekst',
 								'name' => 'links_block_item_linktext',
 								'type' => 'text',
 								'instructions' => '',
@@ -920,7 +924,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							),
 							array(
 								'key' => 'field_5c8fe10d0c1a3',
-								'label' => 'links_block_item_description',
+								'label' => 'Beschrijving',
 								'name' => 'links_block_item_description',
 								'type' => 'textarea',
 								'instructions' => '',
