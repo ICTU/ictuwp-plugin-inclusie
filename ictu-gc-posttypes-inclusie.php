@@ -1268,9 +1268,8 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large');
 
                     if ($image[0]) {
-                        $header_css .= "#related_" . $post->ID . " .featured-image:after { ";
+                        $header_css .= "#related_" . $post->ID . " .card__image { ";
                         $header_css .= "background-image: url('" . $image[0] . "'); ";
-                        $header_css .= "background-size: cover; ";
                         $header_css .= "} ";
                     }
 
@@ -1279,58 +1278,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
                 wp_reset_postdata();
 
-
             }
-
-/*
-// START VERBODEN CODE
-// DEZE CODE HOORT HIER NIET
-// DIT IS DE PLEK OM CSS AAN DE HEADER TOE TE VOEGEN	
-	
-            if ($post) {
-
-                $handigelinks = get_field('handige_links_toevoegen', $post->ID);
-
-                if ($handigelinks == 'ja') {
-
-                    $section_title = get_field('links_block_title', $post->ID);
-                    $title_id = sanitize_title($section_title . '-title');
-
-                    echo '<section aria-labelledby="' . $title_id . '">';
-                    echo '<h2 id="' . $title_id . '">' . $section_title . '</h2>';
-
-                    $links_block_items = get_field('links_block_items');
-
-                    if ($links_block_items):
-
-                        echo '<ul>';
-
-                        while (have_rows('links_block_items')): the_row();
-
-                            $links_block_item_url = get_sub_field('links_block_item_url');
-                            $links_block_item_linktext = get_sub_field('links_block_item_linktext');
-                            $links_block_item_description = get_sub_field('links_block_item_description');
-
-                            echo '<li> <a href="' . esc_url($links_block_item_url) . '">' . sanitize_text_field($links_block_item_linktext) . '</a>';
-
-                            if ($links_block_item_description) {
-                                echo '<br>' . sanitize_text_field($links_block_item_description);
-                            }
-
-                            echo '</li>';
-
-                        endwhile;
-
-                        echo '</ul>';
-
-                    endif;
-
-                    echo '</section>';
-
-                }
-            }
-// EINDE VERBODEN CODE
-*/            
 
             if ($header_css) {
                 wp_add_inline_style(ICTU_GC_ARCHIVE_CSS, $header_css);
@@ -2174,25 +2122,23 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                         }
                         else {
 
-                            $imageplaceholder = '';
-                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large');
-
-                            if ($image[0]) {
-                                $imageplaceholder = '<div class="card__image"></div>';
-                            }
-                            else {
-                            }
-
-                            $return .= '<div class="card featured-image" id="' . $block_id . '">';
-                            $return .= $imageplaceholder;
-				            $return .= '<div class="card__content">';
-                            $return .= '<h3 id="' . $title_id . '" class="card__title"><a href="' . get_permalink( $theid ) . '">';
-                            $return .= $section_title . '<span class="btn btn--arrow"></span></a></h3>';
-                            $return .= '<p>';
-                            $return .= $section_text;
-                            $return .= '</p>';
-                            $return .= '</div>'; // .card__content
-                            $return .= '</div>'; // .card
+							$imageplaceholder = '';
+							$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large');
+							
+							if ($image[0]) {
+								$imageplaceholder = '<div class="card__image"></div>';
+							}
+							
+							$return .= '<div class="card card--featured-image" id="' . $block_id . '">';
+							$return .= $imageplaceholder;
+							$return .= '<div class="card__content">';
+							$return .= '<h3 id="' . $title_id . '" class="card__title"><a href="' . get_permalink( $theid ) . '"><span>';
+							$return .= $section_title . '</span><span class="btn btn--arrow"></a></h3>';
+							$return .= '<p>';
+							$return .= $section_text;
+							$return .= '</p>';
+							$return .= '</div>'; // .card__content
+							$return .= '</div>'; // .card
 
                         }
 
