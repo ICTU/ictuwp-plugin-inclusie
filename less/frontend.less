@@ -5,8 +5,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   1.1.2
-// @desc.     Added related content & links block (44-gerelateerde-content-handige-links).
+// @version   1.1.3
+// @desc.     Moved sections backend code and styling for related links and content to the gebruiker-centraal theme.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 /*!
@@ -81,16 +81,16 @@ Imports
 // styling template doelgroep page
 // Inclusie specifiek
 @import "includes/_card-doelgroep";
-@import "includes/_card-featured-image";
+//@import "includes/_card-featured-image"; // is verplaatst naar themes/gebruiker-centraal/less/components/_card-featured-image.less
 
 @import "includes/_inclusie-design";
 
 @import "includes/_page";
-@import "includes/_page-overzichtspagina";
+// @import "includes/_page-overzichtspagina"; // is verplaatst naar themes/gebruiker-centraal/less/components/_page-overzichtspagina
 
 // related links + content blocks
-@import "includes/_section-related-links";
-@import "includes/_section-related-content";
+// @import "includes/_section-related-links"; // niet meer gebruikt sinds 1.1.3
+// @import "includes/_section-related-content"; // is verplaatst naar themes/gebruiker-centraal/less/components/_section-related-content.less
 
 
 
