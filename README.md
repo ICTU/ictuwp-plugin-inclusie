@@ -9,9 +9,12 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Tamara de Haas is de geweldige ontwerper en CSS / front-end
 
 ## Current version:
-1.0.1 - Better version of context-menu added, translation ready.
+1.1.2 - Added related content & links block (44-gerelateerde-content-handige-links).
 
 ## Version history
+* 1.1.2 - Added related content & links block (44-gerelateerde-content-handige-links).
+* 1.1.1 - Added new page template: 'page_template_overzichtspagina'. zie: _page-overzichtspagina.less (Trello: 45-maken-overzichtspagina).
+* 1.0.3 - Several small css bugfixes. New version number to purge browser cache memories. moved mixins.less and split the file into mixins and variables.
 * 1.0.2 - Better version of context-menu added, translation ready.
 * 1.0.1 - Added context-menu. Upped version to 1.0.x. since we are already live.
 * 0.0.14 - Some a11y bug fixes; disabled author pages;  check for 1 or columns for aanraders / afraders.

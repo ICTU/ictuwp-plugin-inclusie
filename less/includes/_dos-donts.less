@@ -8,7 +8,7 @@
 
 .dos-donts {
   .gc-box-shadow;
-  border: .1rem solid @bordercolor;
+  border: .1rem solid @gc_cardbordergrey;
   margin-top: 3rem;
 
   @media @tablet {
@@ -18,12 +18,15 @@
 
 .dos-donts__column {
 
-  h4 {
-    .font-size(22);
-    padding: 1.3rem 2.5rem 2rem;
-    border-bottom: .1rem solid @bordercolor;
-    font-family: @bodyfont_bold;
-  }
+	h2,
+	h3,
+	h4 {
+		.font-size(22);
+		padding: 1.3rem 2.5rem 2rem;
+		border-bottom: .1rem solid @gc_cardbordergrey;
+		font-family: @bodyfont_bold;
+		text-transform: none;
+	}
 
   @media @tablet {
     flex: 1;

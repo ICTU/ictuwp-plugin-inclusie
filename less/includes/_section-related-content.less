@@ -1,0 +1,156 @@
+// Gebruiker Centraal - _section-related-content.less
+// ----------------------------------------------------------------------------------
+// Less voor pages
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   1.1.2
+// @desc.     Added related content & links block (44-gerelateerde-content-handige-links).
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
+//=========================================================================================================
+
+
+.section--related-content,
+.section--related-links {
+
+	background: @wit;
+
+	.section__title {
+		border-top-style: none;
+	}
+
+	@media only screen and (min-width: ( @contentwidth_960 )) {
+
+		max-width: @contentwidth_960; // 960px;
+		margin-left: auto;
+		margin-right: auto;
+
+		.grid,
+		.wrap {
+			max-width: @max-width-inner;
+			padding-left: 2rem;
+			padding-right: 2rem;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.grid {
+			overflow: hidden;
+			padding-bottom: 4rem;
+		}
+	}
+
+	@media only screen and (min-width: ( @contentmaxwidth )) {
+
+		&.col-2,
+		&.col-3 {
+			background: none;
+			position: relative;
+			overflow: hidden;
+
+			.wrap-outer {
+				max-width: @contentwidth_960;
+				margin-left: auto;
+				margin-right: auto;
+				overflow: hidden;
+				height: 100%;
+
+				&:after,
+				&:before {
+					content: ' ';
+					position: absolute;
+					background: @wit;
+					left: 0;
+					right: 0;
+					height: 50%;
+				}
+				&:after {
+					background: @gc_pantybrown_light;
+					left: 0;
+					right: 0;
+					bottom: -10%;
+					transform: rotate(3deg);
+					transform-origin: left top;
+					height: 70%;
+					width: 150%;
+				}
+			}
+		}
+		&.col-2 {
+			max-width: @contentwidth_960;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		&.col-3 {
+			max-width: @contentmaxwidth; // 1180px;
+
+			.wrap-outer {
+				&:after,
+				&:before {
+					left: ( ( @contentmaxwidth - @contentwidth_960 ) / 2 );
+					right: ( ( @contentmaxwidth - @contentwidth_960 ) / 2 );
+				}
+			}
+			
+			.grid {
+				max-width: none;
+				padding-left: 0;
+				padding-right: 0;
+				margin-left: ( @gutter / -2 );
+				margin-right: ( @gutter / -2 );
+				z-index: 900;
+			}
+		}
+	}
+}
+
+.section--related-content {
+	.card {
+		border: 1px solid @gc_cardbordergrey;
+	}
+}
+
+
+/*
+Related external links block
+---------------------------------------------------------------------------------------------------- */
+.section--related-links {
+	margin-bottom: 4rem;
+	padding-bottom: 5rem;
+	
+	.wrap {
+		div {
+			border-top: 1px solid @gc_cardbordergrey;
+			padding-left: 3rem;
+			background: url('../images/arrow-right-blue.svg') left 40px no-repeat;
+			background-size: 10px auto;
+			.font-size(18);
+			
+			h3 {
+				.font-size(24);
+			}
+		}
+	}
+}
+
+/*
+Methodes block
+---------------------------------------------------------------------------------------------------- */
+.section--related-methoden {
+	.section__title {
+		border-top-style:  none;
+	}
+}
+
+/*
+Optimaal digitaal block
+---------------------------------------------------------------------------------------------------- */
+.section--related-optimaaldigitaal-tips {
+	padding-bottom: 6rem;
+}
+
+
+//=========================================================================================================
+

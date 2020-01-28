@@ -8,18 +8,10 @@
 // @version   0.0.10
 // @desc.     CPT procestips toegevoegd. Mogelijkheid OD-tips toe te voegen op stap-pagina.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
-@import "../mixins";
 
-#step-procestips,
-#step-od-tips {
-  max-width: @contentwidth_761;
-  padding-left: @linkerrechtermarge;
-  padding-right: @linkerrechtermarge;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-#step-procestips {
+
+.related-tips {
   .card + .card {
     margin-top: 2rem;
   }
@@ -27,69 +19,92 @@
 
 body.single-stap {
 
-  .content-sidebar-wrap {
-    padding-top: 0;
-  }
+	.content-sidebar-wrap {
+		padding-top: 0;
+	}
+	
+	.region--content-top {
+		position: relative;
+	
+		@media only screen and (min-width: ( @break_fullwidth ) ) {
+			margin-top: -8rem;
+		}
+	}
+	
+	.page-intro__intro-text {
+		max-width: @max-width-inner;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 
-  .region--content-top {
-    position: relative;
+	#maincontent {
+		
+		article.entry {
+			.gc-box-shadow();
+			max-width: @max-width-content;
+			background: @wit;
+			margin-left: auto;
+			margin-right: auto;
+			
+			@media only screen and (max-width: ( @break_fullwidth ) ) {
+				padding: 2rem;
+				
+				h2 {
+					padding-top: 0;
+				}
+			}
+			
+			.wrap {
+				max-width: @max-width-inner;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.entry-content {
+				padding: 5rem 2rem;
+			
+				> h2:first-child {
+					padding: 0;
+					
+					+ p {
+						margin-top: 2rem;
+					}
+				}
+			}
+		}
+	}
 
-    @media only screen and (min-width: ( @break_fullwidth ) ) {
-      margin-top: -8rem;
-    }
-  }
 
-  .page-intro__intro-text {
-    max-width: @contentmaxwidth;
-    padding: 3rem 0 0;
-  }
+	.extra-content {
+		// de ruimte voor procestips, gerelateerde content + links
+		max-width: @max-width-content;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 3rem;
+		position: relative;
+		background-color: @wit;
 
-  #maincontent {
-    // padding-top: 2rem; ?
+		section {
+			
+			.wrap {
+				max-width: @max-width-inner;
+				padding-left: 2rem;
+				padding-right: 2rem;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
 
-    article.entry {
-      .gc-box-shadow();
-      max-width: @max-width-content;
-      background: @wit;
-      margin-top: 5rem;
-      margin-left: auto;
-      margin-right: auto;
+		@media only screen and (min-width: ( @contentmaxwidth )) {
+			max-width: @contentwidth_960;
+		}
+	}
+	
+	// OVerride
+	.site-inner header {
+		margin: 0;
+		padding: 0;
+	}
 
-      @media only screen and (min-width: ( @break_fullwidth ) ) {
-        margin-top: 8rem;
-      }
-
-      @media only screen and (max-width: ( @break_fullwidth ) ) {
-        padding: 2rem;
-
-        h2 {
-          padding-top: 0;
-        }
-      }
-
-      .wrap {
-        max-width: @max-width-inner;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .entry-content {
-        padding: 5rem 2rem;
-
-        > h2:first-child {
-          padding: 0;
-
-          + p {
-            margin-top: 2rem;
-          }
-        }
-      }
-    }
-  }
-
-  // OVerride
-  .site-inner header {
-    margin: 0;
-    padding: 0;
-  }
+  
 }

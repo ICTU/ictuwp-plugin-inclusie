@@ -5,8 +5,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   1.0.2
-// @desc.     Better version of context-menu added, translation ready.
+// @version   1.1.2
+// @desc.     Added related content & links block (44-gerelateerde-content-handige-links).
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 /*!
@@ -54,7 +54,9 @@
 /*
 Imports
 ---------------------------------------------------------------------------------------------------- */
-@import "mixins.less";
+@import "includes/_mixins"; 
+@import "includes/_variables"; 
+
 // colors, sizes */
 /*
  * Includes / Compoments
@@ -63,7 +65,7 @@ Imports
 @import "includes/_flexblock.less";
 @import "includes/_card.less";
 @import "includes/_btn";
-@import "includes/_card_tipkaart.less";
+//@import "includes/_card_tipkaart.less"; // is verplaatst naar /wp-content/themes/gebruiker-centraal/less/components/
 @import "includes/_stepchart"; // idee - generiek popupcomponent van maken
 @import "includes/_stepnav";
 @import "includes/_dos-donts";
@@ -79,20 +81,18 @@ Imports
 // styling template doelgroep page
 // Inclusie specifiek
 @import "includes/_card-doelgroep";
+@import "includes/_card-featured-image";
+
 @import "includes/_inclusie-design";
 
-/*
----------------------------------------------------------------------------------------------------- */
+@import "includes/_page";
+@import "includes/_page-overzichtspagina";
 
-@buttonwidth: 9rem;
-@descwidth: 50rem;
-@hoogtewijspijl: 50px;
+// related links + content blocks
+@import "includes/_section-related-links";
+@import "includes/_section-related-content";
 
-// animaties
-@thesize1: 56px;
-@thesize: 75px;
 
-@eenderde: ( ( 100% / 3 ) * 1 );
 
 /*
 STRUCTURE & BASE
@@ -109,57 +109,6 @@ body {
   }
 }
 
-#maincontent {
-  background-color: @gc_pantybrown_light;
-  max-width: @containermaxwidth;
-
-  article.entry {
-    .wrap {
-      background-color: @wit;
-      padding-bottom: 2rem;
-    }
-
-    &.inleiding {
-      .wrap {
-        background-color: @gc_a11y_green;
-        &, * {
-          color: @wit;
-        }
-      }
-      .entry-header {
-        padding-bottom: 0;
-        .entry-title {
-          text-transform: none;
-          .font-size(34);
-          line-height: 1;
-          padding-top: 2rem;
-        }
-      }
-      .entry-header,
-      .entry-content {
-        .gc-padding();
-      }
-    }
-
-    @media only screen and ( max-width: ( @break_fullwidth ) ) {
-      margin-top: 2rem;
-    }
-
-    @media only screen and ( min-width: ( @break_fullwidth ) ) {
-      margin-bottom: 4rem;
-
-      &.inleiding {
-        .entry-header .entry-title {
-          .font-size(70);
-        }
-        p {
-          .font-size(20);
-        }
-      }
-    }
-
-  }
-}
 
 .full-width-content .content {
 	width: auto;
@@ -174,7 +123,7 @@ body {
 }
 
 section.border {
-	border-top: 2px solid @bordercolor;
+	border-top: 2px solid @gc_cardbordergrey;
 	margin-top: 2rem;
 	padding-top: 2rem;
 	
@@ -395,59 +344,12 @@ a.download {
   }
 }
 
-.related-content,
-.related-links {
+.related-content {
   margin-bottom: 4rem;
 
-  h2 {
-    padding-top: 0;
-  }
 }
 
-.related-links {
-  a {
-    font-family: @bodyfont_bold;
-    text-decoration: none;
 
-    &:hover,
-    &:focus,
-    &:active {
-      color: @txt;
-      text-decoration: underline;
-    }
-  }
-  ul {
-    padding-left: 1rem;
-    margin-left: 1rem;
-
-    li {
-      list-style: none;
-      padding-left: 0;
-      margin-left: 0;
-      border-top: 1px solid @gc_cardbordergrey;
-      padding-top: 2rem;
-      margin-bottom: 2rem;
-      overflow: hidden;
-      float: none;
-      span {
-        float: left;
-        width: ~"calc(99% - @{listimagewidth})";
-      }
-      &:before {
-        content: ' ';
-        display: block;
-        float: left;
-        width: @listimagewidth;
-        height: 3rem;
-        background-image: url('../images/list-image-arrow.svg');
-        background-repeat: no-repeat;
-        background-position: left center;
-		speak: none;
-
-      }
-    }
-  }
-}
 
 .posttype-description,
 .taxonomy-description {
@@ -512,10 +414,6 @@ a.download {
 
 //========================================================================================================
 
-.tipcardstyling();
-
-//========================================================================================================
-
 details {
 	border: 5px solid transparent;
 
@@ -536,7 +434,6 @@ details {
 			display: inline-block;
 			float: right;
 			width: 95%;
-			border: 1px solid red;
 			overflow: hidden;
 			clear: right;
 		}
