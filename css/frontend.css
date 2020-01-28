@@ -390,6 +390,9 @@ Imports
   text-decoration: underline;
   background-color: #D94721;
 }
+.btn--toggle-menu {
+  min-width: 12rem;
+}
 .stepchart {
   position: relative;
   max-width: 770px;
@@ -1431,6 +1434,9 @@ h1,
   height: 300px;
   speak: none;
 }
+.title-area {
+  margin-right: 2rem;
+}
 .page-intro__intro {
   background: #148839;
   color: #fff;
@@ -1480,6 +1486,8 @@ h1,
   background: #C73D19;
   padding-top: 5rem;
   color: #FFF;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 @media only screen and (min-width: 800px) {
   .region--intro {
@@ -1540,6 +1548,9 @@ h1,
   max-width: none;
   width: 100%;
 }
+.home #maincontent article.entry {
+  margin-top: 0;
+}
 .home #maincontent article.entry .wrap {
   background: none;
   padding: 0;
@@ -1565,7 +1576,6 @@ h1,
   padding-bottom: 8rem;
   position: relative;
   overflow: hidden;
-  width: 100%;
 }
 .home .region--intro:before {
   content: " ";
@@ -2384,22 +2394,13 @@ body.single-doelgroep #maincontent article.entry .wrap {
     padding-right: 3rem;
   }
 }
-.full-width-content .nav-primary #mainnav {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-@media only screen and (min-width: 800px) {
-  .full-width-content .nav-primary #mainnav {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-}
 .full-width-content .menu-met-js {
   padding-left: 0;
 }
 .full-width-content .site-header > .wrap {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  padding-right: 0;
 }
 @media only screen and (min-width: 800px) {
   .full-width-content .site-header > .wrap {

@@ -87,6 +87,10 @@
     }
   });
 
+  $('.content-menu__link').focus(function () {
+    nav.addClass('open');
+  });
+
   $(window).on('mousewheel', function () {
     $('html, body').stop();
   });
