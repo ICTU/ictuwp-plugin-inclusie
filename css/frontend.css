@@ -1999,6 +1999,48 @@ body.single-doelgroep #maincontent article.entry .wrap {
     height: 100%;
   }
 }
+.doelgroep--poppetje-2 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-2.svg');
+}
+.doelgroep--poppetje-3 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-3.svg');
+}
+.doelgroep--poppetje-4 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-4.svg');
+}
+.doelgroep--poppetje-5 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-5.svg');
+}
+.doelgroep--poppetje-6 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-6.svg');
+}
+.doelgroep--poppetje-7 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-7.svg');
+}
+.doelgroep--poppetje-8 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-8.svg');
+}
+.doelgroep--poppetje-9 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-9.svg');
+}
+.doelgroep--poppetje-10 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-10.svg');
+}
+.doelgroep--poppetje-11 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-11.svg');
+}
+.doelgroep--poppetje-12 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-12.svg');
+}
+.doelgroep--poppetje-13 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-13.svg');
+}
+.doelgroep--poppetje-14 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-14.svg');
+}
+.doelgroep--poppetje-15 .doelgroep__avatar {
+  background-image: url('../images/avatar/poppetje-15.svg');
+}
 .doelgroep__posttext {
   margin-top: 1.6rem;
 }
