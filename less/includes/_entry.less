@@ -29,8 +29,8 @@
 
 .inleiding,
 .page-intro {
-  .gc-box-shadow;
-  .gc-content-container;
+  .gc-box-shadow();
+  .gc-content-container();
   background: @gc_a11y_green;
   color: @white;
 }
@@ -63,28 +63,73 @@
       padding-top: 6rem;
     }
 
-    .inleiding {
-      .font-size(22);
-      padding: 2rem;
 
-      .wrap {
-        max-width: none;
-        padding: 0;
-        min-height: 1rem;
-      }
+	.inleiding {
+	
+		.font-size(22);
+		padding: 2rem;
+		
+		.wrap {
+			max-width: none;
+			padding: 0;
+			min-height: 1rem;
+		}
+		
+		.entry-content.wrap {
+			min-height: 8rem;
+			padding-top: 2rem;
+		}
 
-      .entry-content.wrap {
-        min-height: 8rem;
-        padding-top: 2rem;
-      }
+		&,
+		.wrap {
+			background-color: @color_primary;
+			
+			&, * {
+				color: @wit;
+			}
+		}
+		.entry-header {
+			padding-bottom: 0;
+			
+			.entry-title {
+				text-transform: none;
+				.font-size(34);
+				line-height: 1;
+			}
+		}
+		p {
+			margin-bottom: 0;
+			
+			& + p {
+				margin-top: 1rem;
+			}
+		}
+		.entry-header,
+		.entry-content {
+//			.gc-padding();
+		}
+	
+		@media only screen and ( min-width: ( @break_fullwidth )) {
+			padding-left: 5rem;
+			padding-right: 5rem;
 
-      @media only screen and ( min-width: ( @break_fullwidth )) {
-		padding-left: 5rem;
-		padding-right: 5rem;
-      }
-    }
+			.entry-content.wrap {
+				padding-top: 5rem;
+				padding-bottom: 5rem;
+				padding-left: 8rem;
+				padding-right: 8rem;
+			}
+			
+			.entry-header .entry-title {
+				.font-size(70);
+			}
+			p {
+				.font-size(20);
+			}
+		}
+	}
 
-  }
+}
 
   .full-width-content & {
     > .content {
