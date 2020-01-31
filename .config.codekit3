@@ -2173,7 +2173,7 @@
 		"sI": 0,
 		"sU": 0
 		},
-	"/less/includes/_variables.less": {
+	"/less/includes/_variables-inclusie.less": {
 		"aP": 0,
 		"bl": 0,
 		"eJ": 0,
@@ -2182,7 +2182,7 @@
 		"ma": 1,
 		"mS": 0,
 		"oA": 1,
-		"oAP": "/less/css/_variables.css",
+		"oAP": "/less/css/_variables-inclusie.css",
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
@@ -2212,6 +2212,16 @@
 		"oA": 0,
 		"oAP": "/LICENSE",
 		"oF": 0
+		},
+	"/mixins.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/mixins-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/package.json": {
 		"ft": 524288,

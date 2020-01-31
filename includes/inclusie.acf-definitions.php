@@ -853,10 +853,10 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 
 
 			//--------------------------------------------------------------------------------------------
-			// theme settings
+			// Instellingen voor inclusiewebsite / theme settings
 			acf_add_local_field_group(array(
 				'key' => 'group_5d726d93a46f2',
-				'title' => 'Instellingen voor inclusiewebsite',
+				'title' => 'Theme-instellingen voor inclusiewebsite',
 				'fields' => array(
 					array(
 						'key' => 'field_5d726daa06090',
