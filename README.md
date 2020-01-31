@@ -9,9 +9,10 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Tamara de Haas is de geweldige ontwerper en CSS / front-end
 
 ## Current version:
-1.1.5 - Moved section home_template_teasers functions and styling from inlusie plugin to theme.
+1.1.6 - Moved section home_template_teasers functions and styling from inlusie plugin to theme.
 
 ## Version history
+* 1.1.6 - Incremented version number, to prevent cache errors.
 * 1.1.5 - Moved more functions and styling from inclusie plugin to theme.
 * 1.1.4 - Moved section home_template_teasers functions and styling from inlusie plugin to theme.
 * 1.1.3 - Moved sections backend code and styling for related links and content to the gebruiker-centraal theme.
