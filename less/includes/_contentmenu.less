@@ -15,7 +15,7 @@
   .l-inner {
     background: @gc_a11y_green;
     padding: 2rem;
-    max-width: @max-width-content; // was eerst '~"calc(@{max-width-content} - 2px)";' weg met witte randjes
+    max-width: @contentwidth_960; // was eerst '~"calc(@{max-width-content} - 2px)";' weg met witte randjes
     margin-left: auto;
     margin-right: auto;
 
@@ -108,7 +108,7 @@
 .content .content-menu__title {
   .font-size(20);
   color: @white;
-  font-family: @font-primary-bold;
+  font-family: @font_primary_bold;
   text-transform: none;
 }
 
@@ -192,7 +192,7 @@
 .btn--trigger-open {
   margin-left: auto;
   margin-right: auto;
-  font-family: @font-primary-bold;
+  font-family: @font_primary_bold;
   text-transform: none;
   border: none;
   padding: 0 2rem 0 2rem;

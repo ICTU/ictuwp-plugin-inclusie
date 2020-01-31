@@ -10,9 +10,9 @@
   background-color: @gc_pantybrown_light;
 }
 
-h1,
+#entry__intro h1,
 .page .entry-header .entry-title {
-  .gc-heading-1;
+  .gc-heading-1();
   padding: 0;
   margin: 0;
   text-transform: none;
@@ -29,8 +29,8 @@ h1,
 
 .inleiding,
 .page-intro {
-  .gc-box-shadow;
-  .gc-content-container;
+  .gc-box-shadow();
+  .gc-content-container();
   background: @gc_a11y_green;
   color: @white;
 }
@@ -50,7 +50,7 @@ h1,
     .gc-box-shadow;
     padding: 2rem;
     background: @white;
-    max-width: @max-width-content;
+    max-width: @contentwidth_960;
     margin-left: auto;
     margin-right: auto;
     float: none;
@@ -63,28 +63,73 @@ h1,
       padding-top: 6rem;
     }
 
-    .inleiding {
-      .font-size(22);
-      padding: 2rem;
 
-      .wrap {
-        max-width: none;
-        padding: 0;
-        min-height: 1rem;
-      }
+	.inleiding {
+	
+		.font-size(22);
+		padding: 2rem;
+		
+		.wrap {
+			max-width: none;
+			padding: 0;
+			min-height: 1rem;
+		}
+		
+		.entry-content.wrap {
+			min-height: 8rem;
+			padding-top: 2rem;
+		}
 
-      .entry-content.wrap {
-        min-height: 8rem;
-        padding-top: 2rem;
-      }
+		&,
+		.wrap {
+			background-color: @color_primary;
+			
+			&, * {
+				color: @wit;
+			}
+		}
+		.entry-header {
+			padding-bottom: 0;
+			
+			.entry-title {
+				text-transform: none;
+				.font-size(34);
+				line-height: 1;
+			}
+		}
+		p {
+			margin-bottom: 0;
+			
+			& + p {
+				margin-top: 1rem;
+			}
+		}
+		.entry-header,
+		.entry-content {
+//			.gc-padding();
+		}
+	
+		@media only screen and ( min-width: ( @break_fullwidth )) {
+			padding-left: 5rem;
+			padding-right: 5rem;
 
-      @media only screen and ( min-width: ( @break_fullwidth )) {
-		padding-left: 5rem;
-		padding-right: 5rem;
-      }
-    }
+			.entry-content.wrap {
+				padding-top: 5rem;
+				padding-bottom: 5rem;
+				padding-left: 8rem;
+				padding-right: 8rem;
+			}
+			
+			.entry-header .entry-title {
+				.font-size(70);
+			}
+			p {
+				.font-size(20);
+			}
+		}
+	}
 
-  }
+}
 
   .full-width-content & {
     > .content {
@@ -95,7 +140,7 @@ h1,
     }
 
     > .entry.inleiding + .grid {
-      .gc-padding;
+      .gc-padding();
     }
   }
 
@@ -154,7 +199,7 @@ h1,
 }
 
 .page-intro__intro-text {
-  max-width: @max-width-inner;
+  max-width: @contentwidth_770;
   margin-left: auto;
   margin-right: auto;
   padding: 3rem 2rem;
@@ -205,7 +250,7 @@ h1,
 }
 
 #entry__intro {
-  max-width: @max-width-inner;
+  max-width: @contentwidth_770;
   margin-left: auto;
   margin-right: auto;
 

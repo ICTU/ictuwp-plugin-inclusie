@@ -110,9 +110,9 @@
 	"/images/arrow-right-blue.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "/images/arrow-right-blue.svg",
-		"oF": 1,
+		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
@@ -849,9 +849,9 @@
 	"/images/icon-download.svg": {
 		"ft": 2097152,
 		"miP": 0,
-		"oA": 1,
+		"oA": 2,
 		"oAP": "/images/icon-download.svg",
-		"oF": 1,
+		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
@@ -1933,22 +1933,6 @@
 		"sI": 0,
 		"sU": 0
 		},
-	"/less/includes/_card-featured-image.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/less/css/_card-featured-image.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
 	"/less/includes/_card.less": {
 		"aP": 0,
 		"bl": 0,
@@ -1991,22 +1975,6 @@
 		"mS": 0,
 		"oA": 1,
 		"oAP": "/less/css/_dos-donts.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/less/includes/_entry-home.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/less/css/_entry-home.css",
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
@@ -2109,22 +2077,6 @@
 		"sI": 0,
 		"sU": 0
 		},
-	"/less/includes/_page-overzichtspagina.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/less/css/_page-overzichtspagina.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
 	"/less/includes/_page.less": {
 		"aP": 0,
 		"bl": 0,
@@ -2135,38 +2087,6 @@
 		"mS": 0,
 		"oA": 1,
 		"oAP": "/less/css/_page.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/less/includes/_section-related-content.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/less/css/_section-related-content.css",
-		"oF": 0,
-		"oS": 0,
-		"rwU": 0,
-		"sI": 0,
-		"sU": 0
-		},
-	"/less/includes/_section-related-links.less": {
-		"aP": 0,
-		"bl": 0,
-		"eJ": 0,
-		"ft": 1,
-		"iI": 0,
-		"ma": 1,
-		"mS": 0,
-		"oA": 1,
-		"oAP": "/less/css/_section-related-links.css",
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
@@ -2253,7 +2173,7 @@
 		"sI": 0,
 		"sU": 0
 		},
-	"/less/includes/_variables.less": {
+	"/less/includes/_variables-inclusie.less": {
 		"aP": 0,
 		"bl": 0,
 		"eJ": 0,
@@ -2262,7 +2182,7 @@
 		"ma": 1,
 		"mS": 0,
 		"oA": 1,
-		"oAP": "/less/css/_variables.css",
+		"oAP": "/less/css/_variables-inclusie.css",
 		"oF": 0,
 		"oS": 0,
 		"rwU": 0,
@@ -2292,6 +2212,16 @@
 		"oA": 0,
 		"oAP": "/LICENSE",
 		"oF": 0
+		},
+	"/mixins.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/mixins-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/package.json": {
 		"ft": 524288,
