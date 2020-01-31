@@ -10,13 +10,35 @@
   background-color: @gc_pantybrown_light;
 }
 
-#entry__intro h1,
-.page .entry-header .entry-title {
-  .gc-heading-1();
-  padding: 0;
-  margin: 0;
-  text-transform: none;
-  letter-spacing: 0; //echt niet :(
+.page,
+.single-stap,
+.single-doelgroep,
+.single-procestip,
+.single-methode,
+.single-vaardigheden,
+.page-template-page_template_overzichtspagina {
+
+	.entry-header {
+		h1.entry-title {
+			.gc-heading-1();
+			padding: 0;
+			margin: 0;
+			text-transform: none;
+			
+			/*
+			// todo: op 'normale' pagina's wordt deze grootte overruled door 
+			.page .entry-header	.entry-title { .fontsize( 36 ); } (70-pagetypes.less)
+			om dit te overschrijven is dit nodig: .page, .page-template-page_template_overzichtspagina 
+			*/
+			.font-size(34);
+			line-height: 1;
+		}
+		@media only screen and ( min-width: ( @break_fullwidth )) {
+			.entry-title {
+				.font-size(70);
+			}
+		}
+	}
 }
 
 .breadcrumb > .wrap {
@@ -90,12 +112,6 @@
 		}
 		.entry-header {
 			padding-bottom: 0;
-			
-			.entry-title {
-				text-transform: none;
-				.font-size(34);
-				line-height: 1;
-			}
 		}
 		p {
 			margin-bottom: 0;
@@ -120,9 +136,6 @@
 				padding-right: 8rem;
 			}
 			
-			.entry-header .entry-title {
-				.font-size(70);
-			}
 			p {
 				.font-size(20);
 			}
