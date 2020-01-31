@@ -5,8 +5,8 @@
 // @package   ictu-gc-posttypes-inclusie
 // @author    Paul van Buuren
 // @license   GPL-2.0+
-// @version   1.1.4
-// @desc.     Moved section home_template_teasers functions and styling from inlusie plugin to theme.
+// @version   1.1.5
+// @desc.     Moved more functions and styling from inclusie plugin to theme.
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
 
 /*!
@@ -55,37 +55,37 @@
 Imports
 ---------------------------------------------------------------------------------------------------- */
 @import "includes/_mixins"; 
-@import "includes/_variables"; 
+@import "includes/_variables-inclusie"; 
 
 // colors, sizes */
 /*
  * Includes / Compoments
  */
-@import "includes/_grid.less";
-@import "includes/_flexblock.less";
-@import "includes/_card.less";
-@import "includes/_btn";
+@import "includes/_grid.less";                          // VERPLAATSEN NAAR THEME?
+@import "includes/_flexblock.less";                     // VERPLAATSEN NAAR THEME?
+@import "includes/_card.less";                          // VERPLAATSEN NAAR THEME?
+@import "includes/_btn";                                // VERPLAATSEN NAAR THEME?
 //@import "includes/_card_tipkaart.less"; // is verplaatst naar /wp-content/themes/gebruiker-centraal/less/components/
-@import "includes/_stepchart"; // idee - generiek popupcomponent van maken
-@import "includes/_stepnav";
-@import "includes/_dos-donts";
-@import "includes/_section";
-@import "includes/_contentmenu";
+@import "includes/_stepchart";                          // VERPLAATSEN NAAR THEME?
+@import "includes/_stepnav";                            // VERPLAATSEN NAAR THEME?
+@import "includes/_dos-donts";                          // VERPLAATSEN NAAR THEME?
+@import "includes/_section";                            // VERPLAATSEN NAAR THEME?
+@import "includes/_contentmenu";                        // VERPLAATSEN NAAR THEME?
 // styling card Optimaal Digitaal
-@import "includes/_overview";
+@import "includes/_overview"; 	                        // VERPLAATSEN NAAR THEME? (?)
 // PAges / Singles
-@import "includes/_entry";
+@import "includes/_entry"; 		                        // VERPLAATSEN NAAR THEME?
 //@import "includes/_entry-home.less"; // is verplaatst naar themes/gebruiker-centraal/less/components/_entry-home
-@import "includes/_single-step.less";
-@import "includes/_single_doelgroep.less";
+@import "includes/_single-step.less";                   // VERPLAATSEN NAAR THEME?
+@import "includes/_single_doelgroep.less";              // VERPLAATSEN NAAR THEME?
 // styling template doelgroep page
 // Inclusie specifiek
-@import "includes/_card-doelgroep";
+@import "includes/_card-doelgroep";                     // VERPLAATSEN NAAR THEME?
 //@import "includes/_card-featured-image"; // is verplaatst naar themes/gebruiker-centraal/less/components/_card-featured-image.less
 
-@import "includes/_inclusie-design";
+@import "includes/_inclusie-design";                    // ik snap nog steeds niet wat dit ding hier doet?
 
-@import "includes/_page";
+@import "includes/_page";                               // VERPLAATSEN NAAR THEME?
 
 // @import "includes/_page-overzichtspagina"; // is verplaatst naar themes/gebruiker-centraal/less/components/_page-overzichtspagina
 
@@ -177,112 +177,7 @@ STYLING VAARDIGHEDEN
 .icon_vaardigheden(taal, '../images/icons/vaardigheden/taal.svg' );
 
 /*
-DOELGROEPEN
 ---------------------------------------------------------------------------------------------------- */
-
-.doelgroepcard {
-  background: @gc_a11y_green;
-  position: relative;
-  min-height: 50rem;
-  background-image: url('../images/avatar/poppetje-1.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: @avatarwidth ( @avatarwidth / @avafactor );
-  padding: 2rem;
-  margin: 0;
-
-  @media only screen and (max-width: ( @break_fullwidth ) ) {
-    & + .doelgroepcard {
-      margin-top: 5rem;
-    }
-  }
-
-  h2,
-  h3 {
-    margin: 0;
-    padding: 1rem 0;
-    background: white;
-    padding-left: 3rem;
-    clip-path: polygon(0 0, 100% 12%, 100% 100%, 0% 100%);
-
-    position: absolute;
-    bottom: 0;
-    left: -1px;
-    right: -1px;
-
-    a {
-      &:before {
-        display: none !important;
-        content: '';
-      }
-    }
-
-    span {
-      font-family: @bodyfont_bold;
-      text-transform: none;
-      .font-size(14);
-      line-height: 1.8;
-      display: inline-block;
-      float: none;
-      clear: both;
-      padding-top: 1rem;
-      margin-bottom: .25rem;
-
-      & + span {
-        padding: 0;
-        margin-bottom: 0;
-        line-height: 1;
-        width: 100%;
-        font-family: @headerfont;
-        text-transform: uppercase;
-
-        &:before {
-          .title_click_indicator();
-        }
-        @media only screen and (max-width: ( @break_fullwidth ) ) {
-          .font-size(28);
-          &:before {
-            width: 24px;
-            height: 24px;
-          }
-        }
-        @media only screen and (min-width: ( @break_fullwidth ) ) {
-          .font-size(42);
-          &:before {
-            width: 40px;
-            height: 40px;
-          }
-        }
-
-      }
-    }
-    a {
-      color: @txt;
-      display: block;
-      margin-right: 1rem;
-      line-height: .8;
-      margin-bottom: 1rem;
-      padding-top: 1rem;
-
-      &:hover,
-      &:focus,
-      &:active {
-        text-decoration: underline;
-        color: @txt;
-        span:after {
-          border-color: @txt;
-        }
-      }
-    }
-  }
-  p {
-    margin: 0;
-  }
-  h3 {
-    text-align: center;
-  }
-}
-
 
 #step-inleiding {
   background: @gc_a11y_green;
@@ -361,7 +256,6 @@ a.download {
   }
 }
 
-@breedte_terms: 13rem;
 
 .methode-classifications {
 	li {
@@ -384,11 +278,11 @@ a.download {
 	}
 	dt,
 	.term {
-		min-width: @breedte_terms;
+		min-width: @dl_terms_width_min;
 	}
 	dd,
 	.term-values {
-		max-width: ~"calc(100% - @{breedte_terms})";
+		max-width: ~"calc(100% - @{dl_terms_width_min})";
 	}
 }
 
