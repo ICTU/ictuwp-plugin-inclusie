@@ -551,7 +551,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                     }
                     echo '</div>'; // .page-intro__intro-text
 
-                    echo '<div class="grid grid--col-3 cards">';
+                    echo '<div class="grid grid--col-3">';
 
                     // loop through the rows of data
                     foreach ($stap_methodes as $post):
@@ -565,8 +565,9 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                         $section_link = get_sub_field('home_template_teaser_link');
                         $title_id = sanitize_title($section_title);
 
-                        echo '<div class="card no-image">';
-                        echo '<h3 id="' . $title_id . '"><a href="' . get_permalink($theid) . '">' . $section_title .
+                        echo '<div class="text-block">';
+                        echo '<h3 class="text-block__title" id="' . $title_id . '">'.
+                          '<a href="' . get_permalink($theid) . '">' . $section_title .
                           '<span class="btn btn--arrow"></span>' .
                           '</a></h3>';
                         echo '<p>';
@@ -578,7 +579,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
                     wp_reset_postdata();
 
-                    echo '</div>'; // class="grid grid--col-3 card
+                    echo '</div>'; // class="grid grid--col-3 text-block
                     echo '</section>';
 
                 endif;

@@ -54,8 +54,11 @@
 /*
 Imports
 ---------------------------------------------------------------------------------------------------- */
-@import "includes/_mixins"; 
-@import "includes/_variables-inclusie"; 
+@import "../../../themes/gebruiker-centraal/less/abstracts/_variables";
+@import "../../../themes/gebruiker-centraal/less/abstracts/_mixins";
+
+@import "includes/_mixins";
+@import "includes/_variables-inclusie";
 
 // colors, sizes */
 /*
@@ -63,14 +66,14 @@ Imports
  */
 @import "includes/_grid.less";                          // VERPLAATSEN NAAR THEME?
 @import "includes/_flexblock.less";                     // VERPLAATSEN NAAR THEME?
-@import "includes/_card.less";                          // VERPLAATSEN NAAR THEME?
-@import "includes/_btn";                                // VERPLAATSEN NAAR THEME?
+//@import "includes/_card.less";                          // VERPLAATSEN NAAR THEME?
+//@import "includes/_btn";                                // VERPLAATSEN NAAR THEME?
 
 @import "includes/_stepchart";                          // VERPLAATSEN NAAR THEME?
 @import "includes/_stepnav";                            // VERPLAATSEN NAAR THEME?
 @import "includes/_dos-donts";                          // VERPLAATSEN NAAR THEME?
 @import "includes/_section";                            // VERPLAATSEN NAAR THEME?
-@import "includes/_contentmenu";                        // VERPLAATSEN NAAR THEME?
+@import "includes/_contentmenu";                       // VERPLAATSEN NAAR THEME?
 
 @import "includes/_overview"; 	                        // VERPLAATSEN NAAR THEME? (?)
 
@@ -80,7 +83,7 @@ Imports
 @import "includes/_single_doelgroep.less";              // VERPLAATSEN NAAR THEME?
 
 // Inclusie specifiek
-@import "includes/_card-doelgroep";                     // VERPLAATSEN NAAR THEME?
+//@import "includes/_card-doelgroep";                     // VERPLAATSEN NAAR THEME?
 
 //@import "includes/_card-vaardigheden";                // zie theme
 
@@ -177,7 +180,7 @@ STYLING VAARDIGHEDEN
 
 #step-inleiding {
   background: @gc_a11y_green;
-  color: @wit;
+  color: @white;
   max-width: @contentwidth_960;
   margin-left: auto;
   margin-right: auto;
@@ -232,7 +235,7 @@ MISC. ELEMENTS
 
 .posttype-description,
 .taxonomy-description {
-  color: @wit;
+  color: @white;
 
   .archive-title {
     text-align: center;
@@ -296,9 +299,9 @@ details {
 	border: 5px solid transparent;
 
 	&[open] {
-		border-color: red;
+		border-color: @gc_grayblue;
 	}
-	
+
 	summary {
 		overflow: hidden;
 		border: 5px solid transparent;
