@@ -10,13 +10,35 @@
   background-color: @gc_pantybrown_light;
 }
 
-h1,
-.page .entry-header .entry-title {
-  .gc-heading-1;
-  padding: 0;
-  margin: 0;
-  text-transform: none;
-  letter-spacing: 0; //echt niet :(
+.page,
+.single-stap,
+.single-doelgroep,
+.single-procestip,
+.single-methode,
+.single-vaardigheden,
+.page-template-page_template_overzichtspagina {
+
+	.entry-header {
+		h1.entry-title {
+			.gc-heading-1();
+			padding: 0;
+			margin: 0;
+			text-transform: none;
+			
+			/*
+			// todo: op 'normale' pagina's wordt deze grootte overruled door 
+			.page .entry-header	.entry-title { .fontsize( 36 ); } (70-pagetypes.less)
+			om dit te overschrijven is dit nodig: .page, .page-template-page_template_overzichtspagina 
+			*/
+			.font-size(34);
+			line-height: 1;
+		}
+		@media only screen and ( min-width: ( @break_fullwidth )) {
+			.entry-title {
+				.font-size(70);
+			}
+		}
+	}
 }
 
 .breadcrumb > .wrap {
@@ -29,8 +51,8 @@ h1,
 
 .inleiding,
 .page-intro {
-  .gc-box-shadow;
-  .gc-content-container;
+  .gc-box-shadow();
+  .gc-content-container();
   background: @gc_a11y_green;
   color: @white;
 }
@@ -50,7 +72,7 @@ h1,
     .gc-box-shadow;
     padding: 2rem;
     background: @white;
-    max-width: @max-width-content;
+    max-width: @contentwidth_960;
     margin-left: auto;
     margin-right: auto;
     float: none;
@@ -63,28 +85,64 @@ h1,
       padding-top: 6rem;
     }
 
-    .inleiding {
-      .font-size(22);
-      padding: 2rem;
 
-      .wrap {
-        max-width: none;
-        padding: 0;
-        min-height: 1rem;
-      }
+	.inleiding {
+	
+		.font-size(22);
+		padding: 2rem;
+		
+		.wrap {
+			max-width: none;
+			padding: 0;
+			min-height: 1rem;
+		}
+		
+		.entry-content.wrap {
+			min-height: 8rem;
+			padding-top: 2rem;
+		}
 
-      .entry-content.wrap {
-        min-height: 8rem;
-        padding-top: 2rem;
-      }
+		&,
+		.wrap {
+			background-color: @color_primary;
+			
+			&, * {
+				color: @wit;
+			}
+		}
+		.entry-header {
+			padding-bottom: 0;
+		}
+		p {
+			margin-bottom: 0;
+			
+			& + p {
+				margin-top: 1rem;
+			}
+		}
+		.entry-header,
+		.entry-content {
+//			.gc-padding();
+		}
+	
+		@media only screen and ( min-width: ( @break_fullwidth )) {
+			padding-left: 5rem;
+			padding-right: 5rem;
 
-      @media only screen and ( min-width: ( @break_fullwidth )) {
-		padding-left: 5rem;
-		padding-right: 5rem;
-      }
-    }
+			.entry-content.wrap {
+				padding-top: 5rem;
+				padding-bottom: 5rem;
+				padding-left: 8rem;
+				padding-right: 8rem;
+			}
+			
+			p {
+				.font-size(20);
+			}
+		}
+	}
 
-  }
+}
 
   .full-width-content & {
     > .content {
@@ -95,7 +153,7 @@ h1,
     }
 
     > .entry.inleiding + .grid {
-      .gc-padding;
+      .gc-padding();
     }
   }
 
@@ -154,7 +212,7 @@ h1,
 }
 
 .page-intro__intro-text {
-  max-width: @max-width-inner;
+  max-width: @contentwidth_770;
   margin-left: auto;
   margin-right: auto;
   padding: 3rem 2rem;
@@ -205,7 +263,7 @@ h1,
 }
 
 #entry__intro {
-  max-width: @max-width-inner;
+  max-width: @contentwidth_770;
   margin-left: auto;
   margin-right: auto;
 

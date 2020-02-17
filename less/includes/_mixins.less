@@ -171,7 +171,7 @@
 
 .gc-section-heading() {
   .font-size(34);
-  font-family: @font-secondary;
+  font-family: @font_secondary;
   text-transform: uppercase;
   line-height: 40px;
 
@@ -182,7 +182,7 @@
 }
 
 .gc-content-container() {
-  max-width: @max-width-content;
+  max-width: @contentwidth_960;
   margin-left: auto;
   margin-right: auto;
 }
@@ -223,11 +223,7 @@
 //=========================================================================================================
 
 .gc_avatars( @classname: 'poppetje-1', @src: '../images/avatar/poppetje-1.svg' ) {
-  .doelgroepcard {
-    &.@{classname} {
-      background-image: url(@src);
-    }
-  }
+
   .doelgroep-tips-title.@{classname} span:after {
     background-image: url(@src);
   }

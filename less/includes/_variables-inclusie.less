@@ -1,4 +1,4 @@
-// Gebruiker Centraal - variables.less
+// Gebruiker Centraal - _variables-inclusie.less
 // ----------------------------------------------------------------------------------
 // bevat CSS voor frontend
 // ----------------------------------------------------------------------------------
@@ -55,7 +55,6 @@
 
 @white: #FFF;
 
-@color-primary: @gc_a11y_green;
 
 //=========================================================================================================
 
@@ -74,17 +73,18 @@
 @contentmaxwidth: 1180px;
 @contentwidth_960: 960px;
 @contentwidth_761: 761px;
+@contentwidth_770: 770px;
 @containermaxwidth: 1900px;
 
 // Gutters & Margins
 @gutter: 3rem;
 
-@spacer-default: 3rem;
-@spacer-med: 5rem;
-@spacer-large: 8rem;
+@spacer_default: 3rem;
+@spacer_medium: 5rem;
+@spacer_large: 8rem;
 
-@max-width-content: 960px;
-@max-width-inner: 770px;
+@dl_terms_width_min: 13rem;
+
 
 //=========================================================================================================
 
@@ -111,10 +111,13 @@
 
 @citaten_minheight: 30rem;
 
-@font-primary-reg: @headerfont2;
-@font-primary-bold: @bodyfont_bold;
+@font_primary_reg: @headerfont2;
+@font_primary_bold: @bodyfont_bold;
 
-@font-secondary: @headerfont;
+@font_secondary: @headerfont;
 
 //=========================================================================================================
+
+// Primary's & secondary's
+@color_primary:             @gc_a11y_green;
 
