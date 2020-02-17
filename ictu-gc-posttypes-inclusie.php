@@ -9,7 +9,7 @@
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for digitaleoverheid.nl to register custom post types and custom taxonomies 
     * Version:                1.1.6
-    * Version description:    Incremented version number, to prevent cache errors.
+    * Version description:    Functions from new version of GC-theme. Further integration.
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
     * License:                GPL-2.0+
@@ -784,6 +784,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         }
 
 
+
         //========================================================================================================
 
         /**
@@ -791,11 +792,62 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
          *
          * @return void
          */
-        public function ictu_gc_frontend_home_before_content() {
+        public function ictu_gc_frontend_home_template_stappen() {
 
             global $post;
 
 			ictu_gctheme_home_template_stappen( $post, '/wp-content/plugins/ictu-gc-posttypes-inclusie/images/stappenplan-bg-fullscreen.svg' );
+
+        }
+
+
+        //========================================================================================================
+
+        /**
+         * Register frontend styles
+         */
+        public function ictu_gc_frontend_home_template_doelgroepen() {
+
+            global $post;
+ 
+ 
+            if (have_rows('home_template_doelgroepen')):
+
+                $section_title	= _x('Doelgroepen', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie');
+                $title_id		= sanitize_title($section_title . '-' . $post->ID);
+                $posttype		= '';
+
+                echo '<div class="region region--content-top">' .
+                  '<div class="overview">' .
+                  // Items
+                  '<div class="overview__items grid grid--col-3">';
+
+                // loop through the rows of data
+                while (have_rows('home_template_doelgroepen')) : the_row();
+
+                    $doelgroep	= get_sub_field('home_template_doelgroepen_doelgroep');
+                    $citaat		= get_sub_field('home_template_doelgroepen_citaat');
+
+                    echo ictu_gctheme_card_doelgroep( $doelgroep, $citaat);
+
+                endwhile;
+
+                echo '</div>';
+
+                $doelgroeplink		= get_post_type_archive_link(ICTU_GC_CPT_DOELGROEP);
+                $label 				= _x('Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie'); // $obj->name;
+                $doelgroeppaginaid 	= get_field('themesettings_inclusie_doelgroeppagina', 'option');
+
+                if ($doelgroeppaginaid) {
+	                
+                    $doelgroeplink	= get_permalink($doelgroeppaginaid);
+                    $label			= get_the_title($doelgroeppaginaid);
+                    
+                }
+
+                echo '<a href="' . $doelgroeplink . '" class="cta ' . $posttype . '">' . $label . '</a>';
+
+            endif;
 
         }
 
@@ -938,8 +990,12 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 //* Remove the post content (requires HTML5 theme support)
                 remove_action('genesis_entry_content', 'genesis_do_post_content');
 
+                // stappen toevoegen
+                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_home_template_stappen' ), 8 );
+
                 // poppetje en citaat toevoegen
-                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_home_before_content' ), 8 );
+                add_action( 'genesis_entry_content', array( $this, 'ictu_gc_frontend_home_template_doelgroepen' ), 12 );
+
 
                 // append content
                 add_action( 'genesis_after_content', 'ictu_gctheme_home_template_teasers', 12 );
