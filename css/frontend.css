@@ -45,13 +45,13 @@ Imports
 ---------------------------------------------------------------------------------------------------- */
 .visuallyhidden {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
+  width: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
 }
 .visuallyvisual {
   border: inherit;
@@ -880,13 +880,13 @@ Imports
 @media only screen and (max-width: 800px) {
   .stepnav__linktext {
     border: 0;
-    clip: rect(0 0 0 0);
+    clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
+    width: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
   }
 }
 .dos-donts {
@@ -1255,13 +1255,22 @@ Imports
 #maincontent {
   background-color: #f2ebe4;
 }
+.home .entry-header h1.entry-title,
 .page .entry-header h1.entry-title,
 .single-stap .entry-header h1.entry-title,
 .single-doelgroep .entry-header h1.entry-title,
 .single-procestip .entry-header h1.entry-title,
 .single-methode .entry-header h1.entry-title,
 .single-vaardigheden .entry-header h1.entry-title,
-.page-template-page_template_overzichtspagina .entry-header h1.entry-title {
+.page-template-page_template_overzichtspagina .entry-header h1.entry-title,
+.home #entry__intro h1.entry-title,
+.page #entry__intro h1.entry-title,
+.single-stap #entry__intro h1.entry-title,
+.single-doelgroep #entry__intro h1.entry-title,
+.single-procestip #entry__intro h1.entry-title,
+.single-methode #entry__intro h1.entry-title,
+.single-vaardigheden #entry__intro h1.entry-title,
+.page-template-page_template_overzichtspagina #entry__intro h1.entry-title {
   font-size: 40px;
   font-size: 4rem;
   padding: 0;
@@ -1277,39 +1286,66 @@ Imports
   line-height: 1;
 }
 @media only screen and (min-width: 650px) {
+  .home .entry-header h1.entry-title,
   .page .entry-header h1.entry-title,
   .single-stap .entry-header h1.entry-title,
   .single-doelgroep .entry-header h1.entry-title,
   .single-procestip .entry-header h1.entry-title,
   .single-methode .entry-header h1.entry-title,
   .single-vaardigheden .entry-header h1.entry-title,
-  .page-template-page_template_overzichtspagina .entry-header h1.entry-title {
+  .page-template-page_template_overzichtspagina .entry-header h1.entry-title,
+  .home #entry__intro h1.entry-title,
+  .page #entry__intro h1.entry-title,
+  .single-stap #entry__intro h1.entry-title,
+  .single-doelgroep #entry__intro h1.entry-title,
+  .single-procestip #entry__intro h1.entry-title,
+  .single-methode #entry__intro h1.entry-title,
+  .single-vaardigheden #entry__intro h1.entry-title,
+  .page-template-page_template_overzichtspagina #entry__intro h1.entry-title {
     font-size: 44px;
     font-size: 4.4rem;
     line-height: 48px;
   }
 }
 @media only screen and (min-width: 800px) {
+  .home .entry-header h1.entry-title,
   .page .entry-header h1.entry-title,
   .single-stap .entry-header h1.entry-title,
   .single-doelgroep .entry-header h1.entry-title,
   .single-procestip .entry-header h1.entry-title,
   .single-methode .entry-header h1.entry-title,
   .single-vaardigheden .entry-header h1.entry-title,
-  .page-template-page_template_overzichtspagina .entry-header h1.entry-title {
+  .page-template-page_template_overzichtspagina .entry-header h1.entry-title,
+  .home #entry__intro h1.entry-title,
+  .page #entry__intro h1.entry-title,
+  .single-stap #entry__intro h1.entry-title,
+  .single-doelgroep #entry__intro h1.entry-title,
+  .single-procestip #entry__intro h1.entry-title,
+  .single-methode #entry__intro h1.entry-title,
+  .single-vaardigheden #entry__intro h1.entry-title,
+  .page-template-page_template_overzichtspagina #entry__intro h1.entry-title {
     font-size: 68px;
     font-size: 6.8rem;
     line-height: 76px;
   }
 }
 @media only screen and (min-width: 800px) {
+  .home .entry-header .entry-title,
   .page .entry-header .entry-title,
   .single-stap .entry-header .entry-title,
   .single-doelgroep .entry-header .entry-title,
   .single-procestip .entry-header .entry-title,
   .single-methode .entry-header .entry-title,
   .single-vaardigheden .entry-header .entry-title,
-  .page-template-page_template_overzichtspagina .entry-header .entry-title {
+  .page-template-page_template_overzichtspagina .entry-header .entry-title,
+  .home #entry__intro .entry-title,
+  .page #entry__intro .entry-title,
+  .single-stap #entry__intro .entry-title,
+  .single-doelgroep #entry__intro .entry-title,
+  .single-procestip #entry__intro .entry-title,
+  .single-methode #entry__intro .entry-title,
+  .single-vaardigheden #entry__intro .entry-title,
+  .page-template-page_template_overzichtspagina #entry__intro .entry-title {
     font-size: 70px;
     font-size: 7rem;
   }
@@ -1526,7 +1562,6 @@ Imports
   margin: 0;
   padding: 0;
   color: #FFF;
-  text-transform: uppercase;
   max-width: 50rem;
 }
 .region--intro .entry-title + p {
