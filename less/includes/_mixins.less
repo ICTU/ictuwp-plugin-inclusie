@@ -56,27 +56,6 @@
 
 //========================================================================================================
 
-.font-size(@input) {
-	// deze mixin zet een font-size in px en in een rem-size.
-	// dit zorgt ervoor dat we de grootte uit het ontwerp kunnen gebruiken als 
-	// een relatieve lettergrootte.
-	// px als maat voor lettergroottes zijn de absolute satan voor toegankelijkheid
-	// want daarmee beperk je de gebruiker in zijn vrijheid om zelf een leesbare
-	// lettergrootte te kiezen.
-	// door een relatieve grootte te gebruiken, houden we die vrijheid in stand.
-	//
-	// @input-70 levert dit op:
-	// font-size: 70px;
-	// font-size: 7rem;	
-	
-	
-	font-size: ( ( ( @input / @basefontsize ) * @basefontsize ) * @pixel ); // @input
-	font-size: ( ( @input / @basefontsize ) * @baserem );
-
-}
-
-//========================================================================================================
-
 .icon_vaardigheden( @classname: 'default', @src: '../images/icons/vaardigheden/aandacht.svg' ) {
 
   @fill-old: '#148839';
@@ -149,62 +128,6 @@
   speak: none;
 }
 
-//=========================================================================================================
-
-.gc-padding() {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-
-  @media only screen and ( min-width: @break_fullwidth ) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-}
-
-//=========================================================================================================
-
-.gc-box-shadow() {
-  box-shadow: 4px 4px 0 rgba(#000, 0.1);
-}
-
-//=========================================================================================================
-
-.gc-section-heading() {
-  .font-size(34);
-  font-family: @font_secondary;
-  text-transform: uppercase;
-  line-height: 40px;
-
-  @media only screen and ( min-width: @break_fullwidth ) {
-    .font-size(46);
-    line-height: 50px;
-  }
-}
-
-.gc-content-container() {
-  max-width: @contentwidth_960;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.gc-font-small() {
-  font-size: 15px;
-  line-height: 22px;
-}
-
-.gc-heading-1() {
-  .font-size(40);
-
-  @media only screen and ( min-width: @break_tablet ) {
-    .font-size(44);
-    line-height: 48px;
-  }
-
-  @media only screen and ( min-width: @break_fullwidth ) {
-    .font-size(68);
-    line-height: 76px;
-  }
-}
 
 //=========================================================================================================
 

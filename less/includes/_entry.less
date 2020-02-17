@@ -10,6 +10,7 @@
   background-color: @gc_pantybrown_light;
 }
 
+/* Niet doen dit plz, Je titel gewoon correct definieren.
 .page,
 .single-stap,
 .single-doelgroep,
@@ -20,26 +21,32 @@
 
 	.entry-header {
 		h1.entry-title {
-			.gc-heading-1();
 			padding: 0;
 			margin: 0;
 			text-transform: none;
-			
+
 			/*
-			// todo: op 'normale' pagina's wordt deze grootte overruled door 
+			// todo: op 'normale' pagina's wordt deze grootte overruled door
 			.page .entry-header	.entry-title { .fontsize( 36 ); } (70-pagetypes.less)
-			om dit te overschrijven is dit nodig: .page, .page-template-page_template_overzichtspagina 
-			*/
+			om dit te overschrijven is dit nodig: .page, .page-template-page_template_overzichtspagina
+
 			.font-size(34);
 			line-height: 1;
 		}
-		@media only screen and ( min-width: ( @break_fullwidth )) {
-			.entry-title {
-				.font-size(70);
-			}
-		}
 	}
+}*/
+
+.entry-title {
+  font-size: 4.2rem;
+  line-height: 4.4rem;
+  text-transform: none;
+
+  @media @desktop {
+    font-size: 6.8rem;
+    line-height: 6.8rem;
+  }
 }
+
 
 .breadcrumb > .wrap {
   max-width: @contentmaxwidth;
@@ -212,7 +219,7 @@
 }
 
 .page-intro__intro-text {
-  max-width: @contentwidth_770;
+  max-width: @max-width-inner;
   margin-left: auto;
   margin-right: auto;
   padding: 3rem 2rem;
@@ -263,7 +270,7 @@
 }
 
 #entry__intro {
-  max-width: @contentwidth_770;
+  max-width: @max-width-inner;
   margin-left: auto;
   margin-right: auto;
 

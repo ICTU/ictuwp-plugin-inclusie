@@ -565,14 +565,17 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                         $section_link = get_sub_field('home_template_teaser_link');
                         $title_id = sanitize_title($section_title);
 
-                        echo '<div class="text-block">';
-                        echo '<h3 class="text-block__title" id="' . $title_id . '">'.
-                          '<a href="' . get_permalink($theid) . '">' . $section_title .
-                          '<span class="btn btn--arrow"></span>' .
+                        echo '<div class="card">';
+                        echo '<div class="card__content">';
+                        echo '<h3 class="card__title" id="' . $title_id . '">'.
+                          '<a class="arrow-link" href="' . get_permalink($theid) . '">' .
+                          '<span class="arrow-link__text">' . $section_title . '</span>' .
+                          '<span class="arrow-link__icon"></span>' .
                           '</a></h3>';
                         echo '<p>';
                         echo $section_text;
                         echo '</p>';
+                        echo '</div>';
                         echo '</div>';
 
                     endforeach;
