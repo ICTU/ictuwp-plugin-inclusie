@@ -43,20 +43,15 @@
 /*
 Imports
 ---------------------------------------------------------------------------------------------------- */
-/* Typografie */
-/* Default variables for textblocks */
-/* Chart */
-/* Nav */
 .visuallyhidden {
-  clip: rect(1px, 1px, 1px, 1px);
   border: 0;
-  clip: rect(0 0 0 0);
+  clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
+  width: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
 }
 .visuallyvisual {
   border: inherit;
@@ -68,6 +63,322 @@ Imports
   position: inherit;
   width: auto;
 }
+/*
+ * Includes / Compoments
+ */
+.grid > div,
+.grid > section {
+  margin-top: 3rem;
+}
+@media only screen and (min-width: 500px) {
+  .grid {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .grid--col-3 > div,
+  .grid--col-3 > section {
+    width: calc(50% - 3rem);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  .grid--col-3 > div:first-child,
+  .grid--col-3 > section:first-child {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .grid--col-3 > div,
+  .grid--col-3 > section {
+    width: calc(33.333% - 3rem);
+  }
+  .grid--col-3 > div:first-child,
+  .grid--col-3 > section:first-child {
+    width: calc(33.333% - 3rem);
+  }
+}
+@media only screen and (min-width: 500px) {
+  .grid--col-2 > div,
+  .grid--col-2 > section {
+    width: calc(50% - 3rem);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+.flexbox {
+  /* > section {
+   // margin-top: @gutter;
+  }
+
+/@media only screen and ( min-width: ( @break_phone ) ) {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .card {
+      width: 33.333%;
+    }
+  }*/
+}
+.card {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  background: #FFF;
+  position: relative;
+  padding: 2rem;
+}
+@media only screen and (min-width: 800px) {
+  .card {
+    padding: 2rem 3rem;
+  }
+  .card h2,
+  .card h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+.card h2,
+.card h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+}
+.card h2 a,
+.card h3 a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: flex;
+  padding-top: 0.8rem;
+}
+.card h2 a .btn,
+.card h3 a .btn {
+  height: 5rem;
+  margin-right: -1rem;
+  margin-top: -0.8rem;
+}
+.card h2 a .btn--arrow,
+.card h3 a .btn--arrow {
+  margin-left: auto;
+}
+.card h2 a:hover,
+.card h3 a:hover,
+.card h2 a:focus,
+.card h3 a:focus {
+  text-decoration: underline;
+}
+.card h2 a:hover .btn,
+.card h3 a:hover .btn,
+.card h2 a:focus .btn,
+.card h3 a:focus .btn {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border-color: #004152;
+}
+.card h2 + p,
+.card h3 + p {
+  margin-top: 2rem;
+}
+.card > p {
+  margin-right: 1.5rem;
+}
+.card .card__content {
+  padding: 0;
+  background: none;
+}
+.card .card__content:before {
+  display: none;
+}
+.card .card__content:after {
+  position: absolute;
+  content: " ";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+  height: 7rem;
+  z-index: -1;
+  speak: none;
+}
+.card .card__content h2 {
+  font-size: 40px;
+  font-size: 4rem;
+  margin-top: -5rem;
+  padding: 3rem 2rem 1.5rem 3rem;
+  min-height: 11rem;
+}
+.card .card__content h2,
+.card .card__content h3 {
+  background: none;
+  overflow: hidden;
+  position: relative;
+}
+.card .card__content h2 a,
+.card .card__content h3 a {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card .card__content h2:before,
+.card .card__content h3:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 17rem;
+  background: #FFF;
+  margin: 0.7rem -2rem 0;
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+  z-index: -1;
+  speak: none;
+}
+.card .card__content h2 span,
+.card .card__content h3 span {
+  display: block;
+}
+.card .card__content h2 span:first-child,
+.card .card__content h3 span:first-child {
+  width: 100%;
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-family: 'montserrat_semiboldregular', Helvetica, Arial, sans-serif;
+  text-transform: none;
+  margin-bottom: 0.8rem;
+}
+@media only screen and (min-width: 800px) {
+  .card .card__content h2,
+  .card .card__content h3 {
+    font-size: 44px;
+    font-size: 4.4rem;
+  }
+}
+.tegeltje p {
+  margin: 0;
+}
+.card__content {
+  background: #FFF;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  padding: 0 3rem 1.5rem;
+}
+.card__content:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 5rem;
+  background: #FFF;
+  z-index: -1;
+  margin: -1rem -2rem 0;
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+  speak: none;
+}
+.card__content h2 {
+  font-size: 32px;
+  line-height: 34px;
+  padding-right: 5rem;
+  overflow: hidden;
+}
+@media only screen and (min-width: 650px) {
+  .card__content h2 {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}
+.card__content h2 a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: flex;
+}
+.card__content h2 a .btn--arrow {
+  margin-left: auto;
+}
+.card__content h2 a:hover,
+.card__content h2 a:focus {
+  text-decoration: underline;
+}
+.card__content h2 a:hover .btn,
+.card__content h2 a:focus .btn {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border-color: #004152;
+}
+.cta {
+  margin-top: 2rem;
+}
+.btn {
+  display: inline-block;
+}
+.btn--arrow {
+  background: url('../images/arrow-right-blue.svg') center center no-repeat;
+  background-size: 12px auto;
+  min-width: 3.6rem;
+  display: inline-block;
+  border: 1px solid #fff;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.btn--arrow:hover {
+  border-color: #004152;
+  box-shadow: 4px 4px 0 #e2e2e2;
+}
+.btn--close {
+  background: url('../images/cross.svg') center center no-repeat;
+  background-size: 18px auto;
+  padding: 0;
+  width: 3.6rem;
+  height: 4.6rem;
+  color: transparent;
+  border: 0.1rem solid transparent;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.btn--close:hover,
+.btn--close:focus {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border-color: #D1DFE3;
+  color: transparent;
+}
+.btn--download {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem 1rem 4.4rem;
+  font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  background: #F05A24 url('../images/icon-download.svg') 16px center no-repeat;
+  font-size: 2.6rem;
+  line-height: 2.6rem;
+  text-decoration: none;
+  color: #FFF;
+  -webkit-transition: padding 0.2s, background-color 0.2s;
+  transition: padding 0.2s, background-color 0.2s;
+}
+.entry-content .btn--download {
+  color: #FFF;
+}
+.entry-content .btn--download:hover,
+.entry-content .btn--download:focus {
+  color: #FFF;
+}
+.btn--download:hover,
+.btn--download:focus {
+  padding-left: 4.6rem;
+  text-decoration: underline;
+  background-color: #D94721;
+}
+.btn--toggle-menu {
+  min-width: 12rem;
+}
 .stepchart {
   position: relative;
   max-width: 770px;
@@ -75,11 +386,6 @@ Imports
   margin-right: auto;
 }
 @media only screen and (min-width: 650px) {
-  .stepchart {
-    margin-top: -4rem;
-  }
-}
-@media only screen and (min-width: 960px) {
   .stepchart {
     margin-top: -13rem;
   }
@@ -106,8 +412,7 @@ Imports
 }
 @media only screen and (max-width: 650px) {
   .stepchart__item {
-    -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
     margin-top: 3rem;
   }
 }
@@ -147,7 +452,7 @@ Imports
 }
 .stepchart__description {
   background: #fff;
-  color: #004152;
+  color: #00303d;
   padding: 2rem;
 }
 .stepchart__description .cta {
@@ -166,8 +471,7 @@ Imports
 }
 @media only screen and (min-width: 650px) {
   .stepchart__description {
-    -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
     position: absolute;
     bottom: 13.5rem;
     width: 40rem;
@@ -202,7 +506,7 @@ Imports
     border-top-color: rgba(0, 0, 0, 0.1);
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .stepchart__description {
     width: 50rem;
     margin-left: -25rem;
@@ -235,19 +539,17 @@ Imports
   border: none;
   outline: none;
 }
-@media only screen and (max-width: calc(650px - 1px)) {
+@media only screen and (max-width: 650px) {
   .btn--stepchart {
     font-size: 26px;
     font-size: 2.6rem;
     text-align: left;
     display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    background: #148839;
+    background: #148839 url('../images/icon-identificeer.svg') 14px center no-repeat;
     background-size: 30px auto;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem 1rem 5.5rem;
     -webkit-box-align: center;
-        -ms-flex-align: center;
             align-items: center;
     -webkit-transition: background-color 0.2s;
     transition: background-color 0.2s;
@@ -266,7 +568,7 @@ Imports
   .btn--stepchart:hover,
   .btn--stepchart:focus {
     text-decoration: underline;
-    background-color: #0d5c26;
+    background-color: #0b732c;
     color: #fff;
     border: none;
     outline: none;
@@ -276,6 +578,18 @@ Imports
     background: transparent url(../images/arrow-down.svg) center center no-repeat;
     border-color: #fff;
   }
+  .btn--stepchart.verdiep {
+    background-image: url('../images/icon-verdiep.svg');
+  }
+  .btn--stepchart.ontwerp {
+    background-image: url('../images/icon-ontwerp.svg');
+  }
+  .btn--stepchart.evalueer {
+    background-image: url('../images/icon-evalueer.svg');
+  }
+  .btn--stepchart.deel {
+    background-image: url('../images/icon-deel.svg');
+  }
 }
 @media only screen and (min-width: 650px) {
   .btn--stepchart {
@@ -283,99 +597,74 @@ Imports
     width: 140px;
     height: 120px;
     display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
             flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
             align-items: center;
-    padding: 1.5rem 0 0 0;
-    position: relative;
-    z-index: 5;
-  }
-  .btn--stepchart:before {
-    content: " ";
-    position: absolute;
-    width: 8rem;
-    height: 8rem;
-    background: #f99d1c;
-    border-radius: 50%;
-    z-index: -1;
-    top: 0;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
+    padding: 0;
   }
   .btn--stepchart:hover,
   .btn--stepchart:focus {
-    text-decoration: underline;
     background: none;
+    border: none;
+  }
+  .btn--stepchart:hover .btn__text,
+  .btn--stepchart:focus .btn__text {
     color: #fff;
-  }
-  .btn--stepchart:hover:before,
-  .btn--stepchart:focus:before {
-    background: #fab24e;
-  }
-  .btn--stepchart:hover .icon--stepchart,
-  .btn--stepchart:focus .icon--stepchart {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-}
-@media only screen and (min-width: 960px) {
-  .btn--stepchart:before {
-    width: 9.6rem;
-    height: 9.6rem;
-    background: #f99d1c;
-  }
-}
-.icon--stepchart {
-  width: 3rem;
-  height: 3.5rem;
-  display: inline-block;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -webkit-transform 0.2s;
-  transition: transform 0.2s;
-  transition: transform 0.2s, -webkit-transform 0.2s;
-}
-@media only screen and (max-width: calc(650px - 1px)) {
-  .icon--stepchart {
-    margin-right: 1.5rem;
-    fill: #fff;
-  }
-}
-@media only screen and (min-width: 650px) {
-  .icon--stepchart {
-    width: 6rem;
-    height: 5.5rem;
-    fill: #fff;
+    text-decoration: underline;
+    background: #0b732c;
     position: relative;
+    z-index: 5;
+  }
+  .btn--stepchart:hover .btn__icon,
+  .btn--stepchart:focus .btn__icon {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+    background-color: #fab24e;
+  }
+  .btn--stepchart .btn__icon {
+    background: #F89D1D url('../images/icon-identificeer.svg') center center no-repeat;
+    background-size: 55px auto;
+    display: block;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    -webkit-transition: background-color 0.2s, -webkit-transform 0.2s;
+    transition: background-color 0.2s, -webkit-transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+  }
+  .btn--stepchart .btn__text {
+    font-size: 24px;
+    font-size: 2.4rem;
+    background: #148839;
+    padding: 0.6rem 1.2rem;
+    line-height: 2.8rem;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin-top: -1.3rem;
   }
 }
-@media only screen and (min-width: 650px) {
-  .btn__text {
-    -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    color: white;
-    background: #148839;
-    margin-top: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 2.4rem;
-    line-height: 2.4rem;
-  }
+.verdiep .btn__icon {
+  background-image: url('../images/icon-verdiep.svg');
+}
+.ontwerp .btn__icon {
+  background-image: url('../images/icon-ontwerp.svg');
+}
+.evalueer .btn__icon {
+  background-image: url('../images/icon-evalueer.svg');
+}
+.deel .btn__icon {
+  background-image: url('../images/icon-deel.svg');
 }
 .stepnav {
-  padding-bottom: 5rem;
+  padding: 3rem 0 3rem;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+  height: 15rem;
   -webkit-box-align: end;
-      -ms-flex-align: end;
           align-items: flex-end;
-  height: 20rem;
   position: relative;
 }
 .stepnav:before {
@@ -387,17 +676,12 @@ Imports
   right: 0;
   top: 0;
   bottom: 0;
-  background: #D94721;
+  background: #C73D19;
   speak: none;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 800px) {
   .stepnav {
-    height: 26rem;
-  }
-}
-@media only screen and (min-width: 960px) {
-  .stepnav {
-    padding-bottom: 17rem;
+    padding: 10rem 0 17rem;
     height: 42rem;
   }
 }
@@ -405,29 +689,26 @@ Imports
   padding: 0;
   margin: 0 auto;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
           justify-content: space-between;
   counter-reset: stepnav;
   max-width: 960px;
-  position: relative;
 }
 .stepnav__items:before,
 .stepnav__items:after {
   position: absolute;
   display: block;
   content: " ";
-  top: 50%;
-  height: 5.5rem;
+  top: 0;
+  height: 6.5rem;
   width: auto;
   background: url('../images/b-stepnav.svg') 0 100% no-repeat;
   background-size: 350px auto;
   z-index: 15;
+  border: none;
   speak: none;
-  margin-top: -10rem;
 }
 .stepnav__items:before {
   right: 50%;
@@ -439,25 +720,25 @@ Imports
   right: 29%;
   background-position: 100% 100%;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 800px) {
   .stepnav__items {
     height: 11rem;
   }
   .stepnav__items:before,
   .stepnav__items:after {
-    margin-top: -13rem;
+    background-size: 450px auto;
+    height: 12rem;
   }
   .stepnav__items:before {
-    left: 29%;
+    left: 32.5%;
   }
   .stepnav__items:after {
-    right: 29%;
+    right: 33%;
   }
 }
 .stepnav__step {
   list-style: none;
   -webkit-box-flex: 1;
-      -ms-flex: 1;
           flex: 1;
   text-align: center;
   position: relative;
@@ -480,7 +761,7 @@ Imports
 }
 .stepnav__step:first-child:before,
 .stepnav__step:nth-last-child(2):before {
-  background: #b03616;
+  background: #F05A24;
 }
 .stepnav__step:first-child:before {
   left: 50%;
@@ -488,7 +769,7 @@ Imports
 .stepnav__step:last-child:before {
   display: none;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .stepnav__step:before {
     height: 0.7rem;
     top: 3.9rem;
@@ -496,186 +777,126 @@ Imports
 }
 .stepnav__link {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
   z-index: 5;
   text-decoration: none;
-  padding-top: 1.2rem;
 }
 .stepnav__link:before {
-  content: " ";
-  position: absolute;
-  width: 5.5rem;
-  height: 5.5rem;
-  top: 0;
-  left: 50%;
-  margin-left: -2.75rem;
-  background: #f99d1c;
-  z-index: -1;
-  border-radius: 50%;
-  -webkit-transition: background 0.2s, -webkit-transform 0.2s;
-  transition: background 0.2s, -webkit-transform 0.2s;
-  transition: background 0.2s, transform 0.2s;
-  transition: background 0.2s, transform 0.2s, -webkit-transform 0.2s;
-  outline: 1rem solid #D94721;
-}
-@media only screen and (min-width: 960px) {
-  .stepnav__link {
-    padding-top: 1.4rem;
-  }
-  .stepnav__link:before {
-    width: 8.4rem;
-    height: 8.4rem;
-    margin-left: -4.2rem;
-    outline: 1.5rem solid #D94721;
-  }
+  display: none;
 }
 .stepnav__link span {
   position: relative;
   z-index: 1;
-}
-.stepnav__link:hover:before,
-.stepnav__link:focus:before,
-.stepnav__link.is-active:before {
-  background: #f99d1c;
 }
 .stepnav__link:hover .stepnav__linktext,
 .stepnav__link:focus .stepnav__linktext,
 .stepnav__link.is-active .stepnav__linktext {
   text-decoration: underline;
 }
-.stepnav__link:hover:before,
-.stepnav__link:focus:before {
+.stepnav__link:hover .stepnav__icon,
+.stepnav__link:focus .stepnav__icon,
+.stepnav__link.is-active .stepnav__icon {
+  background-color: #f2ebe4;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
-.stepnav__link:hover .icon--stepnav,
-.stepnav__link:focus .icon--stepnav {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+.stepnav__link:hover .stepnav__icon.icon--identificeer,
+.stepnav__link:focus .stepnav__icon.icon--identificeer,
+.stepnav__link.is-active .stepnav__icon.icon--identificeer {
+  background-image: url('../images/icon-identificeer-blue.svg');
 }
-.icon--stepnav {
+.stepnav__link:hover .stepnav__icon.icon--deel,
+.stepnav__link:focus .stepnav__icon.icon--deel,
+.stepnav__link.is-active .stepnav__icon.icon--deel {
+  background-image: url('../images/icon-deel-blue.svg');
+}
+.stepnav__link:hover .stepnav__icon.icon--evalueer,
+.stepnav__link:focus .stepnav__icon.icon--evalueer,
+.stepnav__link.is-active .stepnav__icon.icon--evalueer {
+  background-image: url('../images/icon-evalueer-blue.svg');
+}
+.stepnav__link:hover .stepnav__icon.icon--ontwerp,
+.stepnav__link:focus .stepnav__icon.icon--ontwerp,
+.stepnav__link.is-active .stepnav__icon.icon--ontwerp {
+  background-image: url('../images/icon-ontwerp-blue.svg');
+}
+.stepnav__link:hover .stepnav__icon.icon--verdiep,
+.stepnav__link:focus .stepnav__icon.icon--verdiep,
+.stepnav__link.is-active .stepnav__icon.icon--verdiep {
+  background-image: url('../images/icon-verdiep-blue.svg');
+}
+.stepnav__icon {
   display: inline-block;
-  width: 3rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: #F89D1D url('../images/icon-identificeer.svg') center center no-repeat;
+  background-size: 65% auto;
+  margin: 0 auto;
+  border-radius: 50rem;
   -webkit-transition: background-color 0.2s, -webkit-transform 0.2s;
   transition: background-color 0.2s, -webkit-transform 0.2s;
   transition: background-color 0.2s, transform 0.2s;
   transition: background-color 0.2s, transform 0.2s, -webkit-transform 0.2s;
-  fill: #fff;
+  outline: 0.7rem solid #C73D19;
 }
-.is-active .icon--stepnav {
-  color: #fff;
+.stepnav__icon.icon--deel {
+  background-image: url('../images/icon-deel.svg');
 }
-@media only screen and (min-width: 960px) {
-  .icon--stepnav {
-    width: 5rem;
-    height: 5.5rem;
+.stepnav__icon.icon--evalueer {
+  background-image: url('../images/icon-evalueer.svg');
+}
+.stepnav__icon.icon--ontwerp {
+  background-image: url('../images/icon-ontwerp.svg');
+}
+.stepnav__icon.icon--verdiep {
+  background-image: url('../images/icon-verdiep.svg');
+}
+@media only screen and (min-width: 500px) {
+  .stepnav__icon {
+    outline-width: 1.5rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .stepnav__icon {
+    width: 8.5rem;
+    height: 8.5rem;
+    background-size: 50% auto;
+    outline-width: 2.5rem;
   }
 }
 .stepnav__linktext {
   font-size: 16px;
   font-size: 1.6rem;
   font-family: 'montserratbold', Helvetica, Arial, sans-serif;
-  color: #fff;
-  margin-top: 2.5rem;
+  color: #FFF;
+  margin-top: 1.6rem;
 }
-@media only screen and (max-width: calc(650px - 1px)) {
+@media only screen and (max-width: 800px) {
   .stepnav__linktext {
-    clip: rect(1px, 1px, 1px, 1px);
     border: 0;
-    clip: rect(0 0 0 0);
+    clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
+    width: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
   }
-}
-/*
- * Includes / Compoments
- */
-.grid > div,
-.grid > section {
-  margin-top: 3rem;
-}
-@media only screen and (min-width: 500px) {
-  .grid {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-  }
-}
-@media only screen and (min-width: 500px) {
-  .grid--col-3 > div,
-  .grid--col-3 > section {
-    width: calc(50% - 3rem);
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-  .grid--col-3 > div:first-child,
-  .grid--col-3 > section:first-child {
-    width: 100%;
-  }
-}
-@media only screen and (min-width: 960px) {
-  .grid--col-3 > div,
-  .grid--col-3 > section {
-    width: calc(33.333% - 3rem);
-  }
-  .grid--col-3 > div:first-child,
-  .grid--col-3 > section:first-child {
-    width: calc(33.333% - 3rem);
-  }
-}
-@media only screen and (min-width: 500px) {
-  .grid--col-2 > div,
-  .grid--col-2 > section {
-    width: calc(50% - 3rem);
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-}
-.flexbox {
-  /* > section {
-   // margin-top: @gutter;
-  }
-
-/@media only screen and ( min-width: ( @break_phone ) ) {
-    display: flex;
-    flex-wrap: nowrap;
-
-    .card {
-      width: 33.333%;
-    }
-  }*/
 }
 .dos-donts {
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   border: 0.1rem solid #D1DFE3;
   margin-top: 3rem;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .dos-donts {
     display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 }
@@ -689,10 +910,9 @@ Imports
   font-family: 'montserratbold', Helvetica, Arial, sans-serif;
   text-transform: none;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .dos-donts__column {
     -webkit-box-flex: 1;
-        -ms-flex: 1;
             flex: 1;
   }
 }
@@ -711,6 +931,28 @@ Imports
 }
 .dos-donts__column.col--donts li {
   list-style-image: url(../images/list-item-dont.svg);
+}
+.section__title {
+  padding: 2rem 0;
+  border-top: 0.2rem solid #D1DFE3;
+  margin-top: 3rem;
+}
+@media only screen and (min-width: 500px) {
+  .section__title {
+    margin-top: 5rem;
+  }
+}
+.content .section__title {
+  font-size: 38px;
+  font-size: 3.8rem;
+  text-transform: none;
+  font-weight: normal;
+}
+@media only screen and (min-width: 800px) {
+  .content .section__title {
+    font-size: 48px;
+    font-size: 4.8rem;
+  }
 }
 .l-content-menu-wrapper {
   -webkit-transition: padding 0.2s;
@@ -731,13 +973,13 @@ Imports
   margin-left: auto;
   margin-right: auto;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .l-content-menu-wrapper .l-inner {
     padding: 3rem 5rem;
   }
 }
 .entry-content .content-menu__link {
-  color: #fff;
+  color: #FFF;
 }
 .entry-content .content-menu__menu {
   padding: 0;
@@ -753,10 +995,9 @@ Imports
   -webkit-transition: padding 0.2s, max-height 0.4s;
   transition: padding 0.2s, max-height 0.4s;
   position: relative;
-  -webkit-box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .content-menu .l-inner {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -779,7 +1020,7 @@ Imports
   padding-bottom: 2rem;
   max-height: 50rem;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .content-menu.open .l-inner {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -795,7 +1036,7 @@ Imports
 .open .content-menu__menu {
   opacity: 1;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .content-menu__menu {
     -webkit-column-count: 2;
        -moz-column-count: 2;
@@ -805,7 +1046,7 @@ Imports
 .content .content-menu__title {
   font-size: 20px;
   font-size: 2rem;
-  color: #fff;
+  color: #FFF;
   font-family: 'montserratbold', Helvetica, Arial, sans-serif;
   text-transform: none;
 }
@@ -820,12 +1061,12 @@ Imports
 .open .content-menu__item {
   opacity: 1;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .content-menu__item {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    padding-right: 3rem / 2;
+    padding-left: 3rem / 2;
+    margin-right: -3rem / 2;
+    margin-left: -3rem / 2;
   }
 }
 .content-menu__link {
@@ -850,7 +1091,7 @@ Imports
 .content-menu__link:hover {
   text-decoration: underline;
   padding-left: 2.1rem;
-  color: #fff !important;
+  color: #FFF !important;
 }
 .content-menu__link.active {
   padding-left: 2.3rem;
@@ -900,7 +1141,7 @@ Imports
 .btn--trigger-open:hover {
   background: none;
   text-decoration: none;
-  color: #fff;
+  color: #FFF;
   outline: none;
 }
 .btn--trigger-open:focus:before,
@@ -942,13 +1183,10 @@ Imports
   padding: 0.3rem 1rem 0.3rem 2rem;
   background: #148839;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
           align-items: center;
   text-transform: uppercase;
 }
@@ -985,7 +1223,7 @@ Imports
 }
 .capability__title.has-focus {
   background: #148839;
-  color: #fff;
+  color: #FFF;
 }
 .capability__title.has-focus .capability__icon {
   background-color: #f9f6f3;
@@ -1017,31 +1255,101 @@ Imports
 #maincontent {
   background-color: #f2ebe4;
 }
-/* Niet doen dit plz, Je titel gewoon correct definieren.
-.page,
-.single-stap,
-.single-doelgroep,
-.single-procestip,
-.single-methode,
-.single-vaardigheden,
-.page-template-page_template_overzichtspagina {
-
-	.entry-header {
-		h1.entry-title {
-			padding: 0;
-			margin: 0;
-			text-transform: none;
-
-			/*
-			// todo: op 'normale' pagina's wordt deze grootte overruled door
+.home .entry-header h1.entry-title,
+.page .entry-header h1.entry-title,
+.single-stap .entry-header h1.entry-title,
+.single-doelgroep .entry-header h1.entry-title,
+.single-procestip .entry-header h1.entry-title,
+.single-methode .entry-header h1.entry-title,
+.single-vaardigheden .entry-header h1.entry-title,
+.page-template-page_template_overzichtspagina .entry-header h1.entry-title,
+.home #entry__intro h1.entry-title,
+.page #entry__intro h1.entry-title,
+.single-stap #entry__intro h1.entry-title,
+.single-doelgroep #entry__intro h1.entry-title,
+.single-procestip #entry__intro h1.entry-title,
+.single-methode #entry__intro h1.entry-title,
+.single-vaardigheden #entry__intro h1.entry-title,
+.page-template-page_template_overzichtspagina #entry__intro h1.entry-title {
+  font-size: 40px;
+  font-size: 4rem;
+  padding: 0;
+  margin: 0;
+  text-transform: none;
+  /*
+			// todo: op 'normale' pagina's wordt deze grootte overruled door 
 			.page .entry-header	.entry-title { .fontsize( 36 ); } (70-pagetypes.less)
-			om dit te overschrijven is dit nodig: .page, .page-template-page_template_overzichtspagina
-
-			.font-size(34);
-			line-height: 1;
-		}
-	}
-}*/
+			om dit te overschrijven is dit nodig: .page, .page-template-page_template_overzichtspagina 
+			*/
+  font-size: 34px;
+  font-size: 3.4rem;
+  line-height: 1;
+}
+@media only screen and (min-width: 650px) {
+  .home .entry-header h1.entry-title,
+  .page .entry-header h1.entry-title,
+  .single-stap .entry-header h1.entry-title,
+  .single-doelgroep .entry-header h1.entry-title,
+  .single-procestip .entry-header h1.entry-title,
+  .single-methode .entry-header h1.entry-title,
+  .single-vaardigheden .entry-header h1.entry-title,
+  .page-template-page_template_overzichtspagina .entry-header h1.entry-title,
+  .home #entry__intro h1.entry-title,
+  .page #entry__intro h1.entry-title,
+  .single-stap #entry__intro h1.entry-title,
+  .single-doelgroep #entry__intro h1.entry-title,
+  .single-procestip #entry__intro h1.entry-title,
+  .single-methode #entry__intro h1.entry-title,
+  .single-vaardigheden #entry__intro h1.entry-title,
+  .page-template-page_template_overzichtspagina #entry__intro h1.entry-title {
+    font-size: 44px;
+    font-size: 4.4rem;
+    line-height: 48px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .home .entry-header h1.entry-title,
+  .page .entry-header h1.entry-title,
+  .single-stap .entry-header h1.entry-title,
+  .single-doelgroep .entry-header h1.entry-title,
+  .single-procestip .entry-header h1.entry-title,
+  .single-methode .entry-header h1.entry-title,
+  .single-vaardigheden .entry-header h1.entry-title,
+  .page-template-page_template_overzichtspagina .entry-header h1.entry-title,
+  .home #entry__intro h1.entry-title,
+  .page #entry__intro h1.entry-title,
+  .single-stap #entry__intro h1.entry-title,
+  .single-doelgroep #entry__intro h1.entry-title,
+  .single-procestip #entry__intro h1.entry-title,
+  .single-methode #entry__intro h1.entry-title,
+  .single-vaardigheden #entry__intro h1.entry-title,
+  .page-template-page_template_overzichtspagina #entry__intro h1.entry-title {
+    font-size: 68px;
+    font-size: 6.8rem;
+    line-height: 76px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .home .entry-header .entry-title,
+  .page .entry-header .entry-title,
+  .single-stap .entry-header .entry-title,
+  .single-doelgroep .entry-header .entry-title,
+  .single-procestip .entry-header .entry-title,
+  .single-methode .entry-header .entry-title,
+  .single-vaardigheden .entry-header .entry-title,
+  .page-template-page_template_overzichtspagina .entry-header .entry-title,
+  .home #entry__intro .entry-title,
+  .page #entry__intro .entry-title,
+  .single-stap #entry__intro .entry-title,
+  .single-doelgroep #entry__intro .entry-title,
+  .single-procestip #entry__intro .entry-title,
+  .single-methode #entry__intro .entry-title,
+  .single-vaardigheden #entry__intro .entry-title,
+  .page-template-page_template_overzichtspagina #entry__intro .entry-title {
+    font-size: 70px;
+    font-size: 7rem;
+  }
+}
 .breadcrumb > .wrap {
   max-width: 1180px;
   margin-left: auto;
@@ -1049,13 +1357,12 @@ Imports
 }
 .inleiding,
 .page-intro {
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   background: #148839;
-  color: #fff;
+  color: #FFF;
 }
 .content-sidebar-wrap {
   position: relative;
@@ -1064,23 +1371,22 @@ Imports
   padding-bottom: 5rem;
   padding-top: 5rem;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .content-sidebar-wrap {
     padding-left: 3rem;
     padding-right: 3rem;
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .content-sidebar-wrap {
     padding-bottom: 10rem;
     padding-top: 12rem;
   }
 }
 .content-sidebar-wrap > .content {
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  background: #fff;
+  background: #FFF;
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
@@ -1089,7 +1395,7 @@ Imports
 .content-sidebar-wrap > .content > .entry {
   padding: 0;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .content-sidebar-wrap > .content {
     padding-top: 6rem;
   }
@@ -1127,7 +1433,7 @@ Imports
 .content-sidebar-wrap > .content .inleiding p + p {
   margin-top: 1rem;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .content-sidebar-wrap > .content .inleiding {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -1146,24 +1452,22 @@ Imports
 .full-width-content .content-sidebar-wrap > .content {
   background: none;
   padding: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   max-width: 1180px;
 }
 .full-width-content .content-sidebar-wrap > .entry.inleiding + .grid {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .full-width-content .content-sidebar-wrap > .entry.inleiding + .grid {
     padding-left: 3rem;
     padding-right: 3rem;
   }
 }
 .page-template-default.full-width-content .content-sidebar-wrap > .content {
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  background: #FFF;
   padding: 3rem 2rem;
 }
 @media only screen and (min-width: 650px) {
@@ -1171,7 +1475,7 @@ Imports
     padding: 5rem 3rem;
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .page-template-default.full-width-content .content-sidebar-wrap > .content {
     padding: 8rem 3rem;
   }
@@ -1203,7 +1507,7 @@ Imports
   position: relative;
   z-index: 10;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .page-intro__intro {
     padding: 3rem 5rem;
   }
@@ -1216,19 +1520,19 @@ Imports
   color: #004152;
 }
 .page-intro__intro-text h2 {
-  font-size: 32px;
-  font-size: 3.2rem;
+  font-size: 34px;
+  font-size: 3.4rem;
   font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  line-height: 36px;
+  line-height: 40px;
   margin: 2rem 0 0;
   padding: 0;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .page-intro__intro-text h2 {
-    font-size: 42px;
-    font-size: 4.2rem;
-    line-height: 44px;
+    font-size: 46px;
+    font-size: 4.6rem;
+    line-height: 50px;
   }
 }
 .page-intro__intro-text h2 + p {
@@ -1240,17 +1544,129 @@ Imports
   margin-right: auto;
 }
 .region--intro {
-  color: #fff;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background: #C73D19;
+  padding-top: 5rem;
+  color: #FFF;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+@media only screen and (min-width: 800px) {
+  .region--intro {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.region--intro .entry-title {
+  margin: 0;
+  padding: 0;
+  color: #FFF;
+  max-width: 50rem;
+}
+.region--intro .entry-title + p {
+  margin-top: 1.8rem;
+}
+@media only screen and (min-width: 800px) {
+  .region--intro {
+    padding-top: 10rem;
+  }
+}
+#entry__intro {
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#entry__intro .btn {
+  margin-top: 2rem;
+}
+@media only screen and (min-width: 800px) {
+  #entry__intro {
+    font-size: 22px;
+    font-size: 2.2rem;
+  }
 }
 .region--content-top {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .region--content-top {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+}
+.related-tips .card + .card {
+  margin-top: 2rem;
+}
+body.single-stap .content-sidebar-wrap {
+  padding-top: 0;
+}
+body.single-stap .region--content-top {
+  position: relative;
+}
+@media only screen and (min-width: 800px) {
+  body.single-stap .region--content-top {
+    margin-top: -8rem;
+  }
+}
+body.single-stap .page-intro__intro-text {
+  max-width: 770px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+body.single-stap #maincontent article.entry {
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  max-width: 960px;
+  background: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 800px) {
+  body.single-stap #maincontent article.entry {
+    padding: 2rem;
+  }
+  body.single-stap #maincontent article.entry h2 {
+    padding-top: 0;
+  }
+}
+body.single-stap #maincontent article.entry .wrap {
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.single-stap #maincontent article.entry .entry-content {
+  padding: 5rem 2rem;
+}
+body.single-stap #maincontent article.entry .entry-content > h2:first-child {
+  padding: 0;
+}
+body.single-stap #maincontent article.entry .entry-content > h2:first-child + p {
+  margin-top: 2rem;
+}
+body.single-stap .extra-content {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  position: relative;
+  background-color: #fff;
+}
+body.single-stap .extra-content section .wrap {
+  max-width: 770px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 1180px) {
+  body.single-stap .extra-content {
+    max-width: 960px;
+  }
+}
+body.single-stap .site-inner header {
+  margin: 0;
+  padding: 0;
 }
 /*
 // Gebruiker Centraal - less/includes/_single_doelgroep.less
@@ -1267,15 +1683,8 @@ Imports
 /*
 WP TEMPLATES - Doelgroep
 ---------------------------------------------------------------------------------------------------- */
-body.single-doelgroep .site-inner header h1 {
-  max-width: 56rem;
-}
-@media only screen and (min-width: 960px) {
-  body.single-doelgroep .site-inner header h1 {
-    margin-top: 3rem;
-  }
-}
 body.single-doelgroep #maincontent article.entry {
+  margin-bottom: 4rem;
   margin-top: 0;
   position: relative;
 }
@@ -1285,7 +1694,9 @@ body.single-doelgroep #maincontent article.entry .entry-content {
 }
 body.single-doelgroep #maincontent article.entry .entry-title,
 body.single-doelgroep #maincontent article.entry .wrap {
-  max-width: 770px;
+  max-width: 761px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-left: auto;
   margin-right: auto;
   position: static;
@@ -1298,22 +1709,21 @@ body.single-doelgroep #maincontent article.entry {
 body.single-doelgroep #maincontent article.entry .wrap {
   background: none;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   body.single-doelgroep #maincontent article.entry .wrap {
     padding-top: 5rem;
   }
 }
 #doelgroep-inleiding {
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   position: relative;
+  padding: 2rem;
   background: #148839;
-  color: #fff;
+  color: #FFF;
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   z-index: 0;
-  padding: 2rem 2rem 26rem 2rem;
 }
 #doelgroep-inleiding:after {
   content: ' ';
@@ -1321,7 +1731,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   width: 100%;
   -webkit-clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
           clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
-  background: #25b34b;
+  background: #25B34B;
   display: block;
   position: absolute;
   bottom: 0;
@@ -1330,35 +1740,34 @@ body.single-doelgroep #maincontent article.entry .wrap {
   z-index: -2;
   speak: none;
 }
+@media only screen and (max-width: 650px) {
+  #doelgroep-inleiding {
+    padding-bottom: calc(30rem - 2rem );
+  }
+}
 @media only screen and (min-width: 650px) {
   #doelgroep-inleiding {
     padding-left: 40%;
     display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
             flex-direction: column;
     min-height: 35rem;
-    padding-bottom: 3rem;
   }
   #doelgroep-inleiding:after {
     display: none;
   }
   #doelgroep-inleiding > header {
     -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
             order: 2;
   }
   #doelgroep-inleiding #doelgroep-inleiding-citaten {
     -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
             order: 1;
   }
   #doelgroep-inleiding .doelgroep__posttext {
     -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
             order: 3;
     padding-right: 5rem;
   }
@@ -1383,7 +1792,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
             clip-path: polygon(100% 34%, 0 100%, 100% 100%);
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   #doelgroep-inleiding {
     padding-left: 340px;
   }
@@ -1391,6 +1800,20 @@ body.single-doelgroep #maincontent article.entry .wrap {
 #doelgroep-inleiding header {
   padding-left: 0;
   margin: 0;
+}
+#doelgroep-inleiding h1 {
+  font-size: 40px;
+  font-size: 4rem;
+  line-height: 48px;
+}
+@media only screen and (min-width: 650px) {
+  #doelgroep-inleiding h1 {
+    font-size: 68px;
+    font-size: 6.8rem;
+    line-height: 64px;
+    text-transform: none;
+    margin-top: 2rem;
+  }
 }
 #doelgroep-inleiding .tegeltje {
   margin-top: 0;
@@ -1427,7 +1850,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
     height: 100%;
     width: 35%;
     min-width: 260px;
-    background-color: #25b34b;
+    background-color: #25B34B;
     overflow: hidden;
     background-position: 20% 100%;
     background-size: 80% auto;
@@ -1448,7 +1871,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
     speak: none;
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .doelgroep__avatar {
     background-size: auto 300px;
     background-position: 35% 100%;
@@ -1456,74 +1879,31 @@ body.single-doelgroep #maincontent article.entry .wrap {
     height: 100%;
   }
 }
-.doelgroep--poppetje-2 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-2.svg');
-}
-.doelgroep--poppetje-3 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-3.svg');
-}
-.doelgroep--poppetje-4 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-4.svg');
-}
-.doelgroep--poppetje-5 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-5.svg');
-}
-.doelgroep--poppetje-6 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-6.svg');
-}
-.doelgroep--poppetje-7 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-7.svg');
-}
-.doelgroep--poppetje-8 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-8.svg');
-}
-.doelgroep--poppetje-9 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-9.svg');
-}
-.doelgroep--poppetje-10 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-10.svg');
-}
-.doelgroep--poppetje-11 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-11.svg');
-}
-.doelgroep--poppetje-12 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-12.svg');
-}
-.doelgroep--poppetje-13 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-13.svg');
-}
-.doelgroep--poppetje-14 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-14.svg');
-}
-.doelgroep--poppetje-15 .doelgroep__avatar {
-  background-image: url('../images/avatar/poppetje-15.svg');
-}
 .doelgroep__posttext {
   margin-top: 1.6rem;
 }
 .facts-figures {
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   background: #00303d;
-  color: #fff;
+  color: #FFF;
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  z-index: 5;
 }
-.facts-figures a {
-  color: #fff;
+.facts-figures .source {
+  background: #00303d;
+}
+.facts-figures .source *,
+.facts-figures .source a {
+  color: #FFF;
 }
 .facts-figures span {
   display: block;
 }
-.facts-figures .hugely {
-  padding: 3rem 2rem;
-  text-align: center;
-  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
-  background: #004152;
-  font-size: 3.4rem;
-  line-height: 4rem;
-}
 .facts-figures .source {
+  font-size: 20px;
   font-size: 2rem;
-  line-height: 3rem;
   z-index: 1;
   position: relative;
   padding: 3rem;
@@ -1532,34 +1912,47 @@ body.single-doelgroep #maincontent article.entry .wrap {
   display: block;
   clear: both;
   float: none;
+  font-size: 14px;
   font-size: 1.4rem;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 0.1rem solid #005870;
+  border-top: 0.1rem solid #6F99A3;
 }
-@media only screen and (min-width: 960px) {
+.facts-figures .hugely {
+  padding-top: 2rem;
+  font-size: 40px;
+  font-size: 4rem;
+  text-align: center;
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+}
+@media only screen and (max-width: 800px) {
+  .facts-figures {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+}
+@media only screen and (min-width: 800px) {
   .facts-figures {
     background: #00303d;
     /* Old browsers */
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
   }
   .facts-figures .source {
-    width: calc(100% - 27rem);
-    padding-left: 8rem;
+    flex-basis: 66.66666667%;
   }
   .facts-figures .hugely {
+    padding: 3rem;
     background: #004152;
     position: relative;
-    width: 27rem;
+    width: 318px;
     display: block;
-    font-size: 4.5rem;
-    line-height: 5rem;
+    overflow: hidden;
+    font-size: 40px;
+    font-size: 4rem;
+    line-height: 1.2;
     padding: 4rem;
-    z-index: 5;
   }
   .facts-figures .hugely:before {
     content: " ";
@@ -1570,12 +1963,10 @@ body.single-doelgroep #maincontent article.entry .wrap {
     width: 5rem;
     margin-right: -4rem;
     margin-top: -0.5rem;
-    margin-bottom: -0.5rem;
-    background: #004152;
+    background: #00303d;
     -webkit-transform: rotate(-2deg);
             transform: rotate(-2deg);
     speak: none;
-    z-index: -1;
   }
   .facts-figures:after {
     margin-bottom: -10rem;
@@ -1586,15 +1977,14 @@ body.single-doelgroep #maincontent article.entry .wrap {
   background: #f2ebe4;
   height: 5rem;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .spacer-doelgroep {
     height: 10rem;
   }
 }
 .dosdonts {
   margin-bottom: 4rem;
-  -webkit-box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
   border: 1px solid #D1DFE3;
 }
 .dosdonts .flexblock {
@@ -1645,7 +2035,6 @@ body.single-doelgroep #maincontent article.entry .wrap {
 }
 .section--tips-doelgroep > .section__title {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .section--tips-doelgroep > .section__title .l-tiptitle-icon {
@@ -1657,8 +2046,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   height: 8.5rem;
   background: #148839;
   position: relative;
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 .section--tips-doelgroep > .section__title .l-tiptitle-icon:before,
 .section--tips-doelgroep > .section__title .l-tiptitle-icon:after {
@@ -1673,7 +2061,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   speak: none;
 }
 .section--tips-doelgroep > .section__title .l-tiptitle-icon:before {
-  background: #25b34b;
+  background: #25B34B;
   bottom: 50%;
   -webkit-transform: translateX(-1rem) translateY(-2rem) rotate(8deg);
           transform: translateX(-1rem) translateY(-2rem) rotate(8deg);
@@ -1695,11 +2083,13 @@ body.single-doelgroep #maincontent article.entry .wrap {
 .doelgroep-tips h2,
 .doelgroep-tips h3 {
   font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-size: 2.2rem;
   background: url('../images/icons/tip.svg') no-repeat left center;
   padding-left: 4rem;
   padding-top: 0.25rem;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .doelgroep-tips h2,
   .doelgroep-tips h3 {
     font-size: 24px;
@@ -1715,14 +2105,13 @@ body.single-doelgroep #maincontent article.entry .wrap {
 .capability {
   margin-top: 3rem;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .capability {
     margin-top: 5rem;
   }
 }
 .capability__title {
-  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
   background: #f2ebe4;
   padding: 1.5rem 3rem 1.5rem 2rem;
@@ -1730,12 +2119,11 @@ body.single-doelgroep #maincontent article.entry .wrap {
   font-size: 28px;
   font-size: 2.8rem;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
 }
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 500px) {
   .capability__title {
     font-size: 34px;
     font-size: 3.4rem;
@@ -1752,6 +2140,160 @@ body.single-doelgroep #maincontent article.entry .wrap {
 .capability__icon[aria-hidden=true] {
   display: block;
 }
+.card--doelgroep {
+  padding: 0;
+}
+.card--doelgroep .tegeltje {
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  margin-top: -44rem;
+}
+.card--doelgroep .card__image {
+  height: 42rem;
+  width: 100%;
+  background: #148839 url('../images/avatar/poppetje-1.svg') center bottom no-repeat;
+  background-size: auto 290px;
+}
+.card--doelgroep .card__content {
+  background: none;
+}
+.card--doelgroep .card__content:before {
+  display: none;
+}
+.card--doelgroep .card__content:after {
+  position: absolute;
+  content: " ";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+  height: 7rem;
+  z-index: -1;
+  speak: none;
+}
+.card--doelgroep .card__content h2 {
+  font-size: 40px;
+  font-size: 4rem;
+  background: none;
+  overflow: hidden;
+  position: relative;
+  margin-top: -5rem;
+  min-height: 11rem;
+  z-index: 1;
+  padding: 4rem 0 0 0;
+  text-transform: uppercase;
+  font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
+}
+.card--doelgroep .card__content h2 > a {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 3.5rem 1.5rem 3rem;
+}
+.card--doelgroep .card__content h2 > a .btn {
+  margin-right: 0;
+}
+.card--doelgroep .card__content h2:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 17rem;
+  background: #FFF;
+  margin: 3rem -2rem 0;
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+  z-index: -1;
+  speak: none;
+}
+.card--doelgroep .card__content h2 span {
+  display: block;
+}
+.card--doelgroep .card__content h2 span:first-child {
+  width: 100%;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 20px;
+  margin-bottom: 0.8rem;
+  font-family: 'montserrat_semiboldregular', Helvetica, Arial, sans-serif;
+  text-transform: none;
+}
+.card--doelgroep .btn--arrow {
+  position: absolute;
+  right: 1.5rem;
+  top: 7.8rem;
+  height: 4.5rem;
+}
+.grid--col-3 > .card--doelgroep {
+  margin-top: 5rem;
+}
+.tegeltje {
+  padding: 1em;
+  min-height: 120px;
+  color: #002F3E;
+  background: white;
+  margin-bottom: 25rem;
+  margin-top: -5rem;
+  font-size: 22px;
+  font-size: 2.2rem;
+  line-height: 34px;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 500;
+}
+.tegeltje:before {
+  content: ' ';
+  display: block;
+  height: 28px;
+  width: 28px;
+  position: absolute;
+  right: 1.8rem;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(28px);
+          transform: translateY(28px);
+  z-index: 450;
+  -webkit-clip-path: polygon(0 0, 0 100%, 70% 0);
+          clip-path: polygon(0 0, 0 100%, 70% 0);
+  speak: none;
+}
+.tegeltje:after {
+  content: ' ';
+  display: block;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 2rem;
+  bottom: 0;
+  background: #fff;
+  -webkit-transform: translateY(25px);
+          transform: translateY(25px);
+  z-index: 450;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  -webkit-clip-path: polygon(0 0, 0 100%, 70% 0);
+          clip-path: polygon(0 0, 0 100%, 70% 0);
+  speak: none;
+}
+.tegeltje p {
+  margin: 0;
+}
+.tegeltje strong {
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.tegeltje strong:before {
+  content: '– ';
+  display: inline-block;
+  float: left;
+  line-height: 2.8;
+  margin-right: 0.5em;
+  speak: none;
+}
 .full-width-content .breadcrumb {
   margin: 0;
   padding: 0;
@@ -1760,7 +2302,7 @@ body.single-doelgroep #maincontent article.entry .wrap {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .full-width-content .breadcrumb .wrap {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -1774,38 +2316,10 @@ body.single-doelgroep #maincontent article.entry .wrap {
   padding-right: 1.5rem;
   padding-right: 0;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .full-width-content .site-header > .wrap {
     padding-left: 3rem;
     padding-right: 3rem;
-  }
-}
-.page-template.page-template-home-inclusie .site-inner {
-  max-width: none;
-}
-.page-template.page-template-home-inclusie .content {
-  float: none;
-}
-.page-template.page-template-home-inclusie .region--intro {
-  font-size: 2rem;
-  line-height: 3.2rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-.page-template.page-template-home-inclusie .type-page.entry {
-  background: #D94721;
-}
-@media only screen and (min-width: 960px) {
-  .page-template.page-template-home-inclusie .type-page.entry {
-    padding-top: 10rem;
-  }
-}
-.page-template.page-template-home-inclusie .entry-title {
-  text-transform: uppercase;
-}
-@media only screen and (min-width: 960px) {
-  .page-template.page-template-home-inclusie .entry-title {
-    margin-right: 28rem;
   }
 }
 /*
@@ -1848,7 +2362,7 @@ ANIMATIONS
 /*
 STYLING STEPS 
 ---------------------------------------------------------------------------------------------------- */
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 800px) {
   .deel button {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m46.2465794%2047.9943028v-21.2357383c0-.7787664.6316262-1.4103925%201.4103926-1.4103925.7787663%200%201.4103925.6316261%201.4103925%201.4103925v24.0565234h-41.0673645v-39.4021683h25.0577944c.7787663%200%201.4103925.6316262%201.4103925%201.4103925%200%20.7787664-.6316262%201.4103926-1.4103925%201.4103926h-22.2370094v33.7605981zm-6.0591252-38.9943028%2012.3813084.21173832-.2117383%2011.91117758-3.5250841-.0628038.1130467-6.4023925-.196486.1632897c-3.6130093%202.9957384-10.1499813%208.8472524-13.4956261%2014.4897197l-3.0414954-1.7845234c3.2855327-5.5464673%209.1038505-11.0534579%2013.4202617-14.7050467l.2386542-.2018692-5.7456448-.0942056z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1859,10 +2373,10 @@ STYLING STEPS
   .deel p.icon.deel.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m46.2465794%2047.9943028v-21.2357383c0-.7787664.6316262-1.4103925%201.4103926-1.4103925.7787663%200%201.4103925.6316261%201.4103925%201.4103925v24.0565234h-41.0673645v-39.4021683h25.0577944c.7787663%200%201.4103925.6316262%201.4103925%201.4103925%200%20.7787664-.6316262%201.4103926-1.4103925%201.4103926h-22.2370094v33.7605981zm-6.0591252-38.9943028%2012.3813084.21173832-.2117383%2011.91117758-3.5250841-.0628038.1130467-6.4023925-.196486.1632897c-3.6130093%202.9957384-10.1499813%208.8472524-13.4956261%2014.4897197l-3.0414954-1.7845234c3.2855327-5.5464673%209.1038505-11.0534579%2013.4202617-14.7050467l.2386542-.2018692-5.7456448-.0942056z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m46.2465794%2047.9943028v-21.2357383c0-.7787664.6316262-1.4103925%201.4103926-1.4103925.7787663%200%201.4103925.6316261%201.4103925%201.4103925v24.0565234h-41.0673645v-39.4021683h25.0577944c.7787663%200%201.4103925.6316262%201.4103925%201.4103925%200%20.7787664-.6316262%201.4103926-1.4103925%201.4103926h-22.2370094v33.7605981zm-6.0591252-38.9943028%2012.3813084.21173832-.2117383%2011.91117758-3.5250841-.0628038.1130467-6.4023925-.196486.1632897c-3.6130093%202.9957384-10.1499813%208.8472524-13.4956261%2014.4897197l-3.0414954-1.7845234c3.2855327-5.5464673%209.1038505-11.0534579%2013.4202617-14.7050467l.2386542-.2018692-5.7456448-.0942056z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .deel:before {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m46.2465794%2047.9943028v-21.2357383c0-.7787664.6316262-1.4103925%201.4103926-1.4103925.7787663%200%201.4103925.6316261%201.4103925%201.4103925v24.0565234h-41.0673645v-39.4021683h25.0577944c.7787663%200%201.4103925.6316262%201.4103925%201.4103925%200%20.7787664-.6316262%201.4103926-1.4103925%201.4103926h-22.2370094v33.7605981zm-6.0591252-38.9943028%2012.3813084.21173832-.2117383%2011.91117758-3.5250841-.0628038.1130467-6.4023925-.196486.1632897c-3.6130093%202.9957384-10.1499813%208.8472524-13.4956261%2014.4897197l-3.0414954-1.7845234c3.2855327-5.5464673%209.1038505-11.0534579%2013.4202617-14.7050467l.2386542-.2018692-5.7456448-.0942056z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1870,10 +2384,10 @@ STYLING STEPS
   .deel.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m46.2465794%2047.9943028v-21.2357383c0-.7787664.6316262-1.4103925%201.4103926-1.4103925.7787663%200%201.4103925.6316261%201.4103925%201.4103925v24.0565234h-41.0673645v-39.4021683h25.0577944c.7787663%200%201.4103925.6316262%201.4103925%201.4103925%200%20.7787664-.6316262%201.4103926-1.4103925%201.4103926h-22.2370094v33.7605981zm-6.0591252-38.9943028%2012.3813084.21173832-.2117383%2011.91117758-3.5250841-.0628038.1130467-6.4023925-.196486.1632897c-3.6130093%202.9957384-10.1499813%208.8472524-13.4956261%2014.4897197l-3.0414954-1.7845234c3.2855327-5.5464673%209.1038505-11.0534579%2013.4202617-14.7050467l.2386542-.2018692-5.7456448-.0942056z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m46.2465794%2047.9943028v-21.2357383c0-.7787664.6316262-1.4103925%201.4103926-1.4103925.7787663%200%201.4103925.6316261%201.4103925%201.4103925v24.0565234h-41.0673645v-39.4021683h25.0577944c.7787663%200%201.4103925.6316262%201.4103925%201.4103925%200%20.7787664-.6316262%201.4103926-1.4103925%201.4103926h-22.2370094v33.7605981zm-6.0591252-38.9943028%2012.3813084.21173832-.2117383%2011.91117758-3.5250841-.0628038.1130467-6.4023925-.196486.1632897c-3.6130093%202.9957384-10.1499813%208.8472524-13.4956261%2014.4897197l-3.0414954-1.7845234c3.2855327-5.5464673%209.1038505-11.0534579%2013.4202617-14.7050467l.2386542-.2018692-5.7456448-.0942056z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 800px) {
   .evalueer button {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m44.1527255%2053.5556614c.2058847%200%20.3726674-.1647426.3726674-.3681091v-31.5202233c0-.2033664.1667826-.368109.3734653-.368109h1.7284744c.2058848%200%20.3726674.1647426.3726674.368109v33.8526316c0%20.2656376-.2170568.4800394-.4859838.4800394h-38.02803241c-.26812899%200-.48598379-.2144018-.48598379-.4800394v-47.03992119c0-.26484933.2178548-.48003941.48598379-.48003941h24.09490101c.2058847%200%20.3726673.16474259.3726673.36810904v1.70812056c0%20.2033664-.1667826.368109-.3726673.368109h-21.7328123c-.2066827%200-.3734654.1647426-.3734654.3681091v42.3751046c0%20.2033665.1667827.3681091.3734654.3681091zm-5.1356304-43.381328c-.7588201%201.1150708-1.9582198.4320502-1.9582198-.42172544v-4.7493753c0-.85298145%201.1993997-1.53679619%201.9582198-.42172547.0415792.06115417.0623688.13660411.0623688.21046563v5.17268919c0%20.07306729-.0207896.14851729-.0623688.20967139zm4.1705524%202.6555997c-.5101446%200-1.0202893-.2398514-1.0730628-1.1746364-.0055972-.1024531.0375811-.2049062.1103447-.2779735l3.5894033-3.56441412c.5901046-.58612692%201.6111935-.31609554%201.8046967.80929991.0191904.11436623-.0255872.2327035-.107946.31450712l-3.6501729%203.62556829c-.2022987.1342215-.4037979.2676487-.673263.2676487zm7.1253934%203.010135c.0895551%200%20.1807095.0293858.2470763.0889515.8379805.7552937.3846075%201.918017-.5701146%201.918017h-4.7816066c-.8595697%200-1.5472255-1.1913149-.425387-1.9450201.0615691-.0412989.1343327-.0619484.2086955-.0619484zm-20.1950113%2031.1529634h9.8998446c.8507741%200%201.3657164%201.1674886.4845574%201.921988-.0663668.0571832-.1551223.0849805-.2414791.0849805h-10.356416c-.0735632%200-.1503248-.0214437-.2110944-.0619484-1.122638-.7537052-.4349822-1.9450201.4245875-1.9450201zm9.9001644-7.0909444c.8507742%200%201.3657164%201.1674886.4837579%201.9227822-.0655672.056389-.1543228.0841863-.2414792.0841863h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619484.2110943-.0619484zm0-7.0904678c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0655672.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913148-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm0-7.1575786c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0663668.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm-12.4125868-5.1456861c-1.122638-.7537052-.4341827-1.9450201.4245875-1.9450201h11.9204331c.8595698%200%201.5472256%201.1913149.4245875%201.9450201-.0607696.0412989-.1375312.0619484-.2110943.0619484h-12.3466199c-.0743627%200-.1503247-.0206495-.2118939-.0619484zm-10.6200441%204.0753293-1.8182898-3.0775634c-.3366315-.5345033-.1351324-1.1365144.3366315-1.4041631.5389302-.3343624%201.1450268-.1342215%201.414492.3343624l.9883053%201.6694292c.1519239.257324.5317338.2398514.6604694-.03018l3.6709624-7.7268682c.2694651-.4677897.8763614-.7354384%201.3473256-.4677897.4717639.2676488.741229.8696599.4717639%201.3374495l-4.4449751%209.3653233c-.2694651.4010761-.7412289.6687248-1.2801592.6687248-.5381306%200-1.0098945-.2009351-1.346526-.6687248zm4.662866%2018.1307006c-.0591704-.0841863-.1359319-.1604304-.2206895-.219202-2.6682644-1.8513033-5.5812063%201.0420034-3.7173393%203.6922819.0583708.0841863.135932.1604304.2206895.219202%202.6682644%201.8513033%205.5812063-1.0420035%203.7173393-3.6922819zm-6.548722%201.736937c0-2.4755523%202.0205886-4.5492344%204.5793078-4.5492344%203.5030465%200%205.9969982%203.885275%203.6813573%207.366297-.1455272.2184077-.3270363.4129892-.5341326.575008-3.5798082%202.7860884-7.7265325.0953052-7.7265325-3.3920706zm6.3281924-9.8844983c.083958-.0587716.1615191-.1350157.2206895-.219202%201.8638671-2.6502784-1.0490748-5.5435852-3.7173392-3.6922819-.0847576.0579774-.1615192.1350157-.2206896.219202-1.8646666%202.6502785%201.0490749%205.5443794%203.7173393%203.6922819zm-1.7487247-6.5045792c2.5595189%200%204.5801074%202.0736821%204.5801074%204.5484402%200%203.4881699-4.1467243%206.1789531-7.727332%203.3928647-.2070963-.1620188-.3886055-.3566002-.5341326-.575008-2.3148413-3.481022.1791103-7.3662969%203.6813572-7.3662969z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1884,10 +2398,10 @@ STYLING STEPS
   .evalueer p.icon.evalueer.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m44.1527255%2053.5556614c.2058847%200%20.3726674-.1647426.3726674-.3681091v-31.5202233c0-.2033664.1667826-.368109.3734653-.368109h1.7284744c.2058848%200%20.3726674.1647426.3726674.368109v33.8526316c0%20.2656376-.2170568.4800394-.4859838.4800394h-38.02803241c-.26812899%200-.48598379-.2144018-.48598379-.4800394v-47.03992119c0-.26484933.2178548-.48003941.48598379-.48003941h24.09490101c.2058847%200%20.3726673.16474259.3726673.36810904v1.70812056c0%20.2033664-.1667826.368109-.3726673.368109h-21.7328123c-.2066827%200-.3734654.1647426-.3734654.3681091v42.3751046c0%20.2033665.1667827.3681091.3734654.3681091zm-5.1356304-43.381328c-.7588201%201.1150708-1.9582198.4320502-1.9582198-.42172544v-4.7493753c0-.85298145%201.1993997-1.53679619%201.9582198-.42172547.0415792.06115417.0623688.13660411.0623688.21046563v5.17268919c0%20.07306729-.0207896.14851729-.0623688.20967139zm4.1705524%202.6555997c-.5101446%200-1.0202893-.2398514-1.0730628-1.1746364-.0055972-.1024531.0375811-.2049062.1103447-.2779735l3.5894033-3.56441412c.5901046-.58612692%201.6111935-.31609554%201.8046967.80929991.0191904.11436623-.0255872.2327035-.107946.31450712l-3.6501729%203.62556829c-.2022987.1342215-.4037979.2676487-.673263.2676487zm7.1253934%203.010135c.0895551%200%20.1807095.0293858.2470763.0889515.8379805.7552937.3846075%201.918017-.5701146%201.918017h-4.7816066c-.8595697%200-1.5472255-1.1913149-.425387-1.9450201.0615691-.0412989.1343327-.0619484.2086955-.0619484zm-20.1950113%2031.1529634h9.8998446c.8507741%200%201.3657164%201.1674886.4845574%201.921988-.0663668.0571832-.1551223.0849805-.2414791.0849805h-10.356416c-.0735632%200-.1503248-.0214437-.2110944-.0619484-1.122638-.7537052-.4349822-1.9450201.4245875-1.9450201zm9.9001644-7.0909444c.8507742%200%201.3657164%201.1674886.4837579%201.9227822-.0655672.056389-.1543228.0841863-.2414792.0841863h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619484.2110943-.0619484zm0-7.0904678c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0655672.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913148-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm0-7.1575786c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0663668.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm-12.4125868-5.1456861c-1.122638-.7537052-.4341827-1.9450201.4245875-1.9450201h11.9204331c.8595698%200%201.5472256%201.1913149.4245875%201.9450201-.0607696.0412989-.1375312.0619484-.2110943.0619484h-12.3466199c-.0743627%200-.1503247-.0206495-.2118939-.0619484zm-10.6200441%204.0753293-1.8182898-3.0775634c-.3366315-.5345033-.1351324-1.1365144.3366315-1.4041631.5389302-.3343624%201.1450268-.1342215%201.414492.3343624l.9883053%201.6694292c.1519239.257324.5317338.2398514.6604694-.03018l3.6709624-7.7268682c.2694651-.4677897.8763614-.7354384%201.3473256-.4677897.4717639.2676488.741229.8696599.4717639%201.3374495l-4.4449751%209.3653233c-.2694651.4010761-.7412289.6687248-1.2801592.6687248-.5381306%200-1.0098945-.2009351-1.346526-.6687248zm4.662866%2018.1307006c-.0591704-.0841863-.1359319-.1604304-.2206895-.219202-2.6682644-1.8513033-5.5812063%201.0420034-3.7173393%203.6922819.0583708.0841863.135932.1604304.2206895.219202%202.6682644%201.8513033%205.5812063-1.0420035%203.7173393-3.6922819zm-6.548722%201.736937c0-2.4755523%202.0205886-4.5492344%204.5793078-4.5492344%203.5030465%200%205.9969982%203.885275%203.6813573%207.366297-.1455272.2184077-.3270363.4129892-.5341326.575008-3.5798082%202.7860884-7.7265325.0953052-7.7265325-3.3920706zm6.3281924-9.8844983c.083958-.0587716.1615191-.1350157.2206895-.219202%201.8638671-2.6502784-1.0490748-5.5435852-3.7173392-3.6922819-.0847576.0579774-.1615192.1350157-.2206896.219202-1.8646666%202.6502785%201.0490749%205.5443794%203.7173393%203.6922819zm-1.7487247-6.5045792c2.5595189%200%204.5801074%202.0736821%204.5801074%204.5484402%200%203.4881699-4.1467243%206.1789531-7.727332%203.3928647-.2070963-.1620188-.3886055-.3566002-.5341326-.575008-2.3148413-3.481022.1791103-7.3662969%203.6813572-7.3662969z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m44.1527255%2053.5556614c.2058847%200%20.3726674-.1647426.3726674-.3681091v-31.5202233c0-.2033664.1667826-.368109.3734653-.368109h1.7284744c.2058848%200%20.3726674.1647426.3726674.368109v33.8526316c0%20.2656376-.2170568.4800394-.4859838.4800394h-38.02803241c-.26812899%200-.48598379-.2144018-.48598379-.4800394v-47.03992119c0-.26484933.2178548-.48003941.48598379-.48003941h24.09490101c.2058847%200%20.3726673.16474259.3726673.36810904v1.70812056c0%20.2033664-.1667826.368109-.3726673.368109h-21.7328123c-.2066827%200-.3734654.1647426-.3734654.3681091v42.3751046c0%20.2033665.1667827.3681091.3734654.3681091zm-5.1356304-43.381328c-.7588201%201.1150708-1.9582198.4320502-1.9582198-.42172544v-4.7493753c0-.85298145%201.1993997-1.53679619%201.9582198-.42172547.0415792.06115417.0623688.13660411.0623688.21046563v5.17268919c0%20.07306729-.0207896.14851729-.0623688.20967139zm4.1705524%202.6555997c-.5101446%200-1.0202893-.2398514-1.0730628-1.1746364-.0055972-.1024531.0375811-.2049062.1103447-.2779735l3.5894033-3.56441412c.5901046-.58612692%201.6111935-.31609554%201.8046967.80929991.0191904.11436623-.0255872.2327035-.107946.31450712l-3.6501729%203.62556829c-.2022987.1342215-.4037979.2676487-.673263.2676487zm7.1253934%203.010135c.0895551%200%20.1807095.0293858.2470763.0889515.8379805.7552937.3846075%201.918017-.5701146%201.918017h-4.7816066c-.8595697%200-1.5472255-1.1913149-.425387-1.9450201.0615691-.0412989.1343327-.0619484.2086955-.0619484zm-20.1950113%2031.1529634h9.8998446c.8507741%200%201.3657164%201.1674886.4845574%201.921988-.0663668.0571832-.1551223.0849805-.2414791.0849805h-10.356416c-.0735632%200-.1503248-.0214437-.2110944-.0619484-1.122638-.7537052-.4349822-1.9450201.4245875-1.9450201zm9.9001644-7.0909444c.8507742%200%201.3657164%201.1674886.4837579%201.9227822-.0655672.056389-.1543228.0841863-.2414792.0841863h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619484.2110943-.0619484zm0-7.0904678c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0655672.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913148-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm0-7.1575786c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0663668.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm-12.4125868-5.1456861c-1.122638-.7537052-.4341827-1.9450201.4245875-1.9450201h11.9204331c.8595698%200%201.5472256%201.1913149.4245875%201.9450201-.0607696.0412989-.1375312.0619484-.2110943.0619484h-12.3466199c-.0743627%200-.1503247-.0206495-.2118939-.0619484zm-10.6200441%204.0753293-1.8182898-3.0775634c-.3366315-.5345033-.1351324-1.1365144.3366315-1.4041631.5389302-.3343624%201.1450268-.1342215%201.414492.3343624l.9883053%201.6694292c.1519239.257324.5317338.2398514.6604694-.03018l3.6709624-7.7268682c.2694651-.4677897.8763614-.7354384%201.3473256-.4677897.4717639.2676488.741229.8696599.4717639%201.3374495l-4.4449751%209.3653233c-.2694651.4010761-.7412289.6687248-1.2801592.6687248-.5381306%200-1.0098945-.2009351-1.346526-.6687248zm4.662866%2018.1307006c-.0591704-.0841863-.1359319-.1604304-.2206895-.219202-2.6682644-1.8513033-5.5812063%201.0420034-3.7173393%203.6922819.0583708.0841863.135932.1604304.2206895.219202%202.6682644%201.8513033%205.5812063-1.0420035%203.7173393-3.6922819zm-6.548722%201.736937c0-2.4755523%202.0205886-4.5492344%204.5793078-4.5492344%203.5030465%200%205.9969982%203.885275%203.6813573%207.366297-.1455272.2184077-.3270363.4129892-.5341326.575008-3.5798082%202.7860884-7.7265325.0953052-7.7265325-3.3920706zm6.3281924-9.8844983c.083958-.0587716.1615191-.1350157.2206895-.219202%201.8638671-2.6502784-1.0490748-5.5435852-3.7173392-3.6922819-.0847576.0579774-.1615192.1350157-.2206896.219202-1.8646666%202.6502785%201.0490749%205.5443794%203.7173393%203.6922819zm-1.7487247-6.5045792c2.5595189%200%204.5801074%202.0736821%204.5801074%204.5484402%200%203.4881699-4.1467243%206.1789531-7.727332%203.3928647-.2070963-.1620188-.3886055-.3566002-.5341326-.575008-2.3148413-3.481022.1791103-7.3662969%203.6813572-7.3662969z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .evalueer:before {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m44.1527255%2053.5556614c.2058847%200%20.3726674-.1647426.3726674-.3681091v-31.5202233c0-.2033664.1667826-.368109.3734653-.368109h1.7284744c.2058848%200%20.3726674.1647426.3726674.368109v33.8526316c0%20.2656376-.2170568.4800394-.4859838.4800394h-38.02803241c-.26812899%200-.48598379-.2144018-.48598379-.4800394v-47.03992119c0-.26484933.2178548-.48003941.48598379-.48003941h24.09490101c.2058847%200%20.3726673.16474259.3726673.36810904v1.70812056c0%20.2033664-.1667826.368109-.3726673.368109h-21.7328123c-.2066827%200-.3734654.1647426-.3734654.3681091v42.3751046c0%20.2033665.1667827.3681091.3734654.3681091zm-5.1356304-43.381328c-.7588201%201.1150708-1.9582198.4320502-1.9582198-.42172544v-4.7493753c0-.85298145%201.1993997-1.53679619%201.9582198-.42172547.0415792.06115417.0623688.13660411.0623688.21046563v5.17268919c0%20.07306729-.0207896.14851729-.0623688.20967139zm4.1705524%202.6555997c-.5101446%200-1.0202893-.2398514-1.0730628-1.1746364-.0055972-.1024531.0375811-.2049062.1103447-.2779735l3.5894033-3.56441412c.5901046-.58612692%201.6111935-.31609554%201.8046967.80929991.0191904.11436623-.0255872.2327035-.107946.31450712l-3.6501729%203.62556829c-.2022987.1342215-.4037979.2676487-.673263.2676487zm7.1253934%203.010135c.0895551%200%20.1807095.0293858.2470763.0889515.8379805.7552937.3846075%201.918017-.5701146%201.918017h-4.7816066c-.8595697%200-1.5472255-1.1913149-.425387-1.9450201.0615691-.0412989.1343327-.0619484.2086955-.0619484zm-20.1950113%2031.1529634h9.8998446c.8507741%200%201.3657164%201.1674886.4845574%201.921988-.0663668.0571832-.1551223.0849805-.2414791.0849805h-10.356416c-.0735632%200-.1503248-.0214437-.2110944-.0619484-1.122638-.7537052-.4349822-1.9450201.4245875-1.9450201zm9.9001644-7.0909444c.8507742%200%201.3657164%201.1674886.4837579%201.9227822-.0655672.056389-.1543228.0841863-.2414792.0841863h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619484.2110943-.0619484zm0-7.0904678c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0655672.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913148-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm0-7.1575786c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0663668.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm-12.4125868-5.1456861c-1.122638-.7537052-.4341827-1.9450201.4245875-1.9450201h11.9204331c.8595698%200%201.5472256%201.1913149.4245875%201.9450201-.0607696.0412989-.1375312.0619484-.2110943.0619484h-12.3466199c-.0743627%200-.1503247-.0206495-.2118939-.0619484zm-10.6200441%204.0753293-1.8182898-3.0775634c-.3366315-.5345033-.1351324-1.1365144.3366315-1.4041631.5389302-.3343624%201.1450268-.1342215%201.414492.3343624l.9883053%201.6694292c.1519239.257324.5317338.2398514.6604694-.03018l3.6709624-7.7268682c.2694651-.4677897.8763614-.7354384%201.3473256-.4677897.4717639.2676488.741229.8696599.4717639%201.3374495l-4.4449751%209.3653233c-.2694651.4010761-.7412289.6687248-1.2801592.6687248-.5381306%200-1.0098945-.2009351-1.346526-.6687248zm4.662866%2018.1307006c-.0591704-.0841863-.1359319-.1604304-.2206895-.219202-2.6682644-1.8513033-5.5812063%201.0420034-3.7173393%203.6922819.0583708.0841863.135932.1604304.2206895.219202%202.6682644%201.8513033%205.5812063-1.0420035%203.7173393-3.6922819zm-6.548722%201.736937c0-2.4755523%202.0205886-4.5492344%204.5793078-4.5492344%203.5030465%200%205.9969982%203.885275%203.6813573%207.366297-.1455272.2184077-.3270363.4129892-.5341326.575008-3.5798082%202.7860884-7.7265325.0953052-7.7265325-3.3920706zm6.3281924-9.8844983c.083958-.0587716.1615191-.1350157.2206895-.219202%201.8638671-2.6502784-1.0490748-5.5435852-3.7173392-3.6922819-.0847576.0579774-.1615192.1350157-.2206896.219202-1.8646666%202.6502785%201.0490749%205.5443794%203.7173393%203.6922819zm-1.7487247-6.5045792c2.5595189%200%204.5801074%202.0736821%204.5801074%204.5484402%200%203.4881699-4.1467243%206.1789531-7.727332%203.3928647-.2070963-.1620188-.3886055-.3566002-.5341326-.575008-2.3148413-3.481022.1791103-7.3662969%203.6813572-7.3662969z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1895,10 +2409,10 @@ STYLING STEPS
   .evalueer.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m44.1527255%2053.5556614c.2058847%200%20.3726674-.1647426.3726674-.3681091v-31.5202233c0-.2033664.1667826-.368109.3734653-.368109h1.7284744c.2058848%200%20.3726674.1647426.3726674.368109v33.8526316c0%20.2656376-.2170568.4800394-.4859838.4800394h-38.02803241c-.26812899%200-.48598379-.2144018-.48598379-.4800394v-47.03992119c0-.26484933.2178548-.48003941.48598379-.48003941h24.09490101c.2058847%200%20.3726673.16474259.3726673.36810904v1.70812056c0%20.2033664-.1667826.368109-.3726673.368109h-21.7328123c-.2066827%200-.3734654.1647426-.3734654.3681091v42.3751046c0%20.2033665.1667827.3681091.3734654.3681091zm-5.1356304-43.381328c-.7588201%201.1150708-1.9582198.4320502-1.9582198-.42172544v-4.7493753c0-.85298145%201.1993997-1.53679619%201.9582198-.42172547.0415792.06115417.0623688.13660411.0623688.21046563v5.17268919c0%20.07306729-.0207896.14851729-.0623688.20967139zm4.1705524%202.6555997c-.5101446%200-1.0202893-.2398514-1.0730628-1.1746364-.0055972-.1024531.0375811-.2049062.1103447-.2779735l3.5894033-3.56441412c.5901046-.58612692%201.6111935-.31609554%201.8046967.80929991.0191904.11436623-.0255872.2327035-.107946.31450712l-3.6501729%203.62556829c-.2022987.1342215-.4037979.2676487-.673263.2676487zm7.1253934%203.010135c.0895551%200%20.1807095.0293858.2470763.0889515.8379805.7552937.3846075%201.918017-.5701146%201.918017h-4.7816066c-.8595697%200-1.5472255-1.1913149-.425387-1.9450201.0615691-.0412989.1343327-.0619484.2086955-.0619484zm-20.1950113%2031.1529634h9.8998446c.8507741%200%201.3657164%201.1674886.4845574%201.921988-.0663668.0571832-.1551223.0849805-.2414791.0849805h-10.356416c-.0735632%200-.1503248-.0214437-.2110944-.0619484-1.122638-.7537052-.4349822-1.9450201.4245875-1.9450201zm9.9001644-7.0909444c.8507742%200%201.3657164%201.1674886.4837579%201.9227822-.0655672.056389-.1543228.0841863-.2414792.0841863h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619484.2110943-.0619484zm0-7.0904678c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0655672.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913148-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm0-7.1575786c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0663668.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm-12.4125868-5.1456861c-1.122638-.7537052-.4341827-1.9450201.4245875-1.9450201h11.9204331c.8595698%200%201.5472256%201.1913149.4245875%201.9450201-.0607696.0412989-.1375312.0619484-.2110943.0619484h-12.3466199c-.0743627%200-.1503247-.0206495-.2118939-.0619484zm-10.6200441%204.0753293-1.8182898-3.0775634c-.3366315-.5345033-.1351324-1.1365144.3366315-1.4041631.5389302-.3343624%201.1450268-.1342215%201.414492.3343624l.9883053%201.6694292c.1519239.257324.5317338.2398514.6604694-.03018l3.6709624-7.7268682c.2694651-.4677897.8763614-.7354384%201.3473256-.4677897.4717639.2676488.741229.8696599.4717639%201.3374495l-4.4449751%209.3653233c-.2694651.4010761-.7412289.6687248-1.2801592.6687248-.5381306%200-1.0098945-.2009351-1.346526-.6687248zm4.662866%2018.1307006c-.0591704-.0841863-.1359319-.1604304-.2206895-.219202-2.6682644-1.8513033-5.5812063%201.0420034-3.7173393%203.6922819.0583708.0841863.135932.1604304.2206895.219202%202.6682644%201.8513033%205.5812063-1.0420035%203.7173393-3.6922819zm-6.548722%201.736937c0-2.4755523%202.0205886-4.5492344%204.5793078-4.5492344%203.5030465%200%205.9969982%203.885275%203.6813573%207.366297-.1455272.2184077-.3270363.4129892-.5341326.575008-3.5798082%202.7860884-7.7265325.0953052-7.7265325-3.3920706zm6.3281924-9.8844983c.083958-.0587716.1615191-.1350157.2206895-.219202%201.8638671-2.6502784-1.0490748-5.5435852-3.7173392-3.6922819-.0847576.0579774-.1615192.1350157-.2206896.219202-1.8646666%202.6502785%201.0490749%205.5443794%203.7173393%203.6922819zm-1.7487247-6.5045792c2.5595189%200%204.5801074%202.0736821%204.5801074%204.5484402%200%203.4881699-4.1467243%206.1789531-7.727332%203.3928647-.2070963-.1620188-.3886055-.3566002-.5341326-.575008-2.3148413-3.481022.1791103-7.3662969%203.6813572-7.3662969z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m44.1527255%2053.5556614c.2058847%200%20.3726674-.1647426.3726674-.3681091v-31.5202233c0-.2033664.1667826-.368109.3734653-.368109h1.7284744c.2058848%200%20.3726674.1647426.3726674.368109v33.8526316c0%20.2656376-.2170568.4800394-.4859838.4800394h-38.02803241c-.26812899%200-.48598379-.2144018-.48598379-.4800394v-47.03992119c0-.26484933.2178548-.48003941.48598379-.48003941h24.09490101c.2058847%200%20.3726673.16474259.3726673.36810904v1.70812056c0%20.2033664-.1667826.368109-.3726673.368109h-21.7328123c-.2066827%200-.3734654.1647426-.3734654.3681091v42.3751046c0%20.2033665.1667827.3681091.3734654.3681091zm-5.1356304-43.381328c-.7588201%201.1150708-1.9582198.4320502-1.9582198-.42172544v-4.7493753c0-.85298145%201.1993997-1.53679619%201.9582198-.42172547.0415792.06115417.0623688.13660411.0623688.21046563v5.17268919c0%20.07306729-.0207896.14851729-.0623688.20967139zm4.1705524%202.6555997c-.5101446%200-1.0202893-.2398514-1.0730628-1.1746364-.0055972-.1024531.0375811-.2049062.1103447-.2779735l3.5894033-3.56441412c.5901046-.58612692%201.6111935-.31609554%201.8046967.80929991.0191904.11436623-.0255872.2327035-.107946.31450712l-3.6501729%203.62556829c-.2022987.1342215-.4037979.2676487-.673263.2676487zm7.1253934%203.010135c.0895551%200%20.1807095.0293858.2470763.0889515.8379805.7552937.3846075%201.918017-.5701146%201.918017h-4.7816066c-.8595697%200-1.5472255-1.1913149-.425387-1.9450201.0615691-.0412989.1343327-.0619484.2086955-.0619484zm-20.1950113%2031.1529634h9.8998446c.8507741%200%201.3657164%201.1674886.4845574%201.921988-.0663668.0571832-.1551223.0849805-.2414791.0849805h-10.356416c-.0735632%200-.1503248-.0214437-.2110944-.0619484-1.122638-.7537052-.4349822-1.9450201.4245875-1.9450201zm9.9001644-7.0909444c.8507742%200%201.3657164%201.1674886.4837579%201.9227822-.0655672.056389-.1543228.0841863-.2414792.0841863h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619484.2110943-.0619484zm0-7.0904678c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0655672.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913148-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm0-7.1575786c.8507742%200%201.3657164%201.1674885.4837579%201.921988-.0663668.0571831-.1543228.0849804-.2414792.0849804h-12.2298782c-.8595698%200-1.5472255-1.1913149-.4245875-1.9450201.0607696-.0412989.1367316-.0619483.2110943-.0619483zm-12.4125868-5.1456861c-1.122638-.7537052-.4341827-1.9450201.4245875-1.9450201h11.9204331c.8595698%200%201.5472256%201.1913149.4245875%201.9450201-.0607696.0412989-.1375312.0619484-.2110943.0619484h-12.3466199c-.0743627%200-.1503247-.0206495-.2118939-.0619484zm-10.6200441%204.0753293-1.8182898-3.0775634c-.3366315-.5345033-.1351324-1.1365144.3366315-1.4041631.5389302-.3343624%201.1450268-.1342215%201.414492.3343624l.9883053%201.6694292c.1519239.257324.5317338.2398514.6604694-.03018l3.6709624-7.7268682c.2694651-.4677897.8763614-.7354384%201.3473256-.4677897.4717639.2676488.741229.8696599.4717639%201.3374495l-4.4449751%209.3653233c-.2694651.4010761-.7412289.6687248-1.2801592.6687248-.5381306%200-1.0098945-.2009351-1.346526-.6687248zm4.662866%2018.1307006c-.0591704-.0841863-.1359319-.1604304-.2206895-.219202-2.6682644-1.8513033-5.5812063%201.0420034-3.7173393%203.6922819.0583708.0841863.135932.1604304.2206895.219202%202.6682644%201.8513033%205.5812063-1.0420035%203.7173393-3.6922819zm-6.548722%201.736937c0-2.4755523%202.0205886-4.5492344%204.5793078-4.5492344%203.5030465%200%205.9969982%203.885275%203.6813573%207.366297-.1455272.2184077-.3270363.4129892-.5341326.575008-3.5798082%202.7860884-7.7265325.0953052-7.7265325-3.3920706zm6.3281924-9.8844983c.083958-.0587716.1615191-.1350157.2206895-.219202%201.8638671-2.6502784-1.0490748-5.5435852-3.7173392-3.6922819-.0847576.0579774-.1615192.1350157-.2206896.219202-1.8646666%202.6502785%201.0490749%205.5443794%203.7173393%203.6922819zm-1.7487247-6.5045792c2.5595189%200%204.5801074%202.0736821%204.5801074%204.5484402%200%203.4881699-4.1467243%206.1789531-7.727332%203.3928647-.2070963-.1620188-.3886055-.3566002-.5341326-.575008-2.3148413-3.481022.1791103-7.3662969%203.6813572-7.3662969z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 800px) {
   .ontwerp button {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m5.02714019%2017.680972%208.25689721-9.65383181%203.405757%202.91319621-2.2241495%202.6018692%201.6302056%201.3951402%202.2250467-2.6018692%203.7996262%203.2496449-1.403215%201.6400748%201.6311028%201.3951401%201.403215-1.6400747%203.7987289%203.2487476-2.2241495%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.798729%203.2487477-1.4032149%201.640972%201.632%201.3951401%201.4032149-1.6409719%203.798729%203.2487476-2.2250467%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.7996262%203.2487477-1.403215%201.640972%201.6311028%201.3951401%201.403215-1.6409719%203.7987289%203.2496448-2.2250467%202.600972%201.632%201.3951402%202.2250467-2.600972%203.3375701%202.8539813-8.2568972%209.6538318zm19.90609341%2020.6543551s-.2915887-.7150654-.8622056-1.5422804l1.2946542%201.1071402zm28.082243-29.49084112c.0825421-.06011215.1758505-.08792523.2781309-.08164486.0816448.00358879.2000747.03229907.2978691.14265421.1480374.16418691.146243.41719626-.0035887.57958878l-16.2114393%2016.32269159-2.7759252-2.3739813zm4.2536075%2033.97592522-11.0471776%2012.9169346-18.573757-15.8848598-1.1663551%201.1744299-.0035888-.0035888.0026916.0197383c-2.5758505%201.1430281-6.5432523%203.0056075-6.5432523%203.0056075l-4.9767477-5.5554393s2.2923364-3.7341308%203.7170841-6.1565607l-.0008972-.0017944.0942056-.0744673-16.7712897-14.3434766%2011.0471776-12.9169346%2019.2690841%2016.4797009%2018.857271-15.00919623c.676486-.52127103%201.4884486-.75274766%202.2842617-.70878504.8810467.04844859%201.7414579.43424299%202.3721869%201.13764486%201.2004486%201.34041121%201.1645608%203.37973831-.082542%204.67618691l-16.0849346%2016.187215zm-50.91104298%201.4487028%207.82714018-3.7161869%203.6210841%204.0418692-4.5505794%207.3749532s-5.20373834%201.0542056-8.53143927%202.9463926l-.75723365-.8586169%204.05891589-3.6372336c.35618692-.3194019.80657944-.5087103%201.28299066-.5428037.26467289-.0170468.52396261-.11843.73659817-.31043.5096074-.4566729.5526729-1.2381308.096-1.7486355-.45487855-.5096074-1.23902808-.5526729-1.74773836-.096-.21353271.1911028-.34272897.438729-.39028037.6980187-.08433645.4692337-.32209346.8971963-.67828038%201.215701l-4.05891589%203.6372336-.75813084-.8451589c2.27170094-3.1348037%203.84986916-8.1591028%203.84986916-8.1591028z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1909,10 +2423,10 @@ STYLING STEPS
   .ontwerp p.icon.ontwerp.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m5.02714019%2017.680972%208.25689721-9.65383181%203.405757%202.91319621-2.2241495%202.6018692%201.6302056%201.3951402%202.2250467-2.6018692%203.7996262%203.2496449-1.403215%201.6400748%201.6311028%201.3951401%201.403215-1.6400747%203.7987289%203.2487476-2.2241495%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.798729%203.2487477-1.4032149%201.640972%201.632%201.3951401%201.4032149-1.6409719%203.798729%203.2487476-2.2250467%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.7996262%203.2487477-1.403215%201.640972%201.6311028%201.3951401%201.403215-1.6409719%203.7987289%203.2496448-2.2250467%202.600972%201.632%201.3951402%202.2250467-2.600972%203.3375701%202.8539813-8.2568972%209.6538318zm19.90609341%2020.6543551s-.2915887-.7150654-.8622056-1.5422804l1.2946542%201.1071402zm28.082243-29.49084112c.0825421-.06011215.1758505-.08792523.2781309-.08164486.0816448.00358879.2000747.03229907.2978691.14265421.1480374.16418691.146243.41719626-.0035887.57958878l-16.2114393%2016.32269159-2.7759252-2.3739813zm4.2536075%2033.97592522-11.0471776%2012.9169346-18.573757-15.8848598-1.1663551%201.1744299-.0035888-.0035888.0026916.0197383c-2.5758505%201.1430281-6.5432523%203.0056075-6.5432523%203.0056075l-4.9767477-5.5554393s2.2923364-3.7341308%203.7170841-6.1565607l-.0008972-.0017944.0942056-.0744673-16.7712897-14.3434766%2011.0471776-12.9169346%2019.2690841%2016.4797009%2018.857271-15.00919623c.676486-.52127103%201.4884486-.75274766%202.2842617-.70878504.8810467.04844859%201.7414579.43424299%202.3721869%201.13764486%201.2004486%201.34041121%201.1645608%203.37973831-.082542%204.67618691l-16.0849346%2016.187215zm-50.91104298%201.4487028%207.82714018-3.7161869%203.6210841%204.0418692-4.5505794%207.3749532s-5.20373834%201.0542056-8.53143927%202.9463926l-.75723365-.8586169%204.05891589-3.6372336c.35618692-.3194019.80657944-.5087103%201.28299066-.5428037.26467289-.0170468.52396261-.11843.73659817-.31043.5096074-.4566729.5526729-1.2381308.096-1.7486355-.45487855-.5096074-1.23902808-.5526729-1.74773836-.096-.21353271.1911028-.34272897.438729-.39028037.6980187-.08433645.4692337-.32209346.8971963-.67828038%201.215701l-4.05891589%203.6372336-.75813084-.8451589c2.27170094-3.1348037%203.84986916-8.1591028%203.84986916-8.1591028z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m5.02714019%2017.680972%208.25689721-9.65383181%203.405757%202.91319621-2.2241495%202.6018692%201.6302056%201.3951402%202.2250467-2.6018692%203.7996262%203.2496449-1.403215%201.6400748%201.6311028%201.3951401%201.403215-1.6400747%203.7987289%203.2487476-2.2241495%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.798729%203.2487477-1.4032149%201.640972%201.632%201.3951401%201.4032149-1.6409719%203.798729%203.2487476-2.2250467%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.7996262%203.2487477-1.403215%201.640972%201.6311028%201.3951401%201.403215-1.6409719%203.7987289%203.2496448-2.2250467%202.600972%201.632%201.3951402%202.2250467-2.600972%203.3375701%202.8539813-8.2568972%209.6538318zm19.90609341%2020.6543551s-.2915887-.7150654-.8622056-1.5422804l1.2946542%201.1071402zm28.082243-29.49084112c.0825421-.06011215.1758505-.08792523.2781309-.08164486.0816448.00358879.2000747.03229907.2978691.14265421.1480374.16418691.146243.41719626-.0035887.57958878l-16.2114393%2016.32269159-2.7759252-2.3739813zm4.2536075%2033.97592522-11.0471776%2012.9169346-18.573757-15.8848598-1.1663551%201.1744299-.0035888-.0035888.0026916.0197383c-2.5758505%201.1430281-6.5432523%203.0056075-6.5432523%203.0056075l-4.9767477-5.5554393s2.2923364-3.7341308%203.7170841-6.1565607l-.0008972-.0017944.0942056-.0744673-16.7712897-14.3434766%2011.0471776-12.9169346%2019.2690841%2016.4797009%2018.857271-15.00919623c.676486-.52127103%201.4884486-.75274766%202.2842617-.70878504.8810467.04844859%201.7414579.43424299%202.3721869%201.13764486%201.2004486%201.34041121%201.1645608%203.37973831-.082542%204.67618691l-16.0849346%2016.187215zm-50.91104298%201.4487028%207.82714018-3.7161869%203.6210841%204.0418692-4.5505794%207.3749532s-5.20373834%201.0542056-8.53143927%202.9463926l-.75723365-.8586169%204.05891589-3.6372336c.35618692-.3194019.80657944-.5087103%201.28299066-.5428037.26467289-.0170468.52396261-.11843.73659817-.31043.5096074-.4566729.5526729-1.2381308.096-1.7486355-.45487855-.5096074-1.23902808-.5526729-1.74773836-.096-.21353271.1911028-.34272897.438729-.39028037.6980187-.08433645.4692337-.32209346.8971963-.67828038%201.215701l-4.05891589%203.6372336-.75813084-.8451589c2.27170094-3.1348037%203.84986916-8.1591028%203.84986916-8.1591028z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .ontwerp:before {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m5.02714019%2017.680972%208.25689721-9.65383181%203.405757%202.91319621-2.2241495%202.6018692%201.6302056%201.3951402%202.2250467-2.6018692%203.7996262%203.2496449-1.403215%201.6400748%201.6311028%201.3951401%201.403215-1.6400747%203.7987289%203.2487476-2.2241495%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.798729%203.2487477-1.4032149%201.640972%201.632%201.3951401%201.4032149-1.6409719%203.798729%203.2487476-2.2250467%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.7996262%203.2487477-1.403215%201.640972%201.6311028%201.3951401%201.403215-1.6409719%203.7987289%203.2496448-2.2250467%202.600972%201.632%201.3951402%202.2250467-2.600972%203.3375701%202.8539813-8.2568972%209.6538318zm19.90609341%2020.6543551s-.2915887-.7150654-.8622056-1.5422804l1.2946542%201.1071402zm28.082243-29.49084112c.0825421-.06011215.1758505-.08792523.2781309-.08164486.0816448.00358879.2000747.03229907.2978691.14265421.1480374.16418691.146243.41719626-.0035887.57958878l-16.2114393%2016.32269159-2.7759252-2.3739813zm4.2536075%2033.97592522-11.0471776%2012.9169346-18.573757-15.8848598-1.1663551%201.1744299-.0035888-.0035888.0026916.0197383c-2.5758505%201.1430281-6.5432523%203.0056075-6.5432523%203.0056075l-4.9767477-5.5554393s2.2923364-3.7341308%203.7170841-6.1565607l-.0008972-.0017944.0942056-.0744673-16.7712897-14.3434766%2011.0471776-12.9169346%2019.2690841%2016.4797009%2018.857271-15.00919623c.676486-.52127103%201.4884486-.75274766%202.2842617-.70878504.8810467.04844859%201.7414579.43424299%202.3721869%201.13764486%201.2004486%201.34041121%201.1645608%203.37973831-.082542%204.67618691l-16.0849346%2016.187215zm-50.91104298%201.4487028%207.82714018-3.7161869%203.6210841%204.0418692-4.5505794%207.3749532s-5.20373834%201.0542056-8.53143927%202.9463926l-.75723365-.8586169%204.05891589-3.6372336c.35618692-.3194019.80657944-.5087103%201.28299066-.5428037.26467289-.0170468.52396261-.11843.73659817-.31043.5096074-.4566729.5526729-1.2381308.096-1.7486355-.45487855-.5096074-1.23902808-.5526729-1.74773836-.096-.21353271.1911028-.34272897.438729-.39028037.6980187-.08433645.4692337-.32209346.8971963-.67828038%201.215701l-4.05891589%203.6372336-.75813084-.8451589c2.27170094-3.1348037%203.84986916-8.1591028%203.84986916-8.1591028z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1920,10 +2434,10 @@ STYLING STEPS
   .ontwerp.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m5.02714019%2017.680972%208.25689721-9.65383181%203.405757%202.91319621-2.2241495%202.6018692%201.6302056%201.3951402%202.2250467-2.6018692%203.7996262%203.2496449-1.403215%201.6400748%201.6311028%201.3951401%201.403215-1.6400747%203.7987289%203.2487476-2.2241495%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.798729%203.2487477-1.4032149%201.640972%201.632%201.3951401%201.4032149-1.6409719%203.798729%203.2487476-2.2250467%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.7996262%203.2487477-1.403215%201.640972%201.6311028%201.3951401%201.403215-1.6409719%203.7987289%203.2496448-2.2250467%202.600972%201.632%201.3951402%202.2250467-2.600972%203.3375701%202.8539813-8.2568972%209.6538318zm19.90609341%2020.6543551s-.2915887-.7150654-.8622056-1.5422804l1.2946542%201.1071402zm28.082243-29.49084112c.0825421-.06011215.1758505-.08792523.2781309-.08164486.0816448.00358879.2000747.03229907.2978691.14265421.1480374.16418691.146243.41719626-.0035887.57958878l-16.2114393%2016.32269159-2.7759252-2.3739813zm4.2536075%2033.97592522-11.0471776%2012.9169346-18.573757-15.8848598-1.1663551%201.1744299-.0035888-.0035888.0026916.0197383c-2.5758505%201.1430281-6.5432523%203.0056075-6.5432523%203.0056075l-4.9767477-5.5554393s2.2923364-3.7341308%203.7170841-6.1565607l-.0008972-.0017944.0942056-.0744673-16.7712897-14.3434766%2011.0471776-12.9169346%2019.2690841%2016.4797009%2018.857271-15.00919623c.676486-.52127103%201.4884486-.75274766%202.2842617-.70878504.8810467.04844859%201.7414579.43424299%202.3721869%201.13764486%201.2004486%201.34041121%201.1645608%203.37973831-.082542%204.67618691l-16.0849346%2016.187215zm-50.91104298%201.4487028%207.82714018-3.7161869%203.6210841%204.0418692-4.5505794%207.3749532s-5.20373834%201.0542056-8.53143927%202.9463926l-.75723365-.8586169%204.05891589-3.6372336c.35618692-.3194019.80657944-.5087103%201.28299066-.5428037.26467289-.0170468.52396261-.11843.73659817-.31043.5096074-.4566729.5526729-1.2381308.096-1.7486355-.45487855-.5096074-1.23902808-.5526729-1.74773836-.096-.21353271.1911028-.34272897.438729-.39028037.6980187-.08433645.4692337-.32209346.8971963-.67828038%201.215701l-4.05891589%203.6372336-.75813084-.8451589c2.27170094-3.1348037%203.84986916-8.1591028%203.84986916-8.1591028z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m5.02714019%2017.680972%208.25689721-9.65383181%203.405757%202.91319621-2.2241495%202.6018692%201.6302056%201.3951402%202.2250467-2.6018692%203.7996262%203.2496449-1.403215%201.6400748%201.6311028%201.3951401%201.403215-1.6400747%203.7987289%203.2487476-2.2241495%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.798729%203.2487477-1.4032149%201.640972%201.632%201.3951401%201.4032149-1.6409719%203.798729%203.2487476-2.2250467%202.6018692%201.6311028%201.3951402%202.2250467-2.600972%203.7996262%203.2487477-1.403215%201.640972%201.6311028%201.3951401%201.403215-1.6409719%203.7987289%203.2496448-2.2250467%202.600972%201.632%201.3951402%202.2250467-2.600972%203.3375701%202.8539813-8.2568972%209.6538318zm19.90609341%2020.6543551s-.2915887-.7150654-.8622056-1.5422804l1.2946542%201.1071402zm28.082243-29.49084112c.0825421-.06011215.1758505-.08792523.2781309-.08164486.0816448.00358879.2000747.03229907.2978691.14265421.1480374.16418691.146243.41719626-.0035887.57958878l-16.2114393%2016.32269159-2.7759252-2.3739813zm4.2536075%2033.97592522-11.0471776%2012.9169346-18.573757-15.8848598-1.1663551%201.1744299-.0035888-.0035888.0026916.0197383c-2.5758505%201.1430281-6.5432523%203.0056075-6.5432523%203.0056075l-4.9767477-5.5554393s2.2923364-3.7341308%203.7170841-6.1565607l-.0008972-.0017944.0942056-.0744673-16.7712897-14.3434766%2011.0471776-12.9169346%2019.2690841%2016.4797009%2018.857271-15.00919623c.676486-.52127103%201.4884486-.75274766%202.2842617-.70878504.8810467.04844859%201.7414579.43424299%202.3721869%201.13764486%201.2004486%201.34041121%201.1645608%203.37973831-.082542%204.67618691l-16.0849346%2016.187215zm-50.91104298%201.4487028%207.82714018-3.7161869%203.6210841%204.0418692-4.5505794%207.3749532s-5.20373834%201.0542056-8.53143927%202.9463926l-.75723365-.8586169%204.05891589-3.6372336c.35618692-.3194019.80657944-.5087103%201.28299066-.5428037.26467289-.0170468.52396261-.11843.73659817-.31043.5096074-.4566729.5526729-1.2381308.096-1.7486355-.45487855-.5096074-1.23902808-.5526729-1.74773836-.096-.21353271.1911028-.34272897.438729-.39028037.6980187-.08433645.4692337-.32209346.8971963-.67828038%201.215701l-4.05891589%203.6372336-.75813084-.8451589c2.27170094-3.1348037%203.84986916-8.1591028%203.84986916-8.1591028z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 800px) {
   .verdiep button {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m25.1015327%2019.8166729-2.5695701-.3310654c.5598505-4.315514%203.2442617-7.5122243%207.6100187-8.3214954l.4737196%202.546243c-4.2114392.7805608-5.2629532%204.1620935-5.5141682%206.1063178zm7.8504673%2035.3602991c-.4109159.4674392-1.0066542.7374953-1.6266168.7374953h-2.3668038c-.6208598%200-1.2157009-.2700561-1.6266168-.7374953l-3.1392897-3.5878879h11.8977196zm3.6794019-6.8330468c0%20.5966355-.484486%201.0811215-1.0820187%201.0811215h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0811215%200-.5975327.484486-1.0820187%201.0811215-1.0820187h10.815701c.5975327%200%201.0820187.484486%201.0820187%201.0820187zm0-4.3262803c0%20.5975327-.484486%201.0820187-1.0820187%201.0820187h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0820187%200-.5966356.484486-1.0811215%201.0811215-1.0811215h10.815701c.5975327%200%201.0820187.4844859%201.0820187%201.0811215zm8.6516635-25.4507664c0%209.0069533-8.1115514%2015.0980187-8.1115514%2022.2056075h-4.3092336c.0026916-4.4967477%202.1550654-8.2757383%204.2580934-11.9246355%201.974729-3.4281869%203.8364112-6.6688598%203.8364112-10.280972%200-6.7235888-5.4459813-10.24059813-10.8237757-10.24059813-5.3688224%200-10.8067289%203.51700933-10.8067289%2010.24059813%200%203.6121122%201.8625794%206.8527851%203.8373084%2010.280972%202.1021308%203.6488972%204.2527103%207.4278878%204.2545047%2011.9246355h-4.3065421c0-7.1075888-8.1115514-13.2004486-8.1115514-22.2056075%200-9.39454205%207.5660561-14.5668785%2015.1330093-14.5668785%207.5750281%200%2015.1500561%205.17861682%2015.1500561%2014.5668785z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1934,10 +2448,10 @@ STYLING STEPS
   .verdiep p.icon.verdiep.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m25.1015327%2019.8166729-2.5695701-.3310654c.5598505-4.315514%203.2442617-7.5122243%207.6100187-8.3214954l.4737196%202.546243c-4.2114392.7805608-5.2629532%204.1620935-5.5141682%206.1063178zm7.8504673%2035.3602991c-.4109159.4674392-1.0066542.7374953-1.6266168.7374953h-2.3668038c-.6208598%200-1.2157009-.2700561-1.6266168-.7374953l-3.1392897-3.5878879h11.8977196zm3.6794019-6.8330468c0%20.5966355-.484486%201.0811215-1.0820187%201.0811215h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0811215%200-.5975327.484486-1.0820187%201.0811215-1.0820187h10.815701c.5975327%200%201.0820187.484486%201.0820187%201.0820187zm0-4.3262803c0%20.5975327-.484486%201.0820187-1.0820187%201.0820187h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0820187%200-.5966356.484486-1.0811215%201.0811215-1.0811215h10.815701c.5975327%200%201.0820187.4844859%201.0820187%201.0811215zm8.6516635-25.4507664c0%209.0069533-8.1115514%2015.0980187-8.1115514%2022.2056075h-4.3092336c.0026916-4.4967477%202.1550654-8.2757383%204.2580934-11.9246355%201.974729-3.4281869%203.8364112-6.6688598%203.8364112-10.280972%200-6.7235888-5.4459813-10.24059813-10.8237757-10.24059813-5.3688224%200-10.8067289%203.51700933-10.8067289%2010.24059813%200%203.6121122%201.8625794%206.8527851%203.8373084%2010.280972%202.1021308%203.6488972%204.2527103%207.4278878%204.2545047%2011.9246355h-4.3065421c0-7.1075888-8.1115514-13.2004486-8.1115514-22.2056075%200-9.39454205%207.5660561-14.5668785%2015.1330093-14.5668785%207.5750281%200%2015.1500561%205.17861682%2015.1500561%2014.5668785z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m25.1015327%2019.8166729-2.5695701-.3310654c.5598505-4.315514%203.2442617-7.5122243%207.6100187-8.3214954l.4737196%202.546243c-4.2114392.7805608-5.2629532%204.1620935-5.5141682%206.1063178zm7.8504673%2035.3602991c-.4109159.4674392-1.0066542.7374953-1.6266168.7374953h-2.3668038c-.6208598%200-1.2157009-.2700561-1.6266168-.7374953l-3.1392897-3.5878879h11.8977196zm3.6794019-6.8330468c0%20.5966355-.484486%201.0811215-1.0820187%201.0811215h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0811215%200-.5975327.484486-1.0820187%201.0811215-1.0820187h10.815701c.5975327%200%201.0820187.484486%201.0820187%201.0820187zm0-4.3262803c0%20.5975327-.484486%201.0820187-1.0820187%201.0820187h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0820187%200-.5966356.484486-1.0811215%201.0811215-1.0811215h10.815701c.5975327%200%201.0820187.4844859%201.0820187%201.0811215zm8.6516635-25.4507664c0%209.0069533-8.1115514%2015.0980187-8.1115514%2022.2056075h-4.3092336c.0026916-4.4967477%202.1550654-8.2757383%204.2580934-11.9246355%201.974729-3.4281869%203.8364112-6.6688598%203.8364112-10.280972%200-6.7235888-5.4459813-10.24059813-10.8237757-10.24059813-5.3688224%200-10.8067289%203.51700933-10.8067289%2010.24059813%200%203.6121122%201.8625794%206.8527851%203.8373084%2010.280972%202.1021308%203.6488972%204.2527103%207.4278878%204.2545047%2011.9246355h-4.3065421c0-7.1075888-8.1115514-13.2004486-8.1115514-22.2056075%200-9.39454205%207.5660561-14.5668785%2015.1330093-14.5668785%207.5750281%200%2015.1500561%205.17861682%2015.1500561%2014.5668785z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .verdiep:before {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m25.1015327%2019.8166729-2.5695701-.3310654c.5598505-4.315514%203.2442617-7.5122243%207.6100187-8.3214954l.4737196%202.546243c-4.2114392.7805608-5.2629532%204.1620935-5.5141682%206.1063178zm7.8504673%2035.3602991c-.4109159.4674392-1.0066542.7374953-1.6266168.7374953h-2.3668038c-.6208598%200-1.2157009-.2700561-1.6266168-.7374953l-3.1392897-3.5878879h11.8977196zm3.6794019-6.8330468c0%20.5966355-.484486%201.0811215-1.0820187%201.0811215h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0811215%200-.5975327.484486-1.0820187%201.0811215-1.0820187h10.815701c.5975327%200%201.0820187.484486%201.0820187%201.0820187zm0-4.3262803c0%20.5975327-.484486%201.0820187-1.0820187%201.0820187h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0820187%200-.5966356.484486-1.0811215%201.0811215-1.0811215h10.815701c.5975327%200%201.0820187.4844859%201.0820187%201.0811215zm8.6516635-25.4507664c0%209.0069533-8.1115514%2015.0980187-8.1115514%2022.2056075h-4.3092336c.0026916-4.4967477%202.1550654-8.2757383%204.2580934-11.9246355%201.974729-3.4281869%203.8364112-6.6688598%203.8364112-10.280972%200-6.7235888-5.4459813-10.24059813-10.8237757-10.24059813-5.3688224%200-10.8067289%203.51700933-10.8067289%2010.24059813%200%203.6121122%201.8625794%206.8527851%203.8373084%2010.280972%202.1021308%203.6488972%204.2527103%207.4278878%204.2545047%2011.9246355h-4.3065421c0-7.1075888-8.1115514-13.2004486-8.1115514-22.2056075%200-9.39454205%207.5660561-14.5668785%2015.1330093-14.5668785%207.5750281%200%2015.1500561%205.17861682%2015.1500561%2014.5668785z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1945,10 +2459,10 @@ STYLING STEPS
   .verdiep.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m25.1015327%2019.8166729-2.5695701-.3310654c.5598505-4.315514%203.2442617-7.5122243%207.6100187-8.3214954l.4737196%202.546243c-4.2114392.7805608-5.2629532%204.1620935-5.5141682%206.1063178zm7.8504673%2035.3602991c-.4109159.4674392-1.0066542.7374953-1.6266168.7374953h-2.3668038c-.6208598%200-1.2157009-.2700561-1.6266168-.7374953l-3.1392897-3.5878879h11.8977196zm3.6794019-6.8330468c0%20.5966355-.484486%201.0811215-1.0820187%201.0811215h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0811215%200-.5975327.484486-1.0820187%201.0811215-1.0820187h10.815701c.5975327%200%201.0820187.484486%201.0820187%201.0820187zm0-4.3262803c0%20.5975327-.484486%201.0820187-1.0820187%201.0820187h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0820187%200-.5966356.484486-1.0811215%201.0811215-1.0811215h10.815701c.5975327%200%201.0820187.4844859%201.0820187%201.0811215zm8.6516635-25.4507664c0%209.0069533-8.1115514%2015.0980187-8.1115514%2022.2056075h-4.3092336c.0026916-4.4967477%202.1550654-8.2757383%204.2580934-11.9246355%201.974729-3.4281869%203.8364112-6.6688598%203.8364112-10.280972%200-6.7235888-5.4459813-10.24059813-10.8237757-10.24059813-5.3688224%200-10.8067289%203.51700933-10.8067289%2010.24059813%200%203.6121122%201.8625794%206.8527851%203.8373084%2010.280972%202.1021308%203.6488972%204.2527103%207.4278878%204.2545047%2011.9246355h-4.3065421c0-7.1075888-8.1115514-13.2004486-8.1115514-22.2056075%200-9.39454205%207.5660561-14.5668785%2015.1330093-14.5668785%207.5750281%200%2015.1500561%205.17861682%2015.1500561%2014.5668785z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m25.1015327%2019.8166729-2.5695701-.3310654c.5598505-4.315514%203.2442617-7.5122243%207.6100187-8.3214954l.4737196%202.546243c-4.2114392.7805608-5.2629532%204.1620935-5.5141682%206.1063178zm7.8504673%2035.3602991c-.4109159.4674392-1.0066542.7374953-1.6266168.7374953h-2.3668038c-.6208598%200-1.2157009-.2700561-1.6266168-.7374953l-3.1392897-3.5878879h11.8977196zm3.6794019-6.8330468c0%20.5966355-.484486%201.0811215-1.0820187%201.0811215h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0811215%200-.5975327.484486-1.0820187%201.0811215-1.0820187h10.815701c.5975327%200%201.0820187.484486%201.0820187%201.0820187zm0-4.3262803c0%20.5975327-.484486%201.0820187-1.0820187%201.0820187h-10.815701c-.5966355%200-1.0811215-.484486-1.0811215-1.0820187%200-.5966356.484486-1.0811215%201.0811215-1.0811215h10.815701c.5975327%200%201.0820187.4844859%201.0820187%201.0811215zm8.6516635-25.4507664c0%209.0069533-8.1115514%2015.0980187-8.1115514%2022.2056075h-4.3092336c.0026916-4.4967477%202.1550654-8.2757383%204.2580934-11.9246355%201.974729-3.4281869%203.8364112-6.6688598%203.8364112-10.280972%200-6.7235888-5.4459813-10.24059813-10.8237757-10.24059813-5.3688224%200-10.8067289%203.51700933-10.8067289%2010.24059813%200%203.6121122%201.8625794%206.8527851%203.8373084%2010.280972%202.1021308%203.6488972%204.2527103%207.4278878%204.2545047%2011.9246355h-4.3065421c0-7.1075888-8.1115514-13.2004486-8.1115514-22.2056075%200-9.39454205%207.5660561-14.5668785%2015.1330093-14.5668785%207.5750281%200%2015.1500561%205.17861682%2015.1500561%2014.5668785z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 800px) {
   .identificeer button {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m18.4056822%2049.1324112c-.2153271-3.4398505-.516785-8.256-.5643364-9.0096448.0035888-.9635888.0475514-1.5700935.1336822-1.8051589.0870281-.0574206.3723365-.2153271%201.0658692-.3759253l.1516262-.0349906c3.3438504-.772486%206.8016448-1.5700935%208.1070654-4.4285608.4934579-1.0793271.8281121-2.8423177-.3732337-5.1140187-2.1604486-4.0795514-2.7678504-7.6459065-1.627514-9.540785.7419813-1.2327477%202.1039253-1.4920374%203.1168598-1.4920374%201.0120374%200%202.3748785.2592897%203.1159627%201.4920374%201.1412336%201.8948785.5329345%205.4612336-1.6266169%209.540785-1.202243%202.271701-.8666916%204.0346916-.3741308%205.1140187%201.3063177%202.8584673%204.7632149%203.6560748%208.1070654%204.4285608l.1516262.0349906c.6944299.1605982.9797383.3185047%201.0658691.3759253.0861309.2350654.1309907.8415701.1336823%201.8051589-.0466542.7536448-.3490094%205.5697943-.5643365%209.0096448-3.0818691%201.4920374-6.4840374%202.2833645-10.0091215%202.2833645s-6.9281495-.7913271-10.0100187-2.2833645zm-12.99140183-20.7180561c0-6.1431028%202.39282243-11.9192523%206.73704673-16.2643738%204.3442243-4.34422429%2010.1203738-6.73704672%2016.2643738-6.73704672s11.9201496%202.39282243%2016.2643739%206.73704672c4.3442243%204.3451215%206.7370467%2010.121271%206.7370467%2016.2643738%200%206.144-2.3928224%2011.9201496-6.7370467%2016.2652711-.9312898.9303925-1.9316636%201.7656822-2.9840748%202.5139439.2090467-3.3761495.4324486-6.9748037.4324486-6.9748037%200-2.8835888-.2269907-4.5478879-3.6318505-5.334729-3.9297196-.9079626-7.588486-1.7037757-5.8174205-5.0521122%205.3939439-10.1894579%201.4292336-15.6381308-4.2634767-15.639028-5.6927102.0008972-9.6574205%205.4495701-4.2643738%2015.639028%201.7719626%203.3483365-1.8877009%204.1441496-5.8165234%205.0521122-3.405757.7868411-3.6318504%202.4511402-3.6318504%205.334729%200%200%20.2225046%203.5986542.4315514%206.9748037-1.0524112-.7482617-2.0527851-1.5835514-2.9831776-2.5139439-4.3442243-4.3451215-6.73704673-10.1212711-6.73704673-16.2652711zm52.13517753%2022.5510281-7.4592897-7.4592897c7.1892337-10.2998131%206.1960374-24.5777944-2.9966355-33.76957014-5.1570841-5.1579813-11.9183551-7.73652336-18.6778318-7.73652336-6.7603738%200-13.5207476%202.57854206-18.67872894%207.73652336-10.31596261%2010.31596264-10.31596261%2027.04059814%200%2037.35656074%205.15798134%205.1579813%2011.91835514%207.7365234%2018.67872894%207.7365234%205.2871776%200%2010.5707664-1.5853458%2015.0917384-4.7398879l7.4583925%207.4583925z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1959,10 +2473,10 @@ STYLING STEPS
   .identificeer p.icon.identificeer.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m18.4056822%2049.1324112c-.2153271-3.4398505-.516785-8.256-.5643364-9.0096448.0035888-.9635888.0475514-1.5700935.1336822-1.8051589.0870281-.0574206.3723365-.2153271%201.0658692-.3759253l.1516262-.0349906c3.3438504-.772486%206.8016448-1.5700935%208.1070654-4.4285608.4934579-1.0793271.8281121-2.8423177-.3732337-5.1140187-2.1604486-4.0795514-2.7678504-7.6459065-1.627514-9.540785.7419813-1.2327477%202.1039253-1.4920374%203.1168598-1.4920374%201.0120374%200%202.3748785.2592897%203.1159627%201.4920374%201.1412336%201.8948785.5329345%205.4612336-1.6266169%209.540785-1.202243%202.271701-.8666916%204.0346916-.3741308%205.1140187%201.3063177%202.8584673%204.7632149%203.6560748%208.1070654%204.4285608l.1516262.0349906c.6944299.1605982.9797383.3185047%201.0658691.3759253.0861309.2350654.1309907.8415701.1336823%201.8051589-.0466542.7536448-.3490094%205.5697943-.5643365%209.0096448-3.0818691%201.4920374-6.4840374%202.2833645-10.0091215%202.2833645s-6.9281495-.7913271-10.0100187-2.2833645zm-12.99140183-20.7180561c0-6.1431028%202.39282243-11.9192523%206.73704673-16.2643738%204.3442243-4.34422429%2010.1203738-6.73704672%2016.2643738-6.73704672s11.9201496%202.39282243%2016.2643739%206.73704672c4.3442243%204.3451215%206.7370467%2010.121271%206.7370467%2016.2643738%200%206.144-2.3928224%2011.9201496-6.7370467%2016.2652711-.9312898.9303925-1.9316636%201.7656822-2.9840748%202.5139439.2090467-3.3761495.4324486-6.9748037.4324486-6.9748037%200-2.8835888-.2269907-4.5478879-3.6318505-5.334729-3.9297196-.9079626-7.588486-1.7037757-5.8174205-5.0521122%205.3939439-10.1894579%201.4292336-15.6381308-4.2634767-15.639028-5.6927102.0008972-9.6574205%205.4495701-4.2643738%2015.639028%201.7719626%203.3483365-1.8877009%204.1441496-5.8165234%205.0521122-3.405757.7868411-3.6318504%202.4511402-3.6318504%205.334729%200%200%20.2225046%203.5986542.4315514%206.9748037-1.0524112-.7482617-2.0527851-1.5835514-2.9831776-2.5139439-4.3442243-4.3451215-6.73704673-10.1212711-6.73704673-16.2652711zm52.13517753%2022.5510281-7.4592897-7.4592897c7.1892337-10.2998131%206.1960374-24.5777944-2.9966355-33.76957014-5.1570841-5.1579813-11.9183551-7.73652336-18.6778318-7.73652336-6.7603738%200-13.5207476%202.57854206-18.67872894%207.73652336-10.31596261%2010.31596264-10.31596261%2027.04059814%200%2037.35656074%205.15798134%205.1579813%2011.91835514%207.7365234%2018.67872894%207.7365234%205.2871776%200%2010.5707664-1.5853458%2015.0917384-4.7398879l7.4583925%207.4583925z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m18.4056822%2049.1324112c-.2153271-3.4398505-.516785-8.256-.5643364-9.0096448.0035888-.9635888.0475514-1.5700935.1336822-1.8051589.0870281-.0574206.3723365-.2153271%201.0658692-.3759253l.1516262-.0349906c3.3438504-.772486%206.8016448-1.5700935%208.1070654-4.4285608.4934579-1.0793271.8281121-2.8423177-.3732337-5.1140187-2.1604486-4.0795514-2.7678504-7.6459065-1.627514-9.540785.7419813-1.2327477%202.1039253-1.4920374%203.1168598-1.4920374%201.0120374%200%202.3748785.2592897%203.1159627%201.4920374%201.1412336%201.8948785.5329345%205.4612336-1.6266169%209.540785-1.202243%202.271701-.8666916%204.0346916-.3741308%205.1140187%201.3063177%202.8584673%204.7632149%203.6560748%208.1070654%204.4285608l.1516262.0349906c.6944299.1605982.9797383.3185047%201.0658691.3759253.0861309.2350654.1309907.8415701.1336823%201.8051589-.0466542.7536448-.3490094%205.5697943-.5643365%209.0096448-3.0818691%201.4920374-6.4840374%202.2833645-10.0091215%202.2833645s-6.9281495-.7913271-10.0100187-2.2833645zm-12.99140183-20.7180561c0-6.1431028%202.39282243-11.9192523%206.73704673-16.2643738%204.3442243-4.34422429%2010.1203738-6.73704672%2016.2643738-6.73704672s11.9201496%202.39282243%2016.2643739%206.73704672c4.3442243%204.3451215%206.7370467%2010.121271%206.7370467%2016.2643738%200%206.144-2.3928224%2011.9201496-6.7370467%2016.2652711-.9312898.9303925-1.9316636%201.7656822-2.9840748%202.5139439.2090467-3.3761495.4324486-6.9748037.4324486-6.9748037%200-2.8835888-.2269907-4.5478879-3.6318505-5.334729-3.9297196-.9079626-7.588486-1.7037757-5.8174205-5.0521122%205.3939439-10.1894579%201.4292336-15.6381308-4.2634767-15.639028-5.6927102.0008972-9.6574205%205.4495701-4.2643738%2015.639028%201.7719626%203.3483365-1.8877009%204.1441496-5.8165234%205.0521122-3.405757.7868411-3.6318504%202.4511402-3.6318504%205.334729%200%200%20.2225046%203.5986542.4315514%206.9748037-1.0524112-.7482617-2.0527851-1.5835514-2.9831776-2.5139439-4.3442243-4.3451215-6.73704673-10.1212711-6.73704673-16.2652711zm52.13517753%2022.5510281-7.4592897-7.4592897c7.1892337-10.2998131%206.1960374-24.5777944-2.9966355-33.76957014-5.1570841-5.1579813-11.9183551-7.73652336-18.6778318-7.73652336-6.7603738%200-13.5207476%202.57854206-18.67872894%207.73652336-10.31596261%2010.31596264-10.31596261%2027.04059814%200%2037.35656074%205.15798134%205.1579813%2011.91835514%207.7365234%2018.67872894%207.7365234%205.2871776%200%2010.5707664-1.5853458%2015.0917384-4.7398879l7.4583925%207.4583925z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   .identificeer:before {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m18.4056822%2049.1324112c-.2153271-3.4398505-.516785-8.256-.5643364-9.0096448.0035888-.9635888.0475514-1.5700935.1336822-1.8051589.0870281-.0574206.3723365-.2153271%201.0658692-.3759253l.1516262-.0349906c3.3438504-.772486%206.8016448-1.5700935%208.1070654-4.4285608.4934579-1.0793271.8281121-2.8423177-.3732337-5.1140187-2.1604486-4.0795514-2.7678504-7.6459065-1.627514-9.540785.7419813-1.2327477%202.1039253-1.4920374%203.1168598-1.4920374%201.0120374%200%202.3748785.2592897%203.1159627%201.4920374%201.1412336%201.8948785.5329345%205.4612336-1.6266169%209.540785-1.202243%202.271701-.8666916%204.0346916-.3741308%205.1140187%201.3063177%202.8584673%204.7632149%203.6560748%208.1070654%204.4285608l.1516262.0349906c.6944299.1605982.9797383.3185047%201.0658691.3759253.0861309.2350654.1309907.8415701.1336823%201.8051589-.0466542.7536448-.3490094%205.5697943-.5643365%209.0096448-3.0818691%201.4920374-6.4840374%202.2833645-10.0091215%202.2833645s-6.9281495-.7913271-10.0100187-2.2833645zm-12.99140183-20.7180561c0-6.1431028%202.39282243-11.9192523%206.73704673-16.2643738%204.3442243-4.34422429%2010.1203738-6.73704672%2016.2643738-6.73704672s11.9201496%202.39282243%2016.2643739%206.73704672c4.3442243%204.3451215%206.7370467%2010.121271%206.7370467%2016.2643738%200%206.144-2.3928224%2011.9201496-6.7370467%2016.2652711-.9312898.9303925-1.9316636%201.7656822-2.9840748%202.5139439.2090467-3.3761495.4324486-6.9748037.4324486-6.9748037%200-2.8835888-.2269907-4.5478879-3.6318505-5.334729-3.9297196-.9079626-7.588486-1.7037757-5.8174205-5.0521122%205.3939439-10.1894579%201.4292336-15.6381308-4.2634767-15.639028-5.6927102.0008972-9.6574205%205.4495701-4.2643738%2015.639028%201.7719626%203.3483365-1.8877009%204.1441496-5.8165234%205.0521122-3.405757.7868411-3.6318504%202.4511402-3.6318504%205.334729%200%200%20.2225046%203.5986542.4315514%206.9748037-1.0524112-.7482617-2.0527851-1.5835514-2.9831776-2.5139439-4.3442243-4.3451215-6.73704673-10.1212711-6.73704673-16.2652711zm52.13517753%2022.5510281-7.4592897-7.4592897c7.1892337-10.2998131%206.1960374-24.5777944-2.9966355-33.76957014-5.1570841-5.1579813-11.9183551-7.73652336-18.6778318-7.73652336-6.7603738%200-13.5207476%202.57854206-18.67872894%207.73652336-10.31596261%2010.31596264-10.31596261%2027.04059814%200%2037.35656074%205.15798134%205.1579813%2011.91835514%207.7365234%2018.67872894%207.7365234%205.2871776%200%2010.5707664-1.5853458%2015.0917384-4.7398879l7.4583925%207.4583925z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
@@ -1970,7 +2484,7 @@ STYLING STEPS
   .identificeer.current:before {
     background-color: #e8d8c7;
     border-color: #e8d8c7;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m18.4056822%2049.1324112c-.2153271-3.4398505-.516785-8.256-.5643364-9.0096448.0035888-.9635888.0475514-1.5700935.1336822-1.8051589.0870281-.0574206.3723365-.2153271%201.0658692-.3759253l.1516262-.0349906c3.3438504-.772486%206.8016448-1.5700935%208.1070654-4.4285608.4934579-1.0793271.8281121-2.8423177-.3732337-5.1140187-2.1604486-4.0795514-2.7678504-7.6459065-1.627514-9.540785.7419813-1.2327477%202.1039253-1.4920374%203.1168598-1.4920374%201.0120374%200%202.3748785.2592897%203.1159627%201.4920374%201.1412336%201.8948785.5329345%205.4612336-1.6266169%209.540785-1.202243%202.271701-.8666916%204.0346916-.3741308%205.1140187%201.3063177%202.8584673%204.7632149%203.6560748%208.1070654%204.4285608l.1516262.0349906c.6944299.1605982.9797383.3185047%201.0658691.3759253.0861309.2350654.1309907.8415701.1336823%201.8051589-.0466542.7536448-.3490094%205.5697943-.5643365%209.0096448-3.0818691%201.4920374-6.4840374%202.2833645-10.0091215%202.2833645s-6.9281495-.7913271-10.0100187-2.2833645zm-12.99140183-20.7180561c0-6.1431028%202.39282243-11.9192523%206.73704673-16.2643738%204.3442243-4.34422429%2010.1203738-6.73704672%2016.2643738-6.73704672s11.9201496%202.39282243%2016.2643739%206.73704672c4.3442243%204.3451215%206.7370467%2010.121271%206.7370467%2016.2643738%200%206.144-2.3928224%2011.9201496-6.7370467%2016.2652711-.9312898.9303925-1.9316636%201.7656822-2.9840748%202.5139439.2090467-3.3761495.4324486-6.9748037.4324486-6.9748037%200-2.8835888-.2269907-4.5478879-3.6318505-5.334729-3.9297196-.9079626-7.588486-1.7037757-5.8174205-5.0521122%205.3939439-10.1894579%201.4292336-15.6381308-4.2634767-15.639028-5.6927102.0008972-9.6574205%205.4495701-4.2643738%2015.639028%201.7719626%203.3483365-1.8877009%204.1441496-5.8165234%205.0521122-3.405757.7868411-3.6318504%202.4511402-3.6318504%205.334729%200%200%20.2225046%203.5986542.4315514%206.9748037-1.0524112-.7482617-2.0527851-1.5835514-2.9831776-2.5139439-4.3442243-4.3451215-6.73704673-10.1212711-6.73704673-16.2652711zm52.13517753%2022.5510281-7.4592897-7.4592897c7.1892337-10.2998131%206.1960374-24.5777944-2.9966355-33.76957014-5.1570841-5.1579813-11.9183551-7.73652336-18.6778318-7.73652336-6.7603738%200-13.5207476%202.57854206-18.67872894%207.73652336-10.31596261%2010.31596264-10.31596261%2027.04059814%200%2037.35656074%205.15798134%205.1579813%2011.91835514%207.7365234%2018.67872894%207.7365234%205.2871776%200%2010.5707664-1.5853458%2015.0917384-4.7398879l7.4583925%207.4583925z%22%20fill%3D%22%2300303d%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20width%3D%2260%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m18.4056822%2049.1324112c-.2153271-3.4398505-.516785-8.256-.5643364-9.0096448.0035888-.9635888.0475514-1.5700935.1336822-1.8051589.0870281-.0574206.3723365-.2153271%201.0658692-.3759253l.1516262-.0349906c3.3438504-.772486%206.8016448-1.5700935%208.1070654-4.4285608.4934579-1.0793271.8281121-2.8423177-.3732337-5.1140187-2.1604486-4.0795514-2.7678504-7.6459065-1.627514-9.540785.7419813-1.2327477%202.1039253-1.4920374%203.1168598-1.4920374%201.0120374%200%202.3748785.2592897%203.1159627%201.4920374%201.1412336%201.8948785.5329345%205.4612336-1.6266169%209.540785-1.202243%202.271701-.8666916%204.0346916-.3741308%205.1140187%201.3063177%202.8584673%204.7632149%203.6560748%208.1070654%204.4285608l.1516262.0349906c.6944299.1605982.9797383.3185047%201.0658691.3759253.0861309.2350654.1309907.8415701.1336823%201.8051589-.0466542.7536448-.3490094%205.5697943-.5643365%209.0096448-3.0818691%201.4920374-6.4840374%202.2833645-10.0091215%202.2833645s-6.9281495-.7913271-10.0100187-2.2833645zm-12.99140183-20.7180561c0-6.1431028%202.39282243-11.9192523%206.73704673-16.2643738%204.3442243-4.34422429%2010.1203738-6.73704672%2016.2643738-6.73704672s11.9201496%202.39282243%2016.2643739%206.73704672c4.3442243%204.3451215%206.7370467%2010.121271%206.7370467%2016.2643738%200%206.144-2.3928224%2011.9201496-6.7370467%2016.2652711-.9312898.9303925-1.9316636%201.7656822-2.9840748%202.5139439.2090467-3.3761495.4324486-6.9748037.4324486-6.9748037%200-2.8835888-.2269907-4.5478879-3.6318505-5.334729-3.9297196-.9079626-7.588486-1.7037757-5.8174205-5.0521122%205.3939439-10.1894579%201.4292336-15.6381308-4.2634767-15.639028-5.6927102.0008972-9.6574205%205.4495701-4.2643738%2015.639028%201.7719626%203.3483365-1.8877009%204.1441496-5.8165234%205.0521122-3.405757.7868411-3.6318504%202.4511402-3.6318504%205.334729%200%200%20.2225046%203.5986542.4315514%206.9748037-1.0524112-.7482617-2.0527851-1.5835514-2.9831776-2.5139439-4.3442243-4.3451215-6.73704673-10.1212711-6.73704673-16.2652711zm52.13517753%2022.5510281-7.4592897-7.4592897c7.1892337-10.2998131%206.1960374-24.5777944-2.9966355-33.76957014-5.1570841-5.1579813-11.9183551-7.73652336-18.6778318-7.73652336-6.7603738%200-13.5207476%202.57854206-18.67872894%207.73652336-10.31596261%2010.31596264-10.31596261%2027.04059814%200%2037.35656074%205.15798134%205.1579813%2011.91835514%207.7365234%2018.67872894%207.7365234%205.2871776%200%2010.5707664-1.5853458%2015.0917384-4.7398879l7.4583925%207.4583925z%22%20fill%3D%22%23002F3E%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
   }
 }
 /*
@@ -2070,14 +2584,14 @@ STYLING VAARDIGHEDEN
   margin-left: auto;
   margin-right: auto;
 }
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 800px) {
   #step-inleiding {
     padding: 2rem;
     margin-left: 2rem;
     margin-right: 2rem;
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 800px) {
   #step-inleiding {
     padding: 4rem;
   }
@@ -2100,8 +2614,7 @@ STYLING VAARDIGHEDEN
 .post-type-archive-doelgroep .flexbox .flexblock {
   border-style: none;
   margin-top: 5rem;
-  -webkit-box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
 }
 /*
 MISC. ELEMENTS
@@ -2137,16 +2650,19 @@ MISC. ELEMENTS
 }
 .methode-classifications dt,
 .methode-classifications .term {
-  min-width: 0;
+  min-width: 13rem;
 }
-@media screen and (-ms-high-contrast: active) and (min-width: 960px), screen and (-ms-high-contrast: none) and (min-width: 960px) {
+.methode-classifications dd,
+.methode-classifications .term-values {
+  max-width: calc(100% - 13rem);
+}
+@media screen and (-ms-high-contrast: active) and (min-width: 800px), screen and (-ms-high-contrast: none) and (min-width: 800px) {
   /* IE10+ specific styles go here */
   .tegeltje:before,
   .tegeltje:after {
     -webkit-clip-path: none;
             clip-path: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   .tegeltje:before {
     background: none;
@@ -2160,7 +2676,7 @@ details {
   border: 5px solid transparent;
 }
 details[open] {
-  border-color: #52757e;
+  border-color: red;
 }
 details summary {
   overflow: hidden;
@@ -2283,3 +2799,4 @@ details summary h3 {
 .poppetje-15 .doelgroep__avatar {
   background-image: url('../images/avatar/poppetje-15.svg');
 }
+/*# sourceMappingURL=frontend.css.map */
