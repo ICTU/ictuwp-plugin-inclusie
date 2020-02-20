@@ -58,7 +58,12 @@ Imports
 @import "../../../themes/gebruiker-centraal/less/abstracts/_mixins";
 
 @import "includes/_mixins";
-@import "includes/_variables-inclusie";
+@import "includes/_variables";
+
+// Load stepchart with Inclusie vars
+@import "../../../themes/gebruiker-centraal/less/components/_stepchart";
+@import "../../../themes/gebruiker-centraal/less/components/_stepnav";
+
 
 // colors, sizes */
 /*
@@ -69,24 +74,17 @@ Imports
 //@import "includes/_card.less";                          // VERPLAATSEN NAAR THEME?
 //@import "includes/_btn";                                // VERPLAATSEN NAAR THEME?
 
-@import "includes/_stepchart";                          // VERPLAATSEN NAAR THEME?
-@import "includes/_stepnav";                            // VERPLAATSEN NAAR THEME?
+
 @import "includes/_dos-donts";                          // VERPLAATSEN NAAR THEME?
 @import "includes/_contentmenu";                       // VERPLAATSEN NAAR THEME?
 
 @import "includes/_overview"; 	                        // VERPLAATSEN NAAR THEME? (?)
-
 @import "includes/_entry"; 		                        // VERPLAATSEN NAAR THEME?
-
-@import "includes/_single_doelgroep.less";              // VERPLAATSEN NAAR THEME?
 
 // Inclusie specifiek
 //@import "includes/_card-doelgroep";                     // VERPLAATSEN NAAR THEME?
-
-//@import "includes/_card-vaardigheden";                // zie theme
-
-
-@import "includes/_inclusie-design";                    // ik snap nog steeds niet wat dit ding hier doet?
+@import "includes/_single_doelgroep.less";
+@import "includes/_inclusie-design";                    // ik snap nog steeds niet wat dit ding hier doet? < Alle uitzonderingen die nodig zijn voor inclusie bepalen.
 
 @import "includes/_page";                               // VERPLAATSEN NAAR THEME?
 

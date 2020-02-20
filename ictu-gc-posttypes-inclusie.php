@@ -448,12 +448,15 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                         $steptitle = sprintf(_x('%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie'), $stepcounter, $titel);
 
 
-                        echo '<li id="step_' . $stepcounter . '" class="stepnav__step">' .
+                        $stepnav_item = '<li id="step_' . $stepcounter . '" class="stepnav__step">'.
                           '<a href="' . get_permalink($stap->ID) . '" class="stepnav__link ' . (($active) ? 'is-active' : '') . '" title="' . $titel . '" >' .
-                          '<span class="' . implode(' ', $icon_classes) . '">&nbsp;</span>' .
+                          '<svg class="icon icon--stepnav" focusable="false">' .
+                          '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="'. get_stylesheet_directory_uri()  .'/images/svg/stepchart/defs/svg/sprite.defs.svg#'. get_field('stap_icon', $stap->ID). '"></use> '.
+                          '</svg> '.
                           '<span class="stepnav__linktext">' . $titel . '</span>' .
-                          '</a>' .
-                          '</li>';
+                          '</a></li>';
+
+                        echo $stepnav_item;
 
                     endforeach;
 
