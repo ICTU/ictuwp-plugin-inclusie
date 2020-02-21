@@ -67,26 +67,17 @@ Imports
 
 // colors, sizes */
 /*
- * Includes / Compoments
+ * Includes / Components
  */
-@import "includes/_grid.less";                          // VERPLAATSEN NAAR THEME?
-@import "includes/_flexblock.less";                     // VERPLAATSEN NAAR THEME?
-//@import "includes/_card.less";                          // VERPLAATSEN NAAR THEME?
-//@import "includes/_btn";                                // VERPLAATSEN NAAR THEME?
 
+@import "includes/_front";
+@import "includes/_single";
+@import "includes/_single_doelgroep.less";
 
 @import "includes/_dos-donts";                          // VERPLAATSEN NAAR THEME?
 @import "includes/_contentmenu";                       // VERPLAATSEN NAAR THEME?
 
-@import "includes/_overview"; 	                        // VERPLAATSEN NAAR THEME? (?)
-@import "includes/_entry"; 		                        // VERPLAATSEN NAAR THEME?
-
-// Inclusie specifiek
-//@import "includes/_card-doelgroep";                     // VERPLAATSEN NAAR THEME?
-@import "includes/_single_doelgroep.less";
-@import "includes/_inclusie-design";                    // ik snap nog steeds niet wat dit ding hier doet? < Alle uitzonderingen die nodig zijn voor inclusie bepalen.
-
-@import "includes/_page";                               // VERPLAATSEN NAAR THEME?
+@import "includes/_text-block";
 
 
 
@@ -103,19 +94,6 @@ body {
   &.single {
     background: @gc_pantybrown_light;
   }
-}
-
-
-.full-width-content .content {
-	width: auto;
-	float: none;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: @contentmaxwidth;
-	.entry {
-		padding-left: 0;
-		padding-right: 0;
-	}
 }
 
 section.border {
@@ -238,31 +216,6 @@ MISC. ELEMENTS
   }
 }
 
-
-.methode-classifications {
-	li {
-		clear: both;
-		float: none;
-	}
-	dt {
-		clear: left;
-		font-weight: 700;
-	}
-	dd {
-		clear: right;
-	}
-	dt,
-	dd,
-	.term-values,
-	.term {
-		display: inline-block;
-		float: left;
-	}
-	dt,
-	.term {
-		min-width: 0;
-	}
-}
 
 //========================================================================================================
 

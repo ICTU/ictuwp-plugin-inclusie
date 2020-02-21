@@ -1,0 +1,179 @@
+// Gebruiker Centraal - _page.less
+// ----------------------------------------------------------------------------------
+// Less voor pages
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren
+// @license   GPL-2.0+
+// @version   1.1.2
+// @desc.     Added related content & links block (44-gerelateerde-content-handige-links).
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
+//=========================================================================================================
+
+//=========================================================================================================
+
+.section--related-methoden .section__title {
+  border: none;
+  padding-top: 0;
+}
+
+// styling voor pagina's
+// ----------------------------------------------------------------------------------
+// @package   ictu-gc-posttypes-inclusie
+// @author    Paul van Buuren / Haas Ontwerp
+// @license   GPL-2.0+
+// @version   0.0.11
+// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+
+#maincontent {
+  background-color: @gc_pantybrown_light;
+}
+
+.page-padding() {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  @media @tablet {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+  }
+
+  @media @desktop {
+    padding-top: 13rem;
+  }
+}
+
+.single,
+.page-template-default {
+  #maincontent {
+    position: relative;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      display: block;
+      background: @brand_color;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 30rem;
+    }
+  }
+
+  .content {
+    float: none;
+  }
+}
+
+.page-template-default.full-width-content {
+  #maincontent:before {
+    margin-left: -1000rem;
+    margin-right: -1000rem;
+  }
+
+  .entry-content {
+    margin-top: 3rem;
+  }
+
+  .site-inner {
+    .page-padding;
+  }
+
+  .content-sidebar-wrap {
+    .gc-box-shadow;
+    background: @white;
+    position: relative;
+    padding: 3rem 0;
+    max-width: @max-width-content;
+
+    @media @desktop {
+      padding: 7rem 5rem;
+    }
+  }
+
+  .content .entry {
+    max-width: @max-width-inner;
+    padding: 0;
+  }
+}
+
+.single.full-width-content {
+  .site-inner {
+    padding-bottom: 3rem;
+
+    @media @desktop {
+      padding-bottom: 5rem;
+    }
+
+    header {
+      max-width: @max-width-inner;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+    }
+  }
+
+  .content-sidebar-wrap {
+    position: relative;
+    padding-top: 5rem;
+
+    @media @tablet {
+      padding-top: 8rem;
+    }
+
+    @media @desktop {
+      padding-top: 12rem;
+    }
+  }
+
+  .content {
+    max-width: @max-width-container;
+    margin: 0 auto;
+
+    .entry {
+      .gc-box-shadow;
+      .gc-padding;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      max-width: @contentwidth_960;
+      margin: 0 auto;
+
+      @media @desktop {
+        padding-bottom: 8rem;
+      }
+
+      + .section {
+        margin-top: 3rem;
+
+        @media @desktop {
+          margin-top: 5rem;
+        }
+      }
+    }
+
+    .entry-content {
+      padding: 0;
+    }
+  }
+
+  .section {
+    margin-top: 3rem;
+
+    @media @tablet {
+      margin-top: 8rem;
+    }
+  }
+}
+
+.breadcrumb > .wrap {
+  max-width: @contentmaxwidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.section--related-tips .l-section-content {
+  margin: 0 auto;
+  max-width: @max-width-inner;
+}
