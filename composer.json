@@ -1,6 +1,6 @@
 {
   "name": "ictu/ictuwp-plugin-inclusie",
-  "type": "vanilla-plugin",
+  "type": "wordpress-plugin",
   "license": "GPL-3.0",
   "description": "Collection of plugins for ICTU ",
   "homepage": "https://www.gebruikercentraal.nl",
