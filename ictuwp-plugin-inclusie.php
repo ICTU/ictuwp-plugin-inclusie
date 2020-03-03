@@ -796,7 +796,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             global $post;
 
-			ictu_gctheme_home_template_stappen( $post, '/wp-content/plugins/ictu-gc-posttypes-inclusie/images/stappenplan-bg-fullscreen.svg' );
+			ictu_gctheme_home_template_stappen( $post, trailingslashit(plugin_dir_url(__FILE__)) . 'assets/images/stappenplan-bg-fullscreen.svg' );
 
         }
 
