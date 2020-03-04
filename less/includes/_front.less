@@ -1,0 +1,48 @@
+
+.page-template.page-template-home-inclusie {
+  .stepchart_page(@brand_color);
+
+  #entry__intro {
+    color: @white;
+  }
+
+  .region--content-top {
+    .clearfix;
+    padding: 0;
+    position: relative;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 8rem;
+      bottom: 0;
+      background: @gc_pantybrown_light;
+      margin-left: -10rem;
+      margin-right: -10rem;
+    }
+
+    .btn--primary {
+      float: right;
+      margin-top: @gutter;
+    }
+  }
+
+  .entry-title {
+    text-transform: uppercase; //bij inclusie was ie eenmaal zo ontworpen, sorry
+
+    @media @desktop {
+      margin-right: 28rem;
+    }
+  }
+
+  .content-sidebar-wrap > .content {
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+#home_template_teasers {
+  padding-top: 3rem;
+}

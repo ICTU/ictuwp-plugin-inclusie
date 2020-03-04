@@ -11,29 +11,38 @@
 // @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  */
 
-
 /*
 WP TEMPLATES - Doelgroep
 ---------------------------------------------------------------------------------------------------- */
 
-body.single-doelgroep {
+.single.single-doelgroep.full-width-content {
+
+  // Graag ooit deze te specifieke bepaling refactoren
+  .site-inner header h1 {
+    max-width: 56rem;
+
+    @media @desktop {
+      margin-top: 3rem;
+    }
+  }
+
   #maincontent {
 
     article.entry {
-      margin-bottom: @demarges;
       margin-top: 0;
       position: relative;
 
       .entry-content {
-        padding-left: 0;
-        padding-right: 0;
+        padding: 5rem 0;
+
+        @media @desktop {
+          padding: 8rem 0;
+        }
       }
 
       .entry-title,
       .wrap {
-        max-width: @contentwidth_761;
-        padding-left: @linkerrechtermarge;
-        padding-right: @linkerrechtermarge;
+        max-width: @max-width-inner;
         margin-left: auto;
         margin-right: auto;
         position: static;
@@ -41,38 +50,33 @@ body.single-doelgroep {
     }
   }
 
-  #maincontent article.entry {
-    max-width: @contentwidth_960;
-    margin-left: auto;
-    margin-right: auto;
+  .content {
+    max-width: none;
 
-    .wrap {
-      background: none;
-
-      @media only screen and (min-width: ( @break_fullwidth )) {
-        padding-top: 5rem;
-      }
+    article.entry {
+      padding: 0;
     }
   }
+
 }
 
 #doelgroep-inleiding {
   .gc-box-shadow();
   position: relative;
-  padding: 2rem;
   background: @color_primary;
   color: @white;
   max-width: @contentwidth_960;
   margin-left: auto;
   margin-right: auto;
   z-index: 0;
+  padding: 2rem 2rem 26rem 2rem;
 
   &:after {
     content: ' ';
     height: 22rem;
     width: 100%;
     clip-path: polygon(0 9%, 100% 0, 100% 100%, 0% 100%);
-    background: @gc_old_green;
+    background: @gc_green;
     display: block;
     position: absolute;
     bottom: 0;
@@ -82,16 +86,13 @@ body.single-doelgroep {
     speak: none;
   }
 
-  @media only screen and (max-width: ( @break_tablet )) {
-    padding-bottom: ~"calc(@{citaten_minheight} - 2rem )";
-  }
-
   // Desktop layout
-  @media only screen and (min-width: ( @break_tablet )) {
+  @media @tablet {
     padding-left: 40%;
     display: flex;
     flex-direction: column;
     min-height: 35rem;
+    padding-bottom: 3rem;
 
     &:after {
       display: none;
@@ -141,18 +142,6 @@ body.single-doelgroep {
     margin: 0;
   }
 
-  h1 {
-    .font-size(40);
-    line-height: 48px;
-
-    @media only screen and (min-width: ( @break_tablet )) {
-      .font-size(68);
-      line-height: 64px;
-      text-transform: none;
-      margin-top: 2rem;
-    }
-  }
-
   .tegeltje {
     margin-top: 0;
     margin-bottom: 0;
@@ -187,7 +176,7 @@ body.single-doelgroep {
     height: 100%;
     width: 35%;
     min-width: 260px;
-    background-color: @gc_old_green;
+    background-color: @gc_green;
     overflow: hidden;
     background-position: 20% 100%;
     background-size: 80% auto;
@@ -215,7 +204,51 @@ body.single-doelgroep {
     height: 100%;
   }
 
+  .doelgroep--poppetje-2 & {
+    background-image: url('../images/avatar/poppetje-2.svg');
+  }
+  .doelgroep--poppetje-3 & {
+    background-image: url('../images/avatar/poppetje-3.svg');
+  }
+  .doelgroep--poppetje-4 & {
+    background-image: url('../images/avatar/poppetje-4.svg');
+  }
+  .doelgroep--poppetje-5 & {
+    background-image: url('../images/avatar/poppetje-5.svg');
+  }
+  .doelgroep--poppetje-6 & {
+    background-image: url('../images/avatar/poppetje-6.svg');
+  }
+  .doelgroep--poppetje-7 & {
+    background-image: url('../images/avatar/poppetje-7.svg');
+  }
+  .doelgroep--poppetje-8 & {
+    background-image: url('../images/avatar/poppetje-8.svg');
+  }
+  .doelgroep--poppetje-9 & {
+    background-image: url('../images/avatar/poppetje-9.svg');
+  }
+  .doelgroep--poppetje-10 & {
+    background-image: url('../images/avatar/poppetje-10.svg');
+  }
+  .doelgroep--poppetje-11 & {
+    background-image: url('../images/avatar/poppetje-11.svg');
+  }
+  .doelgroep--poppetje-12 & {
+    background-image: url('../images/avatar/poppetje-12.svg');
+  }
+  .doelgroep--poppetje-13 & {
+    background-image: url('../images/avatar/poppetje-13.svg');
+  }
+  .doelgroep--poppetje-14 & {
+    background-image: url('../images/avatar/poppetje-14.svg');
+  }
+  .doelgroep--poppetje-15 & {
+    background-image: url('../images/avatar/poppetje-15.svg');
+  }
 }
+
+@hugely_width: 27rem;
 
 .doelgroep__posttext {
   margin-top: 1.6rem;
@@ -223,25 +256,29 @@ body.single-doelgroep {
 
 .facts-figures {
   .gc-box-shadow();
-  background: @gc_darkerblue;
+  background: @gc_blue_darkest;
   color: @white;
-  display: flex;
-  position: relative;
-  z-index: 5;
 
-  .source {
-    background: @gc_darkerblue;
-    *, a {
-      color: @white;
-    }
+  a {
+    color: @white;
   }
 
   span {
     display: block;
   }
 
+  .hugely {
+    padding: 3rem 2rem;
+    text-align: center;
+    font-family: @bodyfont_bold;
+    background: @gc_blue_dark;
+    font-size: 3.4rem;
+    line-height: 4rem;
+  }
+
   .source {
-    .font-size(20);
+    font-size: 2rem;
+    line-height: 3rem;
     z-index: +1;
     position: relative;;
     padding: 3rem;
@@ -251,44 +288,32 @@ body.single-doelgroep {
     display: block;
     clear: both;
     float: none;
-    .font-size(14);
+    font-size: @font_small;
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: .1rem solid @gc_blue_light;
-  }
-
-  .hugely {
-    padding-top: 2rem;
-    .font-size(40);
-    text-align: center;
-    font-family: @bodyfont_bold;
-    line-height: 1.2;
-  }
-
-  @media only screen and (max-width: ( @break_fullwidth ) ) {
-    & {
-      flex-direction: column;
-    }
+    border-top: .1rem solid @gc_blue_darker;
   }
 
   @media only screen and (min-width: ( @break_fullwidth ) ) {
-    background: @gc_darkerblue; /* Old browsers */
+    background: @gc_blue_darkest; /* Old browsers */
     position: relative;
+    display: flex;
+    overflow: hidden;
 
     .source {
-      flex-basis: ( ( 100% / 3 ) * 2 );
+      width: ~"calc(100% - @{hugely_width})";
+      padding-left: 8rem;
     }
 
     .hugely {
-      padding: 3rem;
-      background: @gc_darkblue;
+      background: @gc_blue_dark;
       position: relative;
-      width: 318px;
+      width: @hugely_width;
       display: block;
-      overflow: hidden;
-      .font-size(40);
-      line-height: 1.2;
+      font-size: 4.5rem;
+      line-height: 5rem;
       padding: 4rem;
+      z-index: 5;
 
       &:before {
         content: " ";
@@ -299,9 +324,11 @@ body.single-doelgroep {
         width: 5rem;
         margin-right: -4rem;
         margin-top: -.5rem;
-        background: @gc_darkerblue;
+        margin-bottom: -.5rem;
+        background: @gc_blue_dark;
         transform: rotate(-2deg);
         speak: none;
+        z-index: -1;
       }
     }
 
@@ -315,6 +342,7 @@ body.single-doelgroep {
 .spacer-doelgroep {
   background: @gc_pantybrown_light;
   height: 5rem;
+  margin: 0 -1rem;
 
   @media only screen and (min-width: ( @break_fullwidth ) ) {
     height: 10rem;
@@ -324,7 +352,7 @@ body.single-doelgroep {
 .dosdonts {
   margin-bottom: 4rem;
   box-shadow: 3px 3px 0px rgba(#000, 0.2);
-  border: 1px solid @gc_cardbordergrey;
+  border: 1px solid @border_color;
 
   .flexblock {
     border-style: none;
@@ -357,7 +385,7 @@ body.single-doelgroep {
   h4 {
     padding-bottom: 2rem;
     font-family: @bodyfont_bold;
-    border-bottom: 1px solid @gc_cardbordergrey;
+    border-bottom: 1px solid @border_color;
   }
 
   &.grid--col-2 {
@@ -408,7 +436,7 @@ body.single-doelgroep {
       speak: none;
     }
     &:before {
-      background: @gc_old_green;
+      background: @gc_green;
       bottom: 50%;
       transform: translateX(-1rem) translateY(-2rem) rotate(8deg);
       height: 6rem;
@@ -424,14 +452,13 @@ body.single-doelgroep {
 }
 
 .doelgroep-tips {
-  border-top: 1px solid @gc_cardbordergrey;
+  border-top: 1px solid @border_color;
   padding-top: 2rem;
   margin-top: 2rem;
   overflow: hidden;
 
   h2, h3 {
     font-family: @bodyfont_bold;
-    .font-size(22);
     background: url('../images/icons/tip.svg') no-repeat left center;
     padding-left: 4rem;
     padding-top: .25rem;
@@ -442,9 +469,10 @@ body.single-doelgroep {
   }
 }
 
-.l-content-menu-wrapper + .section--tips-doelgroep > .section__title  {
+.l-content-menu-wrapper + .section--tips-doelgroep > .section__title {
   border: none;
 }
+
 //--------------------------------------------------------------------------------------------------------------
 // MEUK!
 // Welnee :)
@@ -485,7 +513,6 @@ body.single-doelgroep {
     margin-top: 3rem;
   }
 }
-
 
 .capability__icon {
   width: 5rem;

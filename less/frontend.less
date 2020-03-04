@@ -54,40 +54,30 @@
 /*
 Imports
 ---------------------------------------------------------------------------------------------------- */
-@import "includes/_mixins"; 
-@import "includes/_variables-inclusie"; 
+@import "../../../themes/gebruiker-centraal/less/abstracts/_variables";
+@import "../../../themes/gebruiker-centraal/less/abstracts/_mixins";
+
+@import "includes/_mixins";
+@import "includes/_variables";
+
+// Load stepchart with Inclusie vars
+@import "../../../themes/gebruiker-centraal/less/components/_stepchart";
+@import "../../../themes/gebruiker-centraal/less/components/_stepnav";
+
 
 // colors, sizes */
 /*
- * Includes / Compoments
+ * Includes / Components
  */
-@import "includes/_grid.less";                          // VERPLAATSEN NAAR THEME?
-@import "includes/_flexblock.less";                     // VERPLAATSEN NAAR THEME?
-@import "includes/_card.less";                          // VERPLAATSEN NAAR THEME?
-@import "includes/_btn";                                // VERPLAATSEN NAAR THEME?
 
-@import "includes/_stepchart";                          // VERPLAATSEN NAAR THEME?
-@import "includes/_stepnav";                            // VERPLAATSEN NAAR THEME?
+@import "includes/_front";
+@import "includes/_single";
+@import "includes/_single_doelgroep.less";
+
 @import "includes/_dos-donts";                          // VERPLAATSEN NAAR THEME?
-@import "includes/_section";                            // VERPLAATSEN NAAR THEME?
-@import "includes/_contentmenu";                        // VERPLAATSEN NAAR THEME?
+@import "includes/_contentmenu";                       // VERPLAATSEN NAAR THEME?
 
-@import "includes/_overview"; 	                        // VERPLAATSEN NAAR THEME? (?)
-
-@import "includes/_entry"; 		                        // VERPLAATSEN NAAR THEME?
-
-@import "includes/_single-step.less";                   // VERPLAATSEN NAAR THEME?
-@import "includes/_single_doelgroep.less";              // VERPLAATSEN NAAR THEME?
-
-// Inclusie specifiek
-@import "includes/_card-doelgroep";                     // VERPLAATSEN NAAR THEME?
-
-//@import "includes/_card-vaardigheden";                // zie theme
-
-
-@import "includes/_inclusie-design";                    // ik snap nog steeds niet wat dit ding hier doet?
-
-@import "includes/_page";                               // VERPLAATSEN NAAR THEME?
+@import "includes/_text-block";
 
 
 
@@ -106,21 +96,8 @@ body {
   }
 }
 
-
-.full-width-content .content {
-	width: auto;
-	float: none;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: @contentmaxwidth;
-	.entry {
-		padding-left: 0;
-		padding-right: 0;
-	}
-}
-
 section.border {
-	border-top: 2px solid @gc_cardbordergrey;
+	border-top: 2px solid @border_color;
 	margin-top: 2rem;
 	padding-top: 2rem;
 	
@@ -177,7 +154,7 @@ STYLING VAARDIGHEDEN
 
 #step-inleiding {
   background: @gc_a11y_green;
-  color: @wit;
+  color: @white;
   max-width: @contentwidth_960;
   margin-left: auto;
   margin-right: auto;
@@ -232,42 +209,13 @@ MISC. ELEMENTS
 
 .posttype-description,
 .taxonomy-description {
-  color: @wit;
+  color: @white;
 
   .archive-title {
     text-align: center;
   }
 }
 
-
-.methode-classifications {
-	li {
-		clear: both;
-		float: none;
-	}
-	dt {
-		clear: left;
-		font-weight: 700;
-	}
-	dd {
-		clear: right;
-	}
-	dt,
-	dd,
-	.term-values,
-	.term {
-		display: inline-block;
-		float: left;
-	}
-	dt,
-	.term {
-		min-width: @dl_terms_width_min;
-	}
-	dd,
-	.term-values {
-		max-width: ~"calc(100% - @{dl_terms_width_min})";
-	}
-}
 
 //========================================================================================================
 
@@ -296,9 +244,9 @@ details {
 	border: 5px solid transparent;
 
 	&[open] {
-		border-color: red;
+		border-color: @gc_greyblue;
 	}
-	
+
 	summary {
 		overflow: hidden;
 		border: 5px solid transparent;
