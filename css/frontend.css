@@ -43,10 +43,12 @@
 /*
 Imports
 ---------------------------------------------------------------------------------------------------- */
-/* Typografie */
-/* Default variables for textblocks */
-/* Chart */
-/* Nav */
+.gc-list-title {
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  font-family: 'montserratbold', Helvetica, Arial, sans-serif;
+}
 .visuallyhidden {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -210,7 +212,7 @@ Imports
 .stepchart__title {
   font-size: 32px;
   font-size: 3.2rem;
-  font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
+  font-family: 'league_gothicregular', Impact, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   text-transform: uppercase;
@@ -227,6 +229,9 @@ Imports
 }
 .btn--stepchart {
   border: none;
+  font-family: 'league_gothicregular', Impact, Helvetica, Arial, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
 }
 .btn--stepchart:hover,
 .btn--stepchart:focus {
@@ -304,6 +309,8 @@ Imports
     border-radius: 50%;
     z-index: -1;
     top: 0;
+    left: 50%;
+    margin-left: -4rem;
     -webkit-transition: background-color 0.2s;
     transition: background-color 0.2s;
   }
@@ -328,6 +335,7 @@ Imports
     width: 9.6rem;
     height: 9.6rem;
     background: #f99d1c;
+    margin-left: -4.8rem;
   }
 }
 .icon--stepchart {
@@ -605,17 +613,28 @@ Imports
 /*
  * Includes / Components
  */
-.page-template.page-template-home-inclusie .site-inner {
+.page-template.page-template-home-inclusie .site-inner,
+.page-template.page-template-home-inclusie .content-sidebar-wrap {
   max-width: none;
+  padding: 0;
 }
 .page-template.page-template-home-inclusie .content {
   float: none;
+}
+.page-template.page-template-home-inclusie .site-inner {
+  padding-bottom: 3rem;
+}
+@media only screen and (min-width: 960px) {
+  .page-template.page-template-home-inclusie .site-inner {
+    padding-bottom: 5rem;
+  }
 }
 .page-template.page-template-home-inclusie .region--intro {
   font-size: 2rem;
   line-height: 3.2rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
+  position: relative;
 }
 .page-template.page-template-home-inclusie .type-page.entry {
   background: #c73d19;
@@ -627,10 +646,50 @@ Imports
 }
 .page-template.page-template-home-inclusie #entry__intro {
   color: #fff;
+  position: relative;
+  z-index: 1;
+}
+@media only screen and (min-width: 960px) {
+  .page-template.page-template-home-inclusie #entry__intro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .page-template.page-template-home-inclusie #entry__intro h1 {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    max-width: calc(100% - 28rem);
+  }
+  .page-template.page-template-home-inclusie #entry__intro .btn {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+  .page-template.page-template-home-inclusie #entry__intro p {
+    width: 100%;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
 }
 .page-template.page-template-home-inclusie .region--content-top {
-  padding: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   position: relative;
+}
+@media only screen and (min-width: 650px) {
+  .page-template.page-template-home-inclusie .region--content-top {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 .page-template.page-template-home-inclusie .region--content-top::after {
   display: block;
@@ -655,9 +714,14 @@ Imports
 .page-template.page-template-home-inclusie .entry-title {
   text-transform: uppercase;
 }
+.page-template.page-template-home-inclusie .entry-title + p {
+  margin-top: 2rem;
+}
 @media only screen and (min-width: 960px) {
   .page-template.page-template-home-inclusie .entry-title {
-    margin-right: 28rem;
+    font-size: 64px;
+    font-size: 6.4rem;
+    line-height: 6.4rem;
   }
 }
 .page-template.page-template-home-inclusie .content-sidebar-wrap > .content {
@@ -719,10 +783,12 @@ Imports
 .page-template-default.full-width-content .content-sidebar-wrap {
   -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   background: #fff;
   position: relative;
   padding: 3rem 0;
-  max-width: 960px;
 }
 @media only screen and (min-width: 960px) {
   .page-template-default.full-width-content .content-sidebar-wrap {
@@ -731,6 +797,8 @@ Imports
 }
 .page-template-default.full-width-content .content .entry {
   max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
 }
 .single.full-width-content .site-inner {
@@ -770,6 +838,7 @@ Imports
           box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  background: #fff;
   padding-top: 3rem;
   padding-bottom: 3rem;
   max-width: 960px;
@@ -783,6 +852,7 @@ Imports
 }
 @media only screen and (min-width: 960px) {
   .single.full-width-content .content .entry {
+    padding-top: 8rem;
     padding-bottom: 8rem;
   }
 }
@@ -814,6 +884,9 @@ Imports
   margin: 0 auto;
   max-width: 770px;
 }
+.single.single-stap.full-width-content #maincontent:before {
+  background: #c73d19;
+}
 /*
 // Gebruiker Centraal - less/includes/_single_doelgroep.less
 // ----------------------------------------------------------------------------------
@@ -829,38 +902,41 @@ Imports
 /*
 WP TEMPLATES - Doelgroep
 ---------------------------------------------------------------------------------------------------- */
-.single.single-doelgroep.full-width-content .site-inner header h1 {
-  max-width: 56rem;
+.single.single-doelgroep .content .entry {
+  -webkit-box-shadow: 0;
+          box-shadow: 0;
+  padding: 0;
 }
-@media only screen and (min-width: 960px) {
-  .single.single-doelgroep.full-width-content .site-inner header h1 {
-    margin-top: 3rem;
+.single.single-doelgroep .entry-title {
+  margin-top: 2rem;
+}
+.single.single-doelgroep .content .entry-content {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: #fff;
+  max-width: none;
+}
+@media only screen and (min-width: 650px) {
+  .single.single-doelgroep .content .entry-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
-.single.single-doelgroep.full-width-content #maincontent article.entry {
-  margin-top: 0;
-  position: relative;
-}
-.single.single-doelgroep.full-width-content #maincontent article.entry .entry-content {
-  padding: 5rem 0;
-}
 @media only screen and (min-width: 960px) {
-  .single.single-doelgroep.full-width-content #maincontent article.entry .entry-content {
-    padding: 8rem 0;
+  .single.single-doelgroep .content .entry-content {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
-.single.single-doelgroep.full-width-content #maincontent article.entry .entry-title,
-.single.single-doelgroep.full-width-content #maincontent article.entry .wrap {
+.single.single-doelgroep .content .entry-content > * {
   max-width: 770px;
   margin-left: auto;
   margin-right: auto;
-  position: static;
 }
-.single.single-doelgroep.full-width-content .content {
+.single.single-doelgroep .content .entry-content .l-content-menu-wrapper {
   max-width: none;
-}
-.single.single-doelgroep.full-width-content .content article.entry {
-  padding: 0;
 }
 #doelgroep-inleiding {
   -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
@@ -1283,7 +1359,7 @@ WP TEMPLATES - Doelgroep
 .capability__title {
   -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
-  font-family: 'League Gothic', Impact, Helvetica, Arial, sans-serif;
+  font-family: 'league_gothicregular', Impact, Helvetica, Arial, sans-serif;
   background: #f2ebe4;
   padding: 1.5rem 3rem 1.5rem 2rem;
   margin: 0;
@@ -1350,6 +1426,13 @@ WP TEMPLATES - Doelgroep
   margin: 2rem 0 0;
 }
 .dos-donts__column ul li {
+  padding-left: 1rem;
+}
+.entry-content .dos-donts__column ul {
+  padding: 0 2rem 2rem 5rem;
+  margin: 2rem 0 0;
+}
+.entry-content .dos-donts__column ul li {
   padding-left: 1rem;
 }
 .dos-donts__column.col--dos li {
@@ -1638,6 +1721,87 @@ WP TEMPLATES - Doelgroep
   #home_template_teasers .text-block {
     padding: 3rem 4rem;
   }
+}
+.single.single-stap.full-width-content .content-sidebar-wrap {
+  padding-top: 0;
+}
+.single.single-stap.full-width-content #maincontent {
+  position: relative;
+}
+.single.single-stap.full-width-content #maincontent:before {
+  content: " ";
+  position: absolute;
+  background: #c73d19;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 30rem;
+  display: block;
+}
+@media only screen and (min-width: 960px) {
+  .single.single-stap.full-width-content #maincontent:before {
+    height: 44rem;
+  }
+}
+.single.single-stap.full-width-content .site-inner header {
+  padding: 0;
+  margin: 0;
+}
+.single.single-stap.full-width-content .inleiding {
+  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  max-width: 960px;
+  background: #148839;
+  color: #fff;
+  padding: 2rem;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 650px) {
+  .single.single-stap.full-width-content .inleiding {
+    padding: 3rem 5rem;
+  }
+}
+.single.single-stap.full-width-content .content-sidebar-wrap {
+  padding: 0;
+  position: relative;
+}
+.single.single-stap.full-width-content .content-sidebar-wrap > .content {
+  padding: 0;
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.single.single-stap.full-width-content .content .entry {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: #fff;
+}
+@media only screen and (min-width: 650px) {
+  .single.single-stap.full-width-content .content .entry {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.single.single-stap.full-width-content .l-content-menu-wrapper {
+  display: none;
+}
+.single.single-stap.full-width-content .section__title {
+  border-color: #e8d8c7;
+}
+.single.single-stap.full-width-content .section + .section,
+.single.single-stap.full-width-content .extra-content + .section {
+  margin-top: 3rem;
+}
+@media only screen and (min-width: 960px) {
+  .single.single-stap.full-width-content .section + .section,
+  .single.single-stap.full-width-content .extra-content + .section {
+    margin-top: 8rem;
+  }
+}
+.single.single-stap.full-width-content .item-list__item {
+  border-color: #e8d8c7;
 }
 /*
 STRUCTURE & BASE
