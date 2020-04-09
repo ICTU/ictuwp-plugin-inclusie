@@ -4,11 +4,35 @@
 
   #entry__intro {
     color: @white;
+    position: relative;
+    z-index: +1;
+
+    @media @desktop {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      h1 {
+        order: 1;
+        max-width: calc(100% - 28rem);
+      }
+
+      .btn {
+        order: 2;
+        margin-left: auto;
+        margin-top: 1rem;
+      }
+
+      p {
+        width: 100%;
+        order: 3;
+      }
+    }
   }
 
   .region--content-top {
+    .gc-padding();
     .clearfix;
-    padding: 0;
     position: relative;
 
     &:before {
@@ -32,8 +56,13 @@
   .entry-title {
     text-transform: uppercase; //bij inclusie was ie eenmaal zo ontworpen, sorry
 
+    + p {
+      margin-top: 2rem;
+    }
+
     @media @desktop {
-      margin-right: 28rem;
+      .font-size(64);
+      line-height: 6.4rem;
     }
   }
 

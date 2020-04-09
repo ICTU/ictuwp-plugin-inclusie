@@ -15,49 +15,37 @@
 WP TEMPLATES - Doelgroep
 ---------------------------------------------------------------------------------------------------- */
 
-.single.single-doelgroep.full-width-content {
+.single.single-doelgroep {
 
-  // Graag ooit deze te specifieke bepaling refactoren
-  .site-inner header h1 {
-    max-width: 56rem;
-
-    @media @desktop {
-      margin-top: 3rem;
-    }
+  .content .entry {
+    box-shadow: 0;
+    padding: 0;
   }
 
-  #maincontent {
-
-    article.entry {
-      margin-top: 0;
-      position: relative;
-
-      .entry-content {
-        padding: 5rem 0;
-
-        @media @desktop {
-          padding: 8rem 0;
-        }
-      }
-
-      .entry-title,
-      .wrap {
-        max-width: @max-width-inner;
-        margin-left: auto;
-        margin-right: auto;
-        position: static;
-      }
-    }
+  .entry-title {
+    margin-top: 2rem;
   }
 
-  .content {
+  .content .entry-content {
+    .gc-padding;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background: @white;
     max-width: none;
 
-    article.entry {
-      padding: 0;
+    @media @desktop {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    > * {
+      .gc-inner-container;
+    }
+
+    .l-content-menu-wrapper {
+      max-width: none;
     }
   }
-
 }
 
 #doelgroep-inleiding {

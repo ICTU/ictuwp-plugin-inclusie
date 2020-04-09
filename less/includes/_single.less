@@ -82,10 +82,10 @@
 
   .content-sidebar-wrap {
     .gc-box-shadow;
+    .gc-content-container;
     background: @white;
     position: relative;
     padding: 3rem 0;
-    max-width: @max-width-content;
 
     @media @desktop {
       padding: 7rem 5rem;
@@ -93,7 +93,7 @@
   }
 
   .content .entry {
-    max-width: @max-width-inner;
+    .gc-inner-container;
     padding: 0;
   }
 }
@@ -134,12 +134,14 @@
     .entry {
       .gc-box-shadow;
       .gc-padding;
+      background: @white;
       padding-top: 3rem;
       padding-bottom: 3rem;
       max-width: @contentwidth_960;
       margin: 0 auto;
 
       @media @desktop {
+        padding-top: 8rem;
         padding-bottom: 8rem;
       }
 
@@ -176,4 +178,8 @@
 .section--related-tips .l-section-content {
   margin: 0 auto;
   max-width: @max-width-inner;
+}
+
+.single.single-stap.full-width-content #maincontent:before {
+  background: @brand_color;
 }
