@@ -872,7 +872,20 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             global $post;
 
-            wp_enqueue_style(ICTU_GC_ARCHIVE_CSS, trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css', [], ICTU_GC_INCL_VERSION, 'all');
+
+			if ( ! defined( 'ID_SKIPLINKS' ) ) {
+				define( 'ID_SKIPLINKS', 'skiplinks' );
+			}
+
+			$dependencies = array( ID_SKIPLINKS );
+
+            wp_enqueue_style( 
+            	ICTU_GC_ARCHIVE_CSS,
+            	trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css', 
+            	$dependencies, 
+            	ICTU_GC_INCL_VERSION, 
+            	'all'
+            );
 
             $header_css		= '';
             $acfid 			= get_the_id();
