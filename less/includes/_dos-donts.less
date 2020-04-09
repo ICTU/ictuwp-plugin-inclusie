@@ -8,7 +8,7 @@
 
 .dos-donts {
   .gc-box-shadow;
-  border: .1rem solid @gc_cardbordergrey;
+  border: .1rem solid @border_color;
   margin-top: 3rem;
 
   @media @tablet {
@@ -18,15 +18,15 @@
 
 .dos-donts__column {
 
-	h2,
-	h3,
-	h4 {
-		.font-size(22);
-		padding: 1.3rem 2.5rem 2rem;
-		border-bottom: .1rem solid @gc_cardbordergrey;
-		font-family: @bodyfont_bold;
-		text-transform: none;
-	}
+  h2,
+  h3,
+  h4 {
+    .font-size(22);
+    padding: 1.3rem 2.5rem 2rem;
+    border-bottom: .1rem solid @border_color;
+    font-family: @bodyfont_bold;
+    text-transform: none;
+  }
 
   @media @tablet {
     flex: 1;
@@ -42,6 +42,18 @@
 
     li {
       padding-left: 1rem;
+    }
+  }
+
+  .entry-content & {
+    ul {
+
+      padding: 0 2rem 2rem 5rem;
+      margin: 2rem 0 0;
+
+      li {
+        padding-left: 1rem;
+      }
     }
   }
 

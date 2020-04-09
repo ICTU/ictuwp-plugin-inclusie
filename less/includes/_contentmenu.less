@@ -161,34 +161,6 @@
   }
 }
 
-// BTN
-/*
-.spacer--shade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  display: block;
-  z-index: -1;
-  margin-top: -1.5rem;
-  opacity: 0.2;
-  transition: opacity .2s;
-
-  .inner {
-    display: block;
-    height: 3rem;
-    width: 100%;
-    max-width: 958px;
-    margin-left: auto;
-    margin-right: auto;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(@white, 0), rgba(#000, .5) 100%);
-  }
-
-  .fixed & {
-    opacity: 1;
-  }
-}
-*/
 .btn--trigger-open {
   margin-left: auto;
   margin-right: auto;
@@ -196,7 +168,6 @@
   text-transform: none;
   border: none;
   padding: 0 2rem 0 2rem;
-  font-size: 14px;
   position: relative;
   overflow: hidden;
   background: none;
@@ -267,6 +238,11 @@
       z-index: +1;
       text-decoration: none;
     }
+  }
+
+  .btn__text {
+    font-size: 14px;
+    margin: 0;
   }
 
   .open & {

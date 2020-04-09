@@ -14,9 +14,27 @@
  */
 
 
+// Get icons from stepchart JSON
+function getIcons() {
+    $icon_array = [];
+    $icon_list = file_get_contents( get_stylesheet_directory_uri()  .'/images/svg/stepchart/stepchart_icons.json');
+    $icon_list = json_decode($icon_list, true);
+
+    foreach ($icon_list as $key => $icon) {
+        $icon_array[$key] =
+          '<span style="display: inline-flex; margin-top: 10px; align-items: center; position: relative; min-height: 40px; padding-left: 45px">'.
+          '<svg class="icon icon--medium icon--stepchart" aria-hidden="true" focusable="false" style="width: 30px; height: 40px; position: absolute; left: 7px; top: 0;"> '.
+          '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="'. get_stylesheet_directory_uri()  .'/images/svg/stepchart/defs/svg/sprite.defs.svg#'. $key .'"></use> '.
+          '</svg>' .
+          '<span class="label-text">'. $icon .'</span></span>';
+    }
+
+    return $icon_array;
+}
 
 
 if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
+
 
 	function ictu_gc_inclusie_initialize_acf_fields() {
 		if( function_exists('acf_add_local_field_group') ):
@@ -447,13 +465,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 							'class' => '',
 							'id' => '',
 						),
-						'choices' => array(
-							'identificeer' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/identificeer.png"> Identificeer',
-							'verdiep' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/verdiep.png"> Verdiep',
-							'ontwerp' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/ontwerp.png"> Ontwerp',
-							'evalueer' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/evalueer.png"> Evalueer',
-							'deel' => '<img src="/wp-content/plugins/ictu-gc-posttypes-inclusie/images/deel.png"> Deel',
-						),
+						'choices' => getIcons(),
 						'allow_null' => 0,
 						'other_choice' => 0,
 						'default_value' => 'identificeer',

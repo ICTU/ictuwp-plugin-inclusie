@@ -1,0 +1,77 @@
+
+.page-template.page-template-home-inclusie {
+  .stepchart_page(@brand_color);
+
+  #entry__intro {
+    color: @white;
+    position: relative;
+    z-index: +1;
+
+    @media @desktop {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      h1 {
+        order: 1;
+        max-width: calc(100% - 28rem);
+      }
+
+      .btn {
+        order: 2;
+        margin-left: auto;
+        margin-top: 1rem;
+      }
+
+      p {
+        width: 100%;
+        order: 3;
+      }
+    }
+  }
+
+  .region--content-top {
+    .gc-padding();
+    .clearfix;
+    position: relative;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 8rem;
+      bottom: 0;
+      background: @gc_pantybrown_light;
+      margin-left: -10rem;
+      margin-right: -10rem;
+    }
+
+    .btn--primary {
+      float: right;
+      margin-top: @gutter;
+    }
+  }
+
+  .entry-title {
+    text-transform: uppercase; //bij inclusie was ie eenmaal zo ontworpen, sorry
+
+    + p {
+      margin-top: 2rem;
+    }
+
+    @media @desktop {
+      .font-size(64);
+      line-height: 6.4rem;
+    }
+  }
+
+  .content-sidebar-wrap > .content {
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+#home_template_teasers {
+  padding-top: 3rem;
+}
