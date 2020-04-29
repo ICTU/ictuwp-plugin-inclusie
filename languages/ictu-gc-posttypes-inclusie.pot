@@ -4,61 +4,56 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: ICTU / Gebruiker Centraal / Inclusie post types and "
 "taxonomies\n"
-"POT-Creation-Date: 2020-01-09 11:43+0100\n"
-"PO-Revision-Date: 2019-12-11 09:36+0100\n"
-"Last-Translator: Paul van Buuren <paul@wbvb.nl>\n"
-"Language-Team: Paul van Buuren <paul@wbvb.nl>\n"
+"POT-Creation-Date: 2020-04-29 18:08+0200\n"
+"PO-Revision-Date: 2020-04-29 18:03+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: ictu-gc-posttypes-inclusie.php\n"
+"X-Poedit-WPHeader: ictuwp-plugin-inclusie.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: ictu-gc-posttypes-inclusie.php:234
+#: ictuwp-plugin-inclusie.php:237
 msgctxt "naam template"
-msgid "Inclusie Home page"
+msgid "Inclusie - Home page"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:235
-msgctxt "naam template"
-msgid "Inclusie Page Doelgroepen"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:362
+#: ictuwp-plugin-inclusie.php:316
 msgctxt "error"
 msgid "Geen doelgroepen geselecteerd voor deze pagina."
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:434
+#: ictuwp-plugin-inclusie.php:388
 msgctxt "titel op methode-pagina"
 msgid "Citaten"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:493 ictu-gc-posttypes-inclusie.php:737
+#: ictuwp-plugin-inclusie.php:452
 msgctxt "titel op home-pagina"
 msgid "Stappen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:521 ictu-gc-posttypes-inclusie.php:779
+#: ictuwp-plugin-inclusie.php:480
 #, php-format
 msgctxt "Label stappen"
 msgid "%s. %s"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:550
+#: ictuwp-plugin-inclusie.php:528
 msgctxt "titel op Stap-pagina"
 msgid "Methoden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:578
+#: ictuwp-plugin-inclusie.php:591
 msgctxt "Stap: intro bij methoden"
 msgid ""
 "Dit is een selectie van methoden, technieken en instrumenten die je in kunt "
@@ -68,875 +63,838 @@ msgid ""
 "inclusie. "
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:780
-#, php-format
-msgctxt "home lees meer"
-msgid "%s <span class=\"visuallyhidden\">over %s</span>"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:780
-msgctxt "home lees meer"
-msgid "Lees meer"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:791
-msgctxt "label knop stepchart"
-msgid "Sluit"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:811
+#: ictuwp-plugin-inclusie.php:869
 msgctxt "titel op Stap-pagina"
 msgid "Doelgroepen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:834
+#: ictuwp-plugin-inclusie.php:891
 msgctxt "Linktekst doelgroepoverzicht"
 msgid "Alle doelgroepen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:883
+#: ictuwp-plugin-inclusie.php:1024
 msgctxt "Open / close button menu"
 msgid "Open menu"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:884 ictu-gc-posttypes-inclusie.php:1168
+#: ictuwp-plugin-inclusie.php:1025 ictuwp-plugin-inclusie.php:1902
 msgctxt "Open / close button menu"
 msgid "Close menu"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1160
-msgctxt "Titel voor inhoudsopgave"
-msgid "Menu"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:1282
+#: ictuwp-plugin-inclusie.php:1410
 msgctxt "titel op Doelgroep-pagina"
 msgid "Tips"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1378
+#: ictuwp-plugin-inclusie.php:1504
 msgctxt "titel op Doelgroep-pagina"
 msgid "Vaardigheden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1429 ictu-gc-posttypes-inclusie.php:1512
-#: ictu-gc-posttypes-inclusie.php:1726
+#: ictuwp-plugin-inclusie.php:1555 ictuwp-plugin-inclusie.php:1638
 msgctxt "titel op Stap-pagina"
 msgid "Aanraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1442 ictu-gc-posttypes-inclusie.php:1525
-#: ictu-gc-posttypes-inclusie.php:1738
+#: ictuwp-plugin-inclusie.php:1568 ictuwp-plugin-inclusie.php:1651
 msgctxt "titel op Stap-pagina"
 msgid "Afraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1569
-msgctxt "Post type name"
-msgid "Doelgroepen"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:1693
-msgctxt "titel op Stap-pagina"
-msgid "Vaardigheden"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:1781
+#: ictuwp-plugin-inclusie.php:1780
 msgctxt "titel op methode-pagina"
 msgid "Classificering"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1961
+#: ictuwp-plugin-inclusie.php:1811
 #, php-format
 msgctxt "Label stappen"
 msgid "Over %s"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1973
+#: ictuwp-plugin-inclusie.php:1823
 msgctxt "titel op doelgroep-pagina"
 msgid "Cijfers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:1987
+#: ictuwp-plugin-inclusie.php:1837
 msgctxt "Cijfers"
 msgid "Bron:"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2024
-msgctxt "titel op Stap-pagina"
-msgid "Tips"
+#: ictuwp-plugin-inclusie.php:1894
+msgctxt "Titel voor inhoudsopgave"
+msgid "Menu"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2085
-msgctxt "Home section doelgroep"
-msgid "Ontwerpen voor"
-msgstr ""
-
-#: ictu-gc-posttypes-inclusie.php:2106 ictu-gc-posttypes-inclusie.php:2108
+#: ictuwp-plugin-inclusie.php:1923 ictuwp-plugin-inclusie.php:1925
 msgctxt "stap type"
 msgid "Stappen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2107
+#: ictuwp-plugin-inclusie.php:1924
 msgctxt "stap type"
 msgid "Stap"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2109
+#: ictuwp-plugin-inclusie.php:1926
 msgctxt "stap type"
 msgid "Alle stappen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2110 ictu-gc-posttypes-inclusie.php:2111
+#: ictuwp-plugin-inclusie.php:1927 ictuwp-plugin-inclusie.php:1928
 msgctxt "stap type"
 msgid "Nieuwe stap toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2112
+#: ictuwp-plugin-inclusie.php:1929
 msgctxt "stap type"
 msgid "Stap bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2113
+#: ictuwp-plugin-inclusie.php:1930
 msgctxt "stap type"
 msgid "Nieuwe stap"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2114
+#: ictuwp-plugin-inclusie.php:1931
 msgctxt "stap type"
 msgid "Stap bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2115
+#: ictuwp-plugin-inclusie.php:1932
 msgctxt "stap type"
 msgid "Zoek een stap"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2116 ictu-gc-posttypes-inclusie.php:2117
+#: ictuwp-plugin-inclusie.php:1933 ictuwp-plugin-inclusie.php:1934
 msgctxt "stap type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2118 ictu-gc-posttypes-inclusie.php:2161
-#: ictu-gc-posttypes-inclusie.php:2206 ictu-gc-posttypes-inclusie.php:2250
-#: ictu-gc-posttypes-inclusie.php:2297 ictu-gc-posttypes-inclusie.php:2345
-#: ictu-gc-posttypes-inclusie.php:2392 ictu-gc-posttypes-inclusie.php:2439
-#: ictu-gc-posttypes-inclusie.php:2491 ictu-gc-posttypes-inclusie.php:2534
-#: ictu-gc-posttypes-inclusie.php:2580 ictu-gc-posttypes-inclusie.php:2623
-#: ictu-gc-posttypes-inclusie.php:2669 ictu-gc-posttypes-inclusie.php:2715
+#: ictuwp-plugin-inclusie.php:1935 ictuwp-plugin-inclusie.php:1978
+#: ictuwp-plugin-inclusie.php:2023 ictuwp-plugin-inclusie.php:2067
+#: ictuwp-plugin-inclusie.php:2114 ictuwp-plugin-inclusie.php:2162
+#: ictuwp-plugin-inclusie.php:2209 ictuwp-plugin-inclusie.php:2256
+#: ictuwp-plugin-inclusie.php:2308 ictuwp-plugin-inclusie.php:2351
+#: ictuwp-plugin-inclusie.php:2397 ictuwp-plugin-inclusie.php:2440
+#: ictuwp-plugin-inclusie.php:2481 ictuwp-plugin-inclusie.php:2522
+msgctxt "plaatje"
 msgid "Featured image"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2119 ictu-gc-posttypes-inclusie.php:2162
-#: ictu-gc-posttypes-inclusie.php:2207 ictu-gc-posttypes-inclusie.php:2251
-#: ictu-gc-posttypes-inclusie.php:2298 ictu-gc-posttypes-inclusie.php:2346
-#: ictu-gc-posttypes-inclusie.php:2393 ictu-gc-posttypes-inclusie.php:2440
-#: ictu-gc-posttypes-inclusie.php:2492 ictu-gc-posttypes-inclusie.php:2535
-#: ictu-gc-posttypes-inclusie.php:2581 ictu-gc-posttypes-inclusie.php:2624
-#: ictu-gc-posttypes-inclusie.php:2670 ictu-gc-posttypes-inclusie.php:2716
+#: ictuwp-plugin-inclusie.php:1936 ictuwp-plugin-inclusie.php:1979
+#: ictuwp-plugin-inclusie.php:2024 ictuwp-plugin-inclusie.php:2068
+#: ictuwp-plugin-inclusie.php:2115 ictuwp-plugin-inclusie.php:2163
+#: ictuwp-plugin-inclusie.php:2210 ictuwp-plugin-inclusie.php:2257
+#: ictuwp-plugin-inclusie.php:2309 ictuwp-plugin-inclusie.php:2352
+#: ictuwp-plugin-inclusie.php:2398 ictuwp-plugin-inclusie.php:2441
+#: ictuwp-plugin-inclusie.php:2482 ictuwp-plugin-inclusie.php:2523
+msgctxt "archief"
 msgid "Archives"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2120 ictu-gc-posttypes-inclusie.php:2163
-#: ictu-gc-posttypes-inclusie.php:2208 ictu-gc-posttypes-inclusie.php:2252
-#: ictu-gc-posttypes-inclusie.php:2299 ictu-gc-posttypes-inclusie.php:2347
-#: ictu-gc-posttypes-inclusie.php:2394 ictu-gc-posttypes-inclusie.php:2441
-#: ictu-gc-posttypes-inclusie.php:2493 ictu-gc-posttypes-inclusie.php:2536
-#: ictu-gc-posttypes-inclusie.php:2582 ictu-gc-posttypes-inclusie.php:2625
-#: ictu-gc-posttypes-inclusie.php:2671 ictu-gc-posttypes-inclusie.php:2717
+#: ictuwp-plugin-inclusie.php:1937 ictuwp-plugin-inclusie.php:1980
+#: ictuwp-plugin-inclusie.php:2025 ictuwp-plugin-inclusie.php:2069
+#: ictuwp-plugin-inclusie.php:2116 ictuwp-plugin-inclusie.php:2164
+#: ictuwp-plugin-inclusie.php:2211 ictuwp-plugin-inclusie.php:2258
+#: ictuwp-plugin-inclusie.php:2310 ictuwp-plugin-inclusie.php:2353
+#: ictuwp-plugin-inclusie.php:2399 ictuwp-plugin-inclusie.php:2442
+#: ictuwp-plugin-inclusie.php:2483 ictuwp-plugin-inclusie.php:2524
+msgctxt "media"
 msgid "Uploaded media"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2124
+#: ictuwp-plugin-inclusie.php:1941
 msgctxt "Stappen label"
 msgid "Stappen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2149 ictu-gc-posttypes-inclusie.php:2151
+#: ictuwp-plugin-inclusie.php:1966 ictuwp-plugin-inclusie.php:1968
 msgctxt "doelgroep type"
 msgid "Doelgroepen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2150
+#: ictuwp-plugin-inclusie.php:1967
 msgctxt "doelgroep type"
 msgid "Doelgroep"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2152
+#: ictuwp-plugin-inclusie.php:1969
 msgctxt "doelgroep type"
 msgid "Alle doelgroepen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2153 ictu-gc-posttypes-inclusie.php:2154
+#: ictuwp-plugin-inclusie.php:1970 ictuwp-plugin-inclusie.php:1971
 msgctxt "doelgroep type"
 msgid "Nieuwe doelgroep toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2155
+#: ictuwp-plugin-inclusie.php:1972
 msgctxt "doelgroep type"
 msgid "Doelgroep bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2156
+#: ictuwp-plugin-inclusie.php:1973
 msgctxt "doelgroep type"
 msgid "Nieuwe doelgroep"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2157
+#: ictuwp-plugin-inclusie.php:1974
 msgctxt "doelgroep type"
 msgid "Doelgroep bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2158
+#: ictuwp-plugin-inclusie.php:1975
 msgctxt "doelgroep type"
 msgid "Zoek een doelgroep"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2159 ictu-gc-posttypes-inclusie.php:2160
+#: ictuwp-plugin-inclusie.php:1976 ictuwp-plugin-inclusie.php:1977
 msgctxt "doelgroep type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2167
+#: ictuwp-plugin-inclusie.php:1984
 msgctxt "Stappen label"
 msgid "Doelgroepen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2194 ictu-gc-posttypes-inclusie.php:2196
+#: ictuwp-plugin-inclusie.php:2011 ictuwp-plugin-inclusie.php:2013
 msgctxt "citaat type"
 msgid "Citaten"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2195
+#: ictuwp-plugin-inclusie.php:2012
 msgctxt "citaat type"
 msgid "Citaat"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2197
+#: ictuwp-plugin-inclusie.php:2014
 msgctxt "citaat type"
 msgid "Alle citaten"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2198 ictu-gc-posttypes-inclusie.php:2199
+#: ictuwp-plugin-inclusie.php:2015 ictuwp-plugin-inclusie.php:2016
 msgctxt "citaat type"
 msgid "Nieuw citaat toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2200
+#: ictuwp-plugin-inclusie.php:2017
 msgctxt "citaat type"
 msgid "Citaat bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2201
+#: ictuwp-plugin-inclusie.php:2018
 msgctxt "citaat type"
 msgid "Nieuw citaat"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2202
+#: ictuwp-plugin-inclusie.php:2019
 msgctxt "citaat type"
 msgid "Citaat bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2203
+#: ictuwp-plugin-inclusie.php:2020
 msgctxt "citaat type"
 msgid "Zoek een Citaat"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2204 ictu-gc-posttypes-inclusie.php:2205
+#: ictuwp-plugin-inclusie.php:2021 ictuwp-plugin-inclusie.php:2022
 msgctxt "citaat type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2212
+#: ictuwp-plugin-inclusie.php:2029
 msgctxt "Stappen label"
 msgid "Citaten"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2238 ictu-gc-posttypes-inclusie.php:2240
+#: ictuwp-plugin-inclusie.php:2055 ictuwp-plugin-inclusie.php:2057
 msgctxt "vaardigheid type"
 msgid "Vaardigheden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2239
+#: ictuwp-plugin-inclusie.php:2056
 msgctxt "vaardigheid type"
 msgid "Vaardigheid"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2241
+#: ictuwp-plugin-inclusie.php:2058
 msgctxt "vaardigheid type"
 msgid "Alle vaardigheden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2242 ictu-gc-posttypes-inclusie.php:2243
+#: ictuwp-plugin-inclusie.php:2059 ictuwp-plugin-inclusie.php:2060
 msgctxt "vaardigheid type"
 msgid "Nieuwe vaardigheid toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2244
+#: ictuwp-plugin-inclusie.php:2061
 msgctxt "vaardigheid type"
 msgid "Vaardigheid bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2245
+#: ictuwp-plugin-inclusie.php:2062
 msgctxt "vaardigheid type"
 msgid "Nieuwe vaardigheid"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2246
+#: ictuwp-plugin-inclusie.php:2063
 msgctxt "vaardigheid type"
 msgid "Vaardigheid bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2247
+#: ictuwp-plugin-inclusie.php:2064
 msgctxt "vaardigheid type"
 msgid "Zoek een vaardigheid"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2248 ictu-gc-posttypes-inclusie.php:2249
+#: ictuwp-plugin-inclusie.php:2065 ictuwp-plugin-inclusie.php:2066
 msgctxt "vaardigheid type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2256
+#: ictuwp-plugin-inclusie.php:2073
 msgctxt "Label Vaardigheden"
 msgid "Vaardigheden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2285 ictu-gc-posttypes-inclusie.php:2287
+#: ictuwp-plugin-inclusie.php:2102 ictuwp-plugin-inclusie.php:2104
 msgctxt "Tip type"
 msgid "Aanraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2286
+#: ictuwp-plugin-inclusie.php:2103
 msgctxt "Tip type"
 msgid "Aanrader"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2288
+#: ictuwp-plugin-inclusie.php:2105
 msgctxt "Tip type"
 msgid "Alle aanraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2289 ictu-gc-posttypes-inclusie.php:2290
+#: ictuwp-plugin-inclusie.php:2106 ictuwp-plugin-inclusie.php:2107
 msgctxt "Tip type"
 msgid "Nieuwe aanrader toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2291
+#: ictuwp-plugin-inclusie.php:2108
 msgctxt "Tip type"
 msgid "Aanrader bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2292
+#: ictuwp-plugin-inclusie.php:2109
 msgctxt "Tip type"
 msgid "Nieuwe aanrader"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2293
+#: ictuwp-plugin-inclusie.php:2110
 msgctxt "Tip type"
 msgid "aanrader bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2294
+#: ictuwp-plugin-inclusie.php:2111
 msgctxt "Tip type"
 msgid "Zoek een aanrader"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2295 ictu-gc-posttypes-inclusie.php:2296
-#: ictu-gc-posttypes-inclusie.php:2343 ictu-gc-posttypes-inclusie.php:2344
-#: ictu-gc-posttypes-inclusie.php:2437 ictu-gc-posttypes-inclusie.php:2438
+#: ictuwp-plugin-inclusie.php:2112 ictuwp-plugin-inclusie.php:2113
+#: ictuwp-plugin-inclusie.php:2160 ictuwp-plugin-inclusie.php:2161
+#: ictuwp-plugin-inclusie.php:2254 ictuwp-plugin-inclusie.php:2255
 msgctxt "Tip type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2303
+#: ictuwp-plugin-inclusie.php:2120
 msgctxt "Label tips"
 msgid "Aanraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2333 ictu-gc-posttypes-inclusie.php:2335
+#: ictuwp-plugin-inclusie.php:2150 ictuwp-plugin-inclusie.php:2152
 msgctxt "Tip type"
 msgid "Afraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2334
+#: ictuwp-plugin-inclusie.php:2151
 msgctxt "Tip type"
 msgid "Afrader"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2336
+#: ictuwp-plugin-inclusie.php:2153
 msgctxt "Tip type"
 msgid "Alle afraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2337 ictu-gc-posttypes-inclusie.php:2338
+#: ictuwp-plugin-inclusie.php:2154 ictuwp-plugin-inclusie.php:2155
 msgctxt "Tip type"
 msgid "Nieuwe afrader toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2339
+#: ictuwp-plugin-inclusie.php:2156
 msgctxt "Tip type"
 msgid "Afrader bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2340
+#: ictuwp-plugin-inclusie.php:2157
 msgctxt "Tip type"
 msgid "Nieuwe afrader"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2341
+#: ictuwp-plugin-inclusie.php:2158
 msgctxt "Tip type"
 msgid "afrader bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2342
+#: ictuwp-plugin-inclusie.php:2159
 msgctxt "Tip type"
 msgid "Zoek een afrader"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2351
+#: ictuwp-plugin-inclusie.php:2168
 msgctxt "Label tips"
 msgid "Afraders"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2380 ictu-gc-posttypes-inclusie.php:2382
+#: ictuwp-plugin-inclusie.php:2197 ictuwp-plugin-inclusie.php:2199
 msgctxt "Methode type"
 msgid "Methodes"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2381
+#: ictuwp-plugin-inclusie.php:2198
 msgctxt "Methode type"
 msgid "Methode"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2383
+#: ictuwp-plugin-inclusie.php:2200
 msgctxt "Methode type"
 msgid "Alle methodes"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2384 ictu-gc-posttypes-inclusie.php:2385
+#: ictuwp-plugin-inclusie.php:2201 ictuwp-plugin-inclusie.php:2202
 msgctxt "Methode type"
 msgid "Nieuwe methode toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2386
+#: ictuwp-plugin-inclusie.php:2203
 msgctxt "Methode type"
 msgid "Methode bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2387
+#: ictuwp-plugin-inclusie.php:2204
 msgctxt "Methode type"
 msgid "Nieuwe methode"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2388
+#: ictuwp-plugin-inclusie.php:2205
 msgctxt "Methode type"
 msgid "Methode bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2389
+#: ictuwp-plugin-inclusie.php:2206
 msgctxt "Methode type"
 msgid "Zoek een Methode"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2390 ictu-gc-posttypes-inclusie.php:2391
+#: ictuwp-plugin-inclusie.php:2207 ictuwp-plugin-inclusie.php:2208
 msgctxt "Methode type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2398
+#: ictuwp-plugin-inclusie.php:2215
 msgctxt "Methodes label"
 msgid "Methodes"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2427 ictu-gc-posttypes-inclusie.php:2429
-#: ictu-gc-posttypes-inclusie.php:2445
+#: ictuwp-plugin-inclusie.php:2244 ictuwp-plugin-inclusie.php:2246
+#: ictuwp-plugin-inclusie.php:2262
 msgctxt "Tip type"
 msgid "Tips"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2428
+#: ictuwp-plugin-inclusie.php:2245
 msgctxt "Tip type"
 msgid "Tip"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2430
+#: ictuwp-plugin-inclusie.php:2247
 msgctxt "Tip type"
 msgid "Alle tips"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2431 ictu-gc-posttypes-inclusie.php:2432
+#: ictuwp-plugin-inclusie.php:2248 ictuwp-plugin-inclusie.php:2249
 msgctxt "Tip type"
 msgid "Nieuwe tip toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2433
+#: ictuwp-plugin-inclusie.php:2250
 msgctxt "Tip type"
 msgid "Tip bewerken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2434
+#: ictuwp-plugin-inclusie.php:2251
 msgctxt "Tip type"
 msgid "Nieuwe tip"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2435
+#: ictuwp-plugin-inclusie.php:2252
 msgctxt "Tip type"
 msgid "Tip bekijken"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2436
+#: ictuwp-plugin-inclusie.php:2253
 msgctxt "Tip type"
 msgid "Zoek een tip"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2474 ictu-gc-posttypes-inclusie.php:2475
-#: ictu-gc-posttypes-inclusie.php:2479 ictu-gc-posttypes-inclusie.php:2480
-#: ictu-gc-posttypes-inclusie.php:2481 ictu-gc-posttypes-inclusie.php:2501
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2291 ictuwp-plugin-inclusie.php:2292
+#: ictuwp-plugin-inclusie.php:2296 ictuwp-plugin-inclusie.php:2297
+#: ictuwp-plugin-inclusie.php:2298 ictuwp-plugin-inclusie.php:2318
+msgctxt "Taxonomie"
 msgid "Tijd"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2482
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2299
+msgctxt "Taxonomie"
 msgid "Alle tijdsinschattingen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2483
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2300
+msgctxt "Taxonomie"
 msgid "Nieuwe tijdsinschatting toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2484
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2301
+msgctxt "Taxonomie"
 msgid "Voeg nieuwe tijdsinschatting toe"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2485
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2302
+msgctxt "Taxonomie"
 msgid "Bewerk tijdsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2486
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2303
+msgctxt "Taxonomie"
 msgid "Nieuwe tijdsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2487
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2304
+msgctxt "Taxonomie"
 msgid "Bekijk tijdsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2488
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2305
+msgctxt "Taxonomie"
 msgid "Zoek tijdsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2489
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2306
+msgctxt "Taxonomie"
 msgid "Geen tijdsinschattingen gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2490
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2307
+msgctxt "Taxonomie"
 msgid "Geen tijdsinschattingen gevonden in de prullenbak"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2497
+#: ictuwp-plugin-inclusie.php:2314
 msgctxt "Digibeter label"
 msgid "Tijd"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2517 ictu-gc-posttypes-inclusie.php:2518
-#: ictu-gc-posttypes-inclusie.php:2522 ictu-gc-posttypes-inclusie.php:2523
-#: ictu-gc-posttypes-inclusie.php:2524 ictu-gc-posttypes-inclusie.php:2544
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2334 ictuwp-plugin-inclusie.php:2335
+#: ictuwp-plugin-inclusie.php:2339 ictuwp-plugin-inclusie.php:2340
+#: ictuwp-plugin-inclusie.php:2341 ictuwp-plugin-inclusie.php:2361
+msgctxt "Taxonomie"
 msgid "Personeel"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2525
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2342
+msgctxt "Taxonomie"
 msgid "Alle personeelsinschattingen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2526
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2343
+msgctxt "Taxonomie"
 msgid "Nieuwe personeelsinschatting toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2527
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2344
+msgctxt "Taxonomie"
 msgid "Voeg nieuwe personeelsinschatting toe"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2528
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2345
+msgctxt "Taxonomie"
 msgid "Bewerk personeelsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2529
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2346
+msgctxt "Taxonomie"
 msgid "Nieuwe personeelsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2530
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2347
+msgctxt "Taxonomie"
 msgid "Bekijk personeelsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2531
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2348
+msgctxt "Taxonomie"
 msgid "Zoek personeelsinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2532
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2349
+msgctxt "Taxonomie"
 msgid "Geen personeelsinschattingen gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2533
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2350
+msgctxt "Taxonomie"
 msgid "Geen personeelsinschattingen gevonden in de prullenbak"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2540
+#: ictuwp-plugin-inclusie.php:2357
 msgctxt "Digibeter label"
 msgid "Personeel"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2563 ictu-gc-posttypes-inclusie.php:2564
-#: ictu-gc-posttypes-inclusie.php:2568 ictu-gc-posttypes-inclusie.php:2569
-#: ictu-gc-posttypes-inclusie.php:2570 ictu-gc-posttypes-inclusie.php:2590
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2380 ictuwp-plugin-inclusie.php:2381
+#: ictuwp-plugin-inclusie.php:2385 ictuwp-plugin-inclusie.php:2386
+#: ictuwp-plugin-inclusie.php:2387 ictuwp-plugin-inclusie.php:2407
+msgctxt "Taxonomie"
 msgid "Kosten"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2571
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2388
+msgctxt "Taxonomie"
 msgid "Alle kostensinschattingen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2572
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2389
+msgctxt "Taxonomie"
 msgid "Nieuwe kostensinschatting toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2573
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2390
+msgctxt "Taxonomie"
 msgid "Voeg nieuwe kostensinschatting toe"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2574
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2391
+msgctxt "Taxonomie"
 msgid "Bewerk kostensinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2575
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2392
+msgctxt "Taxonomie"
 msgid "Nieuwe kostensinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2576
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2393
+msgctxt "Taxonomie"
 msgid "Bekijk kostensinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2577
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2394
+msgctxt "Taxonomie"
 msgid "Zoek kostensinschatting"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2578
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2395
+msgctxt "Taxonomie"
 msgid "Geen kostensinschattingen gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2579
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2396
+msgctxt "Taxonomie"
 msgid "Geen kostensinschattingen gevonden in de prullenbak"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2586
+#: ictuwp-plugin-inclusie.php:2403
 msgctxt "Digibeter label"
 msgid "Kosten"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2606 ictu-gc-posttypes-inclusie.php:2607
-#: ictu-gc-posttypes-inclusie.php:2611 ictu-gc-posttypes-inclusie.php:2612
-#: ictu-gc-posttypes-inclusie.php:2613 ictu-gc-posttypes-inclusie.php:2633
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2423 ictuwp-plugin-inclusie.php:2424
+#: ictuwp-plugin-inclusie.php:2428 ictuwp-plugin-inclusie.php:2429
+#: ictuwp-plugin-inclusie.php:2430 ictuwp-plugin-inclusie.php:2450
+msgctxt "Taxonomie"
 msgid "Expertise"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2614
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2431
+msgctxt "Taxonomie"
 msgid "Alle expertises"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2615
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2432
+msgctxt "Taxonomie"
 msgid "Nieuwe expertise toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2616
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2433
+msgctxt "Taxonomie"
 msgid "Voeg nieuwe expertise toe"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2617
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2434
+msgctxt "Taxonomie"
 msgid "Bewerk expertise"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2618
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2435
+msgctxt "Taxonomie"
 msgid "Nieuwe expertise"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2619
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2436
+msgctxt "Taxonomie"
 msgid "Bekijk expertise"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2620
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2437
+msgctxt "Taxonomie"
 msgid "Zoek expertise"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2621
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2438
+msgctxt "Taxonomie"
 msgid "Geen expertises gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2622
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2439
+msgctxt "Taxonomie"
 msgid "Geen expertises gevonden in de prullenbak"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2629
+#: ictuwp-plugin-inclusie.php:2446
 msgctxt "Digibeter label"
 msgid "Expertise"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2652 ictu-gc-posttypes-inclusie.php:2653
-#: ictu-gc-posttypes-inclusie.php:2657 ictu-gc-posttypes-inclusie.php:2658
-#: ictu-gc-posttypes-inclusie.php:2659 ictu-gc-posttypes-inclusie.php:2679
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2469 ictuwp-plugin-inclusie.php:2470
+#: ictuwp-plugin-inclusie.php:2471 ictuwp-plugin-inclusie.php:2491
+msgctxt "Taxonomie"
 msgid "Deelnemers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2660
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2472
+msgctxt "Taxonomie"
 msgid "Alle deelnemers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2661
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2473
+msgctxt "Taxonomie"
 msgid "Nieuwe deelnemers toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2662
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2474
+msgctxt "Taxonomie"
 msgid "Voeg nieuwe deelnemers toe"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2663
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2475
+msgctxt "Taxonomie"
 msgid "Bewerk deelnemers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2664
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2476
+msgctxt "Taxonomie"
 msgid "Nieuwe deelnemers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2665
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2477
+msgctxt "Taxonomie"
 msgid "Bekijk deelnemers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2666
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2478
+msgctxt "Taxonomie"
 msgid "Zoek deelnemers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2667
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2479
+msgctxt "Taxonomie"
 msgid "Geen deelnemers gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2668
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2480
+msgctxt "Taxonomie"
 msgid "Geen deelnemers gevonden in de prullenbak"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2675
+#: ictuwp-plugin-inclusie.php:2487
 msgctxt "Digibeter label"
 msgid "Deelnemers"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2698 ictu-gc-posttypes-inclusie.php:2703
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2510
+msgctxt "Taxonomie"
 msgid "Onderwerpen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2699 ictu-gc-posttypes-inclusie.php:2704
-#: ictu-gc-posttypes-inclusie.php:2705
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2511 ictuwp-plugin-inclusie.php:2512
+msgctxt "Taxonomie"
 msgid "Onderwerp"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2706
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2513
+msgctxt "Taxonomie"
 msgid "Alles onder 'Onderwerpen'"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2707
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2514
+msgctxt "Taxonomie"
 msgid "Nieuw item toevoegen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2708
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2515
+msgctxt "Taxonomie"
 msgid "Voeg nieuw item toe"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2709
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2516
+msgctxt "Taxonomie"
 msgid "Bewerk item"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2710
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2517
+msgctxt "Taxonomie"
 msgid "Nieuw item"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2711
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2518
+msgctxt "Taxonomie"
 msgid "Bekijk item"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2712
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2519
+msgctxt "Taxonomie"
 msgid "Zoek item"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2713
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2520
+msgctxt "Taxonomie"
 msgid "Geen items gevonden"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2714
-msgctxt "digibeterkleuren"
+#: ictuwp-plugin-inclusie.php:2521
+msgctxt "Taxonomie"
 msgid "Geen items gevonden in de prullenbak"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2721
+#: ictuwp-plugin-inclusie.php:2528
 msgctxt "Aanrader label"
 msgid "Onderwerpen"
 msgstr ""
 
-#: ictu-gc-posttypes-inclusie.php:2725
+#: ictuwp-plugin-inclusie.php:2532
 msgctxt "Vaardigheden"
 msgid "Onderwerpen"
 msgstr ""
@@ -953,8 +911,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Plugin for digitaleoverheid.nl to register custom post types and custom "
-"taxonomies"
+"Plugin for inclusie.gebruikercentraal.nl to register custom post types and "
+"custom taxonomies"
 msgstr ""
 
 #. Author of the plugin/theme

@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2020-04-29 18:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: nl_NL\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -76,12 +76,12 @@ msgstr ""
 #: ictuwp-plugin-inclusie.php:1024
 msgctxt "Open / close button menu"
 msgid "Open menu"
-msgstr "Toon menu"
+msgstr ""
 
 #: ictuwp-plugin-inclusie.php:1025 ictuwp-plugin-inclusie.php:1902
 msgctxt "Open / close button menu"
 msgid "Close menu"
-msgstr "Verberg menu"
+msgstr ""
 
 #: ictuwp-plugin-inclusie.php:1410
 msgctxt "titel op Doelgroep-pagina"
@@ -183,7 +183,7 @@ msgstr ""
 #: ictuwp-plugin-inclusie.php:2481 ictuwp-plugin-inclusie.php:2522
 msgctxt "plaatje"
 msgid "Featured image"
-msgstr "Uitgelichte afbeelding"
+msgstr ""
 
 #: ictuwp-plugin-inclusie.php:1936 ictuwp-plugin-inclusie.php:1979
 #: ictuwp-plugin-inclusie.php:2024 ictuwp-plugin-inclusie.php:2068
@@ -194,7 +194,7 @@ msgstr "Uitgelichte afbeelding"
 #: ictuwp-plugin-inclusie.php:2482 ictuwp-plugin-inclusie.php:2523
 msgctxt "archief"
 msgid "Archives"
-msgstr "Overzichten"
+msgstr ""
 
 #: ictuwp-plugin-inclusie.php:1937 ictuwp-plugin-inclusie.php:1980
 #: ictuwp-plugin-inclusie.php:2025 ictuwp-plugin-inclusie.php:2069
@@ -205,7 +205,7 @@ msgstr "Overzichten"
 #: ictuwp-plugin-inclusie.php:2483 ictuwp-plugin-inclusie.php:2524
 msgctxt "media"
 msgid "Uploaded media"
-msgstr "Bijbehorende bestanden"
+msgstr ""
 
 #: ictuwp-plugin-inclusie.php:1941
 msgctxt "Stappen label"
@@ -901,7 +901,7 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "ICTU / Gebruiker Centraal / Inclusie post types and taxonomies"
-msgstr "ICTU / Gebruiker Centraal / Inclusie (post types & taxonomieën)"
+msgstr ""
 
 #. Plugin URI of the plugin/theme
 msgid ""
