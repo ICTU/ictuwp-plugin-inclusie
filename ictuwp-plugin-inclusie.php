@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @link                    https://inclusie.gebruikercentraal.nl
- * @package                ictu-gc-posttypes-inclusie
- *
- * @wordpress-plugin
- * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and
- *   taxonomies Plugin URI:
- *   https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
- *   Description:            Plugin for digitaleoverheid.nl to register custom
- *   post types and custom taxonomies Version:                1.1.6 Version
- *   description:    Functions from new version of GC-theme. Further
- *   integration. Author:                 Tamara de Haas & Paul van Buuren
- *   Author URI:             https://wbvb.nl/ License:                GPL-2.0+
- *   License URI:            http://www.gnu.org/licenses/gpl-2.0.txt Text
- *   Domain:            ictu-gc-posttypes-inclusie Domain Path:
- *   /languages
+    * @link                    https://inclusie.gebruikercentraal.nl
+    * @package                ictu-gc-posttypes-inclusie
+    *
+    * @wordpress-plugin
+    * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
+    * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+    * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies 
+    * Version:                1.1.7
+    * Version description:    Overbodige layout in zoekresultaten weggehaald.
+    * Author:                 Tamara de Haas & Paul van Buuren
+    * Author URI:             https://wbvb.nl/
+    * License:                GPL-2.0+
+    * License URI:            http://www.gnu.org/licenses/gpl-2.0.txt
+    * Text Domain:            ictu-gc-posttypes-inclusie 
+    * Domain Path:            /languages
  */
 
 // If this file is called directly, abort.
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.1.6');
+define('ICTU_GC_INCL_VERSION', '1.1.7');
 
 //========================================================================================================
 
@@ -438,6 +438,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             if (!$homepageID) {
                 return;
             }
+            if ( is_search() ) {
+	            // geen stappen tonen als deze pagina getoond wordt in sitesearch zoekresultaten
+				// @since	1.1.7
+                return;
+            }
 
             if (function_exists('get_field')) {
 
@@ -507,6 +512,12 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         public function ictu_gc_frontend_stap_inleiding() {
 
             global $post;
+
+            if ( is_search() ) {
+	            // geen inleiding tonen als deze pagina getoond wordt in sitesearch zoekresultaten
+				// @since	1.1.7
+                return;
+            }
 
             if (function_exists('get_field')) {
 
@@ -903,7 +914,20 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             global $post;
 
-            wp_enqueue_style(ICTU_GC_ARCHIVE_CSS, trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css', [], ICTU_GC_INCL_VERSION, 'all');
+
+			if ( ! defined( 'ID_SKIPLINKS' ) ) {
+				define( 'ID_SKIPLINKS', 'skiplinks' );
+			}
+
+			$dependencies = array( ID_SKIPLINKS );
+
+            wp_enqueue_style( 
+            	ICTU_GC_ARCHIVE_CSS,
+            	trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css', 
+            	$dependencies, 
+            	ICTU_GC_INCL_VERSION, 
+            	'all'
+            );
 
             $header_css = '';
             $acfid = get_the_id();
