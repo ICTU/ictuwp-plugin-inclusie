@@ -1,0 +1,44 @@
+.page-template {
+  .site-inner {
+    .gc-page-background(@inc_orange);
+  }
+}
+
+.entry-header.inleiding.wrap {
+  background-color: @gc_a11y_green;
+}
+
+.stepchart {
+  position: relative;
+  max-width: @max-width-inner;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media @tablet {
+    margin-top: -4rem;
+  }
+
+  @media @desktop {
+    margin-top: -13rem;
+  }
+}
+
+.stepchart__bg {
+  position: relative;
+  > img {
+    display: none;
+  }
+
+  @media only screen and ( min-width: ( @break_tablet )) {
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.entry-content .call-to-action {
+  background: @gc_pantybrown_light;
+  color: @base_font_color;
+}

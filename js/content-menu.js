@@ -13,7 +13,7 @@
   function initWaypoints() {
     Waypoint.refreshAll();
 
-    cmHeight = $('.content-menu > .l-inner').height() + 110;
+    cmHeight = $('.content-menu > .l-inner').height() + 150;
 
     trigger.next().css('margin-top', cmHeight + 'px');
     trigger.next().addClass('l-cm-next');
