@@ -630,11 +630,24 @@ Imports
   }
 }
 .page-template.page-template-home-inclusie .region--intro {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   font-size: 2rem;
   line-height: 3.2rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
   position: relative;
+  z-index: 5;
+}
+@media only screen and (min-width: 650px) {
+  .page-template.page-template-home-inclusie .region--intro {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.page-template.page-template-home-inclusie .entry__intro {
+  position: relative;
+  z-index: 1;
 }
 .page-template.page-template-home-inclusie .type-page.entry {
   background: #c73d19;
@@ -1751,10 +1764,11 @@ WP TEMPLATES - Doelgroep
   -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   background: #148839;
   color: #fff;
   padding: 2rem;
-  margin: 0 auto;
 }
 @media only screen and (min-width: 650px) {
   .single.single-stap.full-width-content .inleiding {
@@ -1772,6 +1786,9 @@ WP TEMPLATES - Doelgroep
           box-shadow: none;
 }
 .single.single-stap.full-width-content .content .entry {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 3rem;
