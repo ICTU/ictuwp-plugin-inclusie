@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ICTU / Gebruiker Centraal / Inclusie post types and "
 "taxonomies\n"
-"POT-Creation-Date: 2020-04-29 18:08+0200\n"
-"PO-Revision-Date: 2020-04-29 18:08+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2021-07-02 16:13+0200\n"
+"PO-Revision-Date: 2021-07-02 16:14+0200\n"
+"Last-Translator: Paul van Buuren <poedit@wbvb.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -22,38 +22,38 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: ictuwp-plugin-inclusie.php:237
+#: ictuwp-plugin-inclusie.php:226
 msgctxt "naam template"
 msgid "Inclusie - Home page"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:316
+#: ictuwp-plugin-inclusie.php:305
 msgctxt "error"
 msgid "Geen doelgroepen geselecteerd voor deze pagina."
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:388
+#: ictuwp-plugin-inclusie.php:377
 msgctxt "titel op methode-pagina"
 msgid "Citaten"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:452
+#: ictuwp-plugin-inclusie.php:441
 msgctxt "titel op home-pagina"
 msgid "Stappen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:480
+#: ictuwp-plugin-inclusie.php:469
 #, php-format
 msgctxt "Label stappen"
 msgid "%s. %s"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:528
+#: ictuwp-plugin-inclusie.php:517
 msgctxt "titel op Stap-pagina"
 msgid "Methoden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:591
+#: ictuwp-plugin-inclusie.php:580
 msgctxt "Stap: intro bij methoden"
 msgid ""
 "Dit is een selectie van methoden, technieken en instrumenten die je in kunt "
@@ -63,838 +63,843 @@ msgid ""
 "inclusie. "
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:869
+#: ictuwp-plugin-inclusie.php:858
 msgctxt "titel op Stap-pagina"
 msgid "Doelgroepen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:891
+#: ictuwp-plugin-inclusie.php:880
 msgctxt "Linktekst doelgroepoverzicht"
 msgid "Alle doelgroepen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1024
+#: ictuwp-plugin-inclusie.php:1013
 msgctxt "Open / close button menu"
 msgid "Open menu"
 msgstr "Toon menu"
 
-#: ictuwp-plugin-inclusie.php:1025 ictuwp-plugin-inclusie.php:1902
+#: ictuwp-plugin-inclusie.php:1014
 msgctxt "Open / close button menu"
 msgid "Close menu"
 msgstr "Verberg menu"
 
-#: ictuwp-plugin-inclusie.php:1410
+#: ictuwp-plugin-inclusie.php:1399
 msgctxt "titel op Doelgroep-pagina"
 msgid "Tips"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1504
+#: ictuwp-plugin-inclusie.php:1493
 msgctxt "titel op Doelgroep-pagina"
 msgid "Vaardigheden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1555 ictuwp-plugin-inclusie.php:1638
+#: ictuwp-plugin-inclusie.php:1544 ictuwp-plugin-inclusie.php:1627
 msgctxt "titel op Stap-pagina"
 msgid "Aanraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1568 ictuwp-plugin-inclusie.php:1651
+#: ictuwp-plugin-inclusie.php:1557 ictuwp-plugin-inclusie.php:1640
 msgctxt "titel op Stap-pagina"
 msgid "Afraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1780
+#: ictuwp-plugin-inclusie.php:1769
 msgctxt "titel op methode-pagina"
 msgid "Classificering"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1811
+#: ictuwp-plugin-inclusie.php:1800
 #, php-format
 msgctxt "Label stappen"
 msgid "Over %s"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1823
+#: ictuwp-plugin-inclusie.php:1812
 msgctxt "titel op doelgroep-pagina"
 msgid "Cijfers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1837
+#: ictuwp-plugin-inclusie.php:1826
 msgctxt "Cijfers"
 msgid "Bron:"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1894
+#: ictuwp-plugin-inclusie.php:1883
 msgctxt "Titel voor inhoudsopgave"
 msgid "Menu"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1923 ictuwp-plugin-inclusie.php:1925
+#: ictuwp-plugin-inclusie.php:1891
+msgctxt "Open / close button menu"
+msgid "Close menu"
+msgstr "Verberg menu"
+
+#: ictuwp-plugin-inclusie.php:1912 ictuwp-plugin-inclusie.php:1914
 msgctxt "stap type"
 msgid "Stappen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1924
+#: ictuwp-plugin-inclusie.php:1913
 msgctxt "stap type"
 msgid "Stap"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1926
+#: ictuwp-plugin-inclusie.php:1915
 msgctxt "stap type"
 msgid "Alle stappen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1927 ictuwp-plugin-inclusie.php:1928
+#: ictuwp-plugin-inclusie.php:1916 ictuwp-plugin-inclusie.php:1917
 msgctxt "stap type"
 msgid "Nieuwe stap toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1929
+#: ictuwp-plugin-inclusie.php:1918
 msgctxt "stap type"
 msgid "Stap bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1930
+#: ictuwp-plugin-inclusie.php:1919
 msgctxt "stap type"
 msgid "Nieuwe stap"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1931
+#: ictuwp-plugin-inclusie.php:1920
 msgctxt "stap type"
 msgid "Stap bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1932
+#: ictuwp-plugin-inclusie.php:1921
 msgctxt "stap type"
 msgid "Zoek een stap"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1933 ictuwp-plugin-inclusie.php:1934
+#: ictuwp-plugin-inclusie.php:1922 ictuwp-plugin-inclusie.php:1923
 msgctxt "stap type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1935 ictuwp-plugin-inclusie.php:1978
-#: ictuwp-plugin-inclusie.php:2023 ictuwp-plugin-inclusie.php:2067
-#: ictuwp-plugin-inclusie.php:2114 ictuwp-plugin-inclusie.php:2162
-#: ictuwp-plugin-inclusie.php:2209 ictuwp-plugin-inclusie.php:2256
-#: ictuwp-plugin-inclusie.php:2308 ictuwp-plugin-inclusie.php:2351
-#: ictuwp-plugin-inclusie.php:2397 ictuwp-plugin-inclusie.php:2440
-#: ictuwp-plugin-inclusie.php:2481 ictuwp-plugin-inclusie.php:2522
+#: ictuwp-plugin-inclusie.php:1924 ictuwp-plugin-inclusie.php:1967
+#: ictuwp-plugin-inclusie.php:2012 ictuwp-plugin-inclusie.php:2056
+#: ictuwp-plugin-inclusie.php:2103 ictuwp-plugin-inclusie.php:2151
+#: ictuwp-plugin-inclusie.php:2198 ictuwp-plugin-inclusie.php:2245
+#: ictuwp-plugin-inclusie.php:2297 ictuwp-plugin-inclusie.php:2340
+#: ictuwp-plugin-inclusie.php:2386 ictuwp-plugin-inclusie.php:2429
+#: ictuwp-plugin-inclusie.php:2470 ictuwp-plugin-inclusie.php:2511
 msgctxt "plaatje"
 msgid "Featured image"
 msgstr "Uitgelichte afbeelding"
 
-#: ictuwp-plugin-inclusie.php:1936 ictuwp-plugin-inclusie.php:1979
-#: ictuwp-plugin-inclusie.php:2024 ictuwp-plugin-inclusie.php:2068
-#: ictuwp-plugin-inclusie.php:2115 ictuwp-plugin-inclusie.php:2163
-#: ictuwp-plugin-inclusie.php:2210 ictuwp-plugin-inclusie.php:2257
-#: ictuwp-plugin-inclusie.php:2309 ictuwp-plugin-inclusie.php:2352
-#: ictuwp-plugin-inclusie.php:2398 ictuwp-plugin-inclusie.php:2441
-#: ictuwp-plugin-inclusie.php:2482 ictuwp-plugin-inclusie.php:2523
+#: ictuwp-plugin-inclusie.php:1925 ictuwp-plugin-inclusie.php:1968
+#: ictuwp-plugin-inclusie.php:2013 ictuwp-plugin-inclusie.php:2057
+#: ictuwp-plugin-inclusie.php:2104 ictuwp-plugin-inclusie.php:2152
+#: ictuwp-plugin-inclusie.php:2199 ictuwp-plugin-inclusie.php:2246
+#: ictuwp-plugin-inclusie.php:2298 ictuwp-plugin-inclusie.php:2341
+#: ictuwp-plugin-inclusie.php:2387 ictuwp-plugin-inclusie.php:2430
+#: ictuwp-plugin-inclusie.php:2471 ictuwp-plugin-inclusie.php:2512
 msgctxt "archief"
 msgid "Archives"
 msgstr "Overzichten"
 
-#: ictuwp-plugin-inclusie.php:1937 ictuwp-plugin-inclusie.php:1980
-#: ictuwp-plugin-inclusie.php:2025 ictuwp-plugin-inclusie.php:2069
-#: ictuwp-plugin-inclusie.php:2116 ictuwp-plugin-inclusie.php:2164
-#: ictuwp-plugin-inclusie.php:2211 ictuwp-plugin-inclusie.php:2258
-#: ictuwp-plugin-inclusie.php:2310 ictuwp-plugin-inclusie.php:2353
-#: ictuwp-plugin-inclusie.php:2399 ictuwp-plugin-inclusie.php:2442
-#: ictuwp-plugin-inclusie.php:2483 ictuwp-plugin-inclusie.php:2524
+#: ictuwp-plugin-inclusie.php:1926 ictuwp-plugin-inclusie.php:1969
+#: ictuwp-plugin-inclusie.php:2014 ictuwp-plugin-inclusie.php:2058
+#: ictuwp-plugin-inclusie.php:2105 ictuwp-plugin-inclusie.php:2153
+#: ictuwp-plugin-inclusie.php:2200 ictuwp-plugin-inclusie.php:2247
+#: ictuwp-plugin-inclusie.php:2299 ictuwp-plugin-inclusie.php:2342
+#: ictuwp-plugin-inclusie.php:2388 ictuwp-plugin-inclusie.php:2431
+#: ictuwp-plugin-inclusie.php:2472 ictuwp-plugin-inclusie.php:2513
 msgctxt "media"
 msgid "Uploaded media"
 msgstr "Bijbehorende bestanden"
 
-#: ictuwp-plugin-inclusie.php:1941
+#: ictuwp-plugin-inclusie.php:1930
 msgctxt "Stappen label"
 msgid "Stappen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1966 ictuwp-plugin-inclusie.php:1968
+#: ictuwp-plugin-inclusie.php:1955 ictuwp-plugin-inclusie.php:1957
 msgctxt "doelgroep type"
 msgid "Doelgroepen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1967
+#: ictuwp-plugin-inclusie.php:1956
 msgctxt "doelgroep type"
 msgid "Doelgroep"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1969
+#: ictuwp-plugin-inclusie.php:1958
 msgctxt "doelgroep type"
 msgid "Alle doelgroepen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1970 ictuwp-plugin-inclusie.php:1971
+#: ictuwp-plugin-inclusie.php:1959 ictuwp-plugin-inclusie.php:1960
 msgctxt "doelgroep type"
 msgid "Nieuwe doelgroep toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1972
+#: ictuwp-plugin-inclusie.php:1961
 msgctxt "doelgroep type"
 msgid "Doelgroep bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1973
+#: ictuwp-plugin-inclusie.php:1962
 msgctxt "doelgroep type"
 msgid "Nieuwe doelgroep"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1974
+#: ictuwp-plugin-inclusie.php:1963
 msgctxt "doelgroep type"
 msgid "Doelgroep bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1975
+#: ictuwp-plugin-inclusie.php:1964
 msgctxt "doelgroep type"
 msgid "Zoek een doelgroep"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1976 ictuwp-plugin-inclusie.php:1977
+#: ictuwp-plugin-inclusie.php:1965 ictuwp-plugin-inclusie.php:1966
 msgctxt "doelgroep type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:1984
+#: ictuwp-plugin-inclusie.php:1973
 msgctxt "Stappen label"
 msgid "Doelgroepen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2011 ictuwp-plugin-inclusie.php:2013
+#: ictuwp-plugin-inclusie.php:2000 ictuwp-plugin-inclusie.php:2002
 msgctxt "citaat type"
 msgid "Citaten"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2012
+#: ictuwp-plugin-inclusie.php:2001
 msgctxt "citaat type"
 msgid "Citaat"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2014
+#: ictuwp-plugin-inclusie.php:2003
 msgctxt "citaat type"
 msgid "Alle citaten"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2015 ictuwp-plugin-inclusie.php:2016
+#: ictuwp-plugin-inclusie.php:2004 ictuwp-plugin-inclusie.php:2005
 msgctxt "citaat type"
 msgid "Nieuw citaat toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2017
+#: ictuwp-plugin-inclusie.php:2006
 msgctxt "citaat type"
 msgid "Citaat bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2018
+#: ictuwp-plugin-inclusie.php:2007
 msgctxt "citaat type"
 msgid "Nieuw citaat"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2019
+#: ictuwp-plugin-inclusie.php:2008
 msgctxt "citaat type"
 msgid "Citaat bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2020
+#: ictuwp-plugin-inclusie.php:2009
 msgctxt "citaat type"
 msgid "Zoek een Citaat"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2021 ictuwp-plugin-inclusie.php:2022
+#: ictuwp-plugin-inclusie.php:2010 ictuwp-plugin-inclusie.php:2011
 msgctxt "citaat type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2029
+#: ictuwp-plugin-inclusie.php:2018
 msgctxt "Stappen label"
 msgid "Citaten"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2055 ictuwp-plugin-inclusie.php:2057
+#: ictuwp-plugin-inclusie.php:2044 ictuwp-plugin-inclusie.php:2046
 msgctxt "vaardigheid type"
 msgid "Vaardigheden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2056
+#: ictuwp-plugin-inclusie.php:2045
 msgctxt "vaardigheid type"
 msgid "Vaardigheid"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2058
+#: ictuwp-plugin-inclusie.php:2047
 msgctxt "vaardigheid type"
 msgid "Alle vaardigheden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2059 ictuwp-plugin-inclusie.php:2060
+#: ictuwp-plugin-inclusie.php:2048 ictuwp-plugin-inclusie.php:2049
 msgctxt "vaardigheid type"
 msgid "Nieuwe vaardigheid toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2061
+#: ictuwp-plugin-inclusie.php:2050
 msgctxt "vaardigheid type"
 msgid "Vaardigheid bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2062
+#: ictuwp-plugin-inclusie.php:2051
 msgctxt "vaardigheid type"
 msgid "Nieuwe vaardigheid"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2063
+#: ictuwp-plugin-inclusie.php:2052
 msgctxt "vaardigheid type"
 msgid "Vaardigheid bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2064
+#: ictuwp-plugin-inclusie.php:2053
 msgctxt "vaardigheid type"
 msgid "Zoek een vaardigheid"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2065 ictuwp-plugin-inclusie.php:2066
+#: ictuwp-plugin-inclusie.php:2054 ictuwp-plugin-inclusie.php:2055
 msgctxt "vaardigheid type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2073
+#: ictuwp-plugin-inclusie.php:2062
 msgctxt "Label Vaardigheden"
 msgid "Vaardigheden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2102 ictuwp-plugin-inclusie.php:2104
+#: ictuwp-plugin-inclusie.php:2091 ictuwp-plugin-inclusie.php:2093
 msgctxt "Tip type"
 msgid "Aanraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2103
+#: ictuwp-plugin-inclusie.php:2092
 msgctxt "Tip type"
 msgid "Aanrader"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2105
+#: ictuwp-plugin-inclusie.php:2094
 msgctxt "Tip type"
 msgid "Alle aanraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2106 ictuwp-plugin-inclusie.php:2107
+#: ictuwp-plugin-inclusie.php:2095 ictuwp-plugin-inclusie.php:2096
 msgctxt "Tip type"
 msgid "Nieuwe aanrader toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2108
+#: ictuwp-plugin-inclusie.php:2097
 msgctxt "Tip type"
 msgid "Aanrader bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2109
+#: ictuwp-plugin-inclusie.php:2098
 msgctxt "Tip type"
 msgid "Nieuwe aanrader"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2110
+#: ictuwp-plugin-inclusie.php:2099
 msgctxt "Tip type"
 msgid "aanrader bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2111
+#: ictuwp-plugin-inclusie.php:2100
 msgctxt "Tip type"
 msgid "Zoek een aanrader"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2112 ictuwp-plugin-inclusie.php:2113
-#: ictuwp-plugin-inclusie.php:2160 ictuwp-plugin-inclusie.php:2161
-#: ictuwp-plugin-inclusie.php:2254 ictuwp-plugin-inclusie.php:2255
+#: ictuwp-plugin-inclusie.php:2101 ictuwp-plugin-inclusie.php:2102
+#: ictuwp-plugin-inclusie.php:2149 ictuwp-plugin-inclusie.php:2150
+#: ictuwp-plugin-inclusie.php:2243 ictuwp-plugin-inclusie.php:2244
 msgctxt "Tip type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2120
+#: ictuwp-plugin-inclusie.php:2109
 msgctxt "Label tips"
 msgid "Aanraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2150 ictuwp-plugin-inclusie.php:2152
+#: ictuwp-plugin-inclusie.php:2139 ictuwp-plugin-inclusie.php:2141
 msgctxt "Tip type"
 msgid "Afraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2151
+#: ictuwp-plugin-inclusie.php:2140
 msgctxt "Tip type"
 msgid "Afrader"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2153
+#: ictuwp-plugin-inclusie.php:2142
 msgctxt "Tip type"
 msgid "Alle afraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2154 ictuwp-plugin-inclusie.php:2155
+#: ictuwp-plugin-inclusie.php:2143 ictuwp-plugin-inclusie.php:2144
 msgctxt "Tip type"
 msgid "Nieuwe afrader toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2156
+#: ictuwp-plugin-inclusie.php:2145
 msgctxt "Tip type"
 msgid "Afrader bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2157
+#: ictuwp-plugin-inclusie.php:2146
 msgctxt "Tip type"
 msgid "Nieuwe afrader"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2158
+#: ictuwp-plugin-inclusie.php:2147
 msgctxt "Tip type"
 msgid "afrader bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2159
+#: ictuwp-plugin-inclusie.php:2148
 msgctxt "Tip type"
 msgid "Zoek een afrader"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2168
+#: ictuwp-plugin-inclusie.php:2157
 msgctxt "Label tips"
 msgid "Afraders"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2197 ictuwp-plugin-inclusie.php:2199
+#: ictuwp-plugin-inclusie.php:2186 ictuwp-plugin-inclusie.php:2188
 msgctxt "Methode type"
 msgid "Methodes"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2198
+#: ictuwp-plugin-inclusie.php:2187
 msgctxt "Methode type"
 msgid "Methode"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2200
+#: ictuwp-plugin-inclusie.php:2189
 msgctxt "Methode type"
 msgid "Alle methodes"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2201 ictuwp-plugin-inclusie.php:2202
+#: ictuwp-plugin-inclusie.php:2190 ictuwp-plugin-inclusie.php:2191
 msgctxt "Methode type"
 msgid "Nieuwe methode toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2203
+#: ictuwp-plugin-inclusie.php:2192
 msgctxt "Methode type"
 msgid "Methode bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2204
+#: ictuwp-plugin-inclusie.php:2193
 msgctxt "Methode type"
 msgid "Nieuwe methode"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2205
+#: ictuwp-plugin-inclusie.php:2194
 msgctxt "Methode type"
 msgid "Methode bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2206
+#: ictuwp-plugin-inclusie.php:2195
 msgctxt "Methode type"
 msgid "Zoek een Methode"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2207 ictuwp-plugin-inclusie.php:2208
+#: ictuwp-plugin-inclusie.php:2196 ictuwp-plugin-inclusie.php:2197
 msgctxt "Methode type"
 msgid "Niets gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2215
+#: ictuwp-plugin-inclusie.php:2204
 msgctxt "Methodes label"
 msgid "Methodes"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2244 ictuwp-plugin-inclusie.php:2246
-#: ictuwp-plugin-inclusie.php:2262
+#: ictuwp-plugin-inclusie.php:2233 ictuwp-plugin-inclusie.php:2235
+#: ictuwp-plugin-inclusie.php:2251
 msgctxt "Tip type"
 msgid "Tips"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2245
+#: ictuwp-plugin-inclusie.php:2234
 msgctxt "Tip type"
 msgid "Tip"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2247
+#: ictuwp-plugin-inclusie.php:2236
 msgctxt "Tip type"
 msgid "Alle tips"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2248 ictuwp-plugin-inclusie.php:2249
+#: ictuwp-plugin-inclusie.php:2237 ictuwp-plugin-inclusie.php:2238
 msgctxt "Tip type"
 msgid "Nieuwe tip toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2250
+#: ictuwp-plugin-inclusie.php:2239
 msgctxt "Tip type"
 msgid "Tip bewerken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2251
+#: ictuwp-plugin-inclusie.php:2240
 msgctxt "Tip type"
 msgid "Nieuwe tip"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2252
+#: ictuwp-plugin-inclusie.php:2241
 msgctxt "Tip type"
 msgid "Tip bekijken"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2253
+#: ictuwp-plugin-inclusie.php:2242
 msgctxt "Tip type"
 msgid "Zoek een tip"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2291 ictuwp-plugin-inclusie.php:2292
-#: ictuwp-plugin-inclusie.php:2296 ictuwp-plugin-inclusie.php:2297
-#: ictuwp-plugin-inclusie.php:2298 ictuwp-plugin-inclusie.php:2318
+#: ictuwp-plugin-inclusie.php:2280 ictuwp-plugin-inclusie.php:2281
+#: ictuwp-plugin-inclusie.php:2285 ictuwp-plugin-inclusie.php:2286
+#: ictuwp-plugin-inclusie.php:2287 ictuwp-plugin-inclusie.php:2307
 msgctxt "Taxonomie"
 msgid "Tijd"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2299
+#: ictuwp-plugin-inclusie.php:2288
 msgctxt "Taxonomie"
 msgid "Alle tijdsinschattingen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2300
+#: ictuwp-plugin-inclusie.php:2289
 msgctxt "Taxonomie"
 msgid "Nieuwe tijdsinschatting toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2301
+#: ictuwp-plugin-inclusie.php:2290
 msgctxt "Taxonomie"
 msgid "Voeg nieuwe tijdsinschatting toe"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2302
+#: ictuwp-plugin-inclusie.php:2291
 msgctxt "Taxonomie"
 msgid "Bewerk tijdsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2303
+#: ictuwp-plugin-inclusie.php:2292
 msgctxt "Taxonomie"
 msgid "Nieuwe tijdsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2304
+#: ictuwp-plugin-inclusie.php:2293
 msgctxt "Taxonomie"
 msgid "Bekijk tijdsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2305
+#: ictuwp-plugin-inclusie.php:2294
 msgctxt "Taxonomie"
 msgid "Zoek tijdsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2306
+#: ictuwp-plugin-inclusie.php:2295
 msgctxt "Taxonomie"
 msgid "Geen tijdsinschattingen gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2307
+#: ictuwp-plugin-inclusie.php:2296
 msgctxt "Taxonomie"
 msgid "Geen tijdsinschattingen gevonden in de prullenbak"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2314
+#: ictuwp-plugin-inclusie.php:2303
 msgctxt "Digibeter label"
 msgid "Tijd"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2334 ictuwp-plugin-inclusie.php:2335
-#: ictuwp-plugin-inclusie.php:2339 ictuwp-plugin-inclusie.php:2340
-#: ictuwp-plugin-inclusie.php:2341 ictuwp-plugin-inclusie.php:2361
+#: ictuwp-plugin-inclusie.php:2323 ictuwp-plugin-inclusie.php:2324
+#: ictuwp-plugin-inclusie.php:2328 ictuwp-plugin-inclusie.php:2329
+#: ictuwp-plugin-inclusie.php:2330 ictuwp-plugin-inclusie.php:2350
 msgctxt "Taxonomie"
 msgid "Personeel"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2342
+#: ictuwp-plugin-inclusie.php:2331
 msgctxt "Taxonomie"
 msgid "Alle personeelsinschattingen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2343
+#: ictuwp-plugin-inclusie.php:2332
 msgctxt "Taxonomie"
 msgid "Nieuwe personeelsinschatting toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2344
+#: ictuwp-plugin-inclusie.php:2333
 msgctxt "Taxonomie"
 msgid "Voeg nieuwe personeelsinschatting toe"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2345
+#: ictuwp-plugin-inclusie.php:2334
 msgctxt "Taxonomie"
 msgid "Bewerk personeelsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2346
+#: ictuwp-plugin-inclusie.php:2335
 msgctxt "Taxonomie"
 msgid "Nieuwe personeelsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2347
+#: ictuwp-plugin-inclusie.php:2336
 msgctxt "Taxonomie"
 msgid "Bekijk personeelsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2348
+#: ictuwp-plugin-inclusie.php:2337
 msgctxt "Taxonomie"
 msgid "Zoek personeelsinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2349
+#: ictuwp-plugin-inclusie.php:2338
 msgctxt "Taxonomie"
 msgid "Geen personeelsinschattingen gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2350
+#: ictuwp-plugin-inclusie.php:2339
 msgctxt "Taxonomie"
 msgid "Geen personeelsinschattingen gevonden in de prullenbak"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2357
+#: ictuwp-plugin-inclusie.php:2346
 msgctxt "Digibeter label"
 msgid "Personeel"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2380 ictuwp-plugin-inclusie.php:2381
-#: ictuwp-plugin-inclusie.php:2385 ictuwp-plugin-inclusie.php:2386
-#: ictuwp-plugin-inclusie.php:2387 ictuwp-plugin-inclusie.php:2407
+#: ictuwp-plugin-inclusie.php:2369 ictuwp-plugin-inclusie.php:2370
+#: ictuwp-plugin-inclusie.php:2374 ictuwp-plugin-inclusie.php:2375
+#: ictuwp-plugin-inclusie.php:2376 ictuwp-plugin-inclusie.php:2396
 msgctxt "Taxonomie"
 msgid "Kosten"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2388
+#: ictuwp-plugin-inclusie.php:2377
 msgctxt "Taxonomie"
 msgid "Alle kostensinschattingen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2389
+#: ictuwp-plugin-inclusie.php:2378
 msgctxt "Taxonomie"
 msgid "Nieuwe kostensinschatting toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2390
+#: ictuwp-plugin-inclusie.php:2379
 msgctxt "Taxonomie"
 msgid "Voeg nieuwe kostensinschatting toe"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2391
+#: ictuwp-plugin-inclusie.php:2380
 msgctxt "Taxonomie"
 msgid "Bewerk kostensinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2392
+#: ictuwp-plugin-inclusie.php:2381
 msgctxt "Taxonomie"
 msgid "Nieuwe kostensinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2393
+#: ictuwp-plugin-inclusie.php:2382
 msgctxt "Taxonomie"
 msgid "Bekijk kostensinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2394
+#: ictuwp-plugin-inclusie.php:2383
 msgctxt "Taxonomie"
 msgid "Zoek kostensinschatting"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2395
+#: ictuwp-plugin-inclusie.php:2384
 msgctxt "Taxonomie"
 msgid "Geen kostensinschattingen gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2396
+#: ictuwp-plugin-inclusie.php:2385
 msgctxt "Taxonomie"
 msgid "Geen kostensinschattingen gevonden in de prullenbak"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2403
+#: ictuwp-plugin-inclusie.php:2392
 msgctxt "Digibeter label"
 msgid "Kosten"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2423 ictuwp-plugin-inclusie.php:2424
-#: ictuwp-plugin-inclusie.php:2428 ictuwp-plugin-inclusie.php:2429
-#: ictuwp-plugin-inclusie.php:2430 ictuwp-plugin-inclusie.php:2450
+#: ictuwp-plugin-inclusie.php:2412 ictuwp-plugin-inclusie.php:2413
+#: ictuwp-plugin-inclusie.php:2417 ictuwp-plugin-inclusie.php:2418
+#: ictuwp-plugin-inclusie.php:2419 ictuwp-plugin-inclusie.php:2439
 msgctxt "Taxonomie"
 msgid "Expertise"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2431
+#: ictuwp-plugin-inclusie.php:2420
 msgctxt "Taxonomie"
 msgid "Alle expertises"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2432
+#: ictuwp-plugin-inclusie.php:2421
 msgctxt "Taxonomie"
 msgid "Nieuwe expertise toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2433
+#: ictuwp-plugin-inclusie.php:2422
 msgctxt "Taxonomie"
 msgid "Voeg nieuwe expertise toe"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2434
+#: ictuwp-plugin-inclusie.php:2423
 msgctxt "Taxonomie"
 msgid "Bewerk expertise"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2435
+#: ictuwp-plugin-inclusie.php:2424
 msgctxt "Taxonomie"
 msgid "Nieuwe expertise"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2436
+#: ictuwp-plugin-inclusie.php:2425
 msgctxt "Taxonomie"
 msgid "Bekijk expertise"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2437
+#: ictuwp-plugin-inclusie.php:2426
 msgctxt "Taxonomie"
 msgid "Zoek expertise"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2438
+#: ictuwp-plugin-inclusie.php:2427
 msgctxt "Taxonomie"
 msgid "Geen expertises gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2439
+#: ictuwp-plugin-inclusie.php:2428
 msgctxt "Taxonomie"
 msgid "Geen expertises gevonden in de prullenbak"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2446
+#: ictuwp-plugin-inclusie.php:2435
 msgctxt "Digibeter label"
 msgid "Expertise"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2469 ictuwp-plugin-inclusie.php:2470
-#: ictuwp-plugin-inclusie.php:2471 ictuwp-plugin-inclusie.php:2491
+#: ictuwp-plugin-inclusie.php:2458 ictuwp-plugin-inclusie.php:2459
+#: ictuwp-plugin-inclusie.php:2460 ictuwp-plugin-inclusie.php:2480
 msgctxt "Taxonomie"
 msgid "Deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2472
+#: ictuwp-plugin-inclusie.php:2461
 msgctxt "Taxonomie"
 msgid "Alle deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2473
+#: ictuwp-plugin-inclusie.php:2462
 msgctxt "Taxonomie"
 msgid "Nieuwe deelnemers toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2474
+#: ictuwp-plugin-inclusie.php:2463
 msgctxt "Taxonomie"
 msgid "Voeg nieuwe deelnemers toe"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2475
+#: ictuwp-plugin-inclusie.php:2464
 msgctxt "Taxonomie"
 msgid "Bewerk deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2476
+#: ictuwp-plugin-inclusie.php:2465
 msgctxt "Taxonomie"
 msgid "Nieuwe deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2477
+#: ictuwp-plugin-inclusie.php:2466
 msgctxt "Taxonomie"
 msgid "Bekijk deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2478
+#: ictuwp-plugin-inclusie.php:2467
 msgctxt "Taxonomie"
 msgid "Zoek deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2479
+#: ictuwp-plugin-inclusie.php:2468
 msgctxt "Taxonomie"
 msgid "Geen deelnemers gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2480
+#: ictuwp-plugin-inclusie.php:2469
 msgctxt "Taxonomie"
 msgid "Geen deelnemers gevonden in de prullenbak"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2487
+#: ictuwp-plugin-inclusie.php:2476
 msgctxt "Digibeter label"
 msgid "Deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2510
+#: ictuwp-plugin-inclusie.php:2499
 msgctxt "Taxonomie"
 msgid "Onderwerpen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2511 ictuwp-plugin-inclusie.php:2512
+#: ictuwp-plugin-inclusie.php:2500 ictuwp-plugin-inclusie.php:2501
 msgctxt "Taxonomie"
 msgid "Onderwerp"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2513
+#: ictuwp-plugin-inclusie.php:2502
 msgctxt "Taxonomie"
 msgid "Alles onder 'Onderwerpen'"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2514
+#: ictuwp-plugin-inclusie.php:2503
 msgctxt "Taxonomie"
 msgid "Nieuw item toevoegen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2515
+#: ictuwp-plugin-inclusie.php:2504
 msgctxt "Taxonomie"
 msgid "Voeg nieuw item toe"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2516
+#: ictuwp-plugin-inclusie.php:2505
 msgctxt "Taxonomie"
 msgid "Bewerk item"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2517
+#: ictuwp-plugin-inclusie.php:2506
 msgctxt "Taxonomie"
 msgid "Nieuw item"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2518
+#: ictuwp-plugin-inclusie.php:2507
 msgctxt "Taxonomie"
 msgid "Bekijk item"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2519
+#: ictuwp-plugin-inclusie.php:2508
 msgctxt "Taxonomie"
 msgid "Zoek item"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2520
+#: ictuwp-plugin-inclusie.php:2509
 msgctxt "Taxonomie"
 msgid "Geen items gevonden"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2521
+#: ictuwp-plugin-inclusie.php:2510
 msgctxt "Taxonomie"
 msgid "Geen items gevonden in de prullenbak"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2528
+#: ictuwp-plugin-inclusie.php:2517
 msgctxt "Aanrader label"
 msgid "Onderwerpen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2532
+#: ictuwp-plugin-inclusie.php:2521
 msgctxt "Vaardigheden"
 msgid "Onderwerpen"
 msgstr ""

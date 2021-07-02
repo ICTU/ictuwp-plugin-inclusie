@@ -9,9 +9,10 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Tamara de Haas is de geweldige ontwerper en CSS / front-end
 
 ## Current version:
-1.1.7 - Overbodige layout in zoekresultaten weggehaald.
+1.1.8 - Vertalingen bijgewerkt.
 
 ## Version history
+* 1.1.8 - Vertalingen bijgewerkt.
 * 1.1.7 - Overbodige layout in zoekresultaten weggehaald.
 * 1.1.6 - Incremented version number, to prevent cache errors.
 * 1.1.5 - Moved more functions and styling from inclusie plugin to theme.
