@@ -7,14 +7,14 @@
     * @wordpress-plugin
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
-    * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies 
-    * Version:                1.1.7
-    * Version description:    Overbodige layout in zoekresultaten weggehaald.
+    * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies
+    * Version:                1.1.8
+    * Version description:    Vertalingen bijgewerkt.
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
     * License:                GPL-2.0+
     * License URI:            http://www.gnu.org/licenses/gpl-2.0.txt
-    * Text Domain:            ictu-gc-posttypes-inclusie 
+    * Text Domain:            ictu-gc-posttypes-inclusie
     * Domain Path:            /languages
  */
 
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.1.7');
+define('ICTU_GC_INCL_VERSION', '1.1.8');
 
 //========================================================================================================
 
@@ -157,7 +157,6 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
               'ictu_gc_admin_inclusie_get_terms_in_order',
             ], 10, 4);
 
-            add_action('plugins_loaded', [$this, 'load_plugin_textdomain']);
             add_action('init', [$this, 'ictu_gc_add_rewrite_rules']);
 
             add_action('genesis_single_crumb', [
@@ -212,16 +211,6 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
 
         }
-
-        /** ----------------------------------------------------------------------------------------------------
-         * Initialise translations
-         */
-        public function load_plugin_textdomain() {
-
-            load_plugin_textdomain("ictu-gc-posttypes-inclusie", FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
-
-        }
-
 
         //========================================================================================================
 
@@ -440,7 +429,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             }
             if ( is_search() ) {
 	            // geen stappen tonen als deze pagina getoond wordt in sitesearch zoekresultaten
-				// @since	1.1.7
+				// @since	1.1.8
                 return;
             }
 
@@ -515,7 +504,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             if ( is_search() ) {
 	            // geen inleiding tonen als deze pagina getoond wordt in sitesearch zoekresultaten
-				// @since	1.1.7
+				// @since	1.1.8
                 return;
             }
 
@@ -921,11 +910,11 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
 			$dependencies = array( ID_SKIPLINKS );
 
-            wp_enqueue_style( 
+            wp_enqueue_style(
             	ICTU_GC_ARCHIVE_CSS,
-            	trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css', 
-            	$dependencies, 
-            	ICTU_GC_INCL_VERSION, 
+            	trailingslashit(plugin_dir_url(__FILE__)) . 'css/frontend.css',
+            	$dependencies,
+            	ICTU_GC_INCL_VERSION,
             	'all'
             );
 
@@ -2673,6 +2662,18 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 endif;
 
 
+//========================================================================================================
+
+/** ----------------------------------------------------------------------------------------------------
+ * Initialise translations
+ */
+function rijkshuisstijlposttypes_load_plugin_textdomain() {
+
+	load_plugin_textdomain( "ictu-gc-posttypes-inclusie", false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+}
+
+add_action( 'plugins_loaded', 'rijkshuisstijlposttypes_load_plugin_textdomain' );
 
 //========================================================================================================
 
