@@ -28,3 +28,4 @@ ictu-gc-plugin-inclusie.code-workspace
 .idea/*
 *.code-workspace
 .DS_Store
+yarn.lock
