@@ -38,7 +38,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 
 	function ictu_gc_inclusie_initialize_acf_fields() {
 		if( function_exists('acf_add_local_field_group') ):
-			
+
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8f882222034',
 				'title' => 'Citaat: auteur',
@@ -81,7 +81,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-			
+
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8fd53fbda24',
 				'title' => 'Doelgroep: citaat, facts & figures',
@@ -244,7 +244,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 
 			//------------------------------------------------------------------------------------------------
 			// velden voor doelgroep: vaardigheden
-			
+
 			acf_add_local_field_group(array(
 				'key' => 'group_5c8fd6bacf265',
 				'title' => 'Doelgroep: vaardigheden',
@@ -423,10 +423,10 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-			
-			
 
-	
+
+
+
 			//------------------------------------------------------------------------------------------------
 			// velden voor stap
 			acf_add_local_field_group(array(
@@ -861,7 +861,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 				'active' => true,
 				'description' => '',
 			));
-			
+
 
 
 			//--------------------------------------------------------------------------------------------
@@ -980,5 +980,5 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 
 		endif;
     }
-}    
-    
+}
+
