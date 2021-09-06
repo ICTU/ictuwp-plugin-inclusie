@@ -9,7 +9,7 @@
       case 'action-popover-close':
 
         // Close popover
-        $(this).parent().attr('aria-hidden', 'true');
+        $(this).parent().attr('data-visually-hidden', 'true');
         $(this).parents('.stepchart__item').removeClass('show-popover');
 
         break;

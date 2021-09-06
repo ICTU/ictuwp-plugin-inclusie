@@ -23,17 +23,17 @@
   var setPopover = function (popover) {
     var windowWidth = jQuery(window).width();
 
-    if (popover.attr('aria-hidden') === 'true') {
+    if (popover.attr('data-visually-hidden') === 'true') {
       // If bigger then desktop remove focus from other popovers
       if (windowWidth >= breakpoint_desktop) {
-        jQuery('.stepchart__description[aria-hidden=false]').attr('aria-hidden', 'true');
+        jQuery('.stepchart__description[data-visually-hidden=false]').attr('data-visually-hidden', 'true');
         jQuery('.show-popover').removeClass('show-popover')
       }
-      popover.attr('aria-hidden', 'false');
+      popover.attr('data-visually-hidden', 'false');
       popover.parent().addClass('show-popover');
 
     } else {
-      popover.attr('aria-hidden', 'true');
+      popover.attr('data-visually-hidden', 'true');
       popover.parent().removeClass('show-popover');
     }
   }
@@ -44,7 +44,7 @@
     var windowWidth = jQuery(window).width();
 
     if (windowWidth >= breakpoint_desktop) {
-      jQuery('.stepchart__description[aria-hidden=false]').attr('aria-hidden', 'true');
+      jQuery('.stepchart__description[data-visually-hidden=false]').attr('data-visually-hidden', 'true');
       jQuery('.show-popover').removeClass('show-popover')
     }
   });
@@ -57,7 +57,7 @@
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       container.removeClass('show-popover');
-      container.find('.stepchart__description').attr('aria-hidden', 'true');
+      container.find('.stepchart__description').attr('data-visually-hidden', 'true');
     }
 
   });
