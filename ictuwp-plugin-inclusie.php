@@ -8,7 +8,7 @@
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies
-    * Version:                1.1.10.a
+    * Version:                1.1.11
     * Version description:    Iconen bijgewerkt, ivm toegankelijkheidscheck.
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.1.10.a');
+define('ICTU_GC_INCL_VERSION', '1.1.11');
 
 //========================================================================================================
 
