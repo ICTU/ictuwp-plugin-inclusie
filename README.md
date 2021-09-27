@@ -9,9 +9,11 @@ Dit theme wordt gebruikt op [inclusie.gebruikercentraal.nl](https://inclusie.geb
 * Tamara de Haas is de geweldige ontwerper en CSS / front-end
 
 ## Current version:
-1.1.9 - Iconen bijgewerkt, ivm toegankelijkheidscheck.
+1.1.11 - JS aangepast; gebruik 'hidden' attribuut ipv aria-hidden.
 
 ## Version history
+* 1.1.11 - JS aangepast; gebruik 'hidden' attribuut ipv aria-hidden.
+* 1.1.10 - aria-hidden=true niet meer gebruiken voor visueel verbergen.
 * 1.1.9 - Iconen bijgewerkt, ivm toegankelijkheidscheck.
 * 1.1.8 - Vertalingen bijgewerkt.
 * 1.1.7 - Overbodige layout in zoekresultaten weggehaald.
