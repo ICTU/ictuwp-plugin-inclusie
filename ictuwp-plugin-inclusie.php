@@ -8,7 +8,7 @@
     * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
     * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
     * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies
-    * Version:                1.1.9
+    * Version:                1.1.10.a
     * Version description:    Iconen bijgewerkt, ivm toegankelijkheidscheck.
     * Author:                 Tamara de Haas & Paul van Buuren
     * Author URI:             https://wbvb.nl/
@@ -88,7 +88,7 @@ if (!defined('ICTU_GC_CPT_PROCESTIP')) {
 define('ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css');
 define('ICTU_GC_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('ICTU_GC_ASSETS_URL', trailingslashit(ICTU_GC_BASE_URL));
-define('ICTU_GC_INCL_VERSION', '1.1.9');
+define('ICTU_GC_INCL_VERSION', '1.1.10.a');
 
 //========================================================================================================
 
@@ -986,40 +986,38 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
         /**
          * Register frontend styles
          */
-        public function ictu_gc_register_frontend_style_script() {
+	    public function ictu_gc_register_frontend_style_script() {
 
-            global $post;
+		    global $post;
 
-            $infooter = TRUE;
+		    $infooter = true;
 
-            if (WP_DEBUG) {
-                // to do: geen externe scripts laden
-                wp_enqueue_script('gen-jquery-ui', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-waypoints', trailingslashit(plugin_dir_url(__FILE__)) . 'js/libs/jquery.waypoints.min.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-contentmenu', trailingslashit(plugin_dir_url(__FILE__)) . 'js/content-menu.js', '', ICTU_GC_INCL_VERSION, $infooter);
-            }
-            else {
-                // to do: geen externe scripts laden
-                wp_enqueue_script('gen-jquery-ui', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-waypoints', trailingslashit(plugin_dir_url(__FILE__)) . 'js/libs/jquery.waypoints.min.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-stepchart', trailingslashit(plugin_dir_url(__FILE__)) . 'js/stepchart.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-btn', trailingslashit(plugin_dir_url(__FILE__)) . 'js/btn.js', '', ICTU_GC_INCL_VERSION, $infooter);
-                wp_enqueue_script('inclusie-contentmenu', trailingslashit(plugin_dir_url(__FILE__)) . 'js/content-menu.js', '', ICTU_GC_INCL_VERSION, $infooter);
-            }
+		    // to do: geen externe scripts laden
+		    $version     = ICTU_GC_BEELDBANK_VERSION;
+		    $version_btn = ICTU_GC_BEELDBANK_VERSION;
+		    if ( WP_DEBUG ) {
+			    // als WP_DEBUG actief, gebruik filedate als versienummer
+			    $version     = filemtime( dirname( __FILE__ ) . '/js/stepchart.js' );
+			    $version_btn = filemtime( dirname( __FILE__ ) . '/js/btn.js' );
+		    }
 
-            $params = [
-              'open' => _x('Open menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie'),
-              'close' => _x('Close menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie'),
-            ];
+		    wp_enqueue_script( 'gen-jquery-ui', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', '', $version, $infooter );
+		    wp_enqueue_script( 'inclusie-waypoints', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/libs/jquery.waypoints.min.js', '', $version, $infooter );
+		    wp_enqueue_script( 'inclusie-stepchart', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/stepchart.js', '', $version, $infooter );
+		    wp_enqueue_script( 'inclusie-btn', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/btn.js', '', $version_btn, $infooter );
+		    wp_enqueue_script( 'inclusie-contentmenu', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/content-menu.js', '', $version, $infooter );
 
-            //' . _x('Sluit', 'label knop stepchart', 'ictu-gc-posttypes-inclusie') .
+		    $params = [
+			    'open'  => _x( 'Open menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie' ),
+			    'close' => _x( 'Close menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie' ),
+		    ];
 
-            wp_localize_script('inclusie-contentmenu', 'contentmenu', $params);
+		    //' . _x('Sluit', 'label knop stepchart', 'ictu-gc-posttypes-inclusie') .
+
+		    wp_localize_script( 'inclusie-contentmenu', 'contentmenu', $params );
 
 
-        }
+	    }
 
         //========================================================================================================
 
@@ -1258,7 +1256,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             // Parse incoming $args into an array and merge it with $defaults
             $args = wp_parse_args($args, $defaults);
 
-            // for ictu_gctheme_frontend_general_get_related_content(), see related-content-links.php in themes/gebruiker-centraal
+            // for ictu_gctheme_frontend_general_get_related_content(), see related-content-links.php in themes/ictuwp-theme-gebruikercentraal
             // @since	1.1.4
             $return = ictu_gctheme_frontend_general_get_related_content($args);
 
@@ -1343,7 +1341,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
             $return = '';
 
             if ($args['getmenu']) {
-                // for ictu_gctheme_frontend_general_get_related_content(), see related-content-links.php in themes/gebruiker-centraal
+                // for ictu_gctheme_frontend_general_get_related_content(), see related-content-links.php in themes/ictuwp-theme-gebruikercentraal
                 // @since	1.1.4
                 return array_merge(
                   $this->ictu_gc_frontend_doelgroep_get_tips($args),
@@ -1353,7 +1351,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
 
             }
             else {
-                // for ictu_gctheme_frontend_general_get_related_content(), see related-content-links.php in themes/gebruiker-centraal
+                // for ictu_gctheme_frontend_general_get_related_content(), see related-content-links.php in themes/ictuwp-theme-gebruikercentraal
                 // @since	1.1.4
                 $return .= $this->ictu_gc_frontend_doelgroep_get_tips($args);
                 $return .= $this->ictu_gc_frontend_doelgroep_get_vaardigheden($args);
@@ -1887,7 +1885,7 @@ if (!class_exists('ICTU_GC_Register_taxonomies')) :
                 }
                 $return .= '</ul>' .
                   '</div>' .
-                  '<span class="spacer spacer--shade" aria-hidden="true"><span class="inner">&nbsp;</span></span>' .
+                  '<span class="spacer spacer--shade" data-visually-hidden="true"><span class="inner">&nbsp;</span></span>' .
                   '<button class="btn btn--trigger-open"><span class="btn__text">' . _x('Close menu', 'Open / close button menu', 'ictu-gc-posttypes-inclusie') . '</span></button>' .
                   '</div>' .
                   '</div>';
