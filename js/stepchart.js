@@ -21,19 +21,19 @@
   });
 
   var setPopover = function (popover) {
+
     var windowWidth = jQuery(window).width();
 
-    if (popover.attr('data-visually-hidden') === 'true') {
+    if (popover.attr('hidden')) {
       // If bigger then desktop remove focus from other popovers
       if (windowWidth >= breakpoint_desktop) {
-        jQuery('.stepchart__description[data-visually-hidden=false]').attr('data-visually-hidden', 'true');
+        jQuery('.stepchart__description').attr('hidden', '');
         jQuery('.show-popover').removeClass('show-popover')
       }
-      popover.attr('data-visually-hidden', 'false');
+      popover.removeAttr('hidden');
       popover.parent().addClass('show-popover');
-
     } else {
-      popover.attr('data-visually-hidden', 'true');
+      popover.attr('hidden', '');
       popover.parent().removeClass('show-popover');
     }
   }
@@ -44,7 +44,7 @@
     var windowWidth = jQuery(window).width();
 
     if (windowWidth >= breakpoint_desktop) {
-      jQuery('.stepchart__description[data-visually-hidden=false]').attr('data-visually-hidden', 'true');
+      jQuery('.stepchart__description[data-visually-hidden=false]').attr('hidden', '');
       jQuery('.show-popover').removeClass('show-popover')
     }
   });
@@ -57,9 +57,26 @@
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       container.removeClass('show-popover');
-      container.find('.stepchart__description').attr('data-visually-hidden', 'true');
+      container.find('.stepchart__description').attr('hidden', '');
     }
 
   });
 
+  jQuery(document).on('keyup', function (evt) {
+    if (evt.keyCode == 27) {
+
+      // hide all popovers on ESC key press
+      var windowWidth = jQuery(window).width();
+
+      // If bigger then desktop close / hide popovers
+      if (windowWidth >= breakpoint_desktop) {
+        jQuery('.stepchart__description').attr('hidden', '');
+        jQuery('.show-popover').removeClass('show-popover')
+      }
+
+    }
+  });
+
+
 })(jQuery, document, window);
+

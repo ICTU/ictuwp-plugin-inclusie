@@ -4,18 +4,17 @@
 
   var btnFocus = false;
 
-  $('.btn[data-trigger^="action"]').click(function(){
-    switch($(this).attr('data-trigger')){
+  $('.btn[data-trigger^="action"]').click(function () {
+    switch ($(this).attr('data-trigger')) {
       case 'action-popover-close':
 
         // Close popover
-        $(this).parent().attr('data-visually-hidden', 'true');
+        $(this).parent().attr('hidden', '');
         $(this).parents('.stepchart__item').removeClass('show-popover');
 
         break;
     }
   });
-
 
 
 })(jQuery, document, window);
