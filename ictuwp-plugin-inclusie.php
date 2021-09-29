@@ -393,7 +393,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				$section_text  = apply_filters( 'the_content', $content );
 				$citaat_auteur = sanitize_text_field( get_field( 'citaat_auteur', $theid ) );
 
-				echo '<div class="tegeltje">' . $section_text . '<p class="author"><strong>' . $citaat_auteur . '</strong></p></div>';
+				echo '<div class="tegeltje">' . $section_text . '<p class="author"><b>' . $citaat_auteur . '</b></p></div>';
 
 			endforeach;
 
