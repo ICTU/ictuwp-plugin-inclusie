@@ -866,7 +866,8 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 				endwhile;
 
-				echo '</div>';
+				echo '</div>'; // .overview__items grid grid--col-3
+				echo '</div>'; // .overview
 
 				$doelgroeplink     = get_post_type_archive_link( ICTU_GC_CPT_DOELGROEP );
 				$label             = _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie' ); // $obj->name;
