@@ -1,5 +1,5 @@
 # shortcode: 'inclusie'
-# sh '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictu-gc-posttypes-inclusie/distribute.sh' &>/dev/null
+# sh '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictuwp-plugin-inclusie/distribute.sh' &>/dev/null
 
 echo '-- JA --';
 echo '----------------------------------------------------------------';
@@ -9,8 +9,8 @@ echo 'Distribute GC post type plugin';
 > '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/debug.log'
 
 # copy to temp dir
-# rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictu-gc-posttypes-inclusie/' '/Users/paul/shared-paul-files/Webs/temp/'
-rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictu-gc-posttypes-inclusie/' '/Users/paul/shared-paul-files/Webs/temp/'
+# rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictuwp-plugin-inclusie/' '/Users/paul/shared-paul-files/Webs/temp/'
+rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/plugins/ictuwp-plugin-inclusie/' '/Users/paul/shared-paul-files/Webs/temp/'
 
 # clean up temp dir
 rm -rf '/Users/paul/shared-paul-files/Webs/temp/.codekit-cache/'
@@ -46,7 +46,7 @@ find . -name "*.map" -type f -delete
 # Vertalingen --------------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------------------------
 # remove the .pot
-rm '/Users/paul/shared-paul-files/Webs/temp/languages/ictu-gc-posttypes-inclusie.pot'
+rm '/Users/paul/shared-paul-files/Webs/temp/languages/ictuwp-plugin-inclusie.pot'
 
 # copy files to /wp-content/languages/themes
 rsync -ah '/Users/paul/shared-paul-files/Webs/temp/languages/' '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/development/wp-content/languages/plugins/'
@@ -62,10 +62,10 @@ cd '/Users/paul/shared-paul-files/Webs/temp/'
 find . -name ‘*.DS_Store’ -type f -delete
 
 # en een kopietje naar Sentia accept
-rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/temp/' '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/sentia/accept/www/wp-content/plugins/ictu-gc-posttypes-inclusie/'
+rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/temp/' '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/sentia/accept/www/wp-content/plugins/ictuwp-plugin-inclusie/'
 
 # en een kopietje naar Sentia live
-rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/temp/' '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/sentia/live/www/wp-content/plugins/ictu-gc-posttypes-inclusie/'
+rsync -r -a --delete '/Users/paul/shared-paul-files/Webs/temp/' '/Users/paul/shared-paul-files/Webs/ICTU/Gebruiker Centraal/sentia/live/www/wp-content/plugins/ictuwp-plugin-inclusie/'
 
 # remove temp dir
 rm -rf '/Users/paul/shared-paul-files/Webs/temp/'
