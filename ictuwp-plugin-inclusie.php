@@ -985,8 +985,8 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			$infooter = true;
 
 			// to do: geen externe scripts laden
-			$version     = ICTU_GC_BEELDBANK_VERSION;
-			$version_btn = ICTU_GC_BEELDBANK_VERSION;
+			$version     = ICTU_GC_INCL_VERSION;
+			$version_btn = ICTU_GC_INCL_VERSION;
 			if ( WP_DEBUG ) {
 				// als WP_DEBUG actief, gebruik filedate als versienummer
 				$version     = filemtime( dirname( __FILE__ ) . '/js/stepchart.js' );
