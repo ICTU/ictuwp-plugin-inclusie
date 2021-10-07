@@ -8,7 +8,7 @@
  * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
  * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies
- * Version:                1.1.11
+ * Version:                1.1.12
  * Version description:    Iconen bijgewerkt, ivm toegankelijkheidscheck.
  * Author:                 Tamara de Haas & Paul van Buuren
  * Author URI:             https://wbvb.nl/
@@ -88,7 +88,7 @@ if ( ! defined( 'ICTU_GC_CPT_PROCESTIP' ) ) {
 define( 'ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css' );
 define( 'ICTU_GC_BASE_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'ICTU_GC_ASSETS_URL', trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_INCL_VERSION', '1.1.11' );
+define( 'ICTU_GC_INCL_VERSION', '1.1.12' );
 
 //========================================================================================================
 
@@ -393,7 +393,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				$section_text  = apply_filters( 'the_content', $content );
 				$citaat_auteur = sanitize_text_field( get_field( 'citaat_auteur', $theid ) );
 
-				echo '<div class="tegeltje">' . $section_text . '<p class="author"><strong>' . $citaat_auteur . '</strong></p></div>';
+				echo '<div class="tegeltje">' . $section_text . '<p class="author"><b>' . $citaat_auteur . '</b></p></div>';
 
 			endforeach;
 
@@ -985,8 +985,8 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			$infooter = true;
 
 			// to do: geen externe scripts laden
-			$version     = ICTU_GC_BEELDBANK_VERSION;
-			$version_btn = ICTU_GC_BEELDBANK_VERSION;
+			$version     = ICTU_GC_INCL_VERSION;
+			$version_btn = ICTU_GC_INCL_VERSION;
 			if ( WP_DEBUG ) {
 				// als WP_DEBUG actief, gebruik filedate als versienummer
 				$version     = filemtime( dirname( __FILE__ ) . '/js/stepchart.js' );
