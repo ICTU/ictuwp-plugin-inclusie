@@ -30,59 +30,59 @@ add_action( 'plugins_loaded', [ 'GC_INCLUSIE_Register_taxonomies', 'init' ], 10 
 //========================================================================================================
 
 if ( ! defined( 'GC_INCLUSIE_STAP_CPT' ) ) {
-	define( 'GC_INCLUSIE_STAP_CPT', 'stap' );   // 'stap'
+	define( 'GC_INCLUSIE_STAP_CPT', 'stap' );   // 'stap', prev: ICTU_GC_CPT_STAP
 }
 
 if ( ! defined( 'GC_INCLUSIE_CITAAT_CPT' ) ) {
-	define( 'GC_INCLUSIE_CITAAT_CPT', 'citaat' );   // 'citaat'
+	define( 'GC_INCLUSIE_CITAAT_CPT', 'citaat' );   // 'citaat', prev: ICTU_GC_CPT_CITAAT
 }
 
 if ( ! defined( 'GC_INCLUSIE_DOELGROEP_CPT' ) ) {
-	define( 'GC_INCLUSIE_DOELGROEP_CPT', 'doelgroep' );  // 'doelgroep'
+	define( 'GC_INCLUSIE_DOELGROEP_CPT', 'doelgroep' );  // 'doelgroep', prev: ICTU_GC_CPT_DOELGROEP
 }
 
 if ( ! defined( 'GC_INCLUSIE_VAARDIGHEDEN_CPT' ) ) {
-	define( 'GC_INCLUSIE_VAARDIGHEDEN_CPT', 'vaardigheden' );  // 'nietzomaarzo'
+	define( 'GC_INCLUSIE_VAARDIGHEDEN_CPT', 'vaardigheden' );  // 'vaardigheden', prev: ICTU_GC_CPT_VAARDIGHEDEN
 }
 
 if ( ! defined( 'GC_INCLUSIE_AANRADER_CPT' ) ) {
-	define( 'GC_INCLUSIE_AANRADER_CPT', 'aanrader' );  // 'nietzomaarzo'
+	define( 'GC_INCLUSIE_AANRADER_CPT', 'aanrader' );  // 'nietzomaarzo', prev: ICTU_GC_CPT_AANRADER
 }
 
 if ( ! defined( 'GC_INCLUSIE_AFRADER_CPT' ) ) {
-	define( 'GC_INCLUSIE_AFRADER_CPT', 'afrader' );  // 'nietzomaarzo'
+	define( 'GC_INCLUSIE_AFRADER_CPT', 'afrader' );  // 'nietzomaarzo', prev: ICTU_GC_CPT_AFRADER
 }
 
 if ( ! defined( 'GC_INCLUSIE_METHODE_CPT' ) ) {
-	define( 'GC_INCLUSIE_METHODE_CPT', 'methode' );  // 'doelgroep'
+	define( 'GC_INCLUSIE_METHODE_CPT', 'methode' );  // 'methode', prev: ICTU_GC_CPT_METHODE
 }
 
 if ( ! defined( 'GC_INCLUSIE_TIJD_TAX' ) ) {
-	define( 'GC_INCLUSIE_TIJD_TAX', 'tijd' );  // slug for custom taxonomy 'tijd'
+	define( 'GC_INCLUSIE_TIJD_TAX', 'tijd' );  // slug for custom taxonomy 'tijd', prev: ICTU_GC_CT_TIJD
 }
 
 if ( ! defined( 'GC_INCLUSIE_MANKRACHT_TAX' ) ) {
-	define( 'GC_INCLUSIE_MANKRACHT_TAX', 'mankracht' );  // slug for custom taxonomy 'mankracht'
+	define( 'GC_INCLUSIE_MANKRACHT_TAX', 'mankracht' );  // slug for custom taxonomy 'mankracht', prev: ICTU_GC_CT_MANKRACHT
 }
 
 if ( ! defined( 'GC_INCLUSIE_KOSTEN_TAX' ) ) {
-	define( 'GC_INCLUSIE_KOSTEN_TAX', 'kosten' );  // slug for custom taxonomy 'mankracht'
+	define( 'GC_INCLUSIE_KOSTEN_TAX', 'kosten' );  // slug for custom taxonomy 'kosten', prev: ICTU_GC_CT_KOSTEN
 }
 
 if ( ! defined( 'GC_INCLUSIE_EXPERTISE_TAX' ) ) {
-	define( 'GC_INCLUSIE_EXPERTISE_TAX', 'expertise' );  // slug for custom taxonomy 'mankracht'
+	define( 'GC_INCLUSIE_EXPERTISE_TAX', 'expertise' );  // slug for custom taxonomy 'expertise', prev: ICTU_GC_CT_EXPERTISE
 }
 
 if ( ! defined( 'GC_INCLUSIE_DEELNEMERS_TAX' ) ) {
-	define( 'GC_INCLUSIE_DEELNEMERS_TAX', 'deelnemers' );  // slug for custom taxonomy 'mankracht'
+	define( 'GC_INCLUSIE_DEELNEMERS_TAX', 'deelnemers' );  // slug for custom taxonomy 'deelnemers', prev: ICTU_GC_CT_DEELNEMERS
 }
 
 if ( ! defined( 'GC_INCLUSIE_ONDERWERP_TAX' ) ) {
-	define( 'GC_INCLUSIE_ONDERWERP_TAX', 'onderwerpen' );  // tax for custom cpt do's & dont's
+	define( 'GC_INCLUSIE_ONDERWERP_TAX', 'onderwerpen' );  // slug for custom taxonomy 'onderwerpen', prev: ICTU_GC_CT_ONDERWERP_TIP
 }
 
 if ( ! defined( 'GC_INCLUSIE_PROCESTIP_CPT' ) ) {
-	define( 'GC_INCLUSIE_PROCESTIP_CPT', 'procestip' );  // tax for custom cpt tip
+	define( 'GC_INCLUSIE_PROCESTIP_CPT', 'procestip' );  // tax for custom cpt tip, prev: ICTU_GC_CPT_PROCESTIP
 }
 
 define( 'GC_INCLUSIE_ARCHIVE_CSS', 'ictu-gc-header-css' );
