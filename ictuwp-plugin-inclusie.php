@@ -194,7 +194,9 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			] );
 
 			// disable the author pages
-			add_action( 'template_redirect', 'ictu_gctheme_disable_author_pages' );
+			if ( function_exists( 'ictu_gctheme_disable_author_pages' ) ) {
+				add_action( 'template_redirect', 'ictu_gctheme_disable_author_pages' );
+			}
 
 			// add styling and scripts
 			add_action( 'wp_enqueue_scripts', [
@@ -207,8 +209,10 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				$this,
 				'ictu_gc_append_header_css_local',
 			] );
-			add_action( 'wp_enqueue_scripts', 'ictu_gctheme_card_append_header_css' );
 
+			if ( function_exists( 'ictu_gctheme_card_append_header_css' ) ) {
+				add_action( 'wp_enqueue_scripts', 'ictu_gctheme_card_append_header_css' );
+			}
 
 		}
 
