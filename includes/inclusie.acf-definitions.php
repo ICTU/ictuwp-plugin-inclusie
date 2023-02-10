@@ -227,7 +227,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						array(
 							'param' => 'post_type',
 							'operator' => '==',
-							'value' => ICTU_GC_CPT_DOELGROEP,
+							'value' => GC_INCLUSIE_DOELGROEP_CPT,
 						),
 					),
 				),
@@ -319,7 +319,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						array(
 							'param' => 'post_type',
 							'operator' => '==',
-							'value' => ICTU_GC_CPT_DOELGROEP,
+							'value' => GC_INCLUSIE_DOELGROEP_CPT,
 						),
 					),
 				),
@@ -410,7 +410,7 @@ if( ! function_exists('ictu_gc_inclusie_initialize_acf_fields') ) {
 						array(
 							'param' => 'post_type',
 							'operator' => '==',
-							'value' => ICTU_GC_CPT_DOELGROEP,
+							'value' => GC_INCLUSIE_DOELGROEP_CPT,
 						),
 					),
 				),

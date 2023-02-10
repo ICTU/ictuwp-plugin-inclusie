@@ -8,8 +8,8 @@
  * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
  * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
  * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies
- * Version:                1.1.12
- * Version description:    Iconen bijgewerkt, ivm toegankelijkheidscheck.
+ * Version:                1.1.13
+ * Version description:    Refactor constants
  * Author:                 Tamara de Haas & Paul van Buuren
  * Author URI:             https://wbvb.nl/
  * License:                GPL-2.0+
@@ -25,70 +25,70 @@ if ( ! defined( 'WPINC' ) ) {
 
 //========================================================================================================
 
-add_action( 'plugins_loaded', [ 'ICTU_GC_Register_taxonomies', 'init' ], 10 );
+add_action( 'plugins_loaded', [ 'GC_INCLUSIE_Register_taxonomies', 'init' ], 10 );
 
 //========================================================================================================
 
-if ( ! defined( 'ICTU_GC_CPT_STAP' ) ) {
-	define( 'ICTU_GC_CPT_STAP', 'stap' );   // slug for custom taxonomy 'document'
+if ( ! defined( 'GC_INCLUSIE_STAP_CPT' ) ) {
+	define( 'GC_INCLUSIE_STAP_CPT', 'stap' );   // 'stap', prev: ICTU_GC_CPT_STAP
 }
 
-if ( ! defined( 'ICTU_GC_CPT_CITAAT' ) ) {
-	define( 'ICTU_GC_CPT_CITAAT', 'citaat' );   // slug for custom taxonomy 'citaat'
+if ( ! defined( 'GC_INCLUSIE_CITAAT_CPT' ) ) {
+	define( 'GC_INCLUSIE_CITAAT_CPT', 'citaat' );   // 'citaat', prev: ICTU_GC_CPT_CITAAT
 }
 
-if ( ! defined( 'ICTU_GC_CPT_DOELGROEP' ) ) {
-	define( 'ICTU_GC_CPT_DOELGROEP', 'doelgroep' );  // slug for custom post type 'doelgroep'
+if ( ! defined( 'GC_INCLUSIE_DOELGROEP_CPT' ) ) {
+	define( 'GC_INCLUSIE_DOELGROEP_CPT', 'doelgroep' );  // 'doelgroep', prev: ICTU_GC_CPT_DOELGROEP
 }
 
-if ( ! defined( 'ICTU_GC_CPT_VAARDIGHEDEN' ) ) {
-	define( 'ICTU_GC_CPT_VAARDIGHEDEN', 'vaardigheden' );  // slug for custom post type 'nietzomaarzo'
+if ( ! defined( 'GC_INCLUSIE_VAARDIGHEDEN_CPT' ) ) {
+	define( 'GC_INCLUSIE_VAARDIGHEDEN_CPT', 'vaardigheden' );  // 'vaardigheden', prev: ICTU_GC_CPT_VAARDIGHEDEN
 }
 
-if ( ! defined( 'ICTU_GC_CPT_AANRADER' ) ) {
-	define( 'ICTU_GC_CPT_AANRADER', 'aanrader' );  // slug for custom post type 'nietzomaarzo'
+if ( ! defined( 'GC_INCLUSIE_AANRADER_CPT' ) ) {
+	define( 'GC_INCLUSIE_AANRADER_CPT', 'aanrader' );  // 'nietzomaarzo', prev: ICTU_GC_CPT_AANRADER
 }
 
-if ( ! defined( 'ICTU_GC_CPT_AFRADER' ) ) {
-	define( 'ICTU_GC_CPT_AFRADER', 'afrader' );  // slug for custom post type 'nietzomaarzo'
+if ( ! defined( 'GC_INCLUSIE_AFRADER_CPT' ) ) {
+	define( 'GC_INCLUSIE_AFRADER_CPT', 'afrader' );  // 'nietzomaarzo', prev: ICTU_GC_CPT_AFRADER
 }
 
-if ( ! defined( 'ICTU_GC_CPT_METHODE' ) ) {
-	define( 'ICTU_GC_CPT_METHODE', 'methode' );  // slug for custom post type 'doelgroep'
+if ( ! defined( 'GC_INCLUSIE_METHODE_CPT' ) ) {
+	define( 'GC_INCLUSIE_METHODE_CPT', 'methode' );  // 'methode', prev: ICTU_GC_CPT_METHODE
 }
 
-if ( ! defined( 'ICTU_GC_CT_TIJD' ) ) {
-	define( 'ICTU_GC_CT_TIJD', 'tijd' );  // slug for custom taxonomy 'tijd'
+if ( ! defined( 'GC_INCLUSIE_TIJD_TAX' ) ) {
+	define( 'GC_INCLUSIE_TIJD_TAX', 'tijd' );  // slug for custom taxonomy 'tijd', prev: ICTU_GC_CT_TIJD
 }
 
-if ( ! defined( 'ICTU_GC_CT_MANKRACHT' ) ) {
-	define( 'ICTU_GC_CT_MANKRACHT', 'mankracht' );  // slug for custom taxonomy 'mankracht'
+if ( ! defined( 'GC_INCLUSIE_MANKRACHT_TAX' ) ) {
+	define( 'GC_INCLUSIE_MANKRACHT_TAX', 'mankracht' );  // slug for custom taxonomy 'mankracht', prev: ICTU_GC_CT_MANKRACHT
 }
 
-if ( ! defined( 'ICTU_GC_CT_KOSTEN' ) ) {
-	define( 'ICTU_GC_CT_KOSTEN', 'kosten' );  // slug for custom taxonomy 'mankracht'
+if ( ! defined( 'GC_INCLUSIE_KOSTEN_TAX' ) ) {
+	define( 'GC_INCLUSIE_KOSTEN_TAX', 'kosten' );  // slug for custom taxonomy 'kosten', prev: ICTU_GC_CT_KOSTEN
 }
 
-if ( ! defined( 'ICTU_GC_CT_EXPERTISE' ) ) {
-	define( 'ICTU_GC_CT_EXPERTISE', 'expertise' );  // slug for custom taxonomy 'mankracht'
+if ( ! defined( 'GC_INCLUSIE_EXPERTISE_TAX' ) ) {
+	define( 'GC_INCLUSIE_EXPERTISE_TAX', 'expertise' );  // slug for custom taxonomy 'expertise', prev: ICTU_GC_CT_EXPERTISE
 }
 
-if ( ! defined( 'ICTU_GC_CT_DEELNEMERS' ) ) {
-	define( 'ICTU_GC_CT_DEELNEMERS', 'deelnemers' );  // slug for custom taxonomy 'mankracht'
+if ( ! defined( 'GC_INCLUSIE_DEELNEMERS_TAX' ) ) {
+	define( 'GC_INCLUSIE_DEELNEMERS_TAX', 'deelnemers' );  // slug for custom taxonomy 'deelnemers', prev: ICTU_GC_CT_DEELNEMERS
 }
 
-if ( ! defined( 'ICTU_GC_CT_ONDERWERP_TIP' ) ) {
-	define( 'ICTU_GC_CT_ONDERWERP_TIP', 'onderwerpen' );  // tax for custom cpt do's & dont's
+if ( ! defined( 'GC_INCLUSIE_ONDERWERP_TAX' ) ) {
+	define( 'GC_INCLUSIE_ONDERWERP_TAX', 'onderwerpen' );  // slug for custom taxonomy 'onderwerpen', prev: ICTU_GC_CT_ONDERWERP_TIP
 }
 
-if ( ! defined( 'ICTU_GC_CPT_PROCESTIP' ) ) {
-	define( 'ICTU_GC_CPT_PROCESTIP', 'procestip' );  // tax for custom cpt tip
+if ( ! defined( 'GC_INCLUSIE_PROCESTIP_CPT' ) ) {
+	define( 'GC_INCLUSIE_PROCESTIP_CPT', 'procestip' );  // tax for custom cpt tip, prev: ICTU_GC_CPT_PROCESTIP
 }
 
-define( 'ICTU_GC_ARCHIVE_CSS', 'ictu-gc-header-css' );
-define( 'ICTU_GC_BASE_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
-define( 'ICTU_GC_ASSETS_URL', trailingslashit( ICTU_GC_BASE_URL ) );
-define( 'ICTU_GC_INCL_VERSION', '1.1.12' );
+define( 'GC_INCLUSIE_ARCHIVE_CSS', 'ictu-gc-header-css' );
+define( 'GC_INCLUSIE_BASE_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+define( 'GC_INCLUSIE_ASSETS_URL', trailingslashit( GC_INCLUSIE_BASE_URL ) );
+define( 'GC_INCLUSIE_INCL_VERSION', '1.1.13' );
 
 //========================================================================================================
 
@@ -103,9 +103,9 @@ define( 'ICTU_GC_INCL_VERSION', '1.1.12' );
  */
 
 
-if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
+if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 
-	class ICTU_GC_Register_taxonomies {
+	class GC_INCLUSIE_Register_taxonomies {
 
 		/**
 		 * @var Rijksvideo
@@ -194,7 +194,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			] );
 
 			// disable the author pages
-			add_action( 'template_redirect', 'ictu_gctheme_disable_author_pages' );
+			if ( function_exists( 'ictu_gctheme_disable_author_pages' ) ) {
+				add_action( 'template_redirect', 'ictu_gctheme_disable_author_pages' );
+			}
 
 			// add styling and scripts
 			add_action( 'wp_enqueue_scripts', [
@@ -207,8 +209,10 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				$this,
 				'ictu_gc_append_header_css_local',
 			] );
-			add_action( 'wp_enqueue_scripts', 'ictu_gctheme_card_append_header_css' );
 
+			if ( function_exists( 'ictu_gctheme_card_append_header_css' ) ) {
+				add_action( 'wp_enqueue_scripts', 'ictu_gctheme_card_append_header_css' );
+			}
 
 		}
 
@@ -308,7 +312,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			} else {
 
 				$args            = [
-					'post_type'      => ICTU_GC_CPT_DOELGROEP,
+					'post_type'      => GC_INCLUSIE_DOELGROEP_CPT,
 					'posts_per_page' => - 1,
 					'order'          => 'ASC',
 					'orderby'        => 'post_title',
@@ -869,7 +873,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				echo '</div>'; // .overview__items grid grid--col-3
 				echo '</div>'; // .overview
 
-				$doelgroeplink     = get_post_type_archive_link( ICTU_GC_CPT_DOELGROEP );
+				$doelgroeplink     = get_post_type_archive_link( GC_INCLUSIE_DOELGROEP_CPT );
 				$label             = _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie' ); // $obj->name;
 				$doelgroeppaginaid = get_field( 'themesettings_inclusie_doelgroeppagina', 'option' );
 
@@ -904,10 +908,10 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			$dependencies = array( ID_SKIPLINKS );
 
 			wp_enqueue_style(
-				ICTU_GC_ARCHIVE_CSS,
+				GC_INCLUSIE_ARCHIVE_CSS,
 				trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/frontend.css',
 				$dependencies,
-				ICTU_GC_INCL_VERSION,
+				GC_INCLUSIE_INCL_VERSION,
 				'all'
 			);
 
@@ -968,7 +972,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			}
 
 			if ( $header_css ) {
-				wp_add_inline_style( ICTU_GC_ARCHIVE_CSS, $header_css );
+				wp_add_inline_style( GC_INCLUSIE_ARCHIVE_CSS, $header_css );
 			}
 
 		}
@@ -985,8 +989,8 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			$infooter = true;
 
 			// to do: geen externe scripts laden
-			$version     = ICTU_GC_INCL_VERSION;
-			$version_btn = ICTU_GC_INCL_VERSION;
+			$version     = GC_INCLUSIE_INCL_VERSION;
+			$version_btn = GC_INCLUSIE_INCL_VERSION;
 			if ( WP_DEBUG ) {
 				// als WP_DEBUG actief, gebruik filedate als versienummer
 				$version     = filemtime( dirname( __FILE__ ) . '/js/stepchart.js' );
@@ -1056,7 +1060,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				], 14 );
 
 
-			} elseif ( ICTU_GC_CPT_VAARDIGHEDEN == get_post_type() ) {
+			} elseif ( GC_INCLUSIE_VAARDIGHEDEN_CPT == get_post_type() ) {
 				// single vaardigheden display
 
 				remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
@@ -1074,7 +1078,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					'ictu_gc_frontend_vaardigheid_append_aanraders_afraders',
 				], 12 );
 
-			} elseif ( ICTU_GC_CPT_STAP == get_post_type() ) {
+			} elseif ( GC_INCLUSIE_STAP_CPT == get_post_type() ) {
 
 				//* Remove standard header
 				remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
@@ -1109,7 +1113,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 					'ictu_gc_frontend_stap_append_toc_and_related',
 				], 12 );
 
-			} elseif ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
+			} elseif ( is_singular( GC_INCLUSIE_DOELGROEP_CPT ) ) {
 
 				//* Remove standard header
 				remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
@@ -1659,7 +1663,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			global $post;
 
 			$args         = [
-				'post_type'      => ICTU_GC_CPT_DOELGROEP,
+				'post_type'      => GC_INCLUSIE_DOELGROEP_CPT,
 				'posts_per_page' => - 1,
 				'order'          => 'ASC',
 				'orderby'        => 'post_title',
@@ -1707,7 +1711,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 			global $post;
 
-			if ( is_singular( ICTU_GC_CPT_CITAAT ) ) {
+			if ( is_singular( GC_INCLUSIE_CITAAT_CPT ) ) {
 
 				if ( function_exists( 'get_field' ) ) {
 
@@ -1719,19 +1723,19 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 				}
 
-			} elseif ( is_singular( ICTU_GC_CPT_STAP ) ) {
-			} elseif ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
-			} elseif ( is_singular( ICTU_GC_CPT_VAARDIGHEDEN ) ) {
-			} elseif ( is_singular( ICTU_GC_CPT_METHODE ) ) {
+			} elseif ( is_singular( GC_INCLUSIE_STAP_CPT ) ) {
+			} elseif ( is_singular( GC_INCLUSIE_DOELGROEP_CPT ) ) {
+			} elseif ( is_singular( GC_INCLUSIE_VAARDIGHEDEN_CPT ) ) {
+			} elseif ( is_singular( GC_INCLUSIE_METHODE_CPT ) ) {
 
 				$classificering = '';
 				$theid          = get_the_id();
 
-				$classificering = $this->get_classifications( $theid, ICTU_GC_CT_TIJD );
-				$classificering .= $this->get_classifications( $theid, ICTU_GC_CT_MANKRACHT );
-				$classificering .= $this->get_classifications( $theid, ICTU_GC_CT_KOSTEN );
-				$classificering .= $this->get_classifications( $theid, ICTU_GC_CT_EXPERTISE );
-				$classificering .= $this->get_classifications( $theid, ICTU_GC_CT_DEELNEMERS );
+				$classificering = $this->get_classifications( $theid, GC_INCLUSIE_TIJD_TAX );
+				$classificering .= $this->get_classifications( $theid, GC_INCLUSIE_MANKRACHT_TAX );
+				$classificering .= $this->get_classifications( $theid, GC_INCLUSIE_KOSTEN_TAX );
+				$classificering .= $this->get_classifications( $theid, GC_INCLUSIE_EXPERTISE_TAX );
+				$classificering .= $this->get_classifications( $theid, GC_INCLUSIE_DEELNEMERS_TAX );
 
 				if ( $classificering ) {
 
@@ -1750,7 +1754,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 
 			}
 
-			if ( is_singular( ICTU_GC_CPT_STAP ) || is_singular( 'page' ) ) {
+			if ( is_singular( GC_INCLUSIE_STAP_CPT ) || is_singular( 'page' ) ) {
 				//
 			}
 
@@ -1911,11 +1915,11 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"capability_type"     => "post",
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
-				"rewrite"             => [ "slug" => ICTU_GC_CPT_STAP, "with_front" => true ],
+				"rewrite"             => [ "slug" => GC_INCLUSIE_STAP_CPT, "with_front" => true ],
 				"query_var"           => true,
 				"supports"            => [ "title", "editor", "thumbnail", "excerpt" ],
 			];
-			register_post_type( ICTU_GC_CPT_STAP, $args );
+			register_post_type( GC_INCLUSIE_STAP_CPT, $args );
 
 			// ---------------------------------------------------------------------------------------------------
 			// custom post type voor 'doelgroep'
@@ -1954,13 +1958,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
 				"rewrite"             => [
-					"slug"       => ICTU_GC_CPT_DOELGROEP,
+					"slug"       => GC_INCLUSIE_DOELGROEP_CPT,
 					"with_front" => true,
 				],
 				"query_var"           => true,
 				"supports"            => [ "title", "editor", "thumbnail", "excerpt" ],
 			];
-			register_post_type( ICTU_GC_CPT_DOELGROEP, $args );
+			register_post_type( GC_INCLUSIE_DOELGROEP_CPT, $args );
 
 			// ---------------------------------------------------------------------------------------------------
 			// custom post type voor 'doelgroep'
@@ -1999,11 +2003,11 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"capability_type"     => "post",
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
-				"rewrite"             => [ "slug" => ICTU_GC_CPT_CITAAT, "with_front" => true ],
+				"rewrite"             => [ "slug" => GC_INCLUSIE_CITAAT_CPT, "with_front" => true ],
 				"query_var"           => true,
 				"supports"            => [ "title", "editor", "thumbnail", "excerpt" ],
 			];
-			register_post_type( ICTU_GC_CPT_CITAAT, $args );
+			register_post_type( GC_INCLUSIE_CITAAT_CPT, $args );
 
 			// ---------------------------------------------------------------------------------------------------
 
@@ -2044,13 +2048,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
 				"rewrite"             => [
-					"slug"       => ICTU_GC_CPT_VAARDIGHEDEN,
+					"slug"       => GC_INCLUSIE_VAARDIGHEDEN_CPT,
 					"with_front" => true,
 				],
 				"query_var"           => true,
 				"supports"            => [ "title", "editor", "thumbnail", "excerpt" ],
 			];
-			register_post_type( ICTU_GC_CPT_VAARDIGHEDEN, $args );
+			register_post_type( GC_INCLUSIE_VAARDIGHEDEN_CPT, $args );
 
 
 			// ---------------------------------------------------------------------------------------------------
@@ -2091,13 +2095,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
 				"rewrite"             => [
-					"slug"       => ICTU_GC_CPT_AANRADER,
+					"slug"       => GC_INCLUSIE_AANRADER_CPT,
 					"with_front" => true,
 				],
 				"query_var"           => true,
 				"supports"            => [ "title", "excerpt" ],
 			];
-			register_post_type( ICTU_GC_CPT_AANRADER, $args );
+			register_post_type( GC_INCLUSIE_AANRADER_CPT, $args );
 
 
 			// ---------------------------------------------------------------------------------------------------
@@ -2139,13 +2143,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
 				"rewrite"             => [
-					"slug"       => ICTU_GC_CPT_AFRADER,
+					"slug"       => GC_INCLUSIE_AFRADER_CPT,
 					"with_front" => true,
 				],
 				"query_var"           => true,
 				"supports"            => [ "title", "excerpt" ],
 			];
-			register_post_type( ICTU_GC_CPT_AFRADER, $args );
+			register_post_type( GC_INCLUSIE_AFRADER_CPT, $args );
 
 			// ---------------------------------------------------------------------------------------------------
 
@@ -2186,14 +2190,14 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
 				"rewrite"             => [
-					"slug"       => ICTU_GC_CPT_METHODE,
+					"slug"       => GC_INCLUSIE_METHODE_CPT,
 					"with_front" => true,
 				],
 				"query_var"           => true,
 				"supports"            => [ "title", "editor", "excerpt" ],
 			];
 
-			register_post_type( ICTU_GC_CPT_METHODE, $args );
+			register_post_type( GC_INCLUSIE_METHODE_CPT, $args );
 			// ---------------------------------------------------------------------------------------------------
 
 			// custom post type voor 'Tip'
@@ -2233,14 +2237,14 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"map_meta_cap"        => true,
 				"hierarchical"        => false,
 				"rewrite"             => [
-					"slug"       => ICTU_GC_CPT_PROCESTIP,
+					"slug"       => GC_INCLUSIE_PROCESTIP_CPT,
 					"with_front" => true,
 				],
 				"query_var"           => true,
 				"supports"            => [ "title", "editor", "excerpt", "thumbnail" ],
 			];
 
-			register_post_type( ICTU_GC_CPT_PROCESTIP, $args );
+			register_post_type( GC_INCLUSIE_PROCESTIP_CPT, $args );
 
 
 			// ---------------------------------------------------------------------------------------------------
@@ -2278,13 +2282,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
 				"query_var"          => true,
-				"rewrite"            => [ 'slug' => ICTU_GC_CT_TIJD, 'with_front' => true, ],
+				"rewrite"            => [ 'slug' => GC_INCLUSIE_TIJD_TAX, 'with_front' => true, ],
 				"show_admin_column"  => false,
 				"show_in_rest"       => false,
 				"rest_base"          => "",
 				"show_in_quick_edit" => true,
 			];
-			register_taxonomy( ICTU_GC_CT_TIJD, [ ICTU_GC_CPT_METHODE ], $args );
+			register_taxonomy( GC_INCLUSIE_TIJD_TAX, [ GC_INCLUSIE_METHODE_CPT ], $args );
 
 			// ---------------------------------------------------------------------------------------------------
 			// Personeel taxonomie voor methode
@@ -2322,7 +2326,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"show_in_nav_menus"  => true,
 				"query_var"          => true,
 				"rewrite"            => [
-					'slug'       => ICTU_GC_CT_MANKRACHT,
+					'slug'       => GC_INCLUSIE_MANKRACHT_TAX,
 					'with_front' => true,
 				],
 				"show_admin_column"  => false,
@@ -2330,7 +2334,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"rest_base"          => "",
 				"show_in_quick_edit" => true,
 			];
-			register_taxonomy( ICTU_GC_CT_MANKRACHT, [ ICTU_GC_CPT_METHODE ], $args );
+			register_taxonomy( GC_INCLUSIE_MANKRACHT_TAX, [ GC_INCLUSIE_METHODE_CPT ], $args );
 
 			// ---------------------------------------------------------------------------------------------------
 			// Kosten taxonomie voor methode
@@ -2367,13 +2371,13 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
 				"query_var"          => true,
-				"rewrite"            => [ 'slug' => ICTU_GC_CT_KOSTEN, 'with_front' => true, ],
+				"rewrite"            => [ 'slug' => GC_INCLUSIE_KOSTEN_TAX, 'with_front' => true, ],
 				"show_admin_column"  => false,
 				"show_in_rest"       => false,
 				"rest_base"          => "",
 				"show_in_quick_edit" => true,
 			];
-			register_taxonomy( ICTU_GC_CT_KOSTEN, [ ICTU_GC_CPT_METHODE ], $args );
+			register_taxonomy( GC_INCLUSIE_KOSTEN_TAX, [ GC_INCLUSIE_METHODE_CPT ], $args );
 
 			// ---------------------------------------------------------------------------------------------------
 			// Expertise taxonomie voor methode
@@ -2411,7 +2415,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"show_in_nav_menus"  => true,
 				"query_var"          => true,
 				"rewrite"            => [
-					'slug'       => ICTU_GC_CT_EXPERTISE,
+					'slug'       => GC_INCLUSIE_EXPERTISE_TAX,
 					'with_front' => true,
 				],
 				"show_admin_column"  => false,
@@ -2419,7 +2423,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"rest_base"          => "",
 				"show_in_quick_edit" => true,
 			];
-			register_taxonomy( ICTU_GC_CT_EXPERTISE, [ ICTU_GC_CPT_METHODE ], $args );
+			register_taxonomy( GC_INCLUSIE_EXPERTISE_TAX, [ GC_INCLUSIE_METHODE_CPT ], $args );
 
 			// ---------------------------------------------------------------------------------------------------
 			// deelnemers taxonomie voor methode
@@ -2452,7 +2456,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"show_in_nav_menus"  => true,
 				"query_var"          => true,
 				"rewrite"            => [
-					'slug'       => ICTU_GC_CT_DEELNEMERS,
+					'slug'       => GC_INCLUSIE_DEELNEMERS_TAX,
 					'with_front' => true,
 				],
 				"show_admin_column"  => false,
@@ -2460,7 +2464,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"rest_base"          => "",
 				"show_in_quick_edit" => true,
 			];
-			register_taxonomy( ICTU_GC_CT_DEELNEMERS, [ ICTU_GC_CPT_METHODE ], $args );
+			register_taxonomy( GC_INCLUSIE_DEELNEMERS_TAX, [ GC_INCLUSIE_METHODE_CPT ], $args );
 
 			// ---------------------------------------------------------------------------------------------------
 			// Onderwerpen taxonomie voor aanraders en afraders
@@ -2493,7 +2497,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"show_in_nav_menus"  => true,
 				"query_var"          => true,
 				"rewrite"            => [
-					'slug'       => ICTU_GC_CT_ONDERWERP_TIP,
+					'slug'       => GC_INCLUSIE_ONDERWERP_TAX,
 					'with_front' => true,
 				],
 				"show_admin_column"  => false,
@@ -2501,9 +2505,9 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 				"rest_base"          => "",
 				"show_in_quick_edit" => true,
 			];
-			register_taxonomy( ICTU_GC_CT_ONDERWERP_TIP, [
-				ICTU_GC_CPT_AANRADER,
-				ICTU_GC_CPT_AFRADER,
+			register_taxonomy( GC_INCLUSIE_ONDERWERP_TAX, [
+				GC_INCLUSIE_AANRADER_CPT,
+				GC_INCLUSIE_AFRADER_CPT,
 			], $args );
 
 
@@ -2568,7 +2572,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			$span_between_start = '<span itemprop="name">';
 			$span_before_end    = '</span>';
 
-			if ( is_singular( ICTU_GC_CPT_CITAAT ) || is_singular( ICTU_GC_CPT_STAP ) ) {
+			if ( is_singular( GC_INCLUSIE_CITAAT_CPT ) || is_singular( GC_INCLUSIE_STAP_CPT ) ) {
 
 				$crumb = get_the_title( get_the_id() );
 
@@ -2576,22 +2580,22 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 			// 'doelgroep'
 
 			if (
-				is_singular( ICTU_GC_CPT_DOELGROEP ) ||
-				is_singular( ICTU_GC_CPT_VAARDIGHEDEN ) ||
-				is_singular( ICTU_GC_CPT_METHODE ) ||
-				is_singular( ICTU_GC_CPT_PROCESTIP )
+				is_singular( GC_INCLUSIE_DOELGROEP_CPT ) ||
+				is_singular( GC_INCLUSIE_VAARDIGHEDEN_CPT ) ||
+				is_singular( GC_INCLUSIE_METHODE_CPT ) ||
+				is_singular( GC_INCLUSIE_PROCESTIP_CPT )
 			) {
 
 				$crumb         = '';
 				$overview_page = '';
 
-				if ( is_singular( ICTU_GC_CPT_DOELGROEP ) ) {
+				if ( is_singular( GC_INCLUSIE_DOELGROEP_CPT ) ) {
 					$overview_page = get_field( 'themesettings_inclusie_doelgroeppagina', 'option' );    // code hier
-				} elseif ( is_singular( ICTU_GC_CPT_VAARDIGHEDEN ) ) {
+				} elseif ( is_singular( GC_INCLUSIE_VAARDIGHEDEN_CPT ) ) {
 					$overview_page = get_field( 'themesettings_inclusie_vaardighedenpagina', 'option' );    // code hier
-				} elseif ( is_singular( ICTU_GC_CPT_METHODE ) ) {
+				} elseif ( is_singular( GC_INCLUSIE_METHODE_CPT ) ) {
 					$overview_page = get_field( 'themesettings_inclusie_methodepagina', 'option' );    // code hier
-				} elseif ( is_singular( ICTU_GC_CPT_PROCESTIP ) ) {
+				} elseif ( is_singular( GC_INCLUSIE_PROCESTIP_CPT ) ) {
 					$overview_page = get_field( 'themesettings_inclusie_tipspagina', 'option' );    // code hier
 				}
 
@@ -2619,7 +2623,7 @@ if ( ! class_exists( 'ICTU_GC_Register_taxonomies' ) ) :
 		 * add default favicon
 		 */
 		function custom_favicon( $icon ) {
-			$icon = ICTU_GC_ASSETS_URL . 'images/favicon.png';
+			$icon = GC_INCLUSIE_ASSETS_URL . 'images/favicon.png';
 
 			return $icon;
 		}
