@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ICTU / Gebruiker Centraal / Inclusie post types and "
 "taxonomies\n"
-"POT-Creation-Date: 2024-10-22 15:31+0200\n"
-"PO-Revision-Date: 2024-10-22 15:31+0200\n"
+"POT-Creation-Date: 2024-10-22 15:54+0200\n"
+"PO-Revision-Date: 2024-10-22 15:54+0200\n"
 "Last-Translator: Paul van Buuren <poedit@wbvb.nl>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -834,12 +834,12 @@ msgctxt "Digibeter label"
 msgid "Deelnemers"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2472
+#: ictuwp-plugin-inclusie.php:2472 ictuwp-plugin-inclusie.php:2474
 msgctxt "Taxonomie"
 msgid "Onderwerpen"
 msgstr ""
 
-#: ictuwp-plugin-inclusie.php:2473 ictuwp-plugin-inclusie.php:2474
+#: ictuwp-plugin-inclusie.php:2473
 msgctxt "Taxonomie"
 msgid "Onderwerp"
 msgstr ""

@@ -2471,7 +2471,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			$labels = [
 				"name"                  => _x( 'Onderwerpen', 'Taxonomie', 'gctheme' ),
 				"singular_name"         => _x( 'Onderwerp', 'Taxonomie', 'gctheme' ),
-				"menu_name"             => _x( 'Onderwerp', 'Taxonomie', 'gctheme' ),
+				"menu_name"             => _x( 'Onderwerpen', 'Taxonomie', 'gctheme' ),
 				"all_items"             => _x( "Alles onder 'Onderwerpen'", 'Taxonomie', 'gctheme' ),
 				"add_new"               => _x( 'Nieuw item toevoegen', 'Taxonomie', 'gctheme' ),
 				"add_new_item"          => _x( 'Voeg nieuw item toe', 'Taxonomie', 'gctheme' ),
@@ -2636,16 +2636,18 @@ endif;
 
 //========================================================================================================
 
-/** ----------------------------------------------------------------------------------------------------
- * Initialise translations
+/**
+ * Load plugin textdomain.
+ * only load translations if we can safely assume the taxonomy is active
  */
-function rijkshuisstijlposttypes_load_plugin_textdomain() {
+add_action( 'init', 'fn_ictu_maturityscan_load_plugin_textdomain' );
 
-	load_plugin_textdomain( "ictu-gc-posttypes-inclusie", false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+function fn_ictu_maturityscan_load_plugin_textdomain() {
+
+	load_plugin_textdomain( 'gctheme', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 }
 
-add_action( 'plugins_loaded', 'rijkshuisstijlposttypes_load_plugin_textdomain' );
 
 //========================================================================================================
 
