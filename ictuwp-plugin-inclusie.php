@@ -377,7 +377,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				}
 			}
 
-			$section_title = _x( 'Citaten', 'titel op methode-pagina', 'ictu-gc-posttypes-inclusie' );
+			$section_title = _x( 'Citaten', 'titel op methode-pagina', 'gctheme' );
 			$title_id      = sanitize_title( $section_title . '-' . $post->ID );
 			$facts_citaten = get_field( 'facts_citaten', $post->ID );
 
@@ -441,7 +441,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				$home_stappen = get_field( 'home_template_stappen', $homepageID );
 
 				if ( $home_stappen ):
-					$section_title = _x( 'Stappen', 'titel op home-pagina', 'ictu-gc-posttypes-inclusie' );
+					$section_title = _x( 'Stappen', 'titel op home-pagina', 'gctheme' );
 					$title_id      = sanitize_title( $section_title . '-' . $post->ID );
 					$stepcounter   = 0;
 
@@ -469,7 +469,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 						}
 
 						$title_id  = sanitize_title( get_the_title( $stap->ID ) . '-' . $stepcounter );
-						$steptitle = sprintf( _x( '%s. %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), $stepcounter, $titel );
+						$steptitle = sprintf( _x( '%s. %s', 'Label stappen', 'gctheme' ), $stepcounter, $titel );
 
 
 						$stepnav_item = '<li id="step_' . $stepcounter . '" class="stepnav__step">' .
@@ -517,7 +517,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				$stap_methodes_titel = get_field( 'stap_methodes_titel', $post->ID );
 
 				if ( ! $stap_methodes_titel ) {
-					$stap_methodes_titel = _x( 'Methoden', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+					$stap_methodes_titel = _x( 'Methoden', 'titel op Stap-pagina', 'gctheme' );
 				}
 
 				// Make reusable Intro region as a data container
@@ -579,7 +579,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 					if ( $stap_methode_inleiding ) {
 						echo $stap_methode_inleiding;
 					} else {
-						echo sprintf( '<p>%s</p>', _x( 'Dit is een selectie van methoden, technieken en instrumenten die je in kunt zetten bij het uitvoeren van deze stap. Soms gaat het om standaardmethoden die worden ingezet voor het uitvoeren van een ontwerptraject waarbij de gebruiker centraal staat. Andere methoden richten zich specifiek op inclusie. ', 'Stap: intro bij methoden', 'ictu-gc-posttypes-inclusie' ) );
+						echo sprintf( '<p>%s</p>', _x( 'Dit is een selectie van methoden, technieken en instrumenten die je in kunt zetten bij het uitvoeren van deze stap. Soms gaat het om standaardmethoden die worden ingezet voor het uitvoeren van een ontwerptraject waarbij de gebruiker centraal staat. Andere methoden richten zich specifiek op inclusie. ', 'Stap: intro bij methoden', 'gctheme' ) );
 					}
 					echo '</div>'; // .page-intro__intro-text
 
@@ -851,7 +851,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 
 			if ( have_rows( 'home_template_doelgroepen' ) ):
 
-				$section_title = _x( 'Doelgroepen', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+				$section_title = _x( 'Doelgroepen', 'titel op Stap-pagina', 'gctheme' );
 				$title_id      = sanitize_title( $section_title . '-' . $post->ID );
 				$posttype      = '';
 
@@ -874,7 +874,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				echo '</div>'; // .overview
 
 				$doelgroeplink     = get_post_type_archive_link( GC_INCLUSIE_DOELGROEP_CPT );
-				$label             = _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'ictu-gc-posttypes-inclusie' ); // $obj->name;
+				$label             = _x( 'Alle doelgroepen', 'Linktekst doelgroepoverzicht', 'gctheme' ); // $obj->name;
 				$doelgroeppaginaid = get_field( 'themesettings_inclusie_doelgroeppagina', 'option' );
 
 				if ( $doelgroeppaginaid ) {
@@ -1381,7 +1381,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			$doelgroep_tips_inleiding = get_field( 'doelgroep_tips_inleiding', $post->ID );
 			$doelgroeppoppetje        = get_field( 'doelgroep_avatar', $post->ID );
 
-			$section_title = ( $doelgroep_tips_titel ) ? $doelgroep_tips_titel : _x( 'Tips', 'titel op Doelgroep-pagina', 'ictu-gc-posttypes-inclusie' );
+			$section_title = ( $doelgroep_tips_titel ) ? $doelgroep_tips_titel : _x( 'Tips', 'titel op Doelgroep-pagina', 'gctheme' );
 			$title_id      = sanitize_title( $section_title . '-' . $post->ID );
 
 			if ( $doelgroep_tips ):
@@ -1471,7 +1471,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				// Reusable section wrapper + title. This is not specific for tips.
 				$return = '<div class="section section--capabilities">';
 
-				$section_title = ( $doelgroep_vaardigheden_titel ) ? $doelgroep_vaardigheden_titel : _x( 'Vaardigheden', 'titel op Doelgroep-pagina', 'ictu-gc-posttypes-inclusie' );
+				$section_title = ( $doelgroep_vaardigheden_titel ) ? $doelgroep_vaardigheden_titel : _x( 'Vaardigheden', 'titel op Doelgroep-pagina', 'gctheme' );
 				$title_id      = sanitize_title( $section_title . '-' . $post->ID );
 
 				if ( $args['getmenu'] ) {
@@ -1521,7 +1521,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 							$return .= '<div class="dos-donts">';
 
 							if ( $vaardigheid_aanraders ) {
-								$section_title = _x( 'Aanraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+								$section_title = _x( 'Aanraders', 'titel op Stap-pagina', 'gctheme' );
 								$title_id      = sanitize_title( $section_title . '-' . $theid . '-' . $section_title );
 								$return        .= '<div class="dos-donts__column col--dos">';
 								$return        .= '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
@@ -1534,7 +1534,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 								$return .= '</div>';
 							}
 							if ( $vaardigheid_afraders ) {
-								$section_title = _x( 'Afraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+								$section_title = _x( 'Afraders', 'titel op Stap-pagina', 'gctheme' );
 								$title_id      = sanitize_title( $section_title . '-' . $theid . '-' . $section_title );
 								$return        .= '<div class="dos-donts__column col--donts">';
 								$return        .= '<h4 id="' . $title_id . '">' . $section_title . '</h4>';
@@ -1602,7 +1602,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				$return = '<div class="dos-donts">';
 
 				if ( $vaardigheid_aanraders ) {
-					$section_title = _x( 'Aanraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+					$section_title = _x( 'Aanraders', 'titel op Stap-pagina', 'gctheme' );
 					$title_id      = sanitize_title( $section_title . '-' . $post->ID );
 
 					$return .= '<div class="dos-donts__column col--dos">';
@@ -1615,7 +1615,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 					$return .= '</div>';
 				}
 				if ( $vaardigheid_afraders ) {
-					$section_title = _x( 'Afraders', 'titel op Stap-pagina', 'ictu-gc-posttypes-inclusie' );
+					$section_title = _x( 'Afraders', 'titel op Stap-pagina', 'gctheme' );
 					$title_id      = sanitize_title( $section_title . '-' . $post->ID );
 
 					$return .= '<div class="dos-donts__column col--donts">';
@@ -1739,7 +1739,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 
 				if ( $classificering ) {
 
-					$section_title = _x( 'Classificering', 'titel op methode-pagina', 'ictu-gc-posttypes-inclusie' );
+					$section_title = _x( 'Classificering', 'titel op methode-pagina', 'gctheme' );
 					$title_id      = sanitize_title( $section_title . '-title' );
 					$related_items = get_field( 'content_block_items' );
 
@@ -1770,7 +1770,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 
 			global $post;
 
-			$title = sprintf( _x( 'Over %s', 'Label stappen', 'ictu-gc-posttypes-inclusie' ), get_the_title() );
+			$title = sprintf( _x( 'Over %s', 'Label stappen', 'gctheme' ), get_the_title() );
 			echo '<h2>' . $title . '</h2>';
 
 		}
@@ -1782,7 +1782,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 
 			global $post;
 
-			$section_title      = _x( 'Cijfers', 'titel op doelgroep-pagina', 'ictu-gc-posttypes-inclusie' );
+			$section_title      = _x( 'Cijfers', 'titel op doelgroep-pagina', 'gctheme' );
 			$title_id           = sanitize_title( $section_title . '-title' );
 			$facts_title        = get_field( 'facts_title' );
 			$facts_description  = get_field( 'facts_description' );
@@ -1853,7 +1853,7 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 				$return .= '<div class="content-menu open">';
 				$return .= '<div class="l-inner">';
 
-				$return .= '<h2 class="content-menu__title">' . _x( 'Menu', 'Titel voor inhoudsopgave', 'ictu-gc-posttypes-inclusie' ) . '</h2>';
+				$return .= '<h2 class="content-menu__title">' . _x( 'Menu', 'Titel voor inhoudsopgave', 'gctheme' ) . '</h2>';
 				$return .= '<ul class="content-menu__menu">';
 				foreach ( $menuitems as $key => $value ) {
 					$return .= '<li class="content-menu__item"><a class="content-menu__link" href="#' . $key . '">' . $value . '</a></li>';//
@@ -1882,25 +1882,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// ---------------------------------------------------------------------------------------------------
 			// custom post type voor 'stappen'
 			$labels = [
-				"name"                  => _x( 'Stappen', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Stap', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Stappen', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle stappen', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe stap toevoegen', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuwe stap toevoegen', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Stap bewerken', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe stap', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Stap bekijken', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een stap', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'stap type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Stappen', 'stap type', 'gctheme' ),
+				"singular_name"         => _x( 'Stap', 'stap type', 'gctheme' ),
+				"menu_name"             => _x( 'Stappen', 'stap type', 'gctheme' ),
+				"all_items"             => _x( 'Alle stappen', 'stap type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe stap toevoegen', 'stap type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuwe stap toevoegen', 'stap type', 'gctheme' ),
+				"edit_item"             => _x( 'Stap bewerken', 'stap type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe stap', 'stap type', 'gctheme' ),
+				"view_item"             => _x( 'Stap bekijken', 'stap type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een stap', 'stap type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'stap type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'stap type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( 'Stappen', 'Stappen label', 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( 'Stappen', 'Stappen label', 'gctheme' ),
 				"labels"              => $labels,
 				"menu_icon"           => "dashicons-editor-ol",
 				"description"         => "",
@@ -1925,25 +1925,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// custom post type voor 'doelgroep'
 
 			$labels = [
-				"name"                  => _x( 'Doelgroepen', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Doelgroep', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Doelgroepen', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle doelgroepen', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe doelgroep toevoegen', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuwe doelgroep toevoegen', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Doelgroep bewerken', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe doelgroep', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Doelgroep bekijken', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een doelgroep', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'doelgroep type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Doelgroepen', 'doelgroep type', 'gctheme' ),
+				"singular_name"         => _x( 'Doelgroep', 'doelgroep type', 'gctheme' ),
+				"menu_name"             => _x( 'Doelgroepen', 'doelgroep type', 'gctheme' ),
+				"all_items"             => _x( 'Alle doelgroepen', 'doelgroep type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe doelgroep toevoegen', 'doelgroep type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuwe doelgroep toevoegen', 'doelgroep type', 'gctheme' ),
+				"edit_item"             => _x( 'Doelgroep bewerken', 'doelgroep type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe doelgroep', 'doelgroep type', 'gctheme' ),
+				"view_item"             => _x( 'Doelgroep bekijken', 'doelgroep type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een doelgroep', 'doelgroep type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'doelgroep type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'doelgroep type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( 'Doelgroepen', 'Stappen label', 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( 'Doelgroepen', 'Stappen label', 'gctheme' ),
 				"labels"              => $labels,
 				"description"         => "",
 				"public"              => true,
@@ -1970,25 +1970,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// custom post type voor 'doelgroep'
 
 			$labels = [
-				"name"                  => _x( 'Citaten', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Citaat', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Citaten', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle citaten', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuw citaat toevoegen', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuw citaat toevoegen', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Citaat bewerken', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuw citaat', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Citaat bekijken', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een Citaat', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'citaat type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Citaten', 'citaat type', 'gctheme' ),
+				"singular_name"         => _x( 'Citaat', 'citaat type', 'gctheme' ),
+				"menu_name"             => _x( 'Citaten', 'citaat type', 'gctheme' ),
+				"all_items"             => _x( 'Alle citaten', 'citaat type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuw citaat toevoegen', 'citaat type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuw citaat toevoegen', 'citaat type', 'gctheme' ),
+				"edit_item"             => _x( 'Citaat bewerken', 'citaat type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuw citaat', 'citaat type', 'gctheme' ),
+				"view_item"             => _x( 'Citaat bekijken', 'citaat type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een Citaat', 'citaat type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'citaat type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'citaat type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( 'Citaten', 'Stappen label', 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( 'Citaten', 'Stappen label', 'gctheme' ),
 				"labels"              => $labels,
 				"menu_icon"           => "dashicons-format-quote",
 				"description"         => "",
@@ -2014,25 +2014,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// custom post type voor 'vaardigheid'
 
 			$labels = [
-				"name"                  => _x( "Vaardigheden", 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Vaardigheid', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( "Vaardigheden", 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( "Alle vaardigheden", 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe vaardigheid toevoegen', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuwe vaardigheid toevoegen', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Vaardigheid bewerken', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe vaardigheid', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Vaardigheid bekijken', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een vaardigheid', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'vaardigheid type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( "Vaardigheden", 'vaardigheid type', 'gctheme' ),
+				"singular_name"         => _x( 'Vaardigheid', 'vaardigheid type', 'gctheme' ),
+				"menu_name"             => _x( "Vaardigheden", 'vaardigheid type', 'gctheme' ),
+				"all_items"             => _x( "Alle vaardigheden", 'vaardigheid type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe vaardigheid toevoegen', 'vaardigheid type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuwe vaardigheid toevoegen', 'vaardigheid type', 'gctheme' ),
+				"edit_item"             => _x( 'Vaardigheid bewerken', 'vaardigheid type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe vaardigheid', 'vaardigheid type', 'gctheme' ),
+				"view_item"             => _x( 'Vaardigheid bekijken', 'vaardigheid type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een vaardigheid', 'vaardigheid type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'vaardigheid type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'vaardigheid type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( "Vaardigheden", "Label Vaardigheden", 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( "Vaardigheden", "Label Vaardigheden", 'gctheme' ),
 				"labels"              => $labels,
 				"menu_icon"           => "dashicons-image-filter",
 				"description"         => "",
@@ -2061,25 +2061,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// custom post type voor 'Aanrader'
 
 			$labels = [
-				"name"                  => _x( "Aanraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Aanrader', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( "Aanraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( "Alle aanraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe aanrader toevoegen', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuwe aanrader toevoegen', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Aanrader bewerken', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe aanrader', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'aanrader bekijken', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een aanrader', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( "Aanraders", 'Tip type', 'gctheme' ),
+				"singular_name"         => _x( 'Aanrader', 'Tip type', 'gctheme' ),
+				"menu_name"             => _x( "Aanraders", 'Tip type', 'gctheme' ),
+				"all_items"             => _x( "Alle aanraders", 'Tip type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe aanrader toevoegen', 'Tip type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuwe aanrader toevoegen', 'Tip type', 'gctheme' ),
+				"edit_item"             => _x( 'Aanrader bewerken', 'Tip type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe aanrader', 'Tip type', 'gctheme' ),
+				"view_item"             => _x( 'aanrader bekijken', 'Tip type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een aanrader', 'Tip type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'Tip type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'Tip type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( "Aanraders", "Label tips", 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( "Aanraders", "Label tips", 'gctheme' ),
 				"labels"              => $labels,
 				"menu_icon"           => "dashicons-yes",
 				"description"         => "",
@@ -2109,25 +2109,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// custom post type voor 'Afrader'
 
 			$labels = [
-				"name"                  => _x( "Afraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Afrader', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( "Afraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( "Alle afraders", 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe afrader toevoegen', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuwe afrader toevoegen', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Afrader bewerken', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe afrader', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'afrader bekijken', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een afrader', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( "Afraders", 'Tip type', 'gctheme' ),
+				"singular_name"         => _x( 'Afrader', 'Tip type', 'gctheme' ),
+				"menu_name"             => _x( "Afraders", 'Tip type', 'gctheme' ),
+				"all_items"             => _x( "Alle afraders", 'Tip type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe afrader toevoegen', 'Tip type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuwe afrader toevoegen', 'Tip type', 'gctheme' ),
+				"edit_item"             => _x( 'Afrader bewerken', 'Tip type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe afrader', 'Tip type', 'gctheme' ),
+				"view_item"             => _x( 'afrader bekijken', 'Tip type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een afrader', 'Tip type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'Tip type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'Tip type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( "Afraders", "Label tips", 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( "Afraders", "Label tips", 'gctheme' ),
 				"labels"              => $labels,
 				"menu_icon"           => "dashicons-no",
 				"description"         => "",
@@ -2156,25 +2156,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// custom post type voor 'Methode'
 
 			$labels = [
-				"name"                  => _x( 'Methodes', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Methode', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Methodes', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle methodes', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe methode toevoegen', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuwe methode toevoegen', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Methode bewerken', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe methode', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Methode bekijken', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een Methode', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'Methode type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Methodes', 'Methode type', 'gctheme' ),
+				"singular_name"         => _x( 'Methode', 'Methode type', 'gctheme' ),
+				"menu_name"             => _x( 'Methodes', 'Methode type', 'gctheme' ),
+				"all_items"             => _x( 'Alle methodes', 'Methode type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe methode toevoegen', 'Methode type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuwe methode toevoegen', 'Methode type', 'gctheme' ),
+				"edit_item"             => _x( 'Methode bewerken', 'Methode type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe methode', 'Methode type', 'gctheme' ),
+				"view_item"             => _x( 'Methode bekijken', 'Methode type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een Methode', 'Methode type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'Methode type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'Methode type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( 'Methodes', 'Methodes label', 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( 'Methodes', 'Methodes label', 'gctheme' ),
 				"labels"              => $labels,
 				"menu_icon"           => "dashicons-book-alt",
 				"description"         => "",
@@ -2203,25 +2203,25 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// custom post type voor 'Tip'
 
 			$labels = [
-				"name"                  => _x( 'Tips', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Tip', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Tips', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle tips', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe tip toevoegen', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Nieuwe tip toevoegen', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Tip bewerken', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe tip', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Tip bekijken', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek een tip', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Niets gevonden', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Niets gevonden', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Tips', 'Tip type', 'gctheme' ),
+				"singular_name"         => _x( 'Tip', 'Tip type', 'gctheme' ),
+				"menu_name"             => _x( 'Tips', 'Tip type', 'gctheme' ),
+				"all_items"             => _x( 'Alle tips', 'Tip type', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe tip toevoegen', 'Tip type', 'gctheme' ),
+				"add_new_item"          => _x( 'Nieuwe tip toevoegen', 'Tip type', 'gctheme' ),
+				"edit_item"             => _x( 'Tip bewerken', 'Tip type', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe tip', 'Tip type', 'gctheme' ),
+				"view_item"             => _x( 'Tip bekijken', 'Tip type', 'gctheme' ),
+				"search_items"          => _x( 'Zoek een tip', 'Tip type', 'gctheme' ),
+				"not_found"             => _x( 'Niets gevonden', 'Tip type', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Niets gevonden', 'Tip type', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"               => _x( 'Tips', 'Tip type', 'ictu-gc-posttypes-inclusie' ),
+				"label"               => _x( 'Tips', 'Tip type', 'gctheme' ),
 				"labels"              => $labels,
 				"menu_icon"           => "dashicons-book-alt",
 				"description"         => "",
@@ -2250,34 +2250,34 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// ---------------------------------------------------------------------------------------------------
 			// tijd taxonomie voor methode
 			$labels = [
-				"name"          => _x( 'Tijd', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name" => _x( 'Tijd', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"name"          => _x( 'Tijd', 'Taxonomie', 'gctheme' ),
+				"singular_name" => _x( 'Tijd', 'Taxonomie', 'gctheme' ),
 			];
 
 			$labels = [
-				"name"                  => _x( 'Tijd', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Tijd', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Tijd', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle tijdsinschattingen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe tijdsinschatting toevoegen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Voeg nieuwe tijdsinschatting toe', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Bewerk tijdsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe tijdsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Bekijk tijdsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek tijdsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Geen tijdsinschattingen gevonden', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Geen tijdsinschattingen gevonden in de prullenbak', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Tijd', 'Taxonomie', 'gctheme' ),
+				"singular_name"         => _x( 'Tijd', 'Taxonomie', 'gctheme' ),
+				"menu_name"             => _x( 'Tijd', 'Taxonomie', 'gctheme' ),
+				"all_items"             => _x( 'Alle tijdsinschattingen', 'Taxonomie', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe tijdsinschatting toevoegen', 'Taxonomie', 'gctheme' ),
+				"add_new_item"          => _x( 'Voeg nieuwe tijdsinschatting toe', 'Taxonomie', 'gctheme' ),
+				"edit_item"             => _x( 'Bewerk tijdsinschatting', 'Taxonomie', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe tijdsinschatting', 'Taxonomie', 'gctheme' ),
+				"view_item"             => _x( 'Bekijk tijdsinschatting', 'Taxonomie', 'gctheme' ),
+				"search_items"          => _x( 'Zoek tijdsinschatting', 'Taxonomie', 'gctheme' ),
+				"not_found"             => _x( 'Geen tijdsinschattingen gevonden', 'Taxonomie', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Geen tijdsinschattingen gevonden in de prullenbak', 'Taxonomie', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"              => _x( 'Tijd', 'Digibeter label', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Tijd', 'Digibeter label', 'gctheme' ),
 				"labels"             => $labels,
 				"public"             => true,
 				"hierarchical"       => true,
-				"label"              => _x( 'Tijd', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Tijd', 'Taxonomie', 'gctheme' ),
 				"show_ui"            => true,
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
@@ -2293,34 +2293,34 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// ---------------------------------------------------------------------------------------------------
 			// Personeel taxonomie voor methode
 			$labels = [
-				"name"          => _x( 'Personeel', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name" => _x( 'Personeel', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"name"          => _x( 'Personeel', 'Taxonomie', 'gctheme' ),
+				"singular_name" => _x( 'Personeel', 'Taxonomie', 'gctheme' ),
 			];
 
 			$labels = [
-				"name"                  => _x( 'Personeel', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Personeel', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Personeel', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle personeelsinschattingen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe personeelsinschatting toevoegen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Voeg nieuwe personeelsinschatting toe', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Bewerk personeelsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe personeelsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Bekijk personeelsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek personeelsinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Geen personeelsinschattingen gevonden', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Geen personeelsinschattingen gevonden in de prullenbak', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Personeel', 'Taxonomie', 'gctheme' ),
+				"singular_name"         => _x( 'Personeel', 'Taxonomie', 'gctheme' ),
+				"menu_name"             => _x( 'Personeel', 'Taxonomie', 'gctheme' ),
+				"all_items"             => _x( 'Alle personeelsinschattingen', 'Taxonomie', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe personeelsinschatting toevoegen', 'Taxonomie', 'gctheme' ),
+				"add_new_item"          => _x( 'Voeg nieuwe personeelsinschatting toe', 'Taxonomie', 'gctheme' ),
+				"edit_item"             => _x( 'Bewerk personeelsinschatting', 'Taxonomie', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe personeelsinschatting', 'Taxonomie', 'gctheme' ),
+				"view_item"             => _x( 'Bekijk personeelsinschatting', 'Taxonomie', 'gctheme' ),
+				"search_items"          => _x( 'Zoek personeelsinschatting', 'Taxonomie', 'gctheme' ),
+				"not_found"             => _x( 'Geen personeelsinschattingen gevonden', 'Taxonomie', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Geen personeelsinschattingen gevonden in de prullenbak', 'Taxonomie', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"              => _x( 'Personeel', 'Digibeter label', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Personeel', 'Digibeter label', 'gctheme' ),
 				"labels"             => $labels,
 				"public"             => true,
 				"hierarchical"       => true,
-				"label"              => _x( 'Personeel', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Personeel', 'Taxonomie', 'gctheme' ),
 				"show_ui"            => true,
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
@@ -2339,34 +2339,34 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// ---------------------------------------------------------------------------------------------------
 			// Kosten taxonomie voor methode
 			$labels = [
-				"name"          => _x( 'Kosten', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name" => _x( 'Kosten', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"name"          => _x( 'Kosten', 'Taxonomie', 'gctheme' ),
+				"singular_name" => _x( 'Kosten', 'Taxonomie', 'gctheme' ),
 			];
 
 			$labels = [
-				"name"                  => _x( 'Kosten', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Kosten', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Kosten', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle kostensinschattingen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe kostensinschatting toevoegen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Voeg nieuwe kostensinschatting toe', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Bewerk kostensinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe kostensinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Bekijk kostensinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek kostensinschatting', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Geen kostensinschattingen gevonden', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Geen kostensinschattingen gevonden in de prullenbak', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Kosten', 'Taxonomie', 'gctheme' ),
+				"singular_name"         => _x( 'Kosten', 'Taxonomie', 'gctheme' ),
+				"menu_name"             => _x( 'Kosten', 'Taxonomie', 'gctheme' ),
+				"all_items"             => _x( 'Alle kostensinschattingen', 'Taxonomie', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe kostensinschatting toevoegen', 'Taxonomie', 'gctheme' ),
+				"add_new_item"          => _x( 'Voeg nieuwe kostensinschatting toe', 'Taxonomie', 'gctheme' ),
+				"edit_item"             => _x( 'Bewerk kostensinschatting', 'Taxonomie', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe kostensinschatting', 'Taxonomie', 'gctheme' ),
+				"view_item"             => _x( 'Bekijk kostensinschatting', 'Taxonomie', 'gctheme' ),
+				"search_items"          => _x( 'Zoek kostensinschatting', 'Taxonomie', 'gctheme' ),
+				"not_found"             => _x( 'Geen kostensinschattingen gevonden', 'Taxonomie', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Geen kostensinschattingen gevonden in de prullenbak', 'Taxonomie', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"              => _x( 'Kosten', 'Digibeter label', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Kosten', 'Digibeter label', 'gctheme' ),
 				"labels"             => $labels,
 				"public"             => true,
 				"hierarchical"       => true,
-				"label"              => _x( 'Kosten', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Kosten', 'Taxonomie', 'gctheme' ),
 				"show_ui"            => true,
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
@@ -2382,34 +2382,34 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// ---------------------------------------------------------------------------------------------------
 			// Expertise taxonomie voor methode
 			$labels = [
-				"name"          => _x( 'Expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name" => _x( 'Expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"name"          => _x( 'Expertise', 'Taxonomie', 'gctheme' ),
+				"singular_name" => _x( 'Expertise', 'Taxonomie', 'gctheme' ),
 			];
 
 			$labels = [
-				"name"                  => _x( 'Expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle expertises', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe expertise toevoegen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Voeg nieuwe expertise toe', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Bewerk expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Bekijk expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Geen expertises gevonden', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Geen expertises gevonden in de prullenbak', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Expertise', 'Taxonomie', 'gctheme' ),
+				"singular_name"         => _x( 'Expertise', 'Taxonomie', 'gctheme' ),
+				"menu_name"             => _x( 'Expertise', 'Taxonomie', 'gctheme' ),
+				"all_items"             => _x( 'Alle expertises', 'Taxonomie', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe expertise toevoegen', 'Taxonomie', 'gctheme' ),
+				"add_new_item"          => _x( 'Voeg nieuwe expertise toe', 'Taxonomie', 'gctheme' ),
+				"edit_item"             => _x( 'Bewerk expertise', 'Taxonomie', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe expertise', 'Taxonomie', 'gctheme' ),
+				"view_item"             => _x( 'Bekijk expertise', 'Taxonomie', 'gctheme' ),
+				"search_items"          => _x( 'Zoek expertise', 'Taxonomie', 'gctheme' ),
+				"not_found"             => _x( 'Geen expertises gevonden', 'Taxonomie', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Geen expertises gevonden in de prullenbak', 'Taxonomie', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"              => _x( 'Expertise', 'Digibeter label', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Expertise', 'Digibeter label', 'gctheme' ),
 				"labels"             => $labels,
 				"public"             => true,
 				"hierarchical"       => true,
-				"label"              => _x( 'Expertise', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Expertise', 'Taxonomie', 'gctheme' ),
 				"show_ui"            => true,
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
@@ -2428,29 +2428,29 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// ---------------------------------------------------------------------------------------------------
 			// deelnemers taxonomie voor methode
 			$labels = [
-				"name"                  => _x( 'Deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( 'Alle deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuwe deelnemers toevoegen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Voeg nieuwe deelnemers toe', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Bewerk deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuwe deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Bekijk deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Geen deelnemers gevonden', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Geen deelnemers gevonden in de prullenbak', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Deelnemers', 'Taxonomie', 'gctheme' ),
+				"singular_name"         => _x( 'Deelnemers', 'Taxonomie', 'gctheme' ),
+				"menu_name"             => _x( 'Deelnemers', 'Taxonomie', 'gctheme' ),
+				"all_items"             => _x( 'Alle deelnemers', 'Taxonomie', 'gctheme' ),
+				"add_new"               => _x( 'Nieuwe deelnemers toevoegen', 'Taxonomie', 'gctheme' ),
+				"add_new_item"          => _x( 'Voeg nieuwe deelnemers toe', 'Taxonomie', 'gctheme' ),
+				"edit_item"             => _x( 'Bewerk deelnemers', 'Taxonomie', 'gctheme' ),
+				"new_item"              => _x( 'Nieuwe deelnemers', 'Taxonomie', 'gctheme' ),
+				"view_item"             => _x( 'Bekijk deelnemers', 'Taxonomie', 'gctheme' ),
+				"search_items"          => _x( 'Zoek deelnemers', 'Taxonomie', 'gctheme' ),
+				"not_found"             => _x( 'Geen deelnemers gevonden', 'Taxonomie', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Geen deelnemers gevonden in de prullenbak', 'Taxonomie', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"              => _x( 'Deelnemers', 'Digibeter label', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Deelnemers', 'Digibeter label', 'gctheme' ),
 				"labels"             => $labels,
 				"public"             => true,
 				"hierarchical"       => true,
-				"label"              => _x( 'Deelnemers', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Deelnemers', 'Taxonomie', 'gctheme' ),
 				"show_ui"            => true,
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
@@ -2469,29 +2469,29 @@ if ( ! class_exists( 'GC_INCLUSIE_Register_taxonomies' ) ) :
 			// ---------------------------------------------------------------------------------------------------
 			// Onderwerpen taxonomie voor aanraders en afraders
 			$labels = [
-				"name"                  => _x( 'Onderwerpen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"singular_name"         => _x( 'Onderwerp', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"menu_name"             => _x( 'Onderwerp', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"all_items"             => _x( "Alles onder 'Onderwerpen'", 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new"               => _x( 'Nieuw item toevoegen', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"add_new_item"          => _x( 'Voeg nieuw item toe', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"edit_item"             => _x( 'Bewerk item', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"new_item"              => _x( 'Nieuw item', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"view_item"             => _x( 'Bekijk item', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"search_items"          => _x( 'Zoek item', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found"             => _x( 'Geen items gevonden', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"not_found_in_trash"    => _x( 'Geen items gevonden in de prullenbak', 'Taxonomie', 'ictu-gc-posttypes-inclusie' ),
-				"featured_image"        => _x( 'Featured image', 'plaatje', 'ictu-gc-posttypes-inclusie' ),
-				"archives"              => _x( 'Archives', 'archief', 'ictu-gc-posttypes-inclusie' ),
-				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'ictu-gc-posttypes-inclusie' ),
+				"name"                  => _x( 'Onderwerpen', 'Taxonomie', 'gctheme' ),
+				"singular_name"         => _x( 'Onderwerp', 'Taxonomie', 'gctheme' ),
+				"menu_name"             => _x( 'Onderwerp', 'Taxonomie', 'gctheme' ),
+				"all_items"             => _x( "Alles onder 'Onderwerpen'", 'Taxonomie', 'gctheme' ),
+				"add_new"               => _x( 'Nieuw item toevoegen', 'Taxonomie', 'gctheme' ),
+				"add_new_item"          => _x( 'Voeg nieuw item toe', 'Taxonomie', 'gctheme' ),
+				"edit_item"             => _x( 'Bewerk item', 'Taxonomie', 'gctheme' ),
+				"new_item"              => _x( 'Nieuw item', 'Taxonomie', 'gctheme' ),
+				"view_item"             => _x( 'Bekijk item', 'Taxonomie', 'gctheme' ),
+				"search_items"          => _x( 'Zoek item', 'Taxonomie', 'gctheme' ),
+				"not_found"             => _x( 'Geen items gevonden', 'Taxonomie', 'gctheme' ),
+				"not_found_in_trash"    => _x( 'Geen items gevonden in de prullenbak', 'Taxonomie', 'gctheme' ),
+				"featured_image"        => _x( 'Featured image', 'plaatje', 'gctheme' ),
+				"archives"              => _x( 'Archives', 'archief', 'gctheme' ),
+				"uploaded_to_this_item" => _x( 'Uploaded media', 'media', 'gctheme' ),
 			];
 
 			$args = [
-				"label"              => _x( 'Onderwerpen', 'Aanrader label', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Onderwerpen', 'Aanrader label', 'gctheme' ),
 				"labels"             => $labels,
 				"public"             => true,
 				"hierarchical"       => true,
-				"label"              => _x( 'Onderwerpen', 'Vaardigheden', 'ictu-gc-posttypes-inclusie' ),
+				"label"              => _x( 'Onderwerpen', 'Vaardigheden', 'gctheme' ),
 				"show_ui"            => true,
 				"show_in_menu"       => true,
 				"show_in_nav_menus"  => true,
