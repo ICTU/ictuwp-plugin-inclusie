@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Inclusie Front-end",
   "main": "index.js",
-  "repository": "https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies.git",
+  "repository": "https://github.com/ICTU/ictuwp-plugin-inclusie.git",
   "author": "Gebruiker Centraal",
   "license": "MIT",
   "dependencies": {

@@ -6,7 +6,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:            ICTU / Gebruiker Centraal / Inclusie post types and taxonomies
- * Plugin URI:             https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+ * Plugin URI:             https://github.com/ICTU/ictuwp-plugin-inclusie
  * Description:            Plugin for inclusie.gebruikercentraal.nl to register custom post types and custom taxonomies
  * Version:                1.1.13
  * Version description:    Refactor constants

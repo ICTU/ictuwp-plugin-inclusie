@@ -10,7 +10,7 @@
 // @license   GPL-2.0+
 // @version   1.1.3
 // @desc.     Moved sections backend code and styling for related links and content to the gebruiker-centraal theme.
-// @link      https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+// @link      https://github.com/ICTU/ictuwp-plugin-inclusie
  */
 
 

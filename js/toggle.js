@@ -10,7 +10,7 @@
 // @desc.		JS homepage voor openen en sluiten modal windows verbeterd.
 // @credits		Scott Vinkle - see: https://codepen.io/svinkle/pen/mKfru
 //				via https://a11yproject.com/patterns.html
-// @link      	https://github.com/ICTU/Gebruiker-Centraal---Inclusie---custom-post-types-taxonomies
+// @link      	https://github.com/ICTU/ictuwp-plugin-inclusie
  */
 
 var console;
